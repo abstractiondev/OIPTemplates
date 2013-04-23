@@ -10,7 +10,7 @@
 
     <!-- Le styles -->
     <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="../assets/css/template-style.css" rel="stylesheet">
+    <!-- <link href="../assets/css/template-style.css" rel="stylesheet">-->
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -104,32 +104,41 @@
     <h1>Personal Profile</h1>
 </div>
 <div class="row">
-<div class="span3 well public-card">
-    <img src="../assets/img/web-640x480_purple.jpg" class="thumbnail">
-    <h3>Public Card</h3>
-    <dl class="dl-horizontal card">
-        <dt>Name: </dt>
-        <dd>Mari Iram</dd>
-        <dt>Locations: </dt>
-        <dd>Helsinki</dd>
-        <dd>Tampere</dd>
-        <dd>Kenia</dd>
-        <dt>Groups: </dt>
-        <dd>BoP</dd>
-        <dd>AaltoGlobalImpact</dd>
-        <dd>Weconomy</dd>
-    </dl>
-</div><!-- .public-card -->
-<div class="span8 well profile">
+<div class="well profile">
 <!-- THEBALL-CONTEXT-OBJECT-BEGIN:AccountModule -->
-<div class="tabbable tabs">
-<ul class="nav nav-tabs">
+<div class="tabbable tabs tabs-left">
+<ul class="nav nav-tabs tabs-left">
+    <li class=""><a href="#tab-public" data-toggle="tab">Views</a></li>
     <li class=""><a href="#tab-identity" data-toggle="tab">Profile</a></li>
     <li class=""><a href="#tab-emails-security" data-toggle="tab">Emails &amp; Security</a></li>
     <li class=""><a href="#tab-roles" data-toggle="tab">Roles & Groups</a></li>
     <li class="active"><a href="#tab-locations-current" data-toggle="tab">Locations</a></li>
 </ul>
 <div class="tab-content">
+<div class="tab-pane" id="tab-public">
+    <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Profile -->
+    <!-- start oip-module-account-identity.txt -->
+    <div id="public">
+        <div class="span3 well public-card">
+            <img src="../assets/img/web-640x480_purple.jpg" class="thumbnail">
+            <h3>Public Card</h3>
+            <dl class="dl-horizontal card">
+                <dt>Name: </dt>
+                <dd>Mari Iram</dd>
+                <dt>Locations: </dt>
+                <dd>Helsinki</dd>
+                <dd>Tampere</dd>
+                <dd>Kenia</dd>
+                <dt>Groups: </dt>
+                <dd>BoP</dd>
+                <dd>AaltoGlobalImpact</dd>
+                <dd>Weconomy</dd>
+            </dl>
+        </div><!-- .public-card -->
+    </div>
+    <!-- end oip-module-account-identity.txt -->
+    <!-- THEBALL-CONTEXT-END:Profile -->
+</div><!-- #tab-identity -->
 <div class="tab-pane" id="tab-identity">
     <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Profile -->
     <!-- start oip-module-account-identity.txt -->
