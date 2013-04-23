@@ -10,6 +10,7 @@
 
     <!-- Le styles -->
     <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/template-style.css" rel="stylesheet">
     <style>
         body {
             padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -21,6 +22,17 @@
     <!--[if lt IE 9]>
     <script src="../assets/js/html5shiv.js"></script>
     <![endif]-->
+    <!-- other javascript -->
+    <!--<link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" rel="stylesheet"> -->
+    <script src="../assets/js/jquery-1.9.1.min.js"></script>
+    <!-- or get a fresh copy at <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+    <script src="../assets/js/jquery.form.js"></script>
+    <!-- get a fresh live version from <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>-->
+    <script src="../assets/js/leaflet.js"></script>
+    <script src="../assets/js/leaflet.markercluster.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../bootstrap/ico/apple-touch-icon-144-precomposed.png">
@@ -31,6 +43,8 @@
 </head>
 
 <body>
+<script src="../assets/js/dust-full-1.1.1.js"></script>
+<script src="../assets/js/xml2json.js"></script>
 
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
@@ -96,6 +110,66 @@
     <div class="container masonry" id="TileSection">
         Loading...
     </div>
+    <script type="text/javascript">
+
+        $(function() {
+            OipCloseDetailPane = function() {
+                $("#SelectedContentContainer").html('');
+            };
+            $(".oipmenuselector").on("click", function() {
+                var filterName = $(this).data("filtername");
+                var navigateto = $(this).data("locateto");
+                //alert(navigateto);
+                //var scrollPos = $(navigateto).offset().top;
+                //$(document).animate({ scrollTop : $(navigateto).offset().top}, 'slow');
+                //$(document).scrollTop($(navigateto).offset().top);
+                OipCloseDetailPane();
+                $("a[data-filter='" + filterName + "']").trigger('click');
+                $('[data-toggle="dropdown"]').parent().removeClass('open');
+                return true;
+            });
+
+            OipShowInDetailPaneWithClose = function(htmlContent) {
+                $("#SelectedContentContainer").html('<button id="paneclosebutton" type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>' +
+                        htmlContent + '</div>' + '</div>' );
+                $("#paneclosebutton").off("click");
+                $("#paneclosebutton").click(OipCloseDetailPane);
+            };
+        });
+
+        $(function () {
+            $.get("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default", function (responseXml) {
+                var dom;
+                if (window.DOMParser) {
+                    parser = new DOMParser();
+                    dom = parser.parseFromString(responseXml, "text/xml");
+                }
+                else // Internet Explorer
+                {
+                    dom = new ActiveXObject("Microsoft.XMLDOM");
+                    dom.async = false;
+                    dom.loadXML(responseXml);
+                }
+                var json = xml2json(dom, "  ");
+                //alert(json);
+                var myObj = jQuery.parseJSON(json);
+                $.ajax({
+                    url: "oip-layout-landing.itemtmpl.html",
+                    //data: 'foo',
+                    cache: false,
+                    success: function (responseTemplate) {
+                        var dynCompiled = dust.compile(responseTemplate, "nodeTmpl");
+                        dust.loadSource(dynCompiled);
+                        dust.render("nodeTmpl", myObj, function (err, out) {
+                            $("#TileSection").html(out);
+                        });
+                    }
+                });
+
+            });
+        });
+    </script>
+
 </div> <!-- /container -->
 
 <!-- Le javascript
