@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="WebStorm Built-In" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+  <configuration default="false" name="WebStorm Admin Landing Page" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
     <JSRemoteDebuggerConfigurationSettings>
-      <option name="engineId" value="firefox" />
-      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/templates/www-public/oip-layout-landing.html" />
+      <option name="engineId" value="chrome" />
+      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/templates/admin/profile.html" />
     </JSRemoteDebuggerConfigurationSettings>
     <RunnerSettings RunnerId="JavascriptDebugRunner" />
     <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
