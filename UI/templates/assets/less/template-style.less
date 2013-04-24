@@ -1,8 +1,10 @@
-  /* Start Weconomy Visual Identity Additions */
+  //Import first the bootstrap.less file so that the @ referencing works
+  @import "../../../bootstrap/less/bootstrap.less";
+  /* Start OIPTemplates Visual Identity Additions */
 
   // Core variables and mixins
-  @import "template-variables"; // Modify this for custom colors, font-sizes, etc
-  @import "template-mixins";
+  //@import "template-variables"; // Modify this for custom colors, font-sizes, etc
+  //@import "template-mixins";
 
     // CSS Reset
   // @import "template-reset.less";
@@ -43,7 +45,7 @@
   // @import "template-popovers.less";
 
     // Components: Misc
-  // @import "template-thumbnails.less";
+  @import "template-thumbnails.less";
   // @import "template-media.less";
   // @import "template-labels-badges.less";
   // @import "template-progress-bars.less";
@@ -52,34 +54,21 @@
   // @import "template-hero-unit.less";
 
 
-    // template or OIP specific
-  //@import "font-awesome";
+    // template or OIPTemplate specific
+  @import "font-awesome";
   //@import "font-awesome-ie7";
   //@import "template-fonts";
 
   //@import "template-type";
-  //@import "template-navbar";
-  @import "template-footer";
-  @import "template-isotope";
-  @import "template-masonry";
-  @import "template-reading-pane";
-  @import "template-sharing-panel";
-  @import "template-multicolumn";
-  @import "template-video";
-  @import "template-categories";
+  @import "template-navbar";
+  //@import "template-footer";
+  //@import "template-isotope";
+  //@import "template-masonry";
+  //@import "template-reading-pane";
+  //@import "template-sharing-panel";
+  //@import "template-multicolumn";
+  //@import "template-video";
+  //@import "template-categories";
 
     // Utility classes
   //@import "template-utilities.less"; // Has to be last to override when necessary
-
-  p.truncate {
-    word-wrap:break-word ;
-    height: @baseLineHeight * 3 !important;
-    overflow: hidden !important;
-  }
-
-  //thumbnails and images
-
-  a.wide-flat img{
-    position:absolute;
-    clip:rect(250px,800px,350px,0px);
-  }

@@ -1,14 +1,10 @@
-// weconomy-navbar.less
-/* templates-navbar.less */
-@path_to_images: '../img/';
-
-.logo-background{
-  background: @black url('@{path_to_images}ehs_navback.jpg') no-repeat;}
-
-.logo-only {
-  margin-top: 9px;
+// OIPTemplate-navbar.less
+/* OIPTemplates-navbar.less */
+.navbar-inner {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
-
 .powered-by {
   @media (max-width: 480px) {
     h1,
@@ -75,16 +71,8 @@
       padding-top: 2px;
     }
   }
-  a {
-    color: @weconomyBlack;
-  }
-  a:hover {
-    color: @linkColorHover;
-    text-decoration: none;
-  }
 }
-
-/* end templates-navbar.less */
+/* end OIPTemplates-navbar.less */
 
 
 
