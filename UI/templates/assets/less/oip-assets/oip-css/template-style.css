@@ -28,6 +28,10 @@
   box-sizing: border-box;
 }
 /* end templates-mixins.less */
+/* template-wells.less */
+.well {
+  background-color: #ffffff;
+}
 /* templates-footer.less*/
 .footer {
   padding: 20px 0;
