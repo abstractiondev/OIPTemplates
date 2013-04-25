@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="../assets/css/template-style.css" rel="stylesheet">-->
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
+    <link href="../../bootstrap/css/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- other javascript -->
+    <!--<link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" rel="stylesheet"> -->
+    <script src="../assets/js/jquery-1.9.1.min.js"></script>
+    <!-- or get a fresh copy at <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
+    <script src="../assets/js/jquery.form.js"></script>
+    <!-- get a fresh live version from <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>-->
+    <script src="../assets/js/leaflet.js"></script>
+    <script src="../assets/js/leaflet.markercluster.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../bootstrap/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../bootstrap/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../bootstrap/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../../bootstrap/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../../bootstrap/ico/favicon.png">
+</head>
+
+<body>
+<script src="../assets/js/dust-full-1.1.1.js"></script>
+<script src="../assets/js/xml2json.js"></script>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="#">OIP</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    <li><a href="#"><i class="icon-chevron-right"></i></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-home icon-white"></i> Weconomy <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="personal-profile.html"><i class="icon-user"></i> Profile</a></li>
+                            <li><a href="#"><i class="icon-th"></i> Content</a></li>
+                            <li><a href="#"><i class="icon-comment"></i> Collaborators</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header">A dividing text</li>
+                            <li><a href="#">a link</a></li>
+                            <li><a href="#">another link</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="icon-chevron-right"></i></a></li>
+                </ul>
+                <!--<form class="navbar-form pull-right">
+                    <input class="span2" type="text" placeholder="Email">
+                    <input class="span2" type="password" placeholder="Password">
+                    <button type="submit" class="btn">Sign in</button>
+                </form>-->
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mari <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="icon-user"></i> Profile</a></li>
+                            <li><a href="#"><i class="icon-th"></i> Content</a></li>
+                            <li><a href="#">---</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header"><i class="icon-us"></i> Groups</li>
+                            <li><a href="#">Weconomy</a></li>
+                            <li><a href="#">AaltoGlobalImpact</a></li>
+                            <li><a href="#">BoP</a></li>
+                            <li><a href="#">See all groups...</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/auth/logout"><i class="icon-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div><!-- .navbar -->
+<div class="container">
+<div class="page-header">
+    <h1>Personal Profile</h1>
+</div>
+<row class="profile group-profile">
+
+<div class="span4">
+    <a href="#tab-summary" data-toggle="tab" class="btn active">
+        <h4>[ICON] Summary</h4>
+        <p> A quick overview of your most important settings</p>
+    </a>
+    <a href="#tab-identity" data-toggle="tab" class="btn">
+        <h4>[ICON] Profile</h4>
+        <p> A quick overview of your most important settings</p>
+    </a>
+    <a href="#tab-emails-security" data-toggle="tab" class="btn">
+        <h4>[ICON] Emails & Security</h4>
+        <p> A quick overview of your most important settings</p>
+    </a>
+    <a href="#tab-roles" data-toggle="tab" class="btn">
+        <h4>[ICON] Roles and Groups</h4>
+        <p> A quick overview of your most important settings</p>
+    </a>
+    <a href="#tab-locations-current" data-toggle="tab" class="btn">
+        <h4>[ICON] Locations</h4>
+        <p> A quick overview of your most important settings</p>
+    </a>
+</div><!-- .span4 -->
+<div class="span7">
+<div class="well personal-profile">
+<!-- THEBALL-CONTEXT-OBJECT-BEGIN:AccountModule -->
+<div class="tabbable tabs tabs-left">
+<!--<ul class="nav nav-pills">
+    <li class="active"><a href="#tab-summary" data-toggle="tab">Summary</a></li>
+    <li class=""><a href="#tab-identity" data-toggle="tab">Profile</a></li>
+    <li class=""><a href="#tab-emails-security" data-toggle="tab">Emails &amp; Security</a></li>
+    <li class=""><a href="#tab-roles" data-toggle="tab">Roles & Groups</a></li>
+    <li class=""><a href="#tab-locations-current" data-toggle="tab">Locations</a></li>
+</ul>-->
+<div class="tab-content">
+<div class="tab-pane active" id="tab-summary">
+    <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Profile -->
+    <!-- start oip-module-account-identity.txt -->
+    <div id="public">
+        <div class="span3 public-card">
+            <div class="well">
+            <img src="../assets/img/web-640x480_pink.jpg" class="thumbnail">
+            <h4>Basic</h4>
+            <ul class="dl-horizontal card">
+                <li>Name:Mari Iram</li>
+            </ul>
+                <hr>
+                <p>more stuff</p>
+            </div><!-- .well-->
+        </div><!-- .public-card -->
+        <div class="span3 group-card">
+            <div class="well">
+                <img src="../assets/img/web-640x480_yellow.jpg" class="thumbnail">
+                <h4>Groups</h4>
+                <ul class="dl-horizontal card">
+                    <li>Groups:BoP, AaltoGlobalImpact, Weconomy</li>
+                </ul>
+                <hr>
+                <p>more stuff</p>
+            </div><!-- .well-->
+        </div><!-- .group-card -->
+        <div class="span3 private-card">
+            <div class="well">
+                <img src="../assets/img/web-640x480_purple.jpg" class="thumbnail">
+                <h4>Locations</h4>
+                <ul class="dl-horizontal card">
+                    <li>Locations:Helsinki, Tampere, Kenia</li>
+                </ul>
+                <hr>
+                <p>more stuff</p>
+            </div><!-- .well-->
+        </div><!-- .private-card -->
+    </div>
+    <!-- end oip-module-account-identity.txt -->
+    <!-- THEBALL-CONTEXT-END:Profile -->
+</div><!-- #tab-identity -->
+<div class="tab-pane" id="tab-identity">
+    <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Profile -->
+    <!-- start oip-module-account-identity.txt -->
+    <div id="identity">
+        <form id="" method="post" class="form-horizontal" enctype="multipart/form-data">
+            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+            <input id="RootSourceName" name="RootSourceName" type="hidden" value="">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Profile Image</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
+
+                        <!-- ImageData -->
+                        <img src="/auth/account/AaltoGlobalImpact.OIP/MediaContent/e7262915-df69-4c22-8f13-960b664e7e90_256x256_crop.jpg" alt="Account profile image">
+                        <input class="input-xlarge modal-form" id="e7262915-df69-4c22-8f13-960b664e7e90" name="e7262915-df69-4c22-8f13-960b664e7e90" size="16" type="file">
+                        <!-- * -->
+
+                        <!-- THEBALL-CONTEXT-END:* -->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="08b34a2b-2c93-41d4-84e6-94f9b185475c_FirstName">First name</label>
+                    <div class="controls">
+                        <input name="08b34a2b-2c93-41d4-84e6-94f9b185475c_FirstName" class="input-xlarge modal-form" id="08b34a2b-2c93-41d4-84e6-94f9b185475c_FirstName" type="text" value="Jeroen">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="08b34a2b-2c93-41d4-84e6-94f9b185475c_LastName">Last name</label>
+                    <div class="controls">
+                        <input name="08b34a2b-2c93-41d4-84e6-94f9b185475c_LastName" class="input-xlarge modal-form" id="08b34a2b-2c93-41d4-84e6-94f9b185475c_LastName" type="text" value="Carelse">
+                    </div>
+                </div>
+
+                <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Address -->
+
+                <!-- start oip-module-address.txt -->
+                <div class="control-group">
+                    <label class="control-label" for="input01">Street address</label>
+                    <div class="controls">
+                        <input name="5215c960-8216-42ed-92a7-7b08f1c57b1a_Street" class="input-xlarge modal-form" id="5215c960-8216-42ed-92a7-7b08f1c57b1a_Street" type="text" value="Pappilanniementie 18" placeholder="Street">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">Town</label>
+                    <div class="controls">
+                        <input name="5215c960-8216-42ed-92a7-7b08f1c57b1a_Town" class="input-xlarge modal-form" id="5215c960-8216-42ed-92a7-7b08f1c57b1a_Town" type="text" value="Hattula" placeholder="Town">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">Country</label>
+                    <div class="controls">
+                        <input name="5215c960-8216-42ed-92a7-7b08f1c57b1a_Country" class="input-xlarge modal-form" id="5215c960-8216-42ed-92a7-7b08f1c57b1a_Country" type="text" value="Finland" placeholder="Country">
+                    </div>
+                </div>
+                <!-- end oip-module-address.txt -->
+                <!-- THEBALL-CONTEXT-END:Address -->
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="">Save changes</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!-- end oip-module-account-identity.txt -->
+    <!-- THEBALL-CONTEXT-END:Profile -->
+</div><!-- #tab-identity -->
+<div class="tab-pane" id="tab-emails-security">
+    <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Security -->
+    <!-- start oip-module-account-emails-security.txt -->
+    <div class="emails-security">
+        <form  id="" class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Linked OpenID accounts</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:LoginInfoCollection -->
+                        <form method="post" class="form-horizontal">
+                            <input id="ObjectFieldID" name="ObjectFieldID" value="" type="hidden">
+                            <button type="submit" id="RootSourceAction" name="RootSourceAction" value="UnlinkLogin">Unlink https://www.google.com/accounts/o8/id?id=</button>
+                        </form>
+                        <!-- THEBALL-CONTEXT-END:LoginInfoCollection -->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Linked emails</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:EmailCollection -->
+                        <form method="post" class="form-horizontal">
+                            <input id="ObjectFieldID" name="ObjectFieldID" value="2fe042dd-fe82-4718-9574-f7f57e5feb17" type="hidden">
+                            <button type="submit" id="RootSourceAction" name="RootSourceAction" value="UnlinkEmailAddress">Unlink esleracneorej@gmail.com</button>
+                        </form>
+                        <!-- THEBALL-CONTEXT-END:EmailCollection -->
+                    </div>
+                </div>
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <a href="#add-email" role="button" class="btn" data-toggle="modal">Add an email</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!-- modals -->
+    <div id="add-email" class="modal hide fade well">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h4>
+                unlink this emails address
+            </h4>
+        </div>
+        <div class="modal-body well">
+            <form method="post" class="form-horizontal">
+
+                <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddEmailAddressInfo:AddEmailAddress -->
+
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <input id="RootSourceName" name="RootSourceName" type="hidden" value="AddEmailAddress">
+                <fieldset>
+                    <p>
+                        Add an email address for use with your Open Innovation Platform account.
+                    </p>
+                    <div class="control-group">
+                        <label class="control-label" for="ba270fa9-3059-4e7a-875a-a3e573f6cf70_EmailAddress">Add an email address</label>
+                        <div class="controls">
+                            <input name="ba270fa9-3059-4e7a-875a-a3e573f6cf70_EmailAddress" class="span3" id="ba270fa9-3059-4e7a-875a-a3e573f6cf70_EmailAddress" type="input" value="">
+                        </div>
+                    </div>
+
+                    <div class="control-group controls">
+                        <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                            <button value="true" name="btnCancel" class="btn">Cancel</button>
+                            <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="">Save changes</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+
+                <!-- THEBALL-CONTEXT-END:* -->
+            </form>
+        </div>
+    </div>
+    <!-- end oip-module-account-emails-security.txt -->
+    <!-- THEBALL-CONTEXT-END:Security -->
+</div><!-- #tab-emails-security -->
+<div class="tab-pane" id="tab-roles">
+    <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Roles -->
+    <div id="groups">
+        <form method="post" class="form-horizontal">
+            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+            <input id="RootSourceName" name="RootSourceName" type="hidden" value="">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="input01">Moderator of</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-END:ModeratorInGroups -->
+                        <p><a href="/auth/grp/9798daca-afc4-4046-a99b-d0d88bb364e0/website/oip-group/oip-layout-groups-edit.phtml"> www.aaltoglobalimpact.org - Moderator</a>, <a data-toggle="modal" href="#leave-group-as-moderator">leave this group</a></p>
+                        <!-- THEBALL-CONTEXT-END:ModeratorInGroups -->
+                        <p><a href="/auth/grp/a0ea605a-1a3e-4424-9807-77b5423d615c/website/oip-group/oip-layout-groups-edit.phtml">www.weconomy.fi website - Moderator</a>, <a data-toggle="modal" href="#leave-group-as-moderator">leave this group</a></p>
+                        <!-- THEBALL-CONTEXT-END:ModeratorInGroups -->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="input01">Collaborator in</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:MemberInGroups -->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="859fa99b-55d8-499b-8f07-83a554e5d98a_OrganizationsImPartOf">Organisations I am part of</label>
+                    <div class="controls">
+                        <textarea class="input-xlarge" id="859fa99b-55d8-499b-8f07-83a554e5d98a_OrganizationsImPartOf" name="859fa99b-55d8-499b-8f07-83a554e5d98a_OrganizationsImPartOf" rows="6" placeholder="add org name"></textarea>
+                    </div>
+                </div>
+
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="">Save changes</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div><!-- .groups -->
+    <!-- modals -->
+    <div id="leave-group-as-moderator" class="modal hide fade well">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h4>
+                Leave group as moderator
+            </h4>
+        </div>
+        <div class="modal-body well">
+            <form method="post" class="form-horizontal">
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <input id="RootSourceName" name="RootSourceName" type="hidden" value="">
+                <fieldset>
+                    <p>You are now about to leave this group as a moderator.</p>
+                    <div class="modal-footer">
+                        <div class="control-group controls">
+                            <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                <button value="true" name="btnCancel" class="btn">Cancel</button>
+                                <button type="submit" class="btn btn-primary btn-danger">Leave !</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div id="leave-group-as-collaborator" class="modal hide fade well">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h4>
+                Leave group as collaborator
+            </h4>
+        </div>
+        <div class="modal-body well">
+            <form method="post" class="form-horizontal">
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <input id="RootSourceName" name="RootSourceName" type="hidden" value="">
+                <fieldset>
+                    <p>You are now about to leave this group as a collaborator.</p>
+                    <div class="modal-footer">
+                        <div class="control-group controls">
+                            <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                <button value="true" name="btnCancel" class="btn">Cancel</button>
+                                <button type="submit" class="btn btn-primary btn-danger">Leave !</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <!-- end modals -->
+    <!-- THEBALL-CONTEXT-END:Roles -->
+</div><!-- #tab-roles -->
+<div class="tab-pane" id="tab-locations-current">
+    <!--oip-module-locations-choose-current.txt-->
+    <div>
+        <form id="" action="" method="post" class="form-horizontal ">
+            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+            <input id="RootSourceName" name="RootSourceName" type="hidden" value="">
+            <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.LocationContainer:Locations -->
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">List of locations used</label>
+                    <div id="SelectedLocations_130f11ee-78b4-40dc-99dd-6860dc890ac1" class="controls">
+                        <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:Locations -->
+                        <div class="well well-small">
+                            <label class="checkbox">
+                                <input type="checkbox" id="4989dfde-851f-4c56-8d50-9f970d9b5940_Selected"><div class="noteditable">Tampere</div>
+                            </label>
+                            <a class="remoteurlmodal" data-url="AaltoGlobalImpact.OIP.AddressAndLocation_4989dfde-851f-4c56-8d50-9f970d9b5940_DefaultView.phtml"><i class="icon-pencil" style="padding-right:10px"></i>Edit Location: Tampere</a>
+                            <a data-id="4989dfde-851f-4c56-8d50-9f970d9b5940" class="open-IDAction_ConfirmRemove" href="#DeleteAddressAndLocation" data-question="Delete location 'Tampere' (all links to this location will be removed)?" data-command="DeleteAddressAndLocation" data-commandtext="Delete"><i class="icon-trash" style="padding-right:10px;"></i>delete this location</a>
+                        </div>
+                        <!-- THEBALL-CONTEXT-END:Locations -->
+                        <div class="well well-small">
+                            <label class="checkbox">
+                                <input type="checkbox" id="6edab2fe-00e6-48b1-bcb0-3e40417c1be7_Selected"><div class="noteditable">Home</div>
+                            </label>
+                            <a class="remoteurlmodal" data-url="AaltoGlobalImpact.OIP.AddressAndLocation_6edab2fe-00e6-48b1-bcb0-3e40417c1be7_DefaultView.phtml"><i class="icon-pencil" style="padding-right:10px"></i>Edit Location: Home</a>
+                            <a data-id="6edab2fe-00e6-48b1-bcb0-3e40417c1be7" class="open-IDAction_ConfirmRemove" href="#DeleteAddressAndLocation" data-question="Delete location 'Home' (all links to this location will be removed)?" data-command="DeleteAddressAndLocation" data-commandtext="Delete"><i class="icon-trash" style="padding-right:10px;"></i>delete this location</a>
+                        </div>
+                        <!-- THEBALL-CONTEXT-END:Locations -->
+                        <div class="well well-small">
+                            <label class="checkbox">
+                                <input type="checkbox" id="e04f91e6-5af7-4c6e-8498-a9e015793fbc_Selected"><div class="noteditable">Home</div>
+                            </label>
+                            <a class="remoteurlmodal" data-url="AaltoGlobalImpact.OIP.AddressAndLocation_e04f91e6-5af7-4c6e-8498-a9e015793fbc_DefaultView.phtml"><i class="icon-pencil" style="padding-right:10px"></i>Edit Location: Home</a>
+                            <a data-id="e04f91e6-5af7-4c6e-8498-a9e015793fbc" class="open-IDAction_ConfirmRemove" href="#DeleteAddressAndLocation" data-question="Delete location 'Home' (all links to this location will be removed)?" data-command="DeleteAddressAndLocation" data-commandtext="Delete"><i class="icon-trash" style="padding-right:10px;"></i>delete this location</a>
+                        </div>
+                        <!-- THEBALL-CONTEXT-END:Locations -->
+                        <div class="well well-small">
+                            <label class="checkbox">
+                                <input type="checkbox" id="f879c9a3-10c4-40db-a469-3a0ffddad1ee_Selected"><div class="noteditable">Hattula fictional office</div>
+                            </label>
+                            <a class="remoteurlmodal" data-url="AaltoGlobalImpact.OIP.AddressAndLocation_f879c9a3-10c4-40db-a469-3a0ffddad1ee_DefaultView.phtml"><i class="icon-pencil" style="padding-right:10px"></i>Edit Location: Hattula fictional office</a>
+                            <a data-id="f879c9a3-10c4-40db-a469-3a0ffddad1ee" class="open-IDAction_ConfirmRemove" href="#DeleteAddressAndLocation" data-question="Delete location 'Hattula fictional office' (all links to this location will be removed)?" data-command="DeleteAddressAndLocation" data-commandtext="Delete"><i class="icon-trash" style="padding-right:10px;"></i>delete this location</a>
+                        </div>
+                        <!-- THEBALL-CONTEXT-END:Locations -->
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(function () {
+                        $('#SelectedLocations_130f11ee-78b4-40dc-99dd-6860dc890ac1 input').each(function (index) {
+                            $(this).prop('checked', false);
+                        });
+
+                        $('#SelectedLocations_130f11ee-78b4-40dc-99dd-6860dc890ac1 input').on("click", function (event) {
+                            var selected = new Array();
+                            $('#SelectedLocations_130f11ee-78b4-40dc-99dd-6860dc890ac1 input:checked').each(function () {
+                                selected.push($(this).attr('id'));
+                            });
+
+// <!-- THEBALL-CONTEXT-END:* -->
+                            // Context switch here!
+                            $("#6bfcc269-97d3-457e-956a-f565c76fea77_SelectedIDCommaSeparated").val(selected.join(",").split("_Selected").join(""));
+                            // alert($("#6bfcc269-97d3-457e-956a-f565c76fea77_SelectedIDCommaSeparated").val());
+                        });
+
+                        var initializationArray = $("#6bfcc269-97d3-457e-956a-f565c76fea77_SelectedIDCommaSeparated").val().split(",");
+                        $.each(initializationArray, function (index, value) {
+                            $("#" + value + "_Selected").prop('checked', true);
+                        });
+
+                    });
+                </script>
+                <input type="hidden" id="6bfcc269-97d3-457e-956a-f565c76fea77_SelectedIDCommaSeparated" name="6bfcc269-97d3-457e-956a-f565c76fea77_SelectedIDCommaSeparated" value="">
+                <input type="hidden" id="6bfcc269-97d3-457e-956a-f565c76fea77_IsCollectionFiltered" name="6bfcc269-97d3-457e-956a-f565c76fea77_IsCollectionFiltered" value="true">
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <a href="#add-location" role="button" class="btn" data-toggle="modal">Add Location</a>
+                    </div>
+                </div>
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="">Save changes</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <!-- modals -->
+    <div id="view-location" class="modal hide fade well">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h4>
+                view this location
+            </h4>
+        </div>
+        <div class="modal-body well">
+            <form method="post" class="form-horizontal">
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <input id="RootSourceName" name="RootSourceName" type="hidden" value="">
+                <fieldset>
+                    <p>
+                        Here is going to be a map
+                    </p>
+                    <div class="modal-footer">
+                        <div class="control-group controls">
+                            <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                <button class="btn">Close window</button>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <div id="add-location" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h2 class="title">
+                Add a location
+            </h2>
+        </div>
+        <div class="modal-body">
+            <form method="post" class="form-horizontal">
+                <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddAddressAndLocationInfo:AddLocation -->
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <input id="RootSourceName" name="RootSourceName" type="hidden" value="AddLocation">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="8dad8c13-ee65-4ae5-b930-aea7c6efb8d8_LocationName">Location name</label>
+                        <div class="controls">
+                            <input name="8dad8c13-ee65-4ae5-b930-aea7c6efb8d8_LocationName" class="span4" id="8dad8c13-ee65-4ae5-b930-aea7c6efb8d8_LocationName" type="text" value="">
+                        </div>
+                    </div>
+                    <div class="control-group controls">
+                        <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                            <button value="true" name="btnCancel" class="btn">Cancel</button>
+                            <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="">Save changes</button>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- THEBALL-CONTEXT-END:* -->
+            </form>
+        </div>
+    </div>
+    <!-- end modals -->
+    <!-- end oip-module-locations-choose-current.txt -->
+</div><!-- #tab-locations-current -->
+</div><!-- .tab-content -->
+</div><!-- .tabbable .tab -->
+</div><!-- .span6 -->
+<!-- THEBALL-CONTEXT-END:AccountModule -->
+</div><!-- .profile -->
+</row>
+<script type="text/javascript">
+
+    $(function() {
+        OipCloseDetailPane = function() {
+            $("#SelectedContentContainer").html('');
+        };
+        $(".oipmenuselector").on("click", function() {
+            var filterName = $(this).data("filtername");
+            var navigateto = $(this).data("locateto");
+            //alert(navigateto);
+            //var scrollPos = $(navigateto).offset().top;
+            //$(document).animate({ scrollTop : $(navigateto).offset().top}, 'slow');
+            //$(document).scrollTop($(navigateto).offset().top);
+            OipCloseDetailPane();
+            $("a[data-filter='" + filterName + "']").trigger('click');
+            $('[data-toggle="dropdown"]').parent().removeClass('open');
+            return true;
+        });
+
+        OipShowInDetailPaneWithClose = function(htmlContent) {
+            $("#SelectedContentContainer").html('<button id="paneclosebutton" type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>' +
+                    htmlContent + '</div>' + '</div>' );
+            $("#paneclosebutton").off("click");
+            $("#paneclosebutton").click(OipCloseDetailPane);
+        };
+    });
+
+    $(function () {
+        $.get("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default", function (responseXml) {
+            var dom;
+            if (window.DOMParser) {
+                parser = new DOMParser();
+                dom = parser.parseFromString(responseXml, "text/xml");
+            }
+            else // Internet Explorer
+            {
+                dom = new ActiveXObject("Microsoft.XMLDOM");
+                dom.async = false;
+                dom.loadXML(responseXml);
+            }
+            var json = xml2json(dom, "  ");
+            //alert(json);
+            var myObj = jQuery.parseJSON(json);
+            $.ajax({
+                url: "oip-layout-landing.itemtmpl.html",
+                //data: 'foo',
+                cache: false,
+                success: function (responseTemplate) {
+                    var dynCompiled = dust.compile(responseTemplate, "nodeTmpl");
+                    dust.loadSource(dynCompiled);
+                    dust.render("nodeTmpl", myObj, function (err, out) {
+                        $("#TileSection").html(out);
+                    });
+                }
+            });
+
+        });
+    });
+</script>
+</div> <!-- /container -->
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../../bootstrap/js/jquery.js"></script>
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<script src="../../bootstrap/js/application.js"></script>
+</body>
+</html>
