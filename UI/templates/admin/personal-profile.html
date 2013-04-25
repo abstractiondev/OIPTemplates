@@ -103,7 +103,25 @@
 <div class="page-header">
     <h1>Personal Profile</h1>
 </div>
-<div class="well profile">
+<row>
+<div class="span4">
+    <h3>[ICON] Summary</h3>
+    <p> A quick overview of your most important settings</p>
+    <hr>
+    <h3>[ICON] Profile</h3>
+    <p> A quick overview of your most important settings</p>
+    <hr>
+    <h3>[ICON] Emails & Security</h3>
+    <p> A quick overview of your most important settings</p>
+    <hr>
+    <h3>[ICON] Roles and Groups</h3>
+    <p> A quick overview of your most important settings</p>
+    <hr>
+    <h3>[ICON] Locations</h3>
+    <p> A quick overview of your most important settings</p>
+</div>
+<div class="span7">
+<div class="well personal-profile">
 <!-- THEBALL-CONTEXT-OBJECT-BEGIN:AccountModule -->
 <div class="tabbable tabs tabs-left">
 <ul class="nav nav-pills">
@@ -227,36 +245,39 @@
 <div class="tab-pane" id="tab-emails-security">
     <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Security -->
     <!-- start oip-module-account-emails-security.txt -->
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label">Linked OpenID accounts</label>
-            <div class="controls">
-                <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:LoginInfoCollection -->
-                <form method="post" class="form-horizontal">
-                    <input id="ObjectFieldID" name="ObjectFieldID" value="" type="hidden">
-                    <button type="submit" id="RootSourceAction" name="RootSourceAction" value="UnlinkLogin">Unlink https://www.google.com/accounts/o8/id?id=</button>
-                </form>
-                <!-- THEBALL-CONTEXT-END:LoginInfoCollection -->
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label">Linked emails</label>
-            <div class="controls">
-                <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:EmailCollection -->
-                <form method="post" class="form-horizontal">
-                    <input id="ObjectFieldID" name="ObjectFieldID" value="2fe042dd-fe82-4718-9574-f7f57e5feb17" type="hidden">
-                    <button type="submit" id="RootSourceAction" name="RootSourceAction" value="UnlinkEmailAddress">Unlink esleracneorej@gmail.com</button>
-                </form>
-                <!-- THEBALL-CONTEXT-END:EmailCollection -->
-            </div>
-        </div>
-        <div class="control-group controls">
-            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                <a href="#add-email" role="button" class="btn" data-toggle="modal">Add an email</a>
-            </div>
-        </div>
-        <!-- </form -->
-    </fieldset>
+    <div class="emails-security">
+        <form  id="" class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label">Linked OpenID accounts</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:LoginInfoCollection -->
+                        <form method="post" class="form-horizontal">
+                            <input id="ObjectFieldID" name="ObjectFieldID" value="" type="hidden">
+                            <button type="submit" id="RootSourceAction" name="RootSourceAction" value="UnlinkLogin">Unlink https://www.google.com/accounts/o8/id?id=</button>
+                        </form>
+                        <!-- THEBALL-CONTEXT-END:LoginInfoCollection -->
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label">Linked emails</label>
+                    <div class="controls">
+                        <!-- THEBALL-CONTEXT-COLLECTION-BEGIN:EmailCollection -->
+                        <form method="post" class="form-horizontal">
+                            <input id="ObjectFieldID" name="ObjectFieldID" value="2fe042dd-fe82-4718-9574-f7f57e5feb17" type="hidden">
+                            <button type="submit" id="RootSourceAction" name="RootSourceAction" value="UnlinkEmailAddress">Unlink esleracneorej@gmail.com</button>
+                        </form>
+                        <!-- THEBALL-CONTEXT-END:EmailCollection -->
+                    </div>
+                </div>
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <a href="#add-email" role="button" class="btn" data-toggle="modal">Add an email</a>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
     <!-- modals -->
     <div id="add-email" class="modal hide fade well">
         <div class="modal-header">
@@ -542,8 +563,10 @@
 </div><!-- #tab-locations-current -->
 </div><!-- .tab-content -->
 </div><!-- .tabbable .tab -->
+</div><!-- .span6 -->
 <!-- THEBALL-CONTEXT-END:AccountModule -->
 </div><!-- .profile -->
+</row>
 <script type="text/javascript">
 
     $(function() {
