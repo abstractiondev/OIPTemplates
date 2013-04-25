@@ -105,32 +105,48 @@
 </div>
 <row>
 <div class="span4">
-    <h3>[ICON] Summary</h3>
+    <div class="btn active">
+        <a href="#tab-summary" data-toggle="tab">
+    <h4>[ICON] Summary</h4>
     <p> A quick overview of your most important settings</p>
-    <hr>
-    <h3>[ICON] Profile</h3>
+            </a>
+    </div>
+    <div class="btn">
+        <a href="#tab-identity" data-toggle="tab">
+            <h4>[ICON] Profile</h4>
     <p> A quick overview of your most important settings</p>
-    <hr>
-    <h3>[ICON] Emails & Security</h3>
+            </a>
+    </div>
+    <div class="btn">
+        <a href="#tab-emails-security" data-toggle="tab">
+    <h4>[ICON] Emails & Security</h4>
     <p> A quick overview of your most important settings</p>
-    <hr>
-    <h3>[ICON] Roles and Groups</h3>
+            </a>
+    </div>
+    <div class="btn">
+        <a href="#tab-roles" data-toggle="tab">
+            <h4>[ICON] Roles and Groups</h4>
     <p> A quick overview of your most important settings</p>
-    <hr>
-    <h3>[ICON] Locations</h3>
+            </a>
+    </div>
+    <div class="btn">
+        <a href="#tab-locations-current" data-toggle="tab">
+            <h4>[ICON] Locations</h4>
     <p> A quick overview of your most important settings</p>
+            </a>
+    </div>
 </div>
 <div class="span7">
 <div class="well personal-profile">
 <!-- THEBALL-CONTEXT-OBJECT-BEGIN:AccountModule -->
 <div class="tabbable tabs tabs-left">
-<ul class="nav nav-pills">
+<!--<ul class="nav nav-pills">
     <li class="active"><a href="#tab-summary" data-toggle="tab">Summary</a></li>
     <li class=""><a href="#tab-identity" data-toggle="tab">Profile</a></li>
     <li class=""><a href="#tab-emails-security" data-toggle="tab">Emails &amp; Security</a></li>
     <li class=""><a href="#tab-roles" data-toggle="tab">Roles & Groups</a></li>
     <li class=""><a href="#tab-locations-current" data-toggle="tab">Locations</a></li>
-</ul>
+</ul>-->
 <div class="tab-content">
 <div class="tab-pane active" id="tab-summary">
     <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Profile -->
@@ -139,7 +155,7 @@
         <div class="span3 public-card">
             <div class="well">
             <img src="../assets/img/web-640x480_pink.jpg" class="thumbnail">
-            <h3>Basic</h3>
+            <h4>Basic</h4>
             <ul class="dl-horizontal card">
                 <li>Name:Mari Iram</li>
             </ul>
@@ -150,7 +166,7 @@
         <div class="span3 group-card">
             <div class="well">
                 <img src="../assets/img/web-640x480_yellow.jpg" class="thumbnail">
-                <h3>Groups</h3>
+                <h4>Groups</h4>
                 <ul class="dl-horizontal card">
                     <li>Groups:BoP, AaltoGlobalImpact, Weconomy</li>
                 </ul>
@@ -161,7 +177,7 @@
         <div class="span3 private-card">
             <div class="well">
                 <img src="../assets/img/web-640x480_purple.jpg" class="thumbnail">
-                <h3>Locations</h3>
+                <h4>Locations</h4>
                 <ul class="dl-horizontal card">
                     <li>Locations:Helsinki, Tampere, Kenia</li>
                 </ul>
@@ -282,9 +298,9 @@
     <div id="add-email" class="modal hide fade well">
         <div class="modal-header">
             <button class="close" data-dismiss="modal">×</button>
-            <h3>
+            <h4>
                 unlink this emails address
-            </h3>
+            </h4>
         </div>
         <div class="modal-body well">
             <form method="post" class="form-horizontal">
@@ -363,9 +379,9 @@
     <div id="leave-group-as-moderator" class="modal hide fade well">
         <div class="modal-header">
             <button class="close" data-dismiss="modal">×</button>
-            <h3>
+            <h4>
                 Leave group as moderator
-            </h3>
+            </h4>
         </div>
         <div class="modal-body well">
             <form method="post" class="form-horizontal">
@@ -388,9 +404,9 @@
     <div id="leave-group-as-collaborator" class="modal hide fade well">
         <div class="modal-header">
             <button class="close" data-dismiss="modal">×</button>
-            <h3>
+            <h4>
                 Leave group as collaborator
-            </h3>
+            </h4>
         </div>
         <div class="modal-body well">
             <form method="post" class="form-horizontal">
@@ -505,9 +521,9 @@
     <div id="view-location" class="modal hide fade well">
         <div class="modal-header">
             <button class="close" data-dismiss="modal">×</button>
-            <h3>
+            <h4>
                 view this location
-            </h3>
+            </h4>
         </div>
         <div class="modal-body well">
             <form method="post" class="form-horizontal">
