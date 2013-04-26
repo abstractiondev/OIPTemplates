@@ -9,9 +9,15 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
+    <link href="../assets/css/font-awesome.css" rel="stylesheet">
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <link href="../assets/css/OIPTemplate.css" rel="stylesheet">
     <link href="../assets/css/responsive.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+        }
+    </style>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -99,8 +105,7 @@
         <h1>Personal Profile</h1>
     </div>
     <div class="row profile group-profile">
-    <h4><i class="icon-pencil"></i> CSS control</h4>
-        <ul id="personal-profile-tab" class="span4 nav nav-tabs">
+        <ul class="span4 nav nav-tabs">
             <li><a href="#tab-summary" data-toggle="tab" class="btn active">
                 <h4><i class="icon-book"></i>Summary</h4>
                 <p> A quick overview of your most important settings</p>
@@ -127,8 +132,8 @@
             </a></li>
         </ul>
         <!-- THEBALL-CONTEXT-OBJECT-BEGIN:AccountModule -->
-        <div class="span7 well personal-profile tab-content">
-            <div class="tab-pane active" id="tab-summary">
+        <div class="tab-content">
+            <div class="tab-pane tabbable tab-content active" id="tab-summary">
                 <!-- THEBALL-CONTEXT-OBJECT-BEGIN:Profile -->
                 <!-- start oip-module-account-identity.txt -->
                 <div id="public">
@@ -557,7 +562,7 @@
                 <!-- end modals -->
                 <!-- end oip-module-locations-choose-current.txt -->
             </div><!-- #tab-locations-current -->
-            </div><!-- .tab-content -->
+        </div><!-- .tab-content -->
         <!-- THEBALL-CONTEXT-END:AccountModule -->
     </div><!-- .profile -->
 <script type="text/javascript">
@@ -624,8 +629,8 @@
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="../../bootstrap/js/jquery.js"></script>
-<script src="../../bootstrap/js/bootstrap.min.js"></script>
-<script src="../../bootstrap/js/application.js"></script>
+<script src="../assets/js/jquery-1.9.1.min.js"></script>
+<script src="../assets/js/bootstrap-js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap-js/application.js"></script>
 </body>
 </html>
