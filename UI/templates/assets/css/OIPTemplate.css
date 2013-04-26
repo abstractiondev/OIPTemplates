@@ -46,3 +46,12 @@
 /*  Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
 //    readers do not read off random characters that represent icons */
 /* \f020 doesn't work in Safari. all shifted one down */
+.profile li a h4 {
+  text-align: left;
+}
+.profile li a p {
+  text-align: left;
+}
+.profile li a .icon-remove {
+  color: darkred;
+}
