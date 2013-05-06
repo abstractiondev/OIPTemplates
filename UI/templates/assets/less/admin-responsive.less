@@ -19,31 +19,55 @@
 // -------------------------
 // Required since we compile the responsive stuff separately
 
-@import "variables.less"; // Modify this for custom colors, font-sizes, etc
-@import "mixins.less";
+@import "admin-variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "admin-mixins.less";
 
 
 // RESPONSIVE CLASSES
 // ------------------
 
-@import "responsive-utilities.less";
+@import "admin-responsive-utilities.less";
 
 
 // MEDIA QUERIES
 // ------------------
 
 // Large desktops
-@import "responsive-1200px-min.less";
+@import "admin-responsive-1200px-min.less";
+
+  // Large desktops (admin)
+@import "admin-responsive-1020px-max.less";
 
 // Tablets to regular desktops
-@import "responsive-768px-979px.less";
+@import "admin-responsive-768px-979px.less";
 
 // Phones to portrait tablets and narrow desktops
-@import "responsive-767px-max.less";
+@import "admin-responsive-767px-max.less";
+
+// Phones to portrait tablets and narrow desktops
+@import "admin-responsive-600px-max.less";
+
+// Phones (admin)
+@import "admin-responsive-480px-max.less";
 
 
 // RESPONSIVE NAVBAR
 // ------------------
 
 // From 979px and below, show a button to toggle navbar contents
-@import "responsive-navbar.less";
+@import "admin-responsive-navbar.less";
+
+
+#phone-navigation {
+  display: none;
+  padding: .5em 0em;
+}
+#phone-navigation #phone-menu {
+  margin: 0em auto;
+  display: block;
+}
+
+  /* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+
+}
