@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap Admin</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+
+
+
+    <!-- For sample logo only-->
+    <!--Remove if you no longer need this font-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Aguafina+Script">
+    <!--For sample logo only-->
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.css">
+    <script src="../assets/js/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="javascripts/site.js" type="text/javascript"></script>
+    <link href="lib/datepicker/css/datepicker.css" rel="stylesheet">
+    <link href="lib/colorpicker/css/colorpicker.css" rel="stylesheet">
+    <link href="lib/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" rel="stylesheet">
+    <link href="lib/bootstrap-timepicker/compiled/timepicker.css" rel="stylesheet">
+    <link href="lib/bootstrap-formhelpers/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="lib/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
+    <link href="lib/bootstrap-notify/alert-bangtidy.css" rel="stylesheet">
+    <link href="lib/bootstrap-notify/alert-blackgloss.css" rel="stylesheet">
+    <link href="lib/bootstrap-spinner/bootstrap-spinner.css" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/isotope.css">
+
+    <script src="lib/jquery.isotope.min.js"></script>
+    <script src="lib/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="lib/colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-timepicker/js/bootstrap-timepicker.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-timezones.codes.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-timezones.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-languages.codes.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-languages.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-states.en_US.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-formhelpers/js/bootstrap-formhelpers-states.js" type="text/javascript"></script>
+    <script src="lib/jquery-qrcode/jquery.qrcode.min.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-notify/bootstrap-notify.js" type="text/javascript"></script>
+    <script src="lib/bootstrap-spinner/bootstrap-spinner.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        h2 { margin-top: 2em; }
+        #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
+        #dropdown-buttons .btn-group { margin-left: 31px; }
+        #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
+        #dropdown-buttons2 .btn-group { margin-left: 18px; }
+        .sample-buttons .btn-group {
+            width: 115px;
+            height: 40px;
+            margin: 0em;
+        }
+        .filter-demo-item {
+            float: left;
+            width: 50px;
+            height: 50px;
+            margin: .5em;
+            background: #667;
+        }
+        .loading {
+            margin-right: .25em;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('.datepicker').datepicker();
+            $('.timepicker').timepicker();
+            $('.color').colorpicker();
+            $('.popover-btn').popover();
+            $('#MySpinner').spinner();
+            $('#some-textarea').wysihtml5({"stylesheets": ["lib/bootstrap-wysihtml5/lib/css/wysiwyg-color.css"]});
+            $('#qrcode').qrcode({render: 'table', width: 96,height: 96,text: "Hope you like the theme!"});
+            $('#warning-toggle-button').toggleButtons({
+                style: {
+                    enabled: "warning",
+                    disabled: "danger"
+                }
+            });
+
+
+
+            $('#danger-toggle-button').toggleButtons({
+                style: {
+                    enabled: "danger",
+                    disabled: "info"
+                }
+            });
+
+
+            $('#info-toggle-button').toggleButtons({
+                style: {
+                    enabled: "info",
+                    disabled: "success"
+                }
+            });
+
+
+            $('#success-toggle-button').toggleButtons({
+                style: {
+                    enabled: "success",
+                    disabled: "warning"
+                }
+            });
+
+
+
+            // Random Messages
+            var messages = [
+                [ 'bottom-right', 'success',     "What's up? This is a message." ],
+                [ 'bottom-right', 'info',     "What's up? This is a message."],
+                [ 'top-right',    'inverse',  "What's up? This is a message." ],
+                [ 'top-right',    'success',  "What's up? This is a message." ],
+                [ 'top-right',  'danger',   "What's up? This is a message." ],
+                [ 'bottom-left',  'warning',  "What's up? This is a message." ],
+                [ 'bottom-left', 'info',     "What's up? This is a message." ],
+                [ 'bottom-left',    'success',  "What's up? This is a message." ],
+            ];
+
+            $('.show-notification').click(function (e) {
+                var message = messages[Math.floor(Math.random() * messages.length)];
+
+                $('.' + message[0]).notify({
+                    message: { text: message[2] },
+                    type: message[1]
+                }).show();
+            });
+
+            $('#filter-demo').isotope();
+
+            fancyFilter('.filter', '#filter-demo');
+        }); //<--document.ready
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/admin-combined.css">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+<!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+<!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body class="">
+<!--<![endif]-->
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav pull-right">
+
+            <li class="hidden-phone"><a href="#" role="button">Settings</a></li>
+            <li id="fat-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-user"></i> Jack Smith
+                    <i class="icon-caret-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">My Account</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
+                </ul>
+            </li>
+
+        </ul>
+        <a class="brand" href="index.html">Awesome.</a>
+    </div>
+</div>
+
+<div id="main-menu">
+
+    <div id="phone-navigation">
+        <select class="selectnav" id="phone-menu">
+
+            <option value="index.html" > Dashboard</option>
+
+            <option value="reports.html" > Reports</option>
+
+            <option value="components.html" selected="selected"> Components</option>
+
+            <option value="pricing.html" > Pricing</option>
+
+            <option value="" > Settings</option>
+
+            <option value="sign-in.html" >- Sign In Page</option>
+
+            <option value="sign-up.html" >- Sign Up Page</option>
+
+            <option value="reset-password.html" >- Reset Password Page</option>
+
+            <option value="">----------------------</option>
+
+            <option value="index.html" > Dashboard</option>
+
+            <option value="reports.html" > Reports</option>
+
+            <option value="components.html" selected="selected"> UI Features</option>
+
+            <option value="pricing.html" > Pricing</option>
+
+            <option value="media.html" > Media</option>
+
+            <option value="blog.html" > Blog</option>
+
+            <option value="help.html" > Help</option>
+
+            <option value="faq.html" > Faq</option>
+
+            <option value="calendar.html" > Calendar</option>
+
+            <option value="forms.html" > Forms</option>
+
+            <option value="tables.html" > Tables</option>
+
+            <option value="icons.html" > Font Awesome</option>
+
+        </select>
+    </div>
+</div>
+
+
+<div id="sidebar-nav">
+
+    <ul id="dashboard-menu" class="nav nav-list">
+
+        <li class=" "><a href="index.html"><i class="icon-home"></i> <span>Dashboard</span></a></li>
+
+
+        <li class=" "><a href="reports.html"><i class="icon-bar-chart"></i> <span>Reports</span></a></li>
+
+
+        <li class="active "><a href="components.html"><i class="icon-briefcase"></i> <span>UI Features</span></a></li>
+
+
+        <li class=" "><a href="pricing.html"><i class="icon-magic"></i> <span>Pricing</span></a></li>
+
+
+        <li class=" "><a href="media.html"><i class="icon-film"></i> <span>Media</span></a></li>
+
+
+        <li class=" "><a href="blog.html"><i class="icon-beaker"></i> <span>Blog</span></a></li>
+
+
+        <li class=" "><a href="help.html"><i class="icon-question-sign"></i> <span>Help</span></a></li>
+
+
+        <li class=" "><a href="faq.html"><i class="icon-book"></i> <span>Faq</span></a></li>
+
+
+        <li class=" "><a href="calendar.html"><i class="icon-calendar"></i> <span>Calendar</span></a></li>
+
+
+        <li class=" "><a href="forms.html"><i class="icon-tasks"></i> <span>Forms</span></a></li>
+
+
+        <li class=" "><a href="tables.html"><i class="icon-table"></i> <span>Tables</span></a></li>
+
+
+
+        <li class=" theme-mobile-hack"><a href="mobile.html"><i class="icon-comment-alt"></i> <span>Mobile</span></a></li>
+
+        <li class=" "><a href="icons.html"><i class="icon-heart"></i> <span>Font Awesome</span></a></li>
+
+
+    </ul>
+</div>
+
+<div class="content">
+<div class="container-fluid">
+<div class="row-fluid">
+
+<div class="row-fluid">
+    <div class="span6">
+        <h2>Fancy Tabs</h2>
+        <div class="fancy-tab-container">
+            <ul class="nav nav-tabs three-tabs fancy">
+                <li class="active"><a href="#fancya1" data-toggle="tab">Orders</a></li>
+                <li><a href="#fancya2" data-toggle="tab">Promotions</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Deals <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#fancya3" data-toggle="tab">Dump Truck</a></li>
+                        <li><a href="#fancya4" data-toggle="tab">Police Car</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="fancya1">
+                    <ul class="cards">
+                        <li>
+                            Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.
+                        </li>
+                        <li>
+                            Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack.
+                        </li>
+                        <li>
+                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master.
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="fancya2">
+                    <p>Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.</p>
+                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+                    <p>Nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                </div>
+                <div class="tab-pane fade" id="fancya3">
+                    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+                    <p>Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown.</p>
+                    <p>DIY synth PBR banksy irony.</p>
+                    <p>Pitchfork sustainable tofu synth chambray yr.</p>
+
+                </div>
+                <div class="tab-pane fade" id="fancya4">
+                    <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical.</p>
+                    <p>Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="span6">
+        <h2>Fancy Tabs</h2>
+        <div class="fancy-tab-container">
+            <ul class="nav nav-tabs two-tabs fancy">
+                <li class="active"><a href="#fancy-upgrade" data-toggle="tab">Upgrade Account</a></li>
+                <li><a href="#fancy-whyupgrade" data-toggle="tab">Why Upgrade?</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="fancy-upgrade">
+                    <ul class="cards">
+                        <li>Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</li>
+                        <li>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth.</li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="fancy-whyupgrade">
+                    <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR.</p><p>Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <hr>
+    <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Portnine</a></p>
+    <p>&copy; 2013 <a href="#">Your Company</a></p>
+</footer>
+
+</div>
+</div>
+</div>
+
+<script src="../assets/js/bootstrap-js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $("[rel=tooltip]").tooltip();
+    $(function() {
+        $('.demo-cancel-click').click(function(){return false;});
+    });
+</script>
+
+</body>
+</html>
+
+
