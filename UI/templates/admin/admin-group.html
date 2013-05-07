@@ -284,6 +284,47 @@
                                       </form>
                               </div>
                             <div class="tab-pane fade" id="tab-media">
+                                <ul class="filter nav nav-pills">
+                                    <li class="active">
+                                        <a data-filter=".filter-demo-item" href="#all">All</a>
+                                    </li>
+                                    <li><a data-filter=".sampleFilterOne" href="#images">Images</a></li>
+                                    <li><a data-filter=".sampleFilterTwo" href="#videos">Videos</a></li>
+                                    <li><a data-filter=".sampleFilterThree" href="#xls">Spreadsheets</a></li>
+                                    <li><a data-filter=".sampleFilterFour" href="#xls">Documents</a></li>
+                                </ul>
+                                <div style=" position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 0px);"></div>
+                                    <div class="filter-demo-item isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 0px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 0px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 0px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 0px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterThree isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterFourisotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterFour isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterFour isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 256px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 256px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 256px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 256px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 256px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 256px);"></div>
+                                </div>
                                 <form id="" method="post" class="form-horizontal ">
                                     <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                     <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.ImageGroupContainer:ImageGroups -->
@@ -581,8 +622,8 @@
             </div><!-- .row-fluid-->
             <footer>
                     <hr>
-                    <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Portnine</a></p>
-                    <p>&copy; 2013 <a href="#">Your Company</a></p>
+                    <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Caloom Ltd</a></p>
+                    <p>&copy; 2013 <a href="#">Caloom / OIP / Aalto Global Impact</a></p>
                 </footer>
             </div>
         </div>
