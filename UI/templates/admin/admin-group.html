@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Admin-Group</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- For sample logo only-->
+    <!--Remove if you no longer need this font-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Aguafina+Script">
+    <!--For sample logo only-->
+
+    <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/lib/font-awesome/css/font-awesome.css">
+    <script src="../assets/lib/jquery-1.7.2.min.js" type="text/javascript"></script>
+    <script src="../assets/js/site.js" type="text/javascript"></script>
+        <link href="../assets/lib/datepicker/css/datepicker.css" rel="stylesheet">
+    <link href="../assets/lib/colorpicker/css/colorpicker.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-timepicker/compiled/timepicker.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-formhelpers/css/bootstrap-formhelpers.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-notify/bootstrap-notify.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-notify/alert-bangtidy.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-notify/alert-blackgloss.css" rel="stylesheet">
+    <link href="../assets/lib/bootstrap-spinner/bootstrap-spinner.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/isotope.css">
+    
+    <script src="../assets/lib/jquery.isotope.min.js"></script>
+    <script src="../assets/lib/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="../assets/lib/colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-timepicker/js/bootstrap-timepicker.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-countries.en_US.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-countries.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-timezones.codes.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-timezones.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-languages.codes.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-languages.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-states.en_US.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-formhelpers/js/bootstrap-formhelpers-states.js" type="text/javascript"></script>
+    <script src="../assets/lib/jquery-qrcode/jquery.qrcode.min.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-notify/bootstrap-notify.js" type="text/javascript"></script>
+    <script src="../assets/lib/bootstrap-spinner/bootstrap-spinner.js" type="text/javascript"></script>
+
+    <!--WYSI HTML EDITOR-->
+    <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
+    <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+    <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
+
+    <style type="text/css">
+        h2 { margin-top: 2em; }
+        #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
+        #dropdown-buttons .btn-group { margin-left: 31px; }
+        #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
+        #dropdown-buttons2 .btn-group { margin-left: 18px; }
+        .sample-buttons .btn-group {
+            width: 115px;
+            height: 40px;
+            margin: 0em;
+        }
+        .filter-demo-item {
+            float: left;
+            width: 50px;
+            height: 50px;
+            margin: .5em;
+            background: #667;
+        }
+        .loading {
+            margin-right: .25em;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('.datepicker').datepicker();
+            $('.timepicker').timepicker();
+            $('.color').colorpicker();
+            $('.popover-btn').popover();
+            $('#MySpinner').spinner();
+            $('#some-textarea').wysihtml5({"stylesheets": ["../assets/lib/bootstrap-wysihtml5/lib/css/wysiwyg-color.css"]});
+            $('#qrcode').qrcode({render: 'table', width: 96,height: 96,text: "Hope you like the theme!"});
+            $('#warning-toggle-button').toggleButtons({
+                style: {
+                    enabled: "warning",
+                    disabled: "danger"
+                }
+            });
+
+
+
+            $('#danger-toggle-button').toggleButtons({
+                style: {
+                    enabled: "danger",
+                    disabled: "info"
+                }
+            });
+
+
+            $('#info-toggle-button').toggleButtons({
+                style: {
+                    enabled: "info",
+                    disabled: "success"
+                }
+            });
+
+
+            $('#success-toggle-button').toggleButtons({
+                style: {
+                    enabled: "success",
+                    disabled: "warning"
+                }
+            });
+
+
+
+            // Random Messages
+            var messages = [
+              [ 'bottom-right', 'success',     "What's up? This is a message." ],
+              [ 'bottom-right', 'info',     "What's up? This is a message."],
+              [ 'top-right',    'inverse',  "What's up? This is a message." ],
+              [ 'top-right',    'success',  "What's up? This is a message." ],
+              [ 'top-right',  'danger',   "What's up? This is a message." ],
+              [ 'bottom-left',  'warning',  "What's up? This is a message." ],
+              [ 'bottom-left', 'info',     "What's up? This is a message." ],
+              [ 'bottom-left',    'success',  "What's up? This is a message." ],
+            ];
+
+            $('.show-notification').click(function (e) {
+                var message = messages[Math.floor(Math.random() * messages.length)];
+              
+                $('.' + message[0]).notify({
+                    message: { text: message[2] },
+                    type: message[1]
+                }).show();
+            });
+
+            $('#filter-demo').isotope();
+
+            fancyFilter('.filter', '#filter-demo');
+        }); //<--document.ready
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
+
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  </head>
+
+  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+  <!--[if (gt IE 9)|!(IE)]><!--> 
+  <body class=""> 
+  <!--<![endif]-->
+    
+    <div class="navbar">
+        <div class="navbar-inner">
+            <ul class="nav pull-right">
+                <li id="fat-menu" class="dropdown">
+                    <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-user"></i> {accountName}
+                        <i class="icon-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="#">My Account</a></li>
+                        <li><a tabindex="-1" href="#">My Groups</a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                        <li class="divider visible-phone"></li>
+                        <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav pull-left">
+                <li id="group-menu" class="dropdown">
+                    <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-user"></i> {groupName}
+                        <i class="icon-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="#">{groupName}'s Account</a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                        <li class="divider visible-phone"></li>
+                        <li><a tabindex="-1" href="sign-in.html">preview {groupName}</a></li>
+                    </ul>
+                </li>
+                <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main-menu">
+
+        <div id="phone-navigation">
+            <select class="selectnav" id="phone-menu">
+                <option value="index.html" > Identity</option>
+                <option value="reports.html" > Media</option>
+                <option value="#tab-collaborators" data-toggle="tab" > Collaborators</option>
+                <option value="media.html" > Locations</option>
+                <option value="blog.html" > Delete</option>
+            </select>
+        </div>
+    </div>
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu" class="nav nav-list">
+            <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
+            <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
+            <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
+            <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
+            <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span12">
+                    <h2></h2>
+                    <div class="fancy-tab-container">
+                        <div class="tab-content">
+                            <div class="tab-pane fade in active" id="tab-identity">
+                                      <form id="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                                          <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                          <fieldset id="profile">
+                                              <div class="control-group">
+                                                  <label class="control-label">Profile image</label>
+                                                  <div class="controls">
+                                                      <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
+                                                      <!-- ImageData -->
+                                                      <img src="[!ATOM]ImageData.ContentUrl[ATOM!]" alt="Group Profile Image" />
+                                                      <input  id="[!ATOM]ImageData.ID[ATOM!]" name="[!ATOM]ImageData.ID[ATOM!]" size="16" type="file">
+                                                      <!-- * -->
+                                                      <!-- THEBALL-CONTEXT-END:* -->
+                                                  </div>
+                                              </div>
+                                              <div class="control-group">
+                                                  <label class="control-label">Icon (for use on the map and as your group's logo)</label>
+                                                  <div class="controls">
+                                                      <!-- THEBALL-CONTEXT-OBJECT-BEGIN:IconImage -->
+                                                      <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ImageData -->
+                                                      <img src="[!ATOM]ContentUrl[ATOM!]" alt="Group Icon Image" />
+                                                      <input class="span11" id="[!ATOM]ID[ATOM!]" name="[!ATOM]ID[ATOM!]" size="16" type="file">
+                                                      <!-- THEBALL-CONTEXT-END:* -->
+                                                      <!-- THEBALL-CONTEXT-END:* -->
+                                                  </div>
+                                              </div>
+                                              <div class="control-group">
+                                                  <label class="control-label" for="[!ATOM]ID[ATOM!]_GroupName">Group name</label>
+                                                  <div class="controls">
+                                                      <input name="[!ATOM]ID[ATOM!]_GroupName"  id="[!ATOM]ID[ATOM!]_GroupName" type="text" value="[!ATOM]GroupName[ATOM!]">
+                                                  </div>
+                                              </div>
+                                              <div class="control-group">
+                                                  <label class="control-label" for="[!ATOM]ID[ATOM!]_Description">Description</label>
+                                                  <div class="controls">
+                                                      <textarea class="span11" id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
+                                                  </div>
+                                              </div>
+                                              <div class="control-group">
+                                                  <label class="control-label" for="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
+                                                  <div class="controls">
+                                                      <textarea class="span11" id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
+                                                  </div>
+                                              </div>
+                                              <?php include '../caloom-atoms/caloom-atom-form-cancel-save.txt' ?>
+                                          </fieldset>
+                                      </form>
+                              </div>
+                            <div class="tab-pane fade" id="tab-media">
+                                <form id="" method="post" class="form-horizontal ">
+                                    <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                    <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.ImageGroupContainer:ImageGroups -->
+                                    <fieldset id="current-imagegroups">
+                                        <div class="control-group">
+                                            <label class="control-label">List of image groups</label>
+
+                                            <div id="SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!]" class="controls">
+                                                <?php include '../caloom-atoms/caloom-atom-choose-imagegroup.txt' ?><!-- UseInformationObjectAsCollection:ImageGroups -->
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $('#SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!] input').each(function (index) {
+                                                    $(this).prop('checked', false);
+                                                });
+
+                                                $('#SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!] input').on("click", function (event) {
+                                                    var selected = new Array();
+                                                    $('#SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!] input:checked').each(function () {
+                                                        selected.push($(this).attr('id'));
+                                                    });
+    // <!-- THEBALL-CONTEXT-END:* -->
+                                                    // Context switch here!
+                                                    $("#[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated").val(selected.join(",").split("_Selected").join(""));
+                                                    // alert($("#[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated").val());
+                                                });
+
+                                                var initializationArray = $("#[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated").val().split(",");
+                                                $.each(initializationArray, function (index, value) {
+                                                    $("#" + value + "_Selected").prop('checked', true);
+                                                });
+
+                                            });
+                                        </script>
+                                        <input type="hidden" id="[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated" name="[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated" value="[!ATOM]ImageGroupCollection.SelectedIDCommaSeparated[ATOM!]">
+                                        <div class="control-group controls">
+                                            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                                                <a href="#add-imagegroup" role="button" class="btn" data-toggle="modal">Add Image Group</a>
+                                            </div>
+                                        </div>
+                                        <?php include '../caloom-atoms/caloom-atom-form-cancel-save.txt' ?>
+                                    </fieldset>
+                                </form>
+                            </div>
+                                <!-- modals imagegroup-->
+                                <div id="view-imagegroup" class="modal hide fade well">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h3>
+                                            View this image group
+                                        </h3>
+                                    </div>
+                                    <div class="modal-body well">
+                                        <form method="post" class="form-horizontal">
+                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                            <fieldset>
+                                                <p>
+                                                    Here is going to be the image group view
+                                                </p>
+                                                <div class="modal-footer">
+                                                    <div class="control-group controls">
+                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                                            <button class="btn">Close window</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="add-imagegroup" class="modal hide fade">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h2 class="title">
+                                            Add an image group
+                                        </h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" class="form-horizontal">
+
+                                            <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddImageGroupInfo:AddImageGroup -->
+                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                            <fieldset>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Image group title</label>
+                                                    <div class="controls">
+                                                        <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
+                                                    </div>
+                                                </div>
+                                                <?php include '../caloom-atoms/caloom-atom-form-cancel-save.txt' ?>
+                                            </fieldset>
+                                            <!-- THEBALL-CONTEXT-END:* -->
+                                        </form>
+                                    </div>
+                                  </div>
+                                <!-- end modals imagegroup-->
+                            <div class="tab-pane fade" id="tab-collaborators">
+                                  <form id="" method="post" class="form-horizontal ">
+                                      <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                      <fieldset id="">
+                                          <div class="control-group">
+                                              <label class="control-label">List of collaborators</label>
+                                              <div class="controls">
+                                                  <p><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> - <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>, <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a></p>
+                                                  <!-- UseInformationObjectAsCollection:Collaborators -->
+                                              </div>
+                                          </div>
+                                          <div class="control-group">
+                                              <label class="control-label">Pending collaborators</label>
+                                              <div class="controls">
+                                                  <p><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> - <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>, <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a></p>
+                                                  <!-- UseInformationObjectAsCollection:PendingCollaborators -->
+                                              </div>
+                                          </div>
+                                          <p><a href="#invite-collaborator" role="button" class="btn" data-toggle="modal">Invite new collaborator</a></p>
+                                      </fieldset>
+                                  </form>
+                              </div>
+                                <!-- modals collaborators -->
+                                <div id="view-profile" class="modal hide fade">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h2 class="title">
+                                            Collaborator's profile
+                                        </h2>
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <?php include '../caloom-modules-views/caloom-module-account-profile-view.txt' ?>
+                                    </div>
+                                </div>
+                                <div id="remove-collaborator" class="modal hide fade well">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h3>
+                                            Remove this collaborator
+                                        </h3>
+                                    </div>
+                                    <div class="modal-body well">
+                                        <form method="post" class="form-horizontal">
+                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                            <fieldset>
+                                                <p>
+                                                    You are now about to remove this collaborator from your group.
+                                                </p>
+                                                <div class="modal-footer">
+                                                    <div class="control-group controls">
+                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="invite-collaborator" class="modal hide fade well">
+                                        <div class="modal-header">
+                                            <button class="close" data-dismiss="modal">&times;</button>
+                                            <h3>
+                                                Invite person to this group
+                                            </h3>
+                                        </div>
+                                        <div class="modal-body well">
+                                            <form method="post" class="form-horizontal">
+                                                <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddEmailAddressInfo:AddEmailAddress -->
+                                                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                                <fieldset>
+                                                    <p>
+                                                        Invite new collaborator to this group. Use only valid email address that you trust to belong to that person.
+                                                    </p>
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address that you trust</label>
+                                                        <div class="controls">
+                                                            <input name="[!ATOM]ID[ATOM!]_EmailAddress" class="span3" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">
+                                                        </div>
+                                                    </div>
+
+                                                    <?php include '../caloom-atoms/caloom-atom-form-cancel-save.txt' ?>
+                                                </fieldset>
+                                                <!-- THEBALL-CONTEXT-END:* -->
+                                            </form>
+                                        </div>
+                                  </div>
+                                <!-- end modals collaborators -->
+                            <div class="tab-pane fade" id="tab-locations-current">
+                                <form id="" method="post" class="form-horizontal ">
+                                    <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                    <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.LocationContainer:Locations -->
+                                    <fieldset id="current-locations">
+                                        <div class="control-group">
+                                            <label class="control-label">List of locations used</label>
+                                            <div id="SelectedLocations_[!ATOM]Locations.ID[ATOM!]" class="controls">
+                                                <?php include '../caloom-atoms/caloom-atom-choose-location.txt' ?><!-- UseInformationObjectAsCollection:Locations -->
+                                            </div>
+                                        </div>
+                                        <script type="text/javascript">
+                                            $(function () {
+                                                $('#SelectedLocations_[!ATOM]Locations.ID[ATOM!] input').each(function (index) {
+                                                    $(this).prop('checked', false);
+                                                });
+
+                                                $('#SelectedLocations_[!ATOM]Locations.ID[ATOM!] input').on("click", function (event) {
+                                                    var selected = new Array();
+                                                    $('#SelectedLocations_[!ATOM]Locations.ID[ATOM!] input:checked').each(function () {
+                                                        selected.push($(this).attr('id'));
+                                                    });
+    // <!-- THEBALL-CONTEXT-END:* -->
+                                                    // Context switch here!
+                                                    $("#[!ATOM]LocationCollection.ID[ATOM!]_SelectedIDCommaSeparated").val(selected.join(",").split("_Selected").join(""));
+                                                    // alert($("#[!ATOM]LocationCollection.ID[ATOM!]_SelectedIDCommaSeparated").val());
+                                                });
+
+                                                var initializationArray = $("#[!ATOM]LocationCollection.ID[ATOM!]_SelectedIDCommaSeparated").val().split(",");
+                                                $.each(initializationArray, function (index, value) {
+                                                    $("#" + value + "_Selected").prop('checked', true);
+                                                });
+
+                                            });
+                                        </script>
+                                        <input type="hidden" id="[!ATOM]LocationCollection.ID[ATOM!]_SelectedIDCommaSeparated" name="[!ATOM]LocationCollection.ID[ATOM!]_SelectedIDCommaSeparated" value="[!ATOM]LocationCollection.SelectedIDCommaSeparated[ATOM!]">
+                                        <div class="control-group controls">
+                                            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                                                <a href="#add-location" role="button" class="btn" data-toggle="modal">Add Location</a>
+                                            </div>
+                                        </div>
+                                        <?php include '../caloom-atoms/caloom-atom-form-cancel-save.txt' ?>
+                                    </fieldset>
+                                </form>
+                            </div>
+                                <!-- modals locations-current-->
+                                <div id="view-location" class="modal hide fade well">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h3>
+                                            view this location
+                                        </h3>
+                                    </div>
+                                    <div class="modal-body well">
+                                        <form method="post" class="form-horizontal">
+                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                            <fieldset>
+                                                <p>
+                                                    Here is going to be a map
+                                                </p>
+                                                <div class="modal-footer">
+                                                    <div class="control-group controls">
+                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                                            <button class="btn">Close window</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="add-location" class="modal hide fade">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="title">
+                                        Add a location
+                                    </h2>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="post" class="form-horizontal">
+
+                                        <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddAddressAndLocationInfo:AddLocation -->
+                                        <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                        <fieldset>
+                                            <div class="control-group">
+                                                <label class="control-label" for="[!ATOM]ID[ATOM!]_LocationName">Location name</label>
+                                                <div class="controls">
+                                                    <input name="[!ATOM]ID[ATOM!]_LocationName" class="span4" id="[!ATOM]ID[ATOM!]_LocationName" type="text" value="[!ATOM]LocationName[ATOM!]">
+                                                </div>
+                                            </div>
+                                            <?php include '../caloom-atoms/caloom-atom-form-cancel-save.txt' ?>
+                                        </fieldset>
+                                        <!-- THEBALL-CONTEXT-END:* -->
+                                    </form>
+                                </div>                          </div>
+                                <!-- end modals locations-current-->
+                            <div class="tab-pane fade" id="tab-delete">
+                               <form id="" method="post" class="form-horizontal ">
+                                   <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                   <fieldset id="">
+                                       <p>are you sure you want to delete this group? You break all the links as well</p>
+                                       <?php include '../caloom-atoms/caloom-atom-form-cancel-delete.txt' ?>
+                                   </fieldset>
+                               </form
+                           </div>
+                        </div><!--.content-->
+                    </div>
+                </div>
+            </div><!-- .row-fluid-->
+            <footer>
+                    <hr>
+                    <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Portnine</a></p>
+                    <p>&copy; 2013 <a href="#">Your Company</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript">
+        $("[rel=tooltip]").tooltip();
+        $(function() {
+            $('.demo-cancel-click').click(function(){return false;});
+        });
+    </script>
+    
+  </body>
+</html>
+
+
