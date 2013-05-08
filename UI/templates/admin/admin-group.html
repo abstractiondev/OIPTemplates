@@ -52,8 +52,30 @@
     <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
     <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
+      <style type="text/css">
+          h2 { margin-top: 2em; }
+          #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
+          #dropdown-buttons .btn-group { margin-left: 31px; }
+          #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
+          #dropdown-buttons2 .btn-group { margin-left: 18px; }
+          .sample-buttons .btn-group {
+              width: 115px;
+              height: 40px;
+              margin: 0em;
+          }
+          .filter-demo-item {
+              float: left;
+              width: 50px;
+              height: 50px;
+              margin: .5em;
+              background: #667;
+          }
+          .loading {
+              margin-right: .25em;
+          }
+      </style>
 
+      <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -258,7 +280,7 @@
                                     <li><a data-filter=".sampleFilterThree" href="#xls">Spreadsheets</a></li>
                                     <li><a data-filter=".sampleFilterFour" href="#documents">Documents</a></li>
                                 </ul>
-                                <div style=" position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
+                                <div style="max-width: 400px; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"></div>
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 0px);"></div>
                                     <div class="filter-demo-item isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 0px);"></div>
@@ -266,7 +288,7 @@
                                     <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 0px);"></div>
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 0px);"></div>
                                     <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterThree isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 64px);"></div>
+                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 64px);"></div>
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 64px);"></div>
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 64px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 64px);"></div>
@@ -275,15 +297,15 @@
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 128px);"></div>
                                     <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 128px);"></div>
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterFourisotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 128px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 128px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 128px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 192px);"></div>
                                     <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterFour isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 192px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 192px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 192px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 192px);"></div>
                                     <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterFour isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 256px);"></div>
+                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 256px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 256px);"></div>
                                     <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 256px);"></div>
                                     <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 256px);"></div>
@@ -327,16 +349,15 @@
                                         <input type="hidden" id="[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated" name="[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated" value="[!ATOM]ImageGroupCollection.SelectedIDCommaSeparated[ATOM!]">
                                         <div class="control-group controls">
                                             <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                <a href="#add-imagegroup" role="button" class="btn" data-toggle="modal">Add Image Group</a>
+                                                <a href="#add-imagegroup" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i> Image Group</a>
                                             </div>
                                         </div>
                                         <div class="control-group controls">
-	<div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-		<button value="true" name="btnCancel"  class="btn">Cancel</button>
-		<button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
-	</div>
-</div>
-
+                                            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                                                <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                                                <button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
+                                            </div>
+                                        </div>
                                     </fieldset>
                                 </form>
                                 <!-- modals imagegroup-->
