@@ -58,6 +58,9 @@
     margin-top: 2em;
   }
 }
+#sidebar-nav {
+  width: 50px;
+}
 @media (max-width: 600px) {
   /*Adjust this if you have more or less tabs in the main menu*/
   #phone-navigation {
