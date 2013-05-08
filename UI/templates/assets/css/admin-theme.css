@@ -30,6 +30,10 @@ body {
 a:hover {
   text-decoration: none;
 }
+a:focus {
+  outline: none;
+  outline-offset: none;
+}
 h1,
 h2,
 h3,
