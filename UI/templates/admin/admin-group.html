@@ -47,10 +47,15 @@
     <script src="../assets/lib/bootstrap-spinner/bootstrap-spinner.js" type="text/javascript"></script>
     <script src="../assets/js/bootstrap-fileupload.js" type="text/javascript"></script>
 
+    <!-- data-table-->
+      <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+      <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.bootstrap.js" type="text/javascript"></script>
     <!--WYSI HTML EDITOR-->
     <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
     <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
     <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
+
+
 
       <style type="text/css">
           h2 { margin-top: 2em; }
@@ -419,26 +424,57 @@
                                 <!-- end modals imagegroup-->
                             </div>
                             <div class="tab-pane fade" id="tab-collaborators">
-                                  <form id="" method="post" class="form-horizontal ">
-                                      <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                      <fieldset id="">
-                                          <div class="control-group">
-                                              <label class="control-label">List of collaborators</label>
-                                              <div class="controls">
-                                                  <p><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> - <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>, <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a></p>
-                                                  <!-- UseInformationObjectAsCollection:Collaborators -->
-                                              </div>
-                                          </div>
-                                          <div class="control-group">
-                                              <label class="control-label">Pending collaborators</label>
-                                              <div class="controls">
-                                                  <p><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> - <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>, <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a></p>
-                                                  <!-- UseInformationObjectAsCollection:PendingCollaborators -->
-                                              </div>
-                                          </div>
-                                          <p><a href="#invite-collaborator" role="button" class="btn" data-toggle="modal">Invite new collaborator</a></p>
-                                      </fieldset>
-                                  </form>
+                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
+                                    <form id="" method="post" class="form-horizontal ">
+                                    <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                    <fieldset id="">
+                                        <h3>List of collaborators</h3>
+                                        <table id="DataTables_Table_1" class="table table-first-column-number data-table display full dataTable">
+                                        <thead>
+                                            <tr role="row"><th aria-label="#: activate to sort column ascending" style="width: 16px;" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting">#</th>
+                                                <th aria-label="First: activate to sort column descending" aria-sort="ascending" style="" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
+                                                </th>
+                                                <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody aria-relevant="all" aria-live="polite" role="alert">
+                                            <tr class="odd">
+                                                <td class="">10</td>
+                                                <td class="  sorting_1"><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> -</td>
+                                                <td class=" ">
+                                                    <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
+                                                    <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
+                                                </td>
+                                                <!-- UseInformationObjectAsCollection:Collaborators -->
+                                            </tr>
+                                        </tbody>
+                                        </table>
+                                        <h3>Pending collaborators</h3>
+                                        <table id="DataTables_Table_1" class="table table-first-column-number data-table display full dataTable">
+                                    <thead>
+                                        <tr role="row"><th aria-label="#: activate to sort column ascending" style="width: 16px;" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting">#</th>
+                                            <th aria-label="First: activate to sort column descending" aria-sort="ascending" style="" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
+                                            </th>
+                                            <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody aria-relevant="all" aria-live="polite" role="alert">
+                                        <tr class="odd">
+                                            <td class="">10</td>
+                                            <td class="  sorting_1"><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> -</td>
+                                            <td class=" ">
+                                                <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
+                                                <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
+                                            </td>
+                                            <!-- UseInformationObjectAsCollection:PendingCollaborators -->
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                    </fieldset>
+                                    </form>
+                                </div>
                                 <!-- modals collaborators -->
                                 <div id="view-profile" class="modal hide fade">
                                     <div class="modal-header">
