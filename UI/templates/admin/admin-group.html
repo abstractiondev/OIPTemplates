@@ -73,6 +73,8 @@
               width: 59px;
               height: 59px;
               margin: .5em;
+              overflow-y: hidden;
+              overflow-x: hidden;
               /*background: #667;*/
           }
           .filter-demo-item a{
@@ -276,312 +278,128 @@
                                     fancyFilter('.filter', '#gallery-2');
                                 });
                             </script>
-                            <ul class="filter nav nav-pills">
-                                <li class="active">
-                                    <a href="#all" data-filter=".element">All</a>
-                                </li>
-                                <li><a href="#images" data-filter=".sampleFilterOnetrue">Images</a></li>
-                                <li><a href="#videos" data-filter=".sampleFilterTwotrue">Videos</a></li>
-                            </ul>
 
-                            <div id="gallery" class="gallery" style="clear: both;">
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/7.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 1</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/6.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 2</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/8.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 3</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/5.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 4</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/4.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 5</span>
-                                    </div>
-                                </div>
-
-
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/3.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 6</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwofalse">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/2.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 7</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/1.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 8</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/9.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 9</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/10.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 10</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/11.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 11</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/12.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 12</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwofalse">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/13.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 13</span>
-                                    </div>
-                                </div>
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue">
-                                    <a href="#">
-                                        <img src="../theme-files/images/gallery/14.jpg">
-                                    </a>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
-                                        <span class="title">image 14</span>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="sub-header"><h2>List of image groups</h2>
-                            </div>
-                            <!--<ul class="filter nav nav-pills">
-                                <li class="active">
-                                    <a href="#all" data-filter=".element">All</a>
-                                </li>
-                                <li><a href="#images" data-filter=".sampleFilterOnetrue">Images</a></li>
-                                <li><a href="#videos" data-filter=".sampleFilterTwotrue">Videos</a></li>
-                            </ul>-->
-
-                            <div id="gallery-2" class="gallery" style="clear: both;">
-                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 1</span>
-                                    </div>
-                                </div>
-                               <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 2</span>
-                                    </div>
-                                </div>
-                               <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/10.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/7.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 3</span>
-                                    </div>
-                                </div>
-                               <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 4</span>
-                                    </div>
-                                </div>
-                               <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 5</span>
-                                    </div>
-                                </div>
-                               <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 6</span>
-                                    </div>
-                                </div>
-                               <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                    <div id="filter-demo" style="max-width: 220px">
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
-                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                    <div class="image-data">
-                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                        <span class="title">image group 7</span>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="control-group">
-                                <!-- Appended button -->
-                                <label class="control-label">New Image Group</label>
-                                <div class="controls">
-                                    <div class="input-append">
-                                        <input class="span9" type="text" placeholder="Enter a new image group name">
-                                      <span>
-                                        <a href="#" class="btn btn-success add-on">Add New Image Group</a>
-                                      </span>
-                                    </div>
-                                    <p class="help-block"></p>
-                                </div>
-                            </div>
-
-
-
-                            <form id="" method="post" class="form-horizontal ">
-                                    <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                    <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.ImageGroupContainer:ImageGroups -->
+                            <div>
+                                <form id="" method="post" class="form-horizontal ">
+                                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.ImageGroupContainer:ImageGroups -->
                                     <fieldset id="current-imagegroups">
-                                        <div class="control-group">
-                                            <label class="control-label">(old)List of image groups</label>
-                                            <div id="SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!]" class="controls">
-                                                <?php include '../caloom-atoms/caloom-atom-choose-imagegroup.txt' ?><!-- UseInformationObjectAsCollection:ImageGroups -->
+                                        <div id="gallery-2" class="gallery" style="clear: both;">
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="pull-right"><a href="#"><i class="icon-remove"></i></a></span>
+                                                    <span class="title">image group 1</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <script type="text/javascript">
-                                            $(function () {
-                                                $('#SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!] input').each(function (index) {
-                                                    $(this).prop('checked', false);
-                                                });
-
-                                                $('#SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!] input').on("click", function (event) {
-                                                    var selected = new Array();
-                                                    $('#SelectedImageGroups_[!ATOM]ImageGroups.ID[ATOM!] input:checked').each(function () {
-                                                        selected.push($(this).attr('id'));
-                                                    });
-    // <!-- THEBALL-CONTEXT-END:* -->
-                                                    // Context switch here!
-                                                    $("#[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated").val(selected.join(",").split("_Selected").join(""));
-                                                    // alert($("#[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated").val());
-                                                });
-
-                                                var initializationArray = $("#[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated").val().split(",");
-                                                $.each(initializationArray, function (index, value) {
-                                                    $("#" + value + "_Selected").prop('checked', true);
-                                                });
-
-                                            });
-                                        </script>
-                                        <input type="hidden" id="[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated" name="[!ATOM]ImageGroupCollection.ID[ATOM!]_SelectedIDCommaSeparated" value="[!ATOM]ImageGroupCollection.SelectedIDCommaSeparated[ATOM!]">
-                                        <div class="control-group controls">
-                                            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                <a href="#add-imagegroup" role="button" class="btn" data-toggle="modal"><i class="icon-plus-sign"></i> Image Group</a>
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="title">image group 2</span>
+                                                </div>
                                             </div>
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/10.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/7.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="title">image group 3</span>
+                                                </div>
+                                            </div>
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="title">image group 4</span>
+                                                </div>
+                                            </div>
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="title">image group 5</span>
+                                                </div>
+                                            </div>
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="title">image group 6</span>
+                                                </div>
+                                            </div>
+                                            <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="image-data">
+                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
+                                                    <span class="title">image group 7</span>
+                                                </div>
+                                            </div>
+                                            <div class="element thumbnail pull-left last add-image-group">
+                                                <div id="filter-demo" style="max-width: 220px">
+                                                     <div class="image-data">
+                                                         <h2>Add new image group</h2>
+                                                          <div class="input-append">
+                                                              <input type="text" placeholder="Name Image group" class="span9">
+                                                              <span class="add-on">
+                                                                <label for="appendedCheckbox" class="checkbox">
+                                                                    <a href="#" class="btn btn-primary btn-mini" >Add</a>
+                                                                </label>
+                                                              </span>
+                                                          </div>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
                                         </div>
                                         <footer>
                                             <div class="control-group controls">
@@ -593,6 +411,7 @@
                                         </footer>
                                     </fieldset>
                                 </form>
+                            </div>
                                 <!-- modals imagegroup-->
                                 <div id="view-imagegroup" class="modal hide fade well">
                                     <div class="modal-header">
