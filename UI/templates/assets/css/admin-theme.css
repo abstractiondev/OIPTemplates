@@ -1083,6 +1083,30 @@ body .http-error p {
 .tab-content .cards {
   margin: 0em;
 }
+.tab-content form {
+  margin-bottom: 0;
+}
+.tab-content footer {
+  padding: 0;
+  background: #f2f0f0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f0f0), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #f2f0f0, #ffffff);
+  background: -moz-linear-gradient(center bottom, #f2f0f0 0%, #ffffff 100%);
+  background: -o-linear-gradient(bottom, #f2f0f0, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2f0f0', EndColorStr='#ffffff');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff',EndColorStr='#f2f0f0')";
+  border: 1px solid #dad4d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.tab-content footer .control-group {
+  margin: 0;
+  padding: 10px;
+}
 .fancy-tab-container {
   border: 1px solid #c2b9b9;
   -webkit-border-radius: 5px;
