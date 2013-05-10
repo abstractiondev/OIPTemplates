@@ -257,44 +257,188 @@
                                   </form>
                             </div>
                             <div class="tab-pane fade" id="tab-media">
-                                <ul class="filter nav nav-pills">
-                                    <li class="active"><a data-filter=".filter-demo-item" href="#all">All</a></li>
-                                    <li><a data-filter=".sampleFilterOne" href="#images">Images</a></li>
-                                    <li><a data-filter=".sampleFilterTwo" href="#videos">Videos</a></li>
-                                    <li><a data-filter=".sampleFilterThree" href="#xls">Spreadsheets</a></li>
-                                    <li><a data-filter=".sampleFilterFour" href="#documents">Documents</a></li>
-                                </ul>
-                                <div style="max-width: 100%; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 0px);"></div>
-                                    <div class="filter-demo-item isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 0px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 0px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 0px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 0px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 64px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 128px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 192px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 256px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 256px);"></div>
-                                    <div class="filter-demo-item sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 256px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 256px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 256px);"></div>
-                                    <div class="filter-demo-item sampleFilterOne sampleFilterTwo isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 256px);"></div>
+                            <script type="text/javascript">
+
+                                $(function(){
+
+                                    $('#gallery').imagesLoaded( function(){
+                                        $(this).isotope();
+                                    });
+
+                                    fancyFilter('.filter', '#gallery');
+
+                                });
+
+                            </script>
+
+
+                            <ul class="filter nav nav-pills">
+                                <li class="active">
+                                    <a data-filter=".element" href="#all">All</a>
+                                </li>
+                                <li><a data-filter=".sampleFilterOnetrue" href="#images">Image Group 1</a></li>
+                                <li><a data-filter=".sampleFilterTwotrue" href="#videos">Image Group 2</a></li>
+                            </ul>
+
+                                <div id="gallery" class="gallery isotope" style="clear: both; position: relative; overflow: hidden; height: 933px;">
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/319768_8498.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 1</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(241px, 0px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/403944_5580.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 2</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(481px, 0px);" class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/43616_6206.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 3</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(722px, 0px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/442256_20337880.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 4</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(722px, 190px);" class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/463600_31373324.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 5</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(241px, 218px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/472381_10949156.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 6</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 337px);" class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwofalse isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/485382_81894547.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 7</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(481px, 337px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/503993_62595320.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 8</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(241px, 426px);" class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/544337_83543416.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 9</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 514px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/625998_12886207.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 10</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(722px, 526px);" class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/737034_24905666.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 11</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(481px, 545px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/760375_32906821.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 12</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(241px, 634px);" class="element thumbnail pull-left sampleFilterOnetrue sampleFilterTwofalse isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/789080_16753532.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 13</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 723px);" class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwotrue isotope-item">
+                                        <a href="#">
+                                            <img src="http://oiptemplates:8888/templates/theme-files/images/gallery/888272_30368604.jpg">
+                                        </a>
+                                        <div class="image-data">
+                                            <span class="pull-right"><a href="#"><i class="icon-thumbs-up"></i></a></span>
+                                            <span class="title">image 14</span>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div style="position: absolute; left: 0px; top: 0px;" class="clearfix isotope-item"></div>
                                 </div>
                                 <form id="" method="post" class="form-horizontal ">
                                     <!-- THEBALL-FORM-HIDDEN-FIELDS -->
