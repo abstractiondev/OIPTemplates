@@ -388,6 +388,8 @@ footer {
 @button-info-color2: lighten(@button-info-color1, 10%);
 @button-inverse-color1: #333333;
 @button-inverse-color2: lighten(@button-inverse-color1, 10%);
+@button-add-image1:@grayLighter;
+@button-add-image2: lighten(@button-add-image1, 10%);
 
 .btn-m(@button-color1, @button-color2) {
     background-color: @button-color1;
@@ -467,7 +469,9 @@ background: lighten(@navbarBackgroundColor, 5%);
 .btn-inverse {
     .btn-m(@button-inverse-color1, @button-inverse-color2);
 }
-
+.btn-add-image {
+    .btn-m(@button-add-image1, @button-add-image2);
+}
 .fancy.pagination {
     ul {
         .box-shadow(none);
@@ -600,12 +604,23 @@ background: lighten(@navbarBackgroundColor, 5%);
     .image-data {
 
         i, span { height: 1.5em; }
-        background: white;
+        background: darken(@navbarBackgroundColor, 26%);
         line-height: 1.5em;
         border-top: 0px;
         padding: 0em 5px;
         .title {
-            font-size: .75em;
+          color: @white;
+          text-shadow: 1px 1px 0px darken(@navbarBackgroundColor, 50%);
+          font-size: .85em;
+        }
+        & a i {
+          margin-left: 10px;
+          color: @white;
+          text-shadow: 1px 1px 0px darken(@navbarBackgroundColor, 50%);
+          font-size: 100%;
+          & :hover {
+            color:red; //testing
+          }
         }
     }
 

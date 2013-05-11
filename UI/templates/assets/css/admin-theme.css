@@ -558,6 +558,24 @@ footer a {
   background-color: transparent;
   background-image: none;
 }
+.btn-add-image {
+  background-color: #d3cccc;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ebe7e7), to(#d3cccc));
+  background-image: -webkit-linear-gradient(top, #ebe7e7, #d3cccc);
+  background-image: -o-linear-gradient(top, #ebe7e7, #d3cccc);
+  background-image: linear-gradient(to bottom, #ebe7e7, #d3cccc);
+  background-image: -moz-linear-gradient(top, #ebe7e7, #d3cccc);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ebe7e7', EndColorStr='#d3cccc');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ebe7e7',EndColorStr='#d3cccc')";
+}
+.btn-add-image:hover {
+  background-color: #d3cccc;
+  *background-color: #d3cccc;
+}
+.btn-add-image.btn-link {
+  background-color: transparent;
+  background-image: none;
+}
 .fancy.pagination ul {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -753,7 +771,7 @@ footer a {
   background-clip: padding-box;
 }
 .gallery .image-data {
-  background: white;
+  background: #968585;
   line-height: 1.5em;
   border-top: 0px;
   padding: 0em 5px;
@@ -763,7 +781,18 @@ footer a {
   height: 1.5em;
 }
 .gallery .image-data .title {
-  font-size: .75em;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #564a4a;
+  font-size: .85em;
+}
+.gallery .image-data a i {
+  margin-left: 10px;
+  color: #ffffff;
+  text-shadow: 1px 1px 0px #564a4a;
+  font-size: 100%;
+}
+.gallery .image-data a i :hover {
+  color: red;
 }
 .gallery img {
   display: block;
