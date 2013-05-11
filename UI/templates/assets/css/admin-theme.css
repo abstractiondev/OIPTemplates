@@ -788,7 +788,21 @@ footer a {
   background-clip: padding-box;
 }
 .gallery .image-data {
-  background: #968585;
+  padding: 0;
+  background: #dcd7d7;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dcd7d7), color-stop(1, #efeded));
+  background: -ms-linear-gradient(bottom, #dcd7d7, #efeded);
+  background: -moz-linear-gradient(center bottom, #dcd7d7 0%, #efeded 100%);
+  background: -o-linear-gradient(bottom, #dcd7d7, #efeded);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#dcd7d7', EndColorStr='#efeded');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#efeded',EndColorStr='#dcd7d7')";
+  border: 1px solid #dad4d4;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   line-height: 1.5em;
   border-top: 0px;
   padding: 0em 5px;
@@ -798,18 +812,18 @@ footer a {
   height: 1.5em;
 }
 .gallery .image-data .title {
-  color: #ffffff;
-  text-shadow: 1px 1px 0px #564a4a;
-  font-size: .85em;
+  color: #564a4a;
+  text-shadow: 1px 1px 0px #ffffff;
+  font-size: 12px;
 }
 .gallery .image-data a i {
   margin-left: 10px;
-  color: #ffffff;
-  text-shadow: 1px 1px 0px #564a4a;
-  font-size: 100%;
+  color: #564a4a;
+  text-shadow: 1px 1px 0px #ffffff;
+  font-size: 18px;
 }
-.gallery .image-data a i :hover {
-  color: red;
+.gallery .image-data a :hover {
+  color: #b30000;
 }
 .gallery img {
   display: block;
