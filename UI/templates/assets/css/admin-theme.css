@@ -567,6 +567,13 @@ footer a {
   background-image: -moz-linear-gradient(top, #ebe7e7, #d3cccc);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ebe7e7', EndColorStr='#d3cccc');
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ebe7e7',EndColorStr='#d3cccc')";
+  height: 35px;
+  width: 59px;
+  font-size: 43px;
+  margin-left: 7px;
+  margin-right: 7px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .btn-add-image:hover {
   background-color: #d3cccc;
@@ -753,6 +760,16 @@ footer a {
   margin-bottom: .25em;
 }
 /*Gallery*/
+.add-image-group {
+  width: 220px;
+  max-height: 93px;
+}
+.add-image-group a i {
+  font-size: 110px;
+  height: 93px;
+  margin-left: 66px;
+  margin-right: 66px;
+}
 .gallery .img-polaroid {
   padding: 4px;
   border: 0px;
