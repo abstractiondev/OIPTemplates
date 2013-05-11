@@ -284,6 +284,15 @@
                                 <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                 <!-- THEBALL-CONTEXT-DYNAMICROOT-BEGIN:AaltoGlobalImpact.OIP.ImageGroupContainer:ImageGroups -->
                                     <fieldset id="current-imagegroups">
+                                        <script type="text/javascript">
+                                        $(document).ready(function(){
+
+                                        $("#toggler").click(function(){
+                                        $(this).toggleClass('active, inactive');
+                                        })
+
+                                        })
+                                        </script>
                                         <div id="gallery-2" class="gallery" style="clear: both;">
                                             <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
                                                 <div id="filter-demo" style="max-width: 220px">
@@ -293,11 +302,12 @@
                                                     <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
                                                     <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
                                                     <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
+                                                    <div class="filter-demo-item"><a href="#" class="btn btn-success"><i class="icon-plus-sign" style="font-size: 43px"></i> </a></div>
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <div class="image-data">
-                                                    <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                    <span class="pull-right"><a href="#"><i class="icon-remove"></i></a></span>
+
+                                                    <span class="pull-right"><a href="#"><i class="icon-remove-sign" style="color: red"></i></a></span>
                                                     <span class="title">image group 1</span>
                                                 </div>
                                             </div>
