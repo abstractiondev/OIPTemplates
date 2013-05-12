@@ -770,6 +770,11 @@ footer a {
   margin-left: 66px;
   margin-right: 66px;
 }
+.filter-map-item {
+  height: 220px;
+  overflow: hidden;
+  width: 220px;
+}
 .gallery .img-polaroid {
   padding: 4px;
   border: 0px;
