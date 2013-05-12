@@ -762,13 +762,32 @@ footer a {
 /*Gallery*/
 .add-image-group {
   width: 220px;
-  max-height: 93px;
+  height: 220px;
+  background-image: url("../img/map-button.png");
+  background-repeat: none;
 }
 .add-image-group a i {
-  font-size: 110px;
-  height: 93px;
-  margin-left: 66px;
-  margin-right: 66px;
+  font-size: 200px;
+  height: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.add-map {
+  width: 220px;
+  height: 243px;
+  background-image: url("../img/map-button.png");
+  background-repeat: none;
+}
+.add-map a i {
+  font-size: 200px;
+  height: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.add-map .btn:hover {
+  background-position: 0px 0px;
 }
 .filter-map-item {
   height: 220px;
