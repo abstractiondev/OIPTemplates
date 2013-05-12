@@ -789,13 +789,13 @@ footer a {
 }
 .gallery .image-data {
   padding: 0;
-  background: #dcd7d7;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dcd7d7), color-stop(1, #efeded));
-  background: -ms-linear-gradient(bottom, #dcd7d7, #efeded);
-  background: -moz-linear-gradient(center bottom, #dcd7d7 0%, #efeded 100%);
-  background: -o-linear-gradient(bottom, #dcd7d7, #efeded);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#dcd7d7', EndColorStr='#efeded');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#efeded',EndColorStr='#dcd7d7')";
+  background: #dad4d4;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dad4d4), color-stop(1, #edeaea));
+  background: -ms-linear-gradient(bottom, #dad4d4, #edeaea);
+  background: -moz-linear-gradient(center bottom, #dad4d4 0%, #edeaea 100%);
+  background: -o-linear-gradient(bottom, #dad4d4, #edeaea);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#dad4d4', EndColorStr='#edeaea');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#edeaea',EndColorStr='#dad4d4')";
   border: 1px solid #dad4d4;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;

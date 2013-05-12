@@ -306,9 +306,9 @@
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <div class="image-data">
-                                                    <span class="pull-right"><a href="#"><i class="icon-remove-sign"></i></a></span>
+                                                    <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-image-group"><i class="icon-remove-sign"></i></a></span>
+                                                    <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-image-group-name"><i class="icon-edit"></i></a></span>
                                                     <span class="title">image group 1</span>
-                                                    <span class="title"><a href="#"><i class="icon-edit"></i></a></span>
                                                 </div>
                                             </div>
                                             <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
@@ -395,9 +395,7 @@
                                                 </div>
                                             </div>
                                             <div class="element thumbnail pull-left last add-image-group btn">
-                                                <a href="#"> <i class="icon-plus-sign"></i> </a>
-                                                      </div>
-                                                </div>
+                                                <a data-toggle="modal" role="button" href="#add-image-group"> <i class="icon-plus-sign"></i> </a>
                                             </div>
                                             <div class="clearfix"></div>
                                         </div>
@@ -412,42 +410,70 @@
                                     </fieldset>
                                 </form>
                             </div>
-                                <!-- modals imagegroup-->
-                                <div id="view-imagegroup" class="modal hide fade well">
+                                <!-- modals image-group-->
+                                <div id="edit-image-group-name" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
                                         <h3>
-                                            View this image group
+                                            Rename {image-group-name}
                                         </h3>
                                     </div>
-                                    <div class="modal-body well">
+                                    <div class="modal-body">
                                         <form method="post" class="form-horizontal">
                                             <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                             <fieldset>
-                                                <p>
-                                                    Here is going to be the image group view
-                                                </p>
-                                                <div class="modal-footer">
-                                                    <div class="control-group controls">
-                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
-                                                            <button class="btn">Close window</button>
-                                                        </div>
+                                                <div class="control-group">
+                                                    <!-- Text input-->
+                                                    <label for="name-image-group-input" class="control-label">Rename the Image Group</label>
+                                                    <div class="controls">
+                                                        <input type="text" class="input-xlarge" placeholder="Image group 1">
+                                                        <p class="help-block">Supporting help text</p>
                                                     </div>
                                                 </div>
                                             </fieldset>
                                         </form>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+                                        <button class="btn btn-primary">Save changes</button>
+                                    </div>
                                 </div>
-                                <div id="add-imagegroup" class="modal hide fade">
+                                <div id="remove-image-group" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            Add an image group
-                                        </h2>
+                                        <h3>
+                                            Remove {image-group-name}
+                                        </h3>
                                     </div>
                                     <div class="modal-body">
                                         <form method="post" class="form-horizontal">
-
+                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                            <fieldset>
+                                                <div class="control-group">
+                                                    <!-- Text input-->
+                                                    <label for="name-image-group-input" class="control-label">Remove</label>
+                                                    <div class="controls">
+                                                        <input type="checkbox">
+                                                        <p class="help-block">If you remove {image-group-name} the images themselves will stay available to {group-name}. To remove individual image, select the image and inside the popup window choose "remove this image"</p>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+                                        <button class="btn btn-danger">Remove Image Group</button>
+                                    </div>
+                                </div>
+                                <div id="add-image-group" class="modal hide fade">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h3>
+                                            Add an image group
+                                        </h3>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" class="form-horizontal">
                                             <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddImageGroupInfo:AddImageGroup -->
                                             <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                             <fieldset>
@@ -457,15 +483,13 @@
                                                         <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
                                                     </div>
                                                 </div>
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                                        <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
-                                                    </div>
-                                                </div>
                                             </fieldset>
                                             <!-- THEBALL-CONTEXT-END:* -->
                                         </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+                                        <button class="btn btn-primary">Save changes</button>
                                     </div>
                                   </div>
                                 <!-- end modals imagegroup-->
