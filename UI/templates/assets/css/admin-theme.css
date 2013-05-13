@@ -1161,36 +1161,6 @@ body .http-error p {
 .sidebar .widget .cards {
   margin: 0em;
 }
-.tab-content {
-  padding: .5em 1em 1em 1em;
-}
-.tab-content .cards {
-  margin: 0em;
-}
-.tab-content form {
-  margin-bottom: 0;
-}
-.tab-content footer {
-  padding: 0;
-  background: #f2f0f0;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f0f0), color-stop(1, #ffffff));
-  background: -ms-linear-gradient(bottom, #f2f0f0, #ffffff);
-  background: -moz-linear-gradient(center bottom, #f2f0f0 0%, #ffffff 100%);
-  background: -o-linear-gradient(bottom, #f2f0f0, #ffffff);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2f0f0', EndColorStr='#ffffff');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff',EndColorStr='#f2f0f0')";
-  border: 1px solid #dad4d4;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-}
-.tab-content footer .control-group {
-  margin: 0;
-  padding: 10px;
-}
 .fancy-tab-container {
   border: 1px solid #c2b9b9;
   -webkit-border-radius: 5px;
@@ -1538,6 +1508,33 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   background-clip: padding-box;
   border: 1px solid #c7bebe;
 }
+.tab-content {
+  padding: .5em 1em 1em 1em;
+}
+.tab-content form {
+  margin-bottom: 0;
+}
+.tab-content footer {
+  padding: 0;
+  background: #f2f0f0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f0f0), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #f2f0f0, #ffffff);
+  background: -moz-linear-gradient(center bottom, #f2f0f0 0%, #ffffff 100%);
+  background: -o-linear-gradient(bottom, #f2f0f0, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2f0f0', EndColorStr='#ffffff');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff',EndColorStr='#f2f0f0')";
+  border: 1px solid #dad4d4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.tab-content footer .control-group {
+  margin: 0;
+  padding: 10px;
+}
 .cards {
   list-style: none;
   margin-left: 0px;
@@ -1650,76 +1647,28 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   margin-left: 1em;
   display: block;
 }
-.profile-view {
+.cards-profile {
+  max-width: 220px;
+  background-color: greenyellow;
   height: auto;
+  margin-top: 10px;
+  background-clip: padding-box;
+  border: 1px solid #CCCCCC;
+  border-radius: 0 0 0 0;
+  margin: 0.75em 0.75em 0 0;
 }
-.profile-view ul {
-  list-style: none;
-  margin-left: 0px;
-  margin: 0em 0em 1em 0em;
+.cards-profile header {
+  background-color: red;
 }
-.profile-view li {
-  font-size: 0.8em;
-  margin-bottom: 0em;
-  padding: 0.3em;
-  border-top: none;
+.cards-profile section {
+  padding: 10px;
 }
-.profile-view li:first-child {
-  border-top: none;
-  margin-top: 1em;
-}
-.profile-view li.more {
-  text-align: center;
-  padding: .5em 0em;
-}
-.profile-view li i {
-  color: #e1dcdc;
-  margin-right: 5px;
-  font-size: 2em;
-  font-weight: 100;
-}
-.profile-view li span {
-  margin-right: 0px;
-}
-.profile-view li span:after {
-  content: ",";
-}
-.profile-view.not-bottom li:last-child {
-  border-bottom: none;
-  margin-bottom: 1em;
-}
-.profile-view .title {
-  text-transform: uppercase;
-  text-shadow: 1px 1px 0px #fff;
-  line-height: 1.2em;
-  margin-bottom: 0.5em;
-  color: #0f0501;
-}
-.profile-view .title strong {
-  text-transform: none;
-}
-.profile-view .info-text {
-  position: relative;
-  top: -4px;
-}
-.profile-view .stats {
-  padding-top: .2em;
-  margin-bottom: 0em;
-}
-.profile-view .stats span {
-  margin-right: .1em;
-  opacity: 0.7;
-}
-.profile-view footer {
-  height: 17px;
-  padding: 2px;
+.cards-profile footer {
   background: none;
-  border: 1px solid #efeded;
-}
-.profile-view footer span {
-  font-size: 16px;
-  line-height: 18px;
-  margin-left: 5px;
+  background-color: purple;
+  height: 20px;
+  border: none;
+  border-radius: 0px;
 }
 .muted {
   color: #8c7a7a;

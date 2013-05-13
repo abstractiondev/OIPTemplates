@@ -621,6 +621,69 @@
                                     </fieldset>
                                     </form>
                                 </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tab-collaborators-alt">
+                                <div>
+                                    <form id="" method="post" class="form-horizontal ">
+                                        <fieldset id="collaborators-alt">
+                                            <script type="text/javascript">
+                                                $(document).ready(function(){
+
+                                                    $("#toggler").click(function(){
+                                                        $(this).toggleClass('active, inactive');
+                                                    })
+
+                                                })
+                                            </script>
+                                            <div id="gallery-5" class="gallery" style="clear: both;">
+                                                <div class="cards cards-profile pull-left">
+                                                    <header>Ashley Jacobs</header>
+                                                    <section>
+                                                        <div class="img">
+                                                            <img src="../theme-files/images/faces/1b.png">
+                                                        </div>
+                                                        <p class="info-text">Little information about me</p>
+                                                        <ul class="stats">
+                                                            <li>
+                                                                <i class="icon-file"></i>
+                                                                <span>project-1</span>
+                                                                <span>project-2</span>
+                                                                <span>project-3</span>
+                                                            </li>
+                                                            <li><i class="icon-group"></i>
+                                                                <span>Aalto Global Impact</span>
+                                                                <span>Weconomy</span>
+                                                                <span>Earthhouse</span>
+                                                            </li>
+                                                            <li><i class="icon-map-marker"></i>
+                                                                <span>Helsinki</span>
+                                                                <span>Delhi</span>
+                                                            </li>
+                                                        </ul>
+                                                    </section>
+                                                    <div class="clearfix"></div>
+                                                    <footer>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role"><i class="icon-edit"></i></a></span>
+                                                    </footer>
+                                                </div>
+                                                <div class="element thumbnail pull-left last btn add-map">
+                                                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <footer style="margin-top: 20px">
+                                                <div class="control-group controls">
+                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </footer>
+                                        </fieldset>
+                                    </form>
+                                </div>
                                 <!-- modals collaborators -->
                                 <div id="view-profile" class="modal hide fade">
                                     <div class="modal-header">
@@ -657,6 +720,30 @@
                                         </form>
                                     </div>
                                 </div>
+                                <div id="edit-collaborator-role" class="modal hide fade well">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h3>
+                                            Remove this collaborator
+                                        </h3>
+                                    </div>
+                                    <div class="modal-body well">
+                                        <form method="post" class="form-horizontal">
+                                            <fieldset>
+                                                <p>
+                                                    You are now about to remove this collaborator from your group.
+                                                </p>
+                                                <div class="modal-footer">
+                                                    <div class="control-group controls">
+                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
                                 <div id="invite-collaborator" class="modal hide fade well">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
@@ -667,19 +754,20 @@
                                     <div class="modal-body well">
                                         <form method="post" class="form-horizontal">
                                             <fieldset>
-                                                <p>
-                                                    Invite new collaborator to this group. Use only valid email address that you trust to belong to that person.
-                                                </p>
                                                 <div class="control-group">
-                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address that you trust</label>
+                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address</label>
                                                     <div class="controls">
-                                                        <input name="[!ATOM]ID[ATOM!]_EmailAddress" class="span3" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">
-                                                    </div>
-                                                </div>
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                                        <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
+                                                        <!--<input name="[!ATOM]ID[ATOM!]_EmailAddress" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">-->
+                                                        <input type="text" data-source="[&quot;sujil@aalto.fi&quot;,&quot;teija@aalto.fi&quot;,&quot;anne@aalto.fi&quot;,&quot;andrew@aalto.fi&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;">
+                                                        <ul class="typeahead dropdown-menu" style="top: 2950px; left: 595.433px; display: none;">
+                                                            <li data-value="Ssujil@aalto.fi" class="active"><a href="#"><strong>S</strong>outh Carolina</a></li>
+                                                            <li data-value="teija@aalto.fi"><a href="#"><strong>S</strong>outh Dakota</a></li>
+                                                            <li data-value="anne@aalto.fi"><a href="#">Ala<strong>s</strong>ka</a></li>
+                                                            <li data-value="andrew@aalto.fi"><a href="#">Arkan<strong>s</strong>a<strong>s</strong></a></li>
+                                                        </ul>
+                                                        <p class="helptext">
+                                                            Use only valid email address that you trust to belong to that person.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </fieldset>
@@ -688,153 +776,7 @@
                                 </div>
                                 <!-- end modals collaborators -->
                             </div>
-                            <div class="tab-pane fade" id="tab-collaborators-alt">
-                                <div>
-                                    <form id="" method="post" class="form-horizontal ">
-                                        <fieldset id="collaborators-alt">
-                                            <script type="text/javascript">
-                                                $(document).ready(function(){
 
-                                                    $("#toggler").click(function(){
-                                                        $(this).toggleClass('active, inactive');
-                                                    })
-
-                                                })
-                                            </script>
-                                            <div id="gallery-5" class="gallery" style="clear: both;">
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo-2" style="max-width: 220px">
-                                                        <div class="filter-map-item profile-view">
-                                                            <div class="cards">
-                                                                    <p class="title">Ashley Jacobs</p>
-                                                                    <div class="img">
-                                                                        <img src="../theme-files/images/faces/1b.png">
-                                                                    </div>
-                                                                    <p class="info-text">Little information about me</p>
-                                                                    <ul class="stats">
-                                                                        <li>
-                                                                            <i class="icon-file"></i>
-                                                                            <span>project-1</span>
-                                                                            <span>project-2</span>
-                                                                            <span>project-3</span>
-                                                                        </li>
-                                                                        <li><i class="icon-group"></i>
-                                                                            <span>Aalto Global Impact</span>
-                                                                            <span>Weconomy</span>
-                                                                            <span>Earthhouse</span>
-                                                                        </li>
-                                                                        <li><i class="icon-map-marker"></i>
-                                                                            <span>Helsinki</span>
-                                                                            <span>Delhi</span>
-                                                                        </li>
-                                                                    </ul>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                            <footer>
-                                                                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator-alt"><i class="icon-remove-sign"></i></a></span>
-                                                                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role"><i class="icon-edit"></i></a></span>
-                                                            </footer>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left last btn add-map">
-                                                    <a data-toggle="modal" role="button" href="#add-location"> <i class="icon-plus-sign"></i> </a>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <footer style="margin-top: 20px">
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            <!-- modals locations-->
-                                <div id="edit-location-name" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Rename {location-name}
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <!-- Text input-->
-                                                    <label for="name-image-group-input" class="control-label">Rename {location}</label>
-                                                    <div class="controls">
-                                                        <input type="text" class="input-xlarge" placeholder="Image group 1">
-                                                        <p class="help-block">Supporting help text</p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                                <div id="remove-location" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Remove {location-name}
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <!-- Text input-->
-                                                    <label for="name-image-group-input" class="control-label">Remove</label>
-                                                    <div class="controls">
-                                                        <input type="checkbox">
-                                                        <p class="help-block">If you remove {location} the location itself will become <em>unavailable</em> to {group-name}.</p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-danger">Remove Image Group</button>
-                                    </div>
-                                </div>
-                                <div id="add-location" class="modal hide fade">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <h3>
-                                        Add a location
-                                    </h3>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="post" class="form-horizontal">
-                                        <fieldset>
-                                            <div class="control-group">
-                                                <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Location Name</label>
-                                                <div class="controls">
-                                                    <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <!-- THEBALL-CONTEXT-END:* -->
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                    <button class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                            <!-- end modals locations-->
-                            </div>
                             <div class="tab-pane fade" id="tab-locations-current">
                                 <div>
                                     <form id="" method="post" class="form-horizontal ">
