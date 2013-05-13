@@ -1673,12 +1673,16 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   padding: .5em 0em;
 }
 .profile-view li i {
+  color: #e1dcdc;
   margin-right: 5px;
   font-size: 2em;
   font-weight: 100;
 }
 .profile-view li span {
   margin-right: 0px;
+}
+.profile-view li span:after {
+  content: ",";
 }
 .profile-view.not-bottom li:last-child {
   border-bottom: none;

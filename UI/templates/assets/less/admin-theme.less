@@ -1321,12 +1321,16 @@ ul.nav.nav-tabs.fancy {
         padding: .5em 0em;
       }
       i {
+        color: lighten(@navbarBackgroundColor, 6%);
         margin-right: 5px;
         font-size: 2em;
         font-weight: 100;
       }
       span {
         margin-right: 0px;
+        &:after {
+          content: ",";
+        }
       }
     }
     &.not-bottom li:last-child {
