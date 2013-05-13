@@ -1650,6 +1650,73 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   margin-left: 1em;
   display: block;
 }
+.profile-view {
+  height: auto;
+}
+.profile-view ul {
+  list-style: none;
+  margin-left: 0px;
+  margin: 0em 0em 1em 0em;
+}
+.profile-view li {
+  font-size: 0.8em;
+  margin-bottom: 0em;
+  padding: 0.3em;
+  border-top: none;
+}
+.profile-view li:first-child {
+  border-top: none;
+  margin-top: 1em;
+}
+.profile-view li.more {
+  text-align: center;
+  padding: .5em 0em;
+}
+.profile-view li i {
+  margin-right: 5px;
+  font-size: 2em;
+  font-weight: 100;
+}
+.profile-view li span {
+  margin-right: 0px;
+}
+.profile-view.not-bottom li:last-child {
+  border-bottom: none;
+  margin-bottom: 1em;
+}
+.profile-view .title {
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0px #fff;
+  line-height: 1.2em;
+  margin-bottom: 0.5em;
+  color: #0f0501;
+}
+.profile-view .title strong {
+  text-transform: none;
+}
+.profile-view .info-text {
+  position: relative;
+  top: -4px;
+}
+.profile-view .stats {
+  padding-top: .2em;
+  margin-bottom: 0em;
+}
+.profile-view .stats span {
+  margin-right: .1em;
+  opacity: 0.7;
+}
+.profile-view footer {
+  height: 17px;
+  padding: 2px;
+  background: none;
+  border: 1px solid #efeded;
+}
+.profile-view footer span {
+  font-size: 16px;
+  line-height: 18px;
+  margin-left: 5px;
+}
 .muted {
   color: #8c7a7a;
 }

@@ -1297,7 +1297,77 @@ ul.nav.nav-tabs.fancy {
         margin-left: 1em;
         display: block;
     }
-}
+  }
+
+  .profile-view {
+    height: auto;
+    ul {
+      list-style: none;
+      margin-left: 0px;
+      margin: 0em 0em 1em 0em;
+    }
+    li {
+      font-size: 0.8em;
+      margin-bottom: 0em;
+      padding: 0.3em;
+      border-top: none;//1px solid @navbarBackgroundColor;
+
+      &:first-child {
+        border-top: none;
+        margin-top: 1em;
+      }
+      &.more {
+        text-align: center;
+        padding: .5em 0em;
+      }
+      i {
+        margin-right: 5px;
+        font-size: 2em;
+        font-weight: 100;
+      }
+      span {
+        margin-right: 0px;
+      }
+    }
+    &.not-bottom li:last-child {
+      border-bottom: none;//1px solid @navbarBackgroundColor;
+      margin-bottom: 1em;
+    }
+    .title {
+      text-transform: uppercase;
+      text-shadow: 1px 1px 0px #fff;
+      line-height: 1.2em;
+      margin-bottom: 0.5em;
+      color: @headerColor;
+
+      strong {
+        text-transform: none;
+      }
+    }
+    .info-text {
+      position: relative;
+      top: -4px;
+    }
+    .stats{
+      padding-top: .2em;
+      margin-bottom: 0em;
+      span {
+        margin-right: .1em;
+        opacity: 0.7;
+      }
+    }
+    footer {
+      height:17px;
+      padding: 2px;
+      background: none;
+      border: 1px solid lighten(@navbarBackgroundColor, 12%);
+      span {
+      font-size: 16px;
+        line-height: 18px;
+        margin-left: 5px;
+      }
+    }
+  }
 
 .muted {
     color: darken(@navbarBackgroundColor, 30%);
