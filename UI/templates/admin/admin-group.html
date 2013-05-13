@@ -75,7 +75,6 @@
               margin: .5em;
               overflow-y: hidden;
               overflow-x: hidden;
-              /*background: #667;*/
           }
           .filter-demo-item a{
 
@@ -198,6 +197,7 @@
             <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
             <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
             <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
+            <li class=" "><a href="#tab-collaborators-alt" data-toggle="tab"><i class="icon-user-md"></i> <span>Collaborators-alt</span></a></li>
             <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
             <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
         </ul>
@@ -213,6 +213,7 @@
                                 <form id="" method="post" class="form-horizontal" enctype="multipart/form-data">
                                       <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                       <fieldset id="profile">
+                                          <!-- group profile image and group icon image -->
                                           <div class="span12">
                                               <div class="span6">
                                                   <div class="control-group">
@@ -253,6 +254,7 @@
                                                   </div>
                                               </div>
                                           </div>
+                                          <!-- end group profile image and group icon image -->
                                           <div class="control-group">
                                               <label class="control-label" for="[!ATOM]ID[ATOM!]_GroupName">Group name</label>
                                               <div class="controls">
@@ -262,13 +264,13 @@
                                           <div class="control-group">
                                               <label class="control-label" for="[!ATOM]ID[ATOM!]_Description">Description</label>
                                               <div class="controls">
-                                                  <textarea class="span11" id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
+                                                  <textarea id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
                                               </div>
                                           </div>
                                           <div class="control-group">
                                               <label class="control-label" for="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
                                               <div class="controls">
-                                                  <textarea class="span11" id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
+                                                  <textarea id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
                                               </div>
                                           </div>
                                           <footer>
@@ -554,60 +556,153 @@
                             <div class="tab-pane fade" id="tab-collaborators">
                                 <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
                                     <form id="" method="post" class="form-horizontal ">
-                                    <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                     <fieldset id="">
                                         <div class="control-group">
-                                        <h3>List of collaborators</h3>
-                                        <table id="DataTables_Table_1" class="table table-first-column-number data-table display full dataTable">
-                                        <thead>
-                                            <tr role="row"><th aria-label="#: activate to sort column ascending" style="width: 16px;" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting">#</th>
-                                                <th aria-label="First: activate to sort column descending" aria-sort="ascending" style="" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
-                                                </th>
-                                                <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody aria-relevant="all" aria-live="polite" role="alert">
-                                            <tr class="odd">
-                                                <td class="">10</td>
-                                                <td class="  sorting_1"><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> -</td>
-                                                <td class=" ">
-                                                    <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
-                                                    <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
-                                                </td>
-                                                <!-- UseInformationObjectAsCollection:Collaborators -->
-                                            </tr>
-                                        </tbody>
-                                        </table>
-                                        <h3>Pending collaborators</h3>
-                                        <table id="DataTables_Table_1" class="table table-first-column-number data-table display full dataTable">
-                                    <thead>
-                                        <tr role="row"><th aria-label="#: activate to sort column ascending" style="width: 16px;" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting">#</th>
-                                            <th aria-label="First: activate to sort column descending" aria-sort="ascending" style="" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
-                                            </th>
-                                            <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody aria-relevant="all" aria-live="polite" role="alert">
-                                        <tr class="odd">
-                                            <td class="">10</td>
-                                            <td class="  sorting_1"><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> -</td>
-                                            <td class=" ">
-                                                <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
-                                                <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
-                                            </td>
-                                            <!-- UseInformationObjectAsCollection:PendingCollaborators -->
-                                        </tr>
-                                    </tbody>
-                                    </table>
+                                            <h3>List of collaborators</h3>
+                                            <table id="DataTables_Table_1" class="table table-first-column-number data-table display full dataTable">
+                                                <thead>
+                                                    <tr role="row"><th style="width: 16px;" colspan="1" rowspan="1"  tabindex="0" role="columnheader" class="sorting">#</th>
+                                                        <th style="" colspan="1" rowspan="1"  tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
+                                                        </th>
+                                                        <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody aria-relevant="all" aria-live="polite" role="alert">
+                                                    <tr class="odd">
+                                                        <td class="">10</td>
+                                                        <!-- changes:
+                                                        href="#ViewCollaboratorProfile" is replaced with href="#view-profile" so in the dummy GUI we can more easily bring up the modal
+                                                        data-toggle="modal" is added for the needed functionality
+                                                        -->
+                                                        <td class="  sorting_1">
+                                                            <a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" data-toggle="modal" href="#view-profile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a>
+                                                            -</td>
+                                                        <td class=" ">
+                                                            <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
+                                                            <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                                </table>
+                                            <h3>Pending collaborators</h3>
+                                            <table id="DataTables_Table_2" class="table table-first-column-number data-table display full dataTable">
+                                                <thead>
+                                                    <tr role="row"><th aria-label="#: activate to sort column ascending" style="width: 16px;" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting">#</th>
+                                                        <th aria-label="First: activate to sort column descending" aria-sort="ascending" style="" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
+                                                        </th>
+                                                        <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody aria-relevant="all" aria-live="polite" role="alert">
+                                                    <tr class="odd">
+                                                        <td class="">10</td>
+                                                        <td class="  sorting_1"><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> -</td>
+                                                        <td class=" ">
+                                                            <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
+                                                            <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
+                                                        </td>
+                                                        <!-- UseInformationObjectAsCollection:PendingCollaborators -->
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div>
+                                                <h3>Invite a new collaborator</h3>
+                                                <form method="post" class="form-horizontal">
+                                                    <fieldset>
+                                                        <div class="control-group">
+                                                            <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address</label>
+                                                            <div class="controls">
+                                                                <!--<input name="[!ATOM]ID[ATOM!]_EmailAddress" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">-->
+                                                                    <input type="text" data-source="[&quot;sujil@aalto.fi&quot;,&quot;teija@aalto.fi&quot;,&quot;anne@aalto.fi&quot;,&quot;andrew@aalto.fi&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;">
+                                                                <ul class="typeahead dropdown-menu" style="top: 2950px; left: 595.433px; display: none;">
+                                                                    <li data-value="Ssujil@aalto.fi" class="active"><a href="#"><strong>S</strong>outh Carolina</a></li>
+                                                                    <li data-value="teija@aalto.fi"><a href="#"><strong>S</strong>outh Dakota</a></li>
+                                                                    <li data-value="anne@aalto.fi"><a href="#">Ala<strong>s</strong>ka</a></li>
+                                                                    <li data-value="andrew@aalto.fi"><a href="#">Arkan<strong>s</strong>a<strong>s</strong></a></li>
+                                                                </ul>
+                                                                <p class="helptext">
+                                                                    Use only valid email address that you trust to belong to that person.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
                                         </div>
                                         <footer>
                                             <div class="control-group controls">
-                                                <a href="#invite-collaborator" role="button" class="btn" data-toggle="modal">Invite new collaborator</a>
+                                                <div style="padding:0;margin:0;border-top:0;background-color: transparent" class="form-actions">
+                                                    <button class="btn" name="btnCancel" value="true">Cancel</button>
+                                                    <button value="Save" id="RootSourceAction" name="RootSourceAction" class="btn btn-primary" type="submit">Save changes</button>
+                                                </div>
                                             </div>
                                         </footer>
                                     </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="tab-collaborators-alt">
+                                <div>
+                                    <form id="" method="post" class="form-horizontal ">
+                                        <fieldset id="collaborators-alt">
+                                            <script type="text/javascript">
+                                                $(document).ready(function(){
+
+                                                    $("#toggler").click(function(){
+                                                        $(this).toggleClass('active, inactive');
+                                                    })
+
+                                                })
+                                            </script>
+                                            <div id="gallery-5" class="gallery" style="clear: both;">
+                                                <div class="cards cards-profile pull-left">
+                                                    <header>Ashley Jacobs</header>
+                                                    <section>
+                                                        <div class="img">
+                                                            <img src="../theme-files/images/faces/1b.png">
+                                                        </div>
+                                                        <p class="info-text">Little information about me</p>
+                                                        <ul class="stats">
+                                                            <li>
+                                                                <i class="icon-file"></i>
+                                                                <span>project-1</span>
+                                                                <span>project-2</span>
+                                                                <span>project-3</span>
+                                                            </li>
+                                                            <li><i class="icon-group"></i>
+                                                                <span>Aalto Global Impact</span>
+                                                                <span>Weconomy</span>
+                                                                <span>Earthhouse</span>
+                                                            </li>
+                                                            <li><i class="icon-map-marker"></i>
+                                                                <span>Helsinki</span>
+                                                                <span>Delhi</span>
+                                                            </li>
+                                                        </ul>
+                                                    </section>
+                                                    <div class="clearfix"></div>
+                                                    <footer>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role"><i class="icon-edit"></i></a></span>
+                                                    </footer>
+                                                </div>
+                                                <div class="element thumbnail pull-left last btn add-map">
+                                                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <footer style="margin-top: 20px">
+                                                <div class="control-group controls">
+                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </footer>
+                                        </fieldset>
                                     </form>
                                 </div>
                                 <!-- modals collaborators -->
@@ -631,7 +726,30 @@
                                     </div>
                                     <div class="modal-body well">
                                         <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                                            <fieldset>
+                                                <p>
+                                                    You are now about to remove this collaborator from your group.
+                                                </p>
+                                                <div class="modal-footer">
+                                                    <div class="control-group controls">
+                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                                                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="edit-collaborator-role" class="modal hide fade well">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h3>
+                                            Remove this collaborator
+                                        </h3>
+                                    </div>
+                                    <div class="modal-body well">
+                                        <form method="post" class="form-horizontal">
                                             <fieldset>
                                                 <p>
                                                     You are now about to remove this collaborator from your group.
@@ -656,31 +774,30 @@
                                     </div>
                                     <div class="modal-body well">
                                         <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddEmailAddressInfo:AddEmailAddress -->
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                                             <fieldset>
-                                                <p>
-                                                    Invite new collaborator to this group. Use only valid email address that you trust to belong to that person.
-                                                </p>
                                                 <div class="control-group">
-                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address that you trust</label>
+                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address</label>
                                                     <div class="controls">
-                                                        <input name="[!ATOM]ID[ATOM!]_EmailAddress" class="span3" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">
-                                                    </div>
-                                                </div>
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                                        <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
+                                                        <!--<input name="[!ATOM]ID[ATOM!]_EmailAddress" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">-->
+                                                        <input type="text" data-source="[&quot;sujil@aalto.fi&quot;,&quot;teija@aalto.fi&quot;,&quot;anne@aalto.fi&quot;,&quot;andrew@aalto.fi&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;">
+                                                        <ul class="typeahead dropdown-menu" style="top: 2950px; left: 595.433px; display: none;">
+                                                            <li data-value="Ssujil@aalto.fi" class="active"><a href="#"><strong>S</strong>outh Carolina</a></li>
+                                                            <li data-value="teija@aalto.fi"><a href="#"><strong>S</strong>outh Dakota</a></li>
+                                                            <li data-value="anne@aalto.fi"><a href="#">Ala<strong>s</strong>ka</a></li>
+                                                            <li data-value="andrew@aalto.fi"><a href="#">Arkan<strong>s</strong>a<strong>s</strong></a></li>
+                                                        </ul>
+                                                        <p class="helptext">
+                                                            Use only valid email address that you trust to belong to that person.
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </fieldset>
-                                            <!-- THEBALL-CONTEXT-END:* -->
                                         </form>
                                     </div>
                                 </div>
                                 <!-- end modals collaborators -->
                             </div>
+
                             <div class="tab-pane fade" id="tab-locations-current">
                                 <div>
                                     <form id="" method="post" class="form-horizontal ">
@@ -750,7 +867,7 @@
                                                         <span class="title">Location name 1</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left last add-image-group btn">
+                                                <div class="element thumbnail pull-left last btn add-map">
                                                     <a data-toggle="modal" role="button" href="#add-location"> <i class="icon-plus-sign"></i> </a>
                                                 </div>
                                                 <div class="clearfix"></div>

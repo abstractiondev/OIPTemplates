@@ -319,8 +319,6 @@ footer {
     }
 }
 
-
-
 /*Navigation*/
 #sidebar-nav {
     position: absolute; //Needed to make sure content is positioned correctly
@@ -597,13 +595,32 @@ background: lighten(@navbarBackgroundColor, 5%);
 /*Gallery*/
 .add-image-group {
   width: 220px;
-  max-height:93px;
+  height:220px;
+  background-image: url("../img/map-button.png");
+  background-repeat: none;
     & a i {
-      font-size: 110px;
-      height: 93px;
-      margin-left: 66px;
-      margin-right: 66px;
+      font-size: 200px;
+      height: 100px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 20px;
     }
+}
+.add-map{
+  width: 220px;
+  height:243px;
+  background-image: url("../img/map-button.png");
+  background-repeat: none;
+  & a i {
+    font-size: 200px;
+    height: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  .btn:hover{
+    background-position: 0px 0px;
+  }
 }
 
 .filter-map-item {
@@ -896,7 +913,6 @@ body .http-error {
     }
 }
 
-
 .headerGradient(@highlight: 0%) {
     @tabBackgroundColor: lighten(lighten(@navbarBackgroundColor, 3%), @highlight);
     .gradient(@tabBackgroundColor, @tabBackgroundColor, lighten(@tabBackgroundColor, 8%));
@@ -907,27 +923,6 @@ body .http-error {
     text-shadow: 1px 1px 0px lighten(@navbarBackgroundColor, 18%);
     font-size: 1em;
 }
-
-.tab-content {
-    padding: .5em 1em 1em 1em;
-    .cards {
-        margin: 0em;
-    }
-  & form{
-    margin-bottom: 0;
-    }
-
-    & footer {
-      padding: 0;
-      .headerGradient(@highlight: 10%);
-      border: 1px solid lighten(@navbarBackgroundColor, 3%);
-      .rounded(5px);
-      & .control-group {
-        margin: 0;
-        padding: 10px;
-        }
-    }
-  }
 
 .fancy-tab-container {
     border: 1px solid darken(@navbarBackgroundColor, 7%);
@@ -1026,8 +1021,7 @@ ul.nav.nav-tabs.fancy {
   .box-shadow(none);
 }
 
-.table
-{
+.table {
     @tabBorderColor: darken(@navbarBackgroundColor, 5%);
 
     border-collapse: separate;
@@ -1163,6 +1157,24 @@ ul.nav.nav-tabs.fancy {
     border: 1px solid darken(@navbarBackgroundColor, 5%);
 }
 
+.tab-content {
+  padding: .5em 1em 1em 1em;
+  & form{
+    margin-bottom: 0;
+  }
+
+  & footer {
+    padding: 0;
+    .headerGradient(@highlight: 10%);
+    border: 1px solid lighten(@navbarBackgroundColor, 3%);
+    .rounded(5px);
+    & .control-group {
+      margin: 0;
+      padding: 10px;
+    }
+  }
+}
+
 .cards {
     list-style: none;
     margin-left: 0px;
@@ -1278,6 +1290,29 @@ ul.nav.nav-tabs.fancy {
         margin-left: 1em;
         display: block;
     }
+  &-profile{
+    max-width: 220px;
+    background-color: greenyellow;
+    height: auto;
+    margin-top: 10px;
+    background-clip: padding-box;
+    border: 1px solid #CCCCCC;
+    border-radius: 0 0 0 0;
+    margin: 0.75em 0.75em 0 0;
+    header {
+      background-color: red;
+    }
+    section{
+      padding: 10px;
+    }
+    footer{
+      background: none;
+      background-color: purple;
+      height: 20px;
+      border:none;
+      border-radius: 0px;
+    }
+  }
 }
 
 .muted {
