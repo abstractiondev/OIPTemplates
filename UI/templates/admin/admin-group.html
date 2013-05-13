@@ -692,7 +692,7 @@
                             <div class="tab-pane fade" id="tab-collaborators-alt">
                                 <div>
                                     <form id="" method="post" class="form-horizontal ">
-                                        <fieldset id="collaborators-alt">
+                                        <fieldset id="current-locations">
                                             <script type="text/javascript">
                                                 $(document).ready(function(){
 
@@ -702,41 +702,46 @@
 
                                                 })
                                             </script>
-                                            <div id="gallery-4" class="gallery" style="clear: both;">
+                                            <div id="gallery-5" class="gallery" style="clear: both;">
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
                                                     <div id="filter-demo-2" style="max-width: 220px">
-                                                        <div class="cards">
-                                                            <p class="title">Ashley Jacobs</p>
-                                                            <div class="img">
-                                                                <img src="../theme-files/images/faces/1b.png">
-                                                                <div class="label label-info">Pro</div>
-                                                            </div>
-                                                            <p class="info-text">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
-                                                            <div class="stats">
-                                                                <ul>
-                                                                    <li><i class="icon-map-marker"></i>Finland, Mozambique, India</li>
-                                                                    <li><i class="icon-group"></i>Aalto Global Impact, Weconomy, Earthhouse</li>
-                                                                    <li><i class="icon-file"></i>Water & Sanitation project, BoP-Africa</li>
-                                                                </ul>
-                                                                <p class="time">5 minutes ago</p>
-                                                                <span>15 <i class="icon-pushpin"></i></span>
-                                                                <span>27 <i class="icon-comment"></i></span>
-                                                                <span>158 <i class="icon-eye-open"></i></span>
-                                                            </div>
+                                                        <div class="filter-map-item">
+                                                            <ul class="cards">
+                                                                <li>
+                                                                    <p class="title">Ashley Jacobs</p>
+                                                                    <div class="img">
+                                                                        <img src="../theme-files/images/faces/1b.png">
+                                                                        <div class="label label-info">Pro</div>
+                                                                    </div>
+                                                                    <p class="info-text">Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid.</p>
+                                                                    <div class="stats">
+                                                                        <p class="time">5 minutes ago</p>
+                                                                        <span>15 <i class="icon-pushpin"></i></span>
+                                                                        <span>27 <i class="icon-comment"></i></span>
+                                                                        <span>158 <i class="icon-eye-open"></i></span>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                            <div class="clearfix"></div>
+                                                            <footer>
+                                                                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator-alt"><i class="icon-remove-sign"></i></a></span>
+                                                                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role"><i class="icon-edit"></i></a></span>
+                                                            </footer>
                                                         </div>
                                                     </div>
                                                     <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator-alt"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role"><i class="icon-edit"></i></a></span>
-                                                    </footer>
+                                                    <div class="image-data">
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
+                                                        <span class="title">Location name 1</span>
+                                                    </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left last add-image-group btn">
-                                                    <a data-toggle="modal" role="button" href="#add-collaborator"> <i class="icon-plus-sign"></i> </a>
+                                                <div class="element thumbnail pull-left last btn add-map">
+                                                    <a data-toggle="modal" role="button" href="#add-location"> <i class="icon-plus-sign"></i> </a>
                                                 </div>
                                                 <div class="clearfix"></div>
                                             </div>
-                                            <footer>
+                                            <footer style="margin-top: 20px">
                                                 <div class="control-group controls">
                                                     <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
                                                         <button value="true" name="btnCancel" class="btn">Cancel</button>
@@ -747,8 +752,8 @@
                                         </fieldset>
                                     </form>
                                 </div>
-                                <!-- modals locations-->
-                                <div id="edit-collaborator-role" class="modal hide fade">
+                            <!-- modals locations-->
+                                <div id="edit-location-name" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
                                         <h3>
@@ -775,7 +780,7 @@
                                         <button class="btn btn-primary">Save changes</button>
                                     </div>
                                 </div>
-                                <div id="remove-collaborator-alt" class="modal hide fade">
+                                <div id="remove-location" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
                                         <h3>
@@ -802,32 +807,32 @@
                                         <button class="btn btn-danger">Remove Image Group</button>
                                     </div>
                                 </div>
-                                <div id="add-collaborator" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Add a location
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Location Name</label>
-                                                    <div class="controls">
-                                                        <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                            <!-- THEBALL-CONTEXT-END:* -->
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-primary">Save changes</button>
-                                    </div>
+                                <div id="add-location" class="modal hide fade">
+                                <div class="modal-header">
+                                    <button class="close" data-dismiss="modal">&times;</button>
+                                    <h3>
+                                        Add a location
+                                    </h3>
                                 </div>
-                                <!-- end modals locations-->
+                                <div class="modal-body">
+                                    <form method="post" class="form-horizontal">
+                                        <fieldset>
+                                            <div class="control-group">
+                                                <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Location Name</label>
+                                                <div class="controls">
+                                                    <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <!-- THEBALL-CONTEXT-END:* -->
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+                                    <button class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            <!-- end modals locations-->
                             </div>
                             <div class="tab-pane fade" id="tab-locations-current">
                                 <div>
