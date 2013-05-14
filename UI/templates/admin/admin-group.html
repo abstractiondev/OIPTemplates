@@ -57,7 +57,30 @@
 
     <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <style type="text/css">
+          h2 { margin-top: 2em; }
+          #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
+          #dropdown-buttons .btn-group { margin-left: 31px; }
+          #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
+          #dropdown-buttons2 .btn-group { margin-left: 18px; }
+          .sample-buttons .btn-group {
+              width: 115px;
+              height: 40px;
+              margin: 0em;
+          }
+          .filter-demo-item {
+              float: left;
+              width: 50px;
+              height: 50px;
+              margin: .5em;
+              background: #667;
+          }
+          .loading {
+              margin-right: .25em;
+          }
+      </style>
+
+      <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -147,7 +170,6 @@
             <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
             <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
             <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
-            <li class=" "><a href="#tab-collaborators-alt" data-toggle="tab"><i class="icon-user-md"></i> <span>Collaborators-alt</span></a></li>
             <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
             <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
         </ul>
@@ -504,97 +526,6 @@
                                 <!-- end modals imagegroup-->
                             </div>
                             <div class="tab-pane fade" id="tab-collaborators">
-                                <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
-                                    <form id="" method="post" class="form-horizontal ">
-                                    <fieldset id="">
-                                        <div class="control-group">
-                                            <h3>List of collaborators</h3>
-                                            <table id="DataTables_Table_1" class="table table-first-column-number data-table display full dataTable">
-                                                <thead>
-                                                    <tr role="row"><th style="width: 16px;" colspan="1" rowspan="1"  tabindex="0" role="columnheader" class="sorting">#</th>
-                                                        <th style="" colspan="1" rowspan="1"  tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
-                                                        </th>
-                                                        <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody aria-relevant="all" aria-live="polite" role="alert">
-                                                    <tr class="odd">
-                                                        <td class="">10</td>
-                                                        <!-- changes:
-                                                        href="#ViewCollaboratorProfile" is replaced with href="#view-profile" so in the dummy GUI we can more easily bring up the modal
-                                                        data-toggle="modal" is added for the needed functionality
-                                                        -->
-                                                        <td class="  sorting_1">
-                                                            <a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" data-toggle="modal" href="#view-profile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a>
-                                                            -</td>
-                                                        <td class=" ">
-                                                            <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
-                                                            <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                                </table>
-                                            <h3>Pending collaborators</h3>
-                                            <table id="DataTables_Table_2" class="table table-first-column-number data-table display full dataTable">
-                                                <thead>
-                                                    <tr role="row"><th aria-label="#: activate to sort column ascending" style="width: 16px;" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting">#</th>
-                                                        <th aria-label="First: activate to sort column descending" aria-sort="ascending" style="" colspan="1" rowspan="1" aria-controls="DataTables_Table_1" tabindex="0" role="columnheader" class="sorting_asc">Name - Role<span class="sort-icon"><span></span></span>
-                                                        </th>
-                                                        <th aria-label="Modify User Role" style="" colspan="1" rowspan="1">Manage
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody aria-relevant="all" aria-live="polite" role="alert">
-                                                    <tr class="odd">
-                                                        <td class="">10</td>
-                                                        <td class="  sorting_1"><a data-id="[!ATOM]ID[ATOM!]" data-profileurl="[!ATOM]ProfileUrl[ATOM!]" href="#ViewCollaboratorProfile" class="open-IDAction_ViewCollaboratorProfile">[!ATOM]CollaboratorName[ATOM!], [!ATOM]Role[ATOM!]</a> -</td>
-                                                        <td class=" ">
-                                                            <a data-id="[!ATOM]ID[ATOM!]" class="open-IDAction_AssignGroupRole btn btn-mini btn-success" data-currentrole="[!ATOM]Role[ATOM!]" href="#AssignCollaboratorRole">assign role</a>
-                                                            <a data-id="[!ATOM]AccountID[ATOM!]" class="open-IDAction_ConfirmRemove btn btn-mini btn-danger" href="#RemoveCollaborator" data-question="Remove [!ATOM]CollaboratorName[ATOM!] as collaborator?" data-command="RemoveCollaborator" data-commandtext="Remove">remove this collaborator</a>
-                                                        </td>
-                                                        <!-- UseInformationObjectAsCollection:PendingCollaborators -->
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <div>
-                                                <h3>Invite a new collaborator</h3>
-                                                <form method="post" class="form-horizontal">
-                                                    <fieldset>
-                                                        <div class="control-group">
-                                                            <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address</label>
-                                                            <div class="controls">
-                                                                <!--<input name="[!ATOM]ID[ATOM!]_EmailAddress" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">-->
-                                                                    <input type="text" data-source="[&quot;sujil@aalto.fi&quot;,&quot;teija@aalto.fi&quot;,&quot;anne@aalto.fi&quot;,&quot;andrew@aalto.fi&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;">
-                                                                <ul class="typeahead dropdown-menu" style="top: 2950px; left: 595.433px; display: none;">
-                                                                    <li data-value="Ssujil@aalto.fi" class="active"><a href="#"><strong>S</strong>outh Carolina</a></li>
-                                                                    <li data-value="teija@aalto.fi"><a href="#"><strong>S</strong>outh Dakota</a></li>
-                                                                    <li data-value="anne@aalto.fi"><a href="#">Ala<strong>s</strong>ka</a></li>
-                                                                    <li data-value="andrew@aalto.fi"><a href="#">Arkan<strong>s</strong>a<strong>s</strong></a></li>
-                                                                </ul>
-                                                                <p class="helptext">
-                                                                    Use only valid email address that you trust to belong to that person.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </fieldset>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <footer>
-                                            <div class="control-group controls">
-                                                <div style="padding:0;margin:0;border-top:0;background-color: transparent" class="form-actions">
-                                                    <button class="btn" name="btnCancel" value="true">Cancel</button>
-                                                    <button value="Save" id="RootSourceAction" name="RootSourceAction" class="btn btn-primary" type="submit">Save changes</button>
-                                                </div>
-                                            </div>
-                                        </footer>
-                                    </fieldset>
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="tab-collaborators-alt">
                                 <div>
                                     <form id="" method="post" class="form-horizontal ">
                                         <fieldset id="collaborators-alt">
@@ -618,9 +549,9 @@
                                                         <ul>
                                                             <li>
                                                                 <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">project-1</a></span>
-                                                                <span>project-2</span>
-                                                                <span>project-3</span>
+                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
                                                             </li>
                                                             <li>
                                                                 <i class="icon-group"></i>
@@ -651,9 +582,9 @@
                                                         <ul>
                                                             <li>
                                                                 <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">project-1</a></span>
-                                                                <span>project-2</span>
-                                                                <span>project-3</span>
+                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span> 
                                                             </li>
                                                             <li>
                                                                 <i class="icon-group"></i>
@@ -684,9 +615,9 @@
                                                         <ul>
                                                             <li>
                                                                 <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">project-1</a></span>
-                                                                <span>project-2</span>
-                                                                <span>project-3</span>
+                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
                                                             </li>
                                                             <li>
                                                                 <i class="icon-group"></i>
@@ -717,9 +648,9 @@
                                                         <ul>
                                                             <li>
                                                                 <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">project-1</a></span>
-                                                                <span>project-2</span>
-                                                                <span>project-3</span>
+                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
                                                             </li>
                                                             <li>
                                                                 <i class="icon-group"></i>
@@ -752,9 +683,9 @@
                                                         <ul>
                                                             <li>
                                                                 <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">project-1</a></span>
-                                                                <span>project-2</span>
-                                                                <span>project-3</span>
+                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
                                                             </li>
                                                             <li>
                                                                 <i class="icon-group"></i>
