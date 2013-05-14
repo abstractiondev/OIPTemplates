@@ -119,7 +119,7 @@
   }
   &-profile{
     max-width: 220px;
-    background-color: greenyellow;
+    //background-color: greenyellow;
     height: auto;
     margin-top: 10px;
     background-clip: padding-box;
@@ -127,17 +127,58 @@
     border-radius: 0 0 0 0;
     margin: 0.75em 0.75em 0 0;
     header {
-      background-color: red;
+        color: #0F0501;
+        line-height: 1.2em;
+        //margin-bottom: 1em;
+        padding: 1em;
+        text-shadow: 1px 1px 0 #FFFFFF;
+        text-transform: uppercase;
+    }
+    img {
+      float: left;
+      height: 48px;
+      margin-left: 10px;
+      //margin-bottom: 1em;
+      margin-right: 1em;
+      width: 48px;
     }
     section{
-      padding: 10px;
+      font-size: 12px;
+      padding: 0px;
+      ul {
+        list-style: none outside none;
+        margin-left: 0px;
+        li {
+          border:none;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          padding-left: 10px;
+          padding-right: 5px;
+        }
+        li span:after{
+          content: ","
+        }
+        span {
+            margin-right: 2px;
+        }
+      }
     }
     footer{
-      background: none;
-      background-color: purple;
       height: 20px;
-      border:none;
-      border-radius: 0px;
+      .headerGradient(@highlight: 10%);
+      border: 0px solid lighten(@navbarBackgroundColor, 3%);
+      .rounded(0px);
+      span{
+        height: 18px;
+        font-size: 18px;
+        i {
+          margin-top: 2px;
+          padding-left: 2px;
+        }
+        i:last-of-type{
+          padding-right: 2px;
+        }
+      }
     }
   }
 }

@@ -55,57 +55,7 @@
     <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
     <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
 
-
-
-      <style type="text/css">
-          h2 { margin-top: 2em; }
-          #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
-          #dropdown-buttons .btn-group { margin-left: 31px; }
-          #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
-          #dropdown-buttons2 .btn-group { margin-left: 18px; }
-          .sample-buttons .btn-group {
-              width: 115px;
-              height: 40px;
-              margin: 0em;
-          }
-          .filter-demo-item {
-              float: left;
-              width: 59px;
-              height: 59px;
-              margin: .5em;
-              overflow-y: hidden;
-              overflow-x: hidden;
-          }
-          .filter-demo-item a{
-
-          }
-          .loading {
-              margin-right: .25em;
-          }
-          .gallery {
-              margin-bottom: 20px;
-          }
-          footer .control-group {
-              float: right;
-          }
-          footer {
-              overflow: auto;	    
-          }
-          .btn-add-image a, .add-image-group a{
-              color: #468847;
-              text-decoration: none;
-          }
-          .btn-add-image a:active, .add-image-group a:active{
-              color: #468847;
-              text-decoration: underline;
-          }
-          .gallery .image-data a *[class*=icon-edit]:hover, .gallery .image-data a *[class*=icon-edit]:focus {
-              color: #0088CC;    
-          }
-          
-      </style>
-
-      <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -661,23 +611,23 @@
                                                 <div class="cards cards-profile pull-left">
                                                     <header>Ashley Jacobs</header>
                                                     <section>
-                                                        <div class="img">
-                                                            <img src="../theme-files/images/faces/1b.png">
-                                                        </div>
+                                                        <img src="../theme-files/images/faces/1b.png">
                                                         <p class="info-text">Little information about me</p>
-                                                        <ul class="stats">
+                                                        <ul>
                                                             <li>
                                                                 <i class="icon-file"></i>
-                                                                <span>project-1</span>
+                                                                <span><a href="#view-project" data-toggle="modal">project-1</a></span>
                                                                 <span>project-2</span>
                                                                 <span>project-3</span>
                                                             </li>
-                                                            <li><i class="icon-group"></i>
+                                                            <li>
+                                                                <i class="icon-group"></i>
                                                                 <span>Aalto Global Impact</span>
                                                                 <span>Weconomy</span>
                                                                 <span>Earthhouse</span>
                                                             </li>
-                                                            <li><i class="icon-map-marker"></i>
+                                                            <li>
+                                                                <i class="icon-map-marker"></i>
                                                                 <span>Helsinki</span>
                                                                 <span>Delhi</span>
                                                             </li>
@@ -686,7 +636,7 @@
                                                     <div class="clearfix"></div>
                                                     <footer>
                                                         <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role"><i class="icon-edit"></i></a></span>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-profile"><i class="icon-eye-open"></i></a></span>
                                                     </footer>
                                                 </div>
                                                 <div class="element thumbnail pull-left last btn add-map">
@@ -706,6 +656,17 @@
                                     </form>
                                 </div>
                                 <!-- modals collaborators -->
+                                <div id="view-project" class="modal hide fade">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h2 class="title">
+                                            Project Profile
+                                        </h2>
+                                    </div>
+                                    <div class="modal-body">
+                                        list of collaborators, List of locations, contact information, invite oneself
+                                    </div>
+                                </div>
                                 <div id="view-profile" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
