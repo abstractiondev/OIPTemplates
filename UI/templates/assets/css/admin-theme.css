@@ -1240,6 +1240,9 @@ body .http-error p {
   padding-top: .5em;
   padding-bottom: .5em;
 }
+.modal .modal-header h2 {
+  margin-bottom: 0px;
+}
 .modal .modal-header h3 {
   font-size: .95em;
 }
@@ -1248,6 +1251,44 @@ body .http-error p {
 }
 .modal .modal-body {
   padding: 2em;
+}
+.modal .modal-body-map {
+  padding: 0px;
+  overflow-style: hidden;
+  overflow-y: hidden;
+}
+.modal .modal-body-map img {
+  height: 560px;
+  width: 560px;
+}
+.modal footer {
+  height: 20px;
+  background: #f2f0f0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f0f0), color-stop(1, #ffffff));
+  background: -ms-linear-gradient(bottom, #f2f0f0, #ffffff);
+  background: -moz-linear-gradient(center bottom, #f2f0f0 0%, #ffffff 100%);
+  background: -o-linear-gradient(bottom, #f2f0f0, #ffffff);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2f0f0', EndColorStr='#ffffff');
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff',EndColorStr='#f2f0f0')";
+  border: 0px solid #dad4d4;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.modal footer span {
+  height: 18px;
+  font-size: 18px;
+}
+.modal footer span i {
+  margin-top: 2px;
+  padding-left: 2px;
+  text-shadow: none;
+}
+.modal footer span i:last-of-type {
+  padding-right: 2px;
 }
 .modal p {
   margin: 0em;

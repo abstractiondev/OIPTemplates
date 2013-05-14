@@ -15,10 +15,15 @@
       float: left;
       margin-right: .25em;
     }
-    &:focus { outline: none; }
+    &:focus { outline: none;
+    }
     .modal-header {
+//      background-color: greenyellow;
       padding-top: .5em;
       padding-bottom: .5em;
+      h2{
+        margin-bottom: 0px;
+      }
       h3 {
         font-size: .95em;
       }
@@ -28,6 +33,34 @@
     }
     .modal-body {
       padding: 2em;
+      &-map {
+        padding:0px;
+        overflow-style: hidden;
+        overflow-y: hidden;
+          img {
+          height:560px;
+          width:560px;
+
+          }
+        }
+    }
+    footer{
+      height: 20px;
+      .headerGradient(@highlight: 10%);
+      border: 0px solid lighten(@navbarBackgroundColor, 3%);
+      .rounded(0px);
+      span{
+        height: 18px;
+        font-size: 18px;
+        i {
+          margin-top: 2px;
+          padding-left: 2px;
+          text-shadow: none;
+        }
+        i:last-of-type{
+          padding-right: 2px;
+        }
+      }
     }
     p {
       margin:0em;
