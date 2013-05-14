@@ -10,6 +10,12 @@
 
     More info at: http://lesselements.com
 -----------------------------------------------------*/
+/*
+* admin-variables
+*/
+/*
+  * admin-type
+  */
 /*Standard Elements*/
 body {
   font-weight: 200;
@@ -68,6 +74,9 @@ h2 span.info {
 hr {
   border-top: 1px solid #dddde2;
 }
+/*
+  * admin-navbar
+  */
 /*Navbar*/
 .brand,
 .navbar .brand {
@@ -229,6 +238,9 @@ hr {
   border-top-color: #716262;
   border-bottom-color: #716262;
 }
+/*
+  * admin-header
+  */
 .header {
   background: #d3cccc;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #d3cccc), color-stop(1, #e4dfdf));
@@ -253,6 +265,9 @@ hr {
   color: #564a4a;
   text-shadow: 1px 1px 0px #fff;
 }
+/*
+  * admin-content
+  */
 .tab-content {
   background: #fff;
   -webkit-border-radius: 5px;
@@ -313,6 +328,9 @@ hr {
   margin: 0;
   padding: 10px;
 }
+/*
+  * admin-footer
+  */
 footer {
   clear: both;
   color: #b0a3a3;
@@ -330,6 +348,9 @@ footer hr {
 footer a {
   color: #b0a3a3;
 }
+/*
+  * admin-side-nav
+  */
 #sidebar-nav {
   position: absolute;
   width: 200px;
@@ -411,6 +432,9 @@ footer a {
 .sidebar .widget .cards {
   margin: 0em;
 }
+/*
+  * admin-buttons
+  */
 /*Buttons*/
 .day.active {
   background-color: #e4dfdf;
@@ -798,6 +822,9 @@ footer a {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#e45d43', EndColorStr='#a93018');
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#a93018',EndColorStr='#e45d43')";
 }
+/*
+  * admin-wells
+  */
 .well {
   background-color: #fff;
   border: 1px solid #ccc;
@@ -815,6 +842,9 @@ footer a {
   line-height: 1em;
   margin-top: 0px;
 }
+/*
+  * admin-gallery
+  */
 /*Gallery*/
 .add-image-group {
   width: 220px;
@@ -916,6 +946,9 @@ footer a {
 .gallery img:hover {
   opacity: 0.8;
 }
+/*
+  * admin-forms
+  */
 .dialog,
 .row .dialog,
 .row-fluid .dialog,
@@ -1025,6 +1058,9 @@ input[type="password"]:focus {
 .form-actions {
   background: #e6e2e2;
 }
+/*
+  * admin-alerts
+  */
 /*Alerts*/
 .alert {
   -webkit-border-radius: 0px;
@@ -1090,6 +1126,9 @@ input[type="password"]:focus {
   color: #283b14;
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4);
 }
+/*
+  * admin-error
+  */
 /*Error Pages*/
 body .http-error {
   margin: 0px auto;
@@ -1149,6 +1188,9 @@ body .http-error .error-message p {
 body .http-error p {
   margin: 0px;
 }
+/*
+  * admin-modals
+  */
 /*Modals*/
 .modal {
   -webkit-border-top-right-radius: 3px;
@@ -1197,6 +1239,9 @@ body .http-error p {
   margin: 0em;
   line-height: 1.5em;
 }
+/*
+  * admin-fancy
+  */
 .fancy-tab-container {
   border: 1px solid #c2b9b9;
   -webkit-border-radius: 5px;
@@ -1356,6 +1401,9 @@ ul.nav.nav-tabs.fancy > li.active > a {
 ul.nav.nav-tabs.fancy > li.active > a:hover {
   background: transparent;
 }
+/*
+  * admin-tables
+  */
 .table-bordered th,
 .table-bordered td {
   border-left: none;
@@ -1532,9 +1580,15 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .dataTables_length {
   float: left;
 }
+/*
+  * admin-labels-badges
+  */
 .label {
   font-weight: normal;
 }
+/*
+  * admin-cards
+  */
 .cards {
   list-style: none;
   margin-left: 0px;
@@ -1670,6 +1724,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   border: none;
   border-radius: 0px;
 }
+/*
+  * admin-pricing
+  */
 .pricing .product {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1755,6 +1812,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   background: #ebe7e7;
   border-top: 1px solid #c7bebe;
 }
+/*
+  * admin-stats
+  */
 .stats {
   margin-bottom: 1em;
 }
@@ -1766,6 +1826,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .stats .stat .main-detail {
   font-size: 2em;
 }
+/*
+  * admin-miscelaneous
+  */
 /*Faq*/
 .faq-content ul,
 .faq-content ol {
@@ -1901,6 +1964,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 @media (min-width: 1200px) {
   
 }
+/*
+  * admin-responsive-1020px-max
+  */
 @media (max-width: 1020px) {
   .content {
     margin-left: 50px;
@@ -1932,6 +1998,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
     margin-top: -0.5em;
   }
 }
+/*
+  * admin-responsive-600px-max
+  */
 @media (max-width: 600px) {
   /*Adjust this if you have more or less tabs in the main menu*/
   #phone-navigation {
@@ -1955,6 +2024,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 @media (min-width: 768px) and (max-width: 979px) {
   
 }
+/*
+  * admin-responsive-767px-max
+  */
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) {
   .content {
@@ -1971,6 +2043,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
     margin-top: 2em;
   }
 }
+/*
+  * admin-responsive-480ps-max
+  */
 /* Landscape phones and down */
 @media (max-width: 480px) {
   .item-summary li {
