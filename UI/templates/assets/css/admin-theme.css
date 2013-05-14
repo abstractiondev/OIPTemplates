@@ -1724,10 +1724,24 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   border-radius: 0 0 0 0;
   margin: 0.75em 0.75em 0 0;
 }
+.cards-profile span.label {
+  font-size: 10px;
+  line-height: 12px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.cards-profile span.label a {
+  color: #ffffff;
+}
 .cards-profile header {
   color: #0F0501;
   line-height: 1.2em;
   padding: 1em;
+  margin-top: 0.3em;
   text-shadow: 1px 1px 0 #FFFFFF;
   text-transform: uppercase;
 }
@@ -1741,6 +1755,7 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .cards-profile p {
   padding-left: 10px;
   padding-right: 10px;
+  line-height: 14px;
 }
 .cards-profile section {
   font-size: 12px;
@@ -1756,6 +1771,7 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   padding-bottom: 5px;
   padding-left: 10px;
   padding-right: 5px;
+  line-height: 14px;
 }
 .cards-profile section ul li span:after {
   content: ",";
