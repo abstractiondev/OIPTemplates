@@ -4,28 +4,26 @@
   }
   #sidebar-nav .nav {
     margin-left: 0em;
+    li a, li a:hover {
+      padding: .75em;
+      font-size: 1.25em;
+    }
+    & > li > a span {
+      display: none;
+    }
   }
-  #sidebar-nav .nav li a,
-  #sidebar-nav .nav li a:hover {
-    padding: .75em;
-    font-size: 1.25em;
-  }
-  #sidebar-nav .nav > li > a span {
-    display: none;
-  }
-  .cards .large-stat {
-    font-size: 1em;
-  }
-  .cards .title,
-  .cards .info,
-  .cards .info-text,
-  .cards .stats {
-    font-size: .9em;
-  }
-  .cards .time {
-    font-size: .9em;
-  }
-  .cards .btn.btn-mini.pull-right {
-    margin-top: -0.5em;
+  .cards {
+    .large-stat {
+      font-size: 1em;
+    }
+    .title, .info, .info-text, .stats {
+      font-size: .9em;
+    }
+    .time {
+      font-size: .9em;
+    }
+    .btn.btn-mini.pull-right {
+      margin-top: -.5em;
+    }
   }
 }

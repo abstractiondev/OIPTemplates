@@ -1,0 +1,139 @@
+.cards {
+  list-style: none;
+  margin-left: 0px;
+  margin: 0em 0em 1em 0em;
+
+  li {
+    margin-bottom: 0em;
+    padding: 1em;
+    border-top: 1px solid @navbarBackgroundColor;
+
+    &:first-child { border-top: none; }
+    &.more {
+      text-align: center;
+      padding: .5em 0em;
+    }
+  }
+  &.not-bottom li:last-child {
+    border-bottom: 1px solid @navbarBackgroundColor;
+    margin-bottom: 1em;
+  }
+  .title {
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0px #fff;
+    line-height: 1.2em;
+    margin-bottom: 1em;
+    color: @headerColor;
+
+    strong {
+      text-transform: none;
+    }
+  }
+  .info-text {
+    position: relative;
+    top: -4px;
+  }
+  .info {
+    margin-bottom: 0em;
+    padding-bottom: 0em;
+    line-height: 1.2em;
+
+    &.small {
+      font-size: .85em;
+      margin-top: -.5em;
+    }
+  }
+  .chart {
+    small {
+      font-size: .8em;
+      text-align: right;
+      display: block;
+      line-height: 1em;
+    }
+  }
+  .time {
+    font-size: .75em;
+    float: right;
+  }
+  .stats {
+    padding-top: .75em;
+    margin-bottom: 0em;
+    span {
+      margin-right: .75em;
+    }
+  }
+  .img {
+    width: 48px;
+    height: 48px;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+
+    label {
+      display: block;
+      margin: 0px;
+      text-align: center;
+    }
+  }
+
+  &.list {
+    line-height: 1em;
+    li { padding: 0px; }
+    .label {
+      margin-top: 1.25em;
+      margin-right: 1.25em;
+    }
+    i {
+      height: 2em;
+      font-size: 1.25em;
+      line-height: 2em;
+      padding: .5em .75em;
+      vertical-align: middle;
+      margin-right: .5em;
+      color: #666633;
+      border-right: 1px solid @navbarBackgroundColor;
+    }
+  }
+
+  i.pull-left {
+    font-size: 1.75em;
+    font-size: 2em;
+    line-height: 1em;
+    height: 2em;
+    padding: 0px;
+    margin-right: .5em;
+    margin-top: 3px;
+  }
+  .pull-right.strong {
+    margin-top: -4px;
+    font-size: 3em;
+  }
+  p.pull-right, .label.pull-down {
+    margin-top: 1em;
+    margin-left: 1em;
+    display: block;
+  }
+  &-profile{
+    max-width: 220px;
+    background-color: greenyellow;
+    height: auto;
+    margin-top: 10px;
+    background-clip: padding-box;
+    border: 1px solid #CCCCCC;
+    border-radius: 0 0 0 0;
+    margin: 0.75em 0.75em 0 0;
+    header {
+      background-color: red;
+    }
+    section{
+      padding: 10px;
+    }
+    footer{
+      background: none;
+      background-color: purple;
+      height: 20px;
+      border:none;
+      border-radius: 0px;
+    }
+  }
+}

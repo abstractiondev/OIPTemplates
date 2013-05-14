@@ -1,6 +1,6 @@
 // Grays
 // -------------------------
-@black:                 #000;
+@black:                 #0f0501;
 @grayDarker:            #230b01;
 @grayDark:              #4f3434;
 @gray:                  #7b6767;
@@ -25,12 +25,12 @@
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
-@textColor:             @grayDark;
+@textColor:             @black;
 
 
 // Links
 // -------------------------
-@linkColor:             #08c;
+@linkColor:             lighten(@grayDarker, 30%);
 @linkColorHover:        darken(@linkColor, 15%);
 
 
@@ -38,8 +38,8 @@
 // Navbar
 // -------------------------
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       lighten(@grayDarker, 5%);
-@navbarBackground:                @grayDarker;
+@navbarBackgroundHighlight:       desaturate(darken(@grayDark, 5%),12%);
+@navbarBackground:                desaturate(darken(@grayDark, 5%),12%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
 @navbarText:                      lighten(@grayDarker, 30%);
@@ -50,3 +50,8 @@
 @navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
 
 @navbarBrandColor:                lighten(@grayDarker, 30%);
+
+@navbarBackgroundColor: @grayLighter;
+@selectedColor: @navbarText;
+@headerColor: @textColor;
+

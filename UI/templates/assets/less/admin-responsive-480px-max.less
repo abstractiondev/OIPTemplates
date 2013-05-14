@@ -13,22 +13,22 @@
     .gallery .thumbnail {
       width: 100%;
       box-sizing: border-box;
+      img {
+        width: 100%;
+      }
     }
-    .gallery .thumbnail img {
-      width: 100%;
-    }
-    .blog-post .thumbnail,
-    .blog-post .thumbnail:hover {
-      max-width: 400px;
-      width: auto;
-      margin-bottom: 1em;
-      float: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-      border: none;
-    }
-    .blog-post .post-summary {
-      clear: both;
+    .blog-post {
+      .thumbnail, .thumbnail:hover {
+        max-width: 400px;
+        width: auto;
+        margin-bottom: 1em;
+        float: none;
+        .box-shadow(none);
+        border: none;
+      }
+
+      .post-summary {
+        clear: both;
+      }
     }
   }
