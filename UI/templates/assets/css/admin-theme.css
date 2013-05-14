@@ -1738,6 +1738,10 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   margin-right: 1em;
   width: 48px;
 }
+.cards-profile p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .cards-profile section {
   font-size: 12px;
   padding: 0px;
@@ -1783,6 +1787,7 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .cards-profile footer span i {
   margin-top: 2px;
   padding-left: 2px;
+  text-shadow: none;
 }
 .cards-profile footer span i:last-of-type {
   padding-right: 2px;
