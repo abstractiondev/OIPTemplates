@@ -946,9 +946,6 @@ footer a {
   text-shadow: 1px 1px 0px #ffffff;
   font-size: 18px;
 }
-.gallery .image-data a :hover {
-  color: #b30000;
-}
 .gallery img {
   display: block;
   -webkit-transition: all 0.25s linear;
@@ -963,6 +960,36 @@ footer a {
 /*
   * admin-forms
   */
+/* to make all form elements wider by default
+  */
+.form-search input,
+.form-inline input,
+.form-horizontal input,
+.form-search textarea,
+.form-inline textarea,
+.form-horizontal textarea,
+.form-search select,
+.form-inline select,
+.form-horizontal select,
+.form-search .help-inline,
+.form-inline .help-inline,
+.form-horizontal .help-inline,
+.form-search .uneditable-input,
+.form-inline .uneditable-input,
+.form-horizontal .uneditable-input,
+.form-search .input-prepend,
+.form-inline .input-prepend,
+.form-horizontal .input-prepend,
+.form-search .input-append,
+.form-inline .input-append,
+.form-horizontal .input-append {
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 10px;
+  vertical-align: middle;
+  width: 98%;
+}
+/* end */
 .dialog,
 .row .dialog,
 .row-fluid .dialog,
@@ -1840,6 +1867,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .cards-profile footer span {
   height: 18px;
   font-size: 18px;
+}
+.cards-profile footer span a {
+  color: #564A4A;
 }
 .cards-profile footer span i {
   margin-top: 2px;
