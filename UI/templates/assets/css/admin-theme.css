@@ -1879,6 +1879,13 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .cards-profile footer span i:last-of-type {
   padding-right: 2px;
 }
+.map img {
+  width: 210px;
+  height: 210px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
 /*
   * admin-pricing
   */
