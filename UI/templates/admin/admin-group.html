@@ -69,12 +69,63 @@
               margin: 0em;
           }
           .filter-demo-item {
-              float: left;
+              /*float: left;*/
               width: 50px;
               height: 50px;
               margin: .5em;
               background: #667;
+              overflow: hidden;
           }
+          /**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
           .loading {
               margin-right: .25em;
           }
@@ -259,16 +310,9 @@
                             <div class="tab-pane fade" id="tab-media">
                             <script type="text/javascript">
                                 $(function(){
-                                    $('#gallery').imagesLoaded( function(){
-                                        $(this).isotope();
-                                    });
-                                    fancyFilter('.filter', '#gallery');
-                                });
-                            </script>
-                            <script type="text/javascript">
-                                $(function(){
                                     $('#gallery-2').imagesLoaded( function(){
                                         $(this).isotope();
+                                        $(this).find(".filter-demo").isotope();
                                     });
                                     fancyFilter('.filter', '#gallery-2a');
                                 });
@@ -287,7 +331,7 @@
                                             </script>
                                             <div id="gallery-2" class="gallery" style="clear: both;">
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a data-toggle="modal" role="button" href="#edit-image"><img src="../theme-files/images/gallery/1.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
@@ -304,12 +348,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/7.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
+                                                   		
                                                     </div>
                                                     <div class="clearfix"></div>
                                                     <div class="image-data">
@@ -318,7 +363,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/10.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
@@ -333,7 +378,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
@@ -346,7 +391,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
@@ -360,7 +405,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
@@ -375,7 +420,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
+                                                    <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
