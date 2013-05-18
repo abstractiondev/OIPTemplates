@@ -55,6 +55,9 @@
     <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
     <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
 
+	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+
     <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
       <style type="text/css">
@@ -129,13 +132,18 @@
           .loading {
               margin-right: .25em;
           }
+          #location-map{
+          	height: 400px;
+          }
       </style>
 
       <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
+	<script>
+		var map;
+	</script>
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -607,7 +615,7 @@
                                                             <li>
                                                                 <i class="icon-map-marker"></i>
                                                                 <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
+                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
                                                             </li>
                                                         </ul>
                                                     </section>
@@ -640,7 +648,7 @@
                                                             <li>
                                                                 <i class="icon-map-marker"></i>
                                                                 <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
+                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
                                                             </li>
                                                         </ul>
                                                     </section>
@@ -673,7 +681,7 @@
                                                             <li>
                                                                 <i class="icon-map-marker"></i>
                                                                 <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
+                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
                                                             </li>
                                                         </ul>
                                                     </section>
@@ -706,7 +714,7 @@
                                                             <li>
                                                                 <i class="icon-map-marker"></i>
                                                                 <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
+                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
                                                             </li>
                                                         </ul>
                                                     </section>
@@ -741,7 +749,7 @@
                                                             <li>
                                                                 <i class="icon-map-marker"></i>
                                                                 <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
+                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
                                                             </li>
                                                         </ul>
                                                     </section>
@@ -754,6 +762,7 @@
                                                 <div class="element thumbnail pull-left last btn add-map">
                                                     <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
                                                 </div>
+                                                
                                                 <div class="clearfix"></div>
                                             </div>
                                             <footer style="margin-top: 20px">
@@ -790,21 +799,42 @@
                                         Group profile
                                     </div>
                                 </div>
+                                
                                 <div id="view-location-profile" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            New Delhi
-                                        </h2>
+                                        <h2 class="title"></h2>
                                     </div>
                                     <div class="modal-body modal-body-map">
-                                        <img src="../assets/img/map-images/new delhi.png">
+                                        
+                                    <div id="location-map"></div>
                                         <p>A map + other groups and projects and collaborators (including those not member of this group)</p>
                                     </div>
                                     <footer>
                                         some footer
                                     </footer>
                                 </div>
+                                <script>
+                                	$(document).ready(function(){
+                                			// set up the map
+											map = new L.Map('location-map');
+										
+											// create the tile layer with correct attribution
+											var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+											var osmAttrib='Map data © OpenStreetMap contributors';
+											var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});		
+											
+											map.setView(new L.LatLng(60.169781,24.938779),12);
+											map.addLayer(osm);
+											$("#view-location-profile").on('shown',function(){
+												map.invalidateSize();
+											});
+											$("a[href=#view-location-profile]").click(function(){
+												$("#view-location-profile .modal-header h2.title").html($(this).text());
+											});
+
+                                	});
+                                </script>
                                 <div id="view-collaborator-profile" class="modal hide fade">
                                     <div class="modal-header">
                                         <button class="close" data-dismiss="modal">&times;</button>
