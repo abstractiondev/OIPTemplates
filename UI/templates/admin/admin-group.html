@@ -340,16 +340,48 @@
                                                 <li><a href="#videos" data-filter=".news">News</a></li>
                                             </ul>
                                             <ul class="filter nav nav-pills pull-right">
-                                                <li class="active">
-                                                    <a href="#all" data-filter=".element">All</a>
-                                                </li>
-                                                <li><a href="#images" data-filter=".images">Images</a></li>
-                                                <li><a href="#videos" data-filter=".files">Files</a></li>
-                                                <li><a href="#videos" data-filter=".events">Events</a></li>
-                                                <li><a href="#videos" data-filter=".blogs">Blogs</a></li>
-                                                <li><a href="#videos" data-filter=".news">News</a></li>
+                                                <li><a href="#as-isotope" data-filter=".isotope" title="show media in isotope format"><i class="icon-bar-chart"></i> </a></li>
+                                                <li><a href="#by-date" data-filter=".calendar" title="show media in calendar format"><i class="icon-calendar"></i> </a></li>
+                                                <li><a href="#by-location" data-filter=".location" title="show media as locations"><i class="icon-map-marker"></i> </a></li>
+                                                <li><a href="#by-collaborator" data-filter=".collaborator" title="show media by collaborator"><i class="icon-user"></i> </a></li>
                                             </ul>
                                             <div id="gallery-media" class="gallery" style="clear: both;">
+
+                                                <div class="cards cards-profile pull-left images">
+                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
+                                                    <header>Image number 1</header>
+                                                    <section>
+                                                        <img src="../theme-files/images/gallery/9.jpg" style="width:200px; height: 100%">
+                                                        <ul>
+                                                            <li>
+                                                                <i class="icon-file"></i>
+                                                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
+                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon-calendar"></i>
+                                                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                                                                <span>23 April 2013</span>
+                                                                <span>17 April 2013</span>
+                                                            </li>
+                                                            <li>
+                                                                <i class="icon-map-marker"></i>
+                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                                                <span>Delhi</span>
+                                                                <span>Amsterdam</span>
+                                                                <span>Barcelona</span>
+                                                            </li>
+                                                        </ul>
+                                                    </section>
+                                                    <div class="clearfix"></div>
+                                                    <footer>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                                                    </footer>
+                                                </div>
+
+
                                                 <div class="element thumbnail pull-left images news">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a data-toggle="modal" role="button" href="#edit-image"><img src="../theme-files/images/gallery/1.jpg"></a></div>
@@ -367,6 +399,8 @@
                                                         <span class="title">image group 1</span>
                                                     </div>
                                                 </div>
+
+
                                                 <div class="element thumbnail pull-left news blogs">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
