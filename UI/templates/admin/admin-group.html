@@ -219,13 +219,7 @@
     <div id="sidebar-nav">
         <ul id="dashboard-menu" class="nav nav-list">
             <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
-            <li class="nav-sub"><i class="icon-film"></i> <span>Content</span>
-                <ul class="nav nav-list">
-                    <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
-                    <li class=" "><a href="#tab-media-activities" data-toggle="tab"><i class="icon-bullhorn"></i> <span>Activities</span></a></li>
-                    <li class=" "><a href="#tab-media-news" data-toggle="tab"><i class="icon-star"></i> <span>News</span></a></li>
-                </ul>
-            </li>
+            <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
             <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
             <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
             <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
@@ -316,11 +310,11 @@
                             <div class="tab-pane fade" id="tab-media">
                             <script type="text/javascript">
                                 $(function(){
-                                    $('#gallery-2').imagesLoaded( function(){
+                                    $('#gallery-media').imagesLoaded( function(){
                                         $(this).isotope();
                                         $(this).find(".filter-demo").isotope();
                                     });
-                                    fancyFilter('.filter', '#gallery-2a');
+                                    fancyFilter('.filter', '#gallery-media');
                                 });
                             </script>
                                 <div>
@@ -335,8 +329,28 @@
 
                                             })
                                             </script>
-                                            <div id="gallery-2" class="gallery" style="clear: both;">
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                            <ul class="filter nav nav-pills">
+                                                <li class="active">
+                                                    <a href="#all" data-filter=".element">All</a>
+                                                </li>
+                                                <li><a href="#images" data-filter=".images">Images</a></li>
+                                                <li><a href="#videos" data-filter=".files">Files</a></li>
+                                                <li><a href="#videos" data-filter=".events">Events</a></li>
+                                                <li><a href="#videos" data-filter=".blogs">Blogs</a></li>
+                                                <li><a href="#videos" data-filter=".news">News</a></li>
+                                            </ul>
+                                            <ul class="filter nav nav-pills pull-right">
+                                                <li class="active">
+                                                    <a href="#all" data-filter=".element">All</a>
+                                                </li>
+                                                <li><a href="#images" data-filter=".images">Images</a></li>
+                                                <li><a href="#videos" data-filter=".files">Files</a></li>
+                                                <li><a href="#videos" data-filter=".events">Events</a></li>
+                                                <li><a href="#videos" data-filter=".blogs">Blogs</a></li>
+                                                <li><a href="#videos" data-filter=".news">News</a></li>
+                                            </ul>
+                                            <div id="gallery-media" class="gallery" style="clear: both;">
+                                                <div class="element thumbnail pull-left images news">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a data-toggle="modal" role="button" href="#edit-image"><img src="../theme-files/images/gallery/1.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
@@ -353,7 +367,7 @@
                                                         <span class="title">image group 1</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div class="element thumbnail pull-left news blogs">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
@@ -368,7 +382,7 @@
                                                         <span class="title">image group 2</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div class="element thumbnail pull-left events news blogs">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/10.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
@@ -383,7 +397,7 @@
                                                         <span class="title">image group 3</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div class="element thumbnail pull-left images files">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
@@ -396,7 +410,7 @@
                                                         <span class="title">image group 4</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div class="element thumbnail pull-left files events">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
@@ -410,7 +424,7 @@
                                                         <span class="title">image group 5</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div class="element thumbnail pull-left files events blogs">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
@@ -425,7 +439,7 @@
                                                         <span class="title">image group 6</span>
                                                     </div>
                                                 </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                                                <div class="element thumbnail pull-left news">
                                                     <div class="filter-demo" style="max-width: 220px">
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
                                                         <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
