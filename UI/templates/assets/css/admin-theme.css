@@ -402,6 +402,13 @@ footer a {
 #sidebar-nav .nav-list li:hover {
   background: #dcd7d7;
 }
+#sidebar-nav .nav-list .nav-sub {
+  font-size: 0.85em;
+  margin-left: 1.5em;
+}
+#sidebar-nav .nav-list .nav-sub li {
+  line-height: 1em;
+}
 .sidebar .widget {
   margin-top: 1.5em;
   overflow: hidden;
