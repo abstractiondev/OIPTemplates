@@ -362,27 +362,29 @@
                     <header>Beach Bahamas</header>
                     <section>
                         <img src="../theme-files/images/gallery/9.jpg" style="width:200px; height: 100%">
-                        <ul>
-                            <li>
-                                <i class="icon-file"></i>
-                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
-                            </li>
-                            <li>
-                                <i class="icon-calendar"></i>
-                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
-                                <span>23 April 2013</span>
-                                <span>17 April 2013</span>
-                            </li>
-                            <li>
-                                <i class="icon-map-marker"></i>
-                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                <span>Delhi</span>
-                                <span>Amsterdam</span>
-                                <span>Barcelona</span>
-                            </li>
-                        </ul>
+
+                        <ul class="nav nav-tabs two-tabs" id="myTab">
+                                <li class="active"><a data-toggle="tab" href="#by-project"> <i class="icon-file"></i></a></li>
+                                <li class=""><a data-toggle="tab" href="#by-date"><i class="icon-calendar"></i></a></li>
+                                <li class=""><a data-toggle="tab" href="#by-location"><i class="icon-map-marker"></i></a></li>
+                            </ul>
+                            <div  class="tab-content">
+                                <div id="by-project" class="tab-pane fade active in">
+                                    <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                                    <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
+                                    <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>                                </div>
+                                <div id="by-date" class="tab-pane fade ">
+                                    <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                                    <span>23 April 2013</span>
+                                    <span>17 April 2013</span>
+                                </div>
+                                <div id="by-location" class="tab-pane fade">
+                                    <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                    <span>Delhi</span>
+                                    <span>Amsterdam</span>
+                                    <span>Barcelona</span>
+                                </div>
+                            </div>
                     </section>
                     <div class="clearfix"></div>
                     <footer>
