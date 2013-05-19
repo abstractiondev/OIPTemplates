@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Admin-Group</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
@@ -28,7 +28,7 @@
     <link href="../assets/lib/bootstrap-spinner/bootstrap-spinner.css" rel="stylesheet">
     <link href="../assets/css/bootstrap-fileupload.css" rel="stylesheet">
     <link href="../assets/css/isotope.css" rel="stylesheet">
-    
+
     <script src="../assets/lib/jquery.isotope.min.js"></script>
     <script src="../assets/lib/datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
     <script src="../assets/lib/colorpicker/js/bootstrap-colorpicker.js" type="text/javascript"></script>
@@ -48,1170 +48,1161 @@
     <script src="../assets/js/bootstrap-fileupload.js" type="text/javascript"></script>
 
     <!-- data-table-->
-      <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
-      <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.bootstrap.js" type="text/javascript"></script>
+    <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.bootstrap.js" type="text/javascript"></script>
     <!--WYSI HTML EDITOR-->
     <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
     <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
     <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
 
-	<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
 
     <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
-      <style type="text/css">
-          /*h2 { margin-top: 2em; }*/
-          #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
-          #dropdown-buttons .btn-group { margin-left: 31px; }
-          #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
-          #dropdown-buttons2 .btn-group { margin-left: 18px; }
-          .sample-buttons .btn-group {
-              width: 115px;
-              height: 40px;
-              margin: 0em;
-          }
-          .filter-demo-item {
-              /*float: left;*/
-              width: 50px;
-              height: 50px;
-              margin: .5em;
-              background: #667;
-              overflow: hidden;
-          }
-          /**** Isotope Filtering ****/
+    <style type="text/css">
+            /*h2 { margin-top: 2em; }*/
+        #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
+        #dropdown-buttons .btn-group { margin-left: 31px; }
+        #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
+        #dropdown-buttons2 .btn-group { margin-left: 18px; }
+        .sample-buttons .btn-group {
+            width: 115px;
+            height: 40px;
+            margin: 0em;
+        }
+        .filter-demo-item {
+            /*float: left;*/
+            width: 50px;
+            height: 50px;
+            margin: .5em;
+            background: #667;
+            overflow: hidden;
+        }
+            /**** Isotope Filtering ****/
 
-.isotope-item {
-  z-index: 2;
-}
+        .isotope-item {
+            z-index: 2;
+        }
 
-.isotope-hidden.isotope-item {
-  pointer-events: none;
-  z-index: 1;
-}
+        .isotope-hidden.isotope-item {
+            pointer-events: none;
+            z-index: 1;
+        }
 
-/**** Isotope CSS3 transitions ****/
+            /**** Isotope CSS3 transitions ****/
+        .isotope {
+            margin-bottom: 30px;
+        }
+        .isotope,
+        .isotope .isotope-item {
+            -webkit-transition-duration: 0.8s;
+            -moz-transition-duration: 0.8s;
+            -ms-transition-duration: 0.8s;
+            -o-transition-duration: 0.8s;
+            transition-duration: 0.8s;
+        }
 
-.isotope,
-.isotope .isotope-item {
-  -webkit-transition-duration: 0.8s;
-     -moz-transition-duration: 0.8s;
-      -ms-transition-duration: 0.8s;
-       -o-transition-duration: 0.8s;
-          transition-duration: 0.8s;
-}
+        .isotope {
+            -webkit-transition-property: height, width;
+            -moz-transition-property: height, width;
+            -ms-transition-property: height, width;
+            -o-transition-property: height, width;
+            transition-property: height, width;
+        }
 
-.isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
-}
+        .isotope .isotope-item {
+            -webkit-transition-property: -webkit-transform, opacity;
+            -moz-transition-property:    -moz-transform, opacity;
+            -ms-transition-property:     -ms-transform, opacity;
+            -o-transition-property:      -o-transform, opacity;
+            transition-property:         transform, opacity;
+        }
 
-.isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:      -o-transform, opacity;
-          transition-property:         transform, opacity;
-}
+            /**** disabling Isotope CSS3 transitions ****/
 
-/**** disabling Isotope CSS3 transitions ****/
+        .isotope.no-transition,
+        .isotope.no-transition .isotope-item,
+        .isotope .isotope-item.no-transition {
+            -webkit-transition-duration: 0s;
+            -moz-transition-duration: 0s;
+            -ms-transition-duration: 0s;
+            -o-transition-duration: 0s;
+            transition-duration: 0s;
+        }
 
-.isotope.no-transition,
-.isotope.no-transition .isotope-item,
-.isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
-}
+        .loading {
+            margin-right: .25em;
+        }
+        #location-map{
+            height: 400px;
+        }
+    </style>
 
-          .loading {
-              margin-right: .25em;
-          }
-          #location-map{
-          	height: 400px;
-          }
-      </style>
-
-      <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-	<script>
-		var map;
-	</script>
+    <script>
+        var map;
+    </script>
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
+</head>
 
-  <!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
-  <!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
-  <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
-  <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
-  <!--[if (gt IE 9)|!(IE)]><!--> 
-  <body class=""> 
-  <!--<![endif]-->
-    
-    <div class="navbar">
-        <div class="navbar-inner">
-            <ul class="nav pull-right">
-                <li id="fat-menu" class="dropdown">
-                    <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-user"></i> {accountName}
-                        <i class="icon-caret-down"></i>
-                    </a>
+<!--[if lt IE 7 ]> <body class="ie ie6"> <![endif]-->
+<!--[if IE 7 ]> <body class="ie ie7 "> <![endif]-->
+<!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
+<!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<body class="">
+<!--<![endif]-->
 
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="admin-account.html">My Account</a></li>
-                        <li><a tabindex="-1" href="#">My Groups</a></li>
-                        <li class="divider"></li>
-                        <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                        <li class="divider visible-phone"></li>
-                        <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="nav pull-left">
-                <li id="group-menu" class="dropdown">
-                    <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="icon-user"></i> {groupName}
-                        <i class="icon-caret-down"></i>
-                    </a>
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav pull-right">
+            <li id="fat-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-user"></i> {accountName}
+                    <i class="icon-caret-down"></i>
+                </a>
 
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1" href="admin-group.html">{groupName}'s Account</a></li>
-                        <li class="divider"></li>
-                        <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                        <li class="divider visible-phone"></li>
-                        <li><a tabindex="-1" href="sign-in.html">preview {groupName}</a></li>
-                    </ul>
-                </li>
-                <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="main-menu">
-        <div id="phone-navigation">
-            <select class="selectnav" id="phone-menu">
-                <option value="index.html" > Identity</option>
-                <option value="reports.html" > Media</option>
-                <option value="#tab-collaborators" data-toggle="tab" > Collaborators</option>
-                <option value="media.html" > Locations</option>
-                <option value="blog.html" > Delete</option>
-            </select>
-        </div>
-        <ul class="nav nav-tabs">
-            <li ><a href="add-activity.html"><i class="icon-plus-sign"></i> <span>Activity</span></a></li>
-            <li ><a href="add-news.html" ><i class="icon-plus-sign"></i> <span>News</span></a></li>
-            <!--<li class="active"><a href="components.html" ><i class="icon-plus-sign"></i> <span>Components</span></a></li>
-            <li ><a href="pricing.html"><i class="icon-plus-sign"></i> <span>Pricing</span></a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Settings <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="sign-in.html"><span>Sign-in Page</span></a></li>
-                    <li><a href="sign-up.html"><span>Sign-up Page</span></a></li>
-                    <li><a href="reset-password.html"><span>Forgot Password Page</span></a></li>
+                    <li><a tabindex="-1" href="admin-account.html">My Account</a></li>
+                    <li><a tabindex="-1" href="#">My Groups</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
                 </ul>
-            </li>-->
+            </li>
+        </ul>
+        <ul class="nav pull-left">
+            <li id="group-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-user"></i> {groupName}
+                    <i class="icon-caret-down"></i>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="admin-group.html">{groupName}'s Account</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="sign-in.html">preview {groupName}</a></li>
+                </ul>
+            </li>
+            <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
         </ul>
     </div>
-    <div id="sidebar-nav">
-        <ul id="dashboard-menu" class="nav nav-list">
-            <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
-            <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
-            <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
-            <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
-            <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
-        </ul>
-    </div><!-- .sidebar-nav-->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span12">
-                    <h2></h2>
-                    <div class="fancy-tab-container">
-                        <div class="tab-content">
-                            <div class="tab-pane fade in active" id="tab-identity">
-                                <form id="" method="post" class="form-horizontal" enctype="multipart/form-data">
-                                      <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                      <fieldset id="profile">
-                                          <!-- group profile image and group icon image -->
-                                          <div class="span12">
-                                              <div class="span6">
-                                                  <div class="control-group">
-                                                      <label class="control-label">Group Profile Image</label>
-                                                      <div class="controls">
-                                                          <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
-                                                          <!-- ImageData -->
-                                                          <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                              <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                                              <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                                              <div>
-                                                                  <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-                                                                  <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                                              </div>
-                                                          </div>
-                                                          <!-- * -->
-                                                          <!-- THEBALL-CONTEXT-END:* -->
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                              <div class="span6">
-                                                  <div class="control-group">
-                                                      <label class="control-label">Group Icon Image</label>
-                                                      <div class="controls">
-                                                          <!-- THEBALL-CONTEXT-OBJECT-BEGIN:IconImage -->
-                                                          <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ImageData -->
-                                                          <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                              <div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                                              <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                                              <div>
-                                                                  <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-                                                                  <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                                              </div>
-                                                          </div>
-                                                          <!-- THEBALL-CONTEXT-END:* -->
-                                                          <!-- THEBALL-CONTEXT-END:* -->
-                                                      </div>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                          <!-- end group profile image and group icon image -->
-                                          <div class="control-group">
-                                              <label class="control-label" for="[!ATOM]ID[ATOM!]_GroupName">Group name</label>
-                                              <div class="controls">
-                                                  <input name="[!ATOM]ID[ATOM!]_GroupName"  id="[!ATOM]ID[ATOM!]_GroupName" type="text" value="[!ATOM]GroupName[ATOM!]">
-                                              </div>
-                                          </div>
-                                          <div class="control-group">
-                                              <label class="control-label" for="[!ATOM]ID[ATOM!]_Description">Description</label>
-                                              <div class="controls">
-                                                  <textarea id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
-                                              </div>
-                                          </div>
-                                          <div class="control-group">
-                                              <label class="control-label" for="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
-                                              <div class="controls">
-                                                  <textarea id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
-                                              </div>
-                                          </div>
-                                          <footer>
-                                              <div class="control-group controls">
-                                                  <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                                      <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                                                      <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
-                                                  </div>
-                                              </div>
-                                          </footer>
-                                      </fieldset>
-                                  </form>
-                            </div>
-                            <div class="tab-pane fade" id="tab-media">
-                            <script type="text/javascript">
-                                $(function(){
-                                    $('#gallery-media').imagesLoaded( function(){
-                                        $(this).isotope();
-                                        $(this).find(".filter-demo").isotope();
-                                    });
-                                    fancyFilter('.filter', '#gallery-media');
-                                });
-                            </script>
+</div>
+
+<div id="main-menu">
+    <div id="phone-navigation">
+        <select class="selectnav" id="phone-menu">
+            <option value="index.html" > Identity</option>
+            <option value="reports.html" > Media</option>
+            <option value="#tab-collaborators" data-toggle="tab" > Collaborators</option>
+            <option value="media.html" > Locations</option>
+            <option value="blog.html" > Delete</option>
+        </select>
+    </div>
+    <ul class="nav nav-tabs">
+        <li ><a href="add-activity.html"><i class="icon-plus-sign"></i> <span>Activity</span></a></li>
+        <li ><a href="add-news.html" ><i class="icon-plus-sign"></i> <span>News</span></a></li>
+        <!--<li class="active"><a href="components.html" ><i class="icon-plus-sign"></i> <span>Components</span></a></li>
+        <li ><a href="pricing.html"><i class="icon-plus-sign"></i> <span>Pricing</span></a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Settings <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="sign-in.html"><span>Sign-in Page</span></a></li>
+                <li><a href="sign-up.html"><span>Sign-up Page</span></a></li>
+                <li><a href="reset-password.html"><span>Forgot Password Page</span></a></li>
+            </ul>
+        </li>-->
+    </ul>
+</div>
+<div id="sidebar-nav">
+    <ul id="dashboard-menu" class="nav nav-list">
+        <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
+        <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
+        <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
+        <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
+        <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
+    </ul>
+</div><!-- .sidebar-nav-->
+<div class="content">
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<h2></h2>
+<div class="fancy-tab-container">
+<div class="tab-content">
+<div class="tab-pane fade in active" id="tab-identity">
+    <form id="" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+        <fieldset id="profile">
+            <!-- group profile image and group icon image -->
+            <div class="span12">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label">Group Profile Image</label>
+                        <div class="controls">
+                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
+                            <!-- ImageData -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
-                                    <form id="" method="post" class="form-horizontal ">
-                                        <fieldset id="current-imagegroups">
-                                            <script type="text/javascript">
-                                            $(document).ready(function(){
-
-                                            $("#toggler").click(function(){
-                                            $(this).toggleClass('active, inactive');
-                                            })
-
-                                            })
-                                            </script>
-                                            <ul class="filter nav nav-pills">
-                                                <li class="active">
-                                                    <a href="#all" data-filter=".element">All</a>
-                                                </li>
-                                                <li><a href="#images" data-filter=".images">Images</a></li>
-                                                <li><a href="#videos" data-filter=".files">Files</a></li>
-                                                <li><a href="#videos" data-filter=".events">Events</a></li>
-                                                <li><a href="#videos" data-filter=".blogs">Blogs</a></li>
-                                                <li><a href="#videos" data-filter=".news">News</a></li>
-                                            </ul>
-                                            <ul class="filter nav nav-pills pull-right">
-                                                <li><a href="#as-isotope" data-filter=".isotope" title="show media in isotope format"><i class="icon-bar-chart"></i> </a></li>
-                                                <li><a href="#by-date" data-filter=".calendar" title="show media in calendar format"><i class="icon-calendar"></i> </a></li>
-                                                <li><a href="#by-location" data-filter=".location" title="show media as locations"><i class="icon-map-marker"></i> </a></li>
-                                                <li><a href="#by-collaborator" data-filter=".collaborator" title="show media by collaborator"><i class="icon-user"></i> </a></li>
-                                            </ul>
-                                            <div id="gallery-media" class="gallery" style="clear: both;">
-
-                                                <div class="cards cards-profile pull-left images">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
-                                                    <header>Image number 1</header>
-                                                    <section>
-                                                        <img src="../theme-files/images/gallery/9.jpg" style="width:200px; height: 100%">
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-calendar"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
-                                                                <span>23 April 2013</span>
-                                                                <span>17 April 2013</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
-                                                                <span>Amsterdam</span>
-                                                                <span>Barcelona</span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-
-
-                                                <div class="element thumbnail pull-left images news">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a data-toggle="modal" role="button" href="#edit-image"><img src="../theme-files/images/gallery/1.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                                        <div class="filter-demo-item btn btn-add-image"><a data-toggle="modal" role="button" href="#add-image" class=""><i class="icon-plus-sign"></i> </a></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-image-group"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-image-group-name"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 1</span>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="element thumbnail pull-left news blogs">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/7.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
-                                                   		
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 2</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left events news blogs">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/10.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/7.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 3</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left images files">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 4</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left files events">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/9.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/8.jpg"></a></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 5</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left files events blogs">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/1.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/2.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/3.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/4.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/5.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/6.jpg"></a></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 6</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left news">
-                                                    <div class="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/11.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/12.jpg"></a></div>
-                                                        <div class="filter-demo-item"><a href="#"><img src="../theme-files/images/gallery/13.jpg"></a></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a href="#"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">image group 7</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left last add-image-group btn">
-                                                    <a data-toggle="modal" role="button" href="#add-image-group"> <i class="icon-plus-sign"></i> </a>
-                                                </div>
-                                                <div class="clearfix"></div> 
-                                            </div>
-                                            <footer>
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <!-- modals image -->
-                                <div id="add-image" class="modal hide fade">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <h3>
-                                        Add an image
-                                    </h3>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="fileupload fileupload-new" data-provides="fileupload">
-                                        <div class="input-append">
-                                            <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                    <button class="btn btn-primary">Save changes</button>
+                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                                <div id="edit-image" class="modal hide fade">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <h3>
-                                        View image
-                                    </h3>
-                                </div>
-                                <div class="modal-body gallery">
-                                    <img src="../theme-files/images/gallery/1.jpg" style="width:100%">
-                                    <div class="image-data">
-                                        <span class="title">image name 1</span>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                    <button class="btn btn-danger">Remove</button>
-                                </div>
-                            </div>
-                                <!-- end modals image -->
-                                <!-- modals image-group-->
-                                <div id="edit-image-group-name" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Rename {image-group-name}
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <!-- Text input-->
-                                                    <label for="name-image-group-input" class="control-label">Rename the Image Group</label>
-                                                    <div class="controls">
-                                                        <input type="text" class="input-xlarge" placeholder="Image group 1">
-                                                        <p class="help-block">Supporting help text</p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                                <div id="remove-image-group" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Remove {image-group-name}
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <!-- Text input-->
-                                                    <label for="name-image-group-input" class="control-label">Remove</label>
-                                                    <div class="controls">
-                                                        <input type="checkbox">
-                                                        <p class="help-block">If you remove {image-group-name} the images themselves will stay available to {group-name}. To remove individual image, select the image and inside the popup window choose "remove this image"</p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-danger">Remove Image Group</button>
-                                    </div>
-                                </div>
-                                <div id="add-image-group" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Add an image group
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddImageGroupInfo:AddImageGroup -->
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Image group title</label>
-                                                    <div class="controls">
-                                                        <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                            <!-- THEBALL-CONTEXT-END:* -->
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-primary">Save changes</button>
-                                    </div>
-                                  </div>
-                                <!-- end modals imagegroup-->
-                            </div>
-                            <div class="tab-pane fade" id="tab-collaborators">
+                            <!-- * -->
+                            <!-- THEBALL-CONTEXT-END:* -->
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label">Group Icon Image</label>
+                        <div class="controls">
+                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:IconImage -->
+                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ImageData -->
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
-                                    <form id="" method="post" class="form-horizontal ">
-                                        <fieldset id="collaborators-alt">
-                                            <script type="text/javascript">
-                                                $(document).ready(function(){
-
-                                                    $("#toggler").click(function(){
-                                                        $(this).toggleClass('active, inactive');
-                                                    })
-
-                                                })
-                                            </script>
-                                            <div id="gallery-5" class="gallery" style="clear: both;">
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
-                                                    <header>Sujil Kodathoor
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/sujil.jpg">
-                                                        <p class="info-text">I design, evaluate and advise for social sustainability related projects. My approach utilizes research methodologies, creative practices, and design thinking as a process to breaking down systemic world problems.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                                                    <header>Teija Lehtonen
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/teija.jpg">
-                                                        <p class="info-text">Teija Lehtonen, M.Sc. (Econ), is currently working as a Director of the Aalto Global Impact at Aalto University. She is also promoting inclusive innovations and business at the the Base of the Pyramid (BOP) through various networks</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span> 
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                                                    <header>Anne Badan
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/anne.jpg">
-                                                        <p class="info-text">Provide strategic services and build large scale soci(et)al impact/development projects for public and private institutions. =>Have been active in Sub-Mekong Region (Thailand, Myanmar, Vietnam, Cambodia and Laos) Nepal, Liberia, Sierra Leone, Burkina Faso, Singapore, Finland and Switzerland.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                                                    <header>Andrew Clutterbuck
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/andrew.jpg">
-                                                        <p class="info-text">Aalto University has an extensive active community of students/professors/researchers/faculty etc. that work within the areas of social impact. Due to the nature of the work and scope of the required resources and factors for continuation, we are developing a support network/community to serve and bring together these active members in order to benefit and impact their abilities to positively impact.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">member</a></span>
-                                                    <header>Daniel Connell
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/daniel.jpg">
-                                                        <p class="info-text">I have over seven years professional experience in feature film, game cinematics, commercials and print material, working both as a freelancer and with studios in London, Glasgow, Vancouver, and throughout Australasia.
-
-                                                            Specialties:I am a Maya Generalist, plus specialise in Fluid & Solid Dynamics, Technical Lighting, Procedural Texturing and Trimmed Nurbs Modeling.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left last btn add-map">
-                                                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
-                                                </div>
-                                                
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <footer style="margin-top: 20px">
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <!-- modals collaborators -->
-                                <div id="view-project-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            Project Profile
-                                        </h2>
-                                    </div>
-                                    <div class="modal-body">
-                                        list of collaborators, List of locations, contact information, invite oneself
-                                    </div>
-                                </div>
-                                <div id="view-group-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            Aalto Global Impact
-                                        </h2>
-                                    </div>
-                                    <div class="modal-body">
-                                        Group profile
-                                    </div>
-                                </div>
-                                
-                                <div id="view-location-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title"></h2>
-                                    </div>
-                                    <div class="modal-body modal-body-map">
-                                        
-                                    <div id="location-map"></div>
-                                        <p>A map + other groups and projects and collaborators (including those not member of this group)</p>
-                                    </div>
-                                    <footer>
-                                        some footer
-                                    </footer>
-                                </div>
-                                <script>
-                                	$(document).ready(function(){
-                                			// set up the map
-											map = new L.Map('location-map');
-										
-											// create the tile layer with correct attribution
-											var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-											var osmAttrib='Map data © OpenStreetMap contributors';
-											var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});		
-											
-											map.setView(new L.LatLng(60.169781,24.938779),12);
-											map.addLayer(osm);
-											$("#view-location-profile").on('shown',function(){
-												map.invalidateSize();
-											});
-											$("a[href=#view-location-profile]").click(function(){
-												$("#view-location-profile .modal-header h2.title").html($(this).text());
-											});
-
-                                	});
-                                </script>
-                                <div id="view-collaborator-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            Collaborator's profile
-                                        </h2>
-                                    </div>
-                                    <div class="modal-body">
-                                        list of collaborators
-                                    </div>
-                                </div>
-                                <div id="edit-collaborator-role" class="modal hide fade well">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Edit collaborator Role
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body well">
-                                        <form method="post" class="form-horizontal">
-                                            <fieldset>
-                                                <p>
-                                                    Change the Role of {account-name}.
-                                                </p>
-                                                <div class="modal-footer">
-                                                    <div class="control-group controls">
-                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
-                                                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="remove-collaborator" class="modal hide fade well">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Remove this collaborator
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body well">
-                                        <form method="post" class="form-horizontal">
-                                            <fieldset>
-                                                <p>
-                                                    You are now about to remove this collaborator from your group.
-                                                </p>
-                                                <div class="modal-footer">
-                                                    <div class="control-group controls">
-                                                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
-                                                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="invite-collaborator" class="modal hide fade well">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Invite person to this group
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body well">
-                                        <form method="post" class="form-horizontal">
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address</label>
-                                                    <div class="controls">
-                                                        <!--<input name="[!ATOM]ID[ATOM!]_EmailAddress" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">-->
-                                                        <input type="text" data-source="[&quot;sujil@aalto.fi&quot;,&quot;teija@aalto.fi&quot;,&quot;anne@aalto.fi&quot;,&quot;andrew@aalto.fi&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;">
-                                                        <ul class="typeahead dropdown-menu" style="top: 2950px; left: 595.433px; display: none;">
-                                                            <li data-value="Ssujil@aalto.fi" class="active"><a href="#"><strong>S</strong>outh Carolina</a></li>
-                                                            <li data-value="teija@aalto.fi"><a href="#"><strong>S</strong>outh Dakota</a></li>
-                                                            <li data-value="anne@aalto.fi"><a href="#">Ala<strong>s</strong>ka</a></li>
-                                                            <li data-value="andrew@aalto.fi"><a href="#">Arkan<strong>s</strong>a<strong>s</strong></a></li>
-                                                        </ul>
-                                                        <p class="helptext">
-                                                            Use only valid email address that you trust to belong to that person.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                </div>
-                                <!-- end modals collaborators -->
-                            </div>
-
-                            <div class="tab-pane fade" id="tab-locations-current">
-                                <div>
-                                    <form id="" method="post" class="form-horizontal ">
-                                        <fieldset id="current-locations">
-                                            <script type="text/javascript">
-                                                $(document).ready(function(){
-
-                                                    $("#toggler").click(function(){
-                                                        $(this).toggleClass('active, inactive');
-                                                    })
-
-                                                })
-                                            </script>
-                                            <div id="gallery-3" class="gallery" style="clear: both;">
-                                                <div class="cards cards-profile pull-left ">
-                                                    <span class="label pull-right hidden"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
-                                                    <header>Location Name 1</header>
-                                                    <section  class="map">
-                                                        <img src="../assets/img/map-images/map-1.png">
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#" data-toggle="modal">Base of Pyramid</a></span>
-                                                                <span><a href="#" data-toggle="modal">Sanitation locally</a></span>
-                                                                <span><a href="#" data-toggle="modal">From sand to paradise</a></span>
-                                                                <span><a href="#" data-toggle="modal">fresh water from sewage</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li class="hidden">
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                                                                <span>Delhi</span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location" class="remove"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-location-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-map-item"><img src="../assets/img/map-images/map-1.png"></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">Location name 1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-map-item"><img src="../assets/img/map-images/map-2.png"></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">Location name 1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-map-item"><img src="../assets/img/map-images/map-3.png"></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">Location name 1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-map-item"><img src="../assets/img/map-images/map-1.png"></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">Location name 1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-                                                    <div id="filter-demo" style="max-width: 220px">
-                                                        <div class="filter-map-item"><img src="../assets/img/map-images/map-1.png"></div>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                                                        <span class="title">Location name 1</span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left last btn add-map">
-                                                    <a data-toggle="modal" role="button" href="#add-location"> <i class="icon-plus-sign"></i> </a>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <footer>
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                            <!-- modals locations-->
-                                <div id="edit-location-name" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Rename {location-name}
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <!-- Text input-->
-                                                    <label for="name-image-group-input" class="control-label">Rename {location}</label>
-                                                    <div class="controls">
-                                                        <input type="text" class="input-xlarge" placeholder="Image group 1">
-                                                        <p class="help-block">Supporting help text</p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-primary">Save changes</button>
-                                    </div>
-                                </div>
-                                <div id="remove-location" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h3>
-                                            Remove {location-name}
-                                        </h3>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" class="form-horizontal">
-                                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                            <fieldset>
-                                                <div class="control-group">
-                                                    <!-- Text input-->
-                                                    <label for="name-image-group-input" class="control-label">Remove</label>
-                                                    <div class="controls">
-                                                        <input type="checkbox">
-                                                        <p class="help-block">If you remove {location} the location itself will become <em>unavailable</em> to {group-name}.</p>
-                                                    </div>
-                                                </div>
-                                            </fieldset>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                        <button class="btn btn-danger">Remove Image Group</button>
-                                    </div>
-                                </div>
-                                <div id="add-location" class="modal hide fade">
-                                <div class="modal-header">
-                                    <button class="close" data-dismiss="modal">&times;</button>
-                                    <h3>
-                                        Add a location
-                                    </h3>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="post" class="form-horizontal">
-                                        <fieldset>
-                                            <div class="control-group">
-                                                <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Location Name</label>
-                                                <div class="controls">
-                                                    <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
-                                                </div>
-                                            </div>
-                                        </fieldset>
-                                        <!-- THEBALL-CONTEXT-END:* -->
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-                                    <button class="btn btn-primary">Save changes</button>
+                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                            <!-- end modals locations-->
-                            </div>
-                            <div class="tab-pane fade" id="tab-delete">
-                               <form id="" method="post" class="form-horizontal ">
-                                   <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                                   <fieldset id="">
-                                       <p>are you sure you want to delete this group? You break all the links as well</p>
-                                       <?php include '../caloom-atoms/caloom-atom-form-cancel-delete.txt' ?>
-                                   </fieldset>
-                               </form
-                           </div>
-                        </div><!--.tab-content-->
-                    </div><!--.fancy-tab-content-->
-                </div><!-- .span12-->
-            </div><!-- .row-fluid-->
+                            <!-- THEBALL-CONTEXT-END:* -->
+                            <!-- THEBALL-CONTEXT-END:* -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end group profile image and group icon image -->
+            <div class="control-group">
+                <label class="control-label" for="[!ATOM]ID[ATOM!]_GroupName">Group name</label>
+                <div class="controls">
+                    <input name="[!ATOM]ID[ATOM!]_GroupName"  id="[!ATOM]ID[ATOM!]_GroupName" type="text" value="[!ATOM]GroupName[ATOM!]">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="[!ATOM]ID[ATOM!]_Description">Description</label>
+                <div class="controls">
+                    <textarea id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
+                <div class="controls">
+                    <textarea id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
+                </div>
+            </div>
             <footer>
-                <hr>
-                <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Caloom Ltd</a></p>
-                <p>&copy; 2013 <a href="#">Caloom / OIP / Aalto Global Impact</a></p>
+                <div class="control-group controls pull-right">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                        <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
+                    </div>
+                </div>
             </footer>
-        </div><!--.container-fluid-->
-    </div><!--.content-->
-
-    <script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
+        </fieldset>
+    </form>
+</div>
+<div class="tab-pane fade" id="tab-media">
+<script type="text/javascript">
+    $(function(){
+        $('#gallery-media').imagesLoaded( function(){
+            $(this).isotope();
+            $(this).find(".filter-demo").isotope();
         });
-    </script>
-    
-  </body>
+        fancyFilter('.filter', '#gallery-media');
+    });
+</script>
+<div>
+    <form id="" method="post" class="form-horizontal ">
+        <fieldset id="current-imagegroups">
+            <script type="text/javascript">
+                $(document).ready(function(){
+
+                    $("#toggler").click(function(){
+                        $(this).toggleClass('active, inactive');
+                    })
+
+                })
+            </script>
+            <ul class="filter nav nav-pills pull-left">
+                <li class="active">
+                    <a href="#all" data-filter=".element">All</a>
+                </li>
+                <li><a href="#images" data-filter=".images">Images</a></li>
+                <li><a href="#videos" data-filter=".files">Files</a></li>
+                <li><a href="#videos" data-filter=".events">Events</a></li>
+                <li><a href="#videos" data-filter=".blogs">Blogs</a></li>
+                <li><a href="#videos" data-filter=".news">News</a></li>
+            </ul>
+            <ul class="filter nav nav-pills pull-right">
+                <li><a href="#as-isotope" data-filter=".isotope" title="show media in isotope format"><i class="icon-bar-chart"></i> </a></li>
+                <li><a href="#by-date" data-filter=".calendar" title="show media in calendar format"><i class="icon-calendar"></i> </a></li>
+                <li><a href="#by-location" data-filter=".location" title="show media as locations"><i class="icon-map-marker"></i> </a></li>
+                <li><a href="#by-collaborator" data-filter=".collaborator" title="show media by collaborator"><i class="icon-user"></i> </a></li>
+            </ul>
+            <div id="gallery-media" class="gallery" style="clear: both;">
+
+                <div class="cards cards-profile pull-left images">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
+                    <header>Beach Bahamas</header>
+                    <section>
+                        <img src="../theme-files/images/gallery/9.jpg" style="width:200px; height: 100%">
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-calendar"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                                <span>23 April 2013</span>
+                                <span>17 April 2013</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span>Delhi</span>
+                                <span>Amsterdam</span>
+                                <span>Barcelona</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left images">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
+                    <header>Metro Paris</header>
+                    <section>
+                        <img src="../theme-files/images/gallery/3.jpg" style="width:200px; height: 100%">
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-calendar"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                                <span>23 April 2013</span>
+                                <span>17 April 2013</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span>Delhi</span>
+                                <span>Amsterdam</span>
+                                <span>Barcelona</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left images">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
+                    <header>Sunset San-Francisco</header>
+                    <section>
+                        <img src="../theme-files/images/gallery/4.jpg" style="width:200px; height: 100%">
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-calendar"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                                <span>23 April 2013</span>
+                                <span>17 April 2013</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span>Delhi</span>
+                                <span>Amsterdam</span>
+                                <span>Barcelona</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left images">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
+                    <header>Sidney on Saturday</header>
+                    <section>
+                        <img src="../theme-files/images/gallery/1.jpg" style="width:200px; height: 100%">
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Shara</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-calendar"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                                <span>23 April 2013</span>
+                                <span>17 April 2013</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span>Delhi</span>
+                                <span>Amsterdam</span>
+                                <span>Barcelona</span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <footer>
+                <div class="control-group controls pull-right">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
+                    </div>
+                </div>
+            </footer>
+        </fieldset>
+    </form>
+</div>
+<!-- modals image -->
+<div id="add-image" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Add an image
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="fileupload fileupload-new" data-provides="fileupload">
+            <div class="input-append">
+                <div class="uneditable-input span3"><i class="icon-file fileupload-exists"></i> <span class="fileupload-preview"></span></div><span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span><a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+<div id="edit-image" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            View image
+        </h3>
+    </div>
+    <div class="modal-body gallery">
+        <img src="../theme-files/images/gallery/1.jpg" style="width:100%">
+        <div class="image-data">
+            <span class="title">image name 1</span>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+        <button class="btn btn-danger">Remove</button>
+    </div>
+</div>
+<!-- end modals image -->
+<!-- modals image-group-->
+<div id="edit-image-group-name" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Rename {image-group-name}
+        </h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" class="form-horizontal">
+            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+            <fieldset>
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label for="name-image-group-input" class="control-label">Rename the Image Group</label>
+                    <div class="controls">
+                        <input type="text" class="input-xlarge" placeholder="Image group 1">
+                        <p class="help-block">Supporting help text</p>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+<div id="remove-image-group" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Remove {image-group-name}
+        </h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" class="form-horizontal">
+            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+            <fieldset>
+                <div class="control-group">
+                    <!-- Text input-->
+                    <label for="name-image-group-input" class="control-label">Remove</label>
+                    <div class="controls">
+                        <input type="checkbox">
+                        <p class="help-block">If you remove {image-group-name} the images themselves will stay available to {group-name}. To remove individual image, select the image and inside the popup window choose "remove this image"</p>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+        <button class="btn btn-danger">Remove Image Group</button>
+    </div>
+</div>
+<div id="add-image-group" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Add an image group
+        </h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" class="form-horizontal">
+            <!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.AddImageGroupInfo:AddImageGroup -->
+            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Image group title</label>
+                    <div class="controls">
+                        <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
+                    </div>
+                </div>
+            </fieldset>
+            <!-- THEBALL-CONTEXT-END:* -->
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
+</div>
+<!-- end modals imagegroup-->
+</div>
+<div class="tab-pane fade" id="tab-collaborators">
+<div>
+    <form id="" method="post" class="form-horizontal ">
+        <fieldset id="collaborators-alt">
+            <script type="text/javascript">
+                $(document).ready(function(){
+
+                    $("#toggler").click(function(){
+                        $(this).toggleClass('active, inactive');
+                    })
+
+                })
+            </script>
+            <div id="gallery-5" class="gallery" style="clear: both;">
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
+                    <header>Sujil Kodathoor
+                    </header>
+                    <section>
+                        <img src="../assets/img/sujil.jpg">
+                        <p class="info-text">I design, evaluate and advise for social sustainability related projects. My approach utilizes research methodologies, creative practices, and design thinking as a process to breaking down systemic world problems.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
+                    <header>Teija Lehtonen
+                    </header>
+                    <section>
+                        <img src="../assets/img/teija.jpg">
+                        <p class="info-text">Teija Lehtonen, M.Sc. (Econ), is currently working as a Director of the Aalto Global Impact at Aalto University. She is also promoting inclusive innovations and business at the the Base of the Pyramid (BOP) through various networks</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
+                    <header>Anne Badan
+                    </header>
+                    <section>
+                        <img src="../assets/img/anne.jpg">
+                        <p class="info-text">Provide strategic services and build large scale soci(et)al impact/development projects for public and private institutions. =>Have been active in Sub-Mekong Region (Thailand, Myanmar, Vietnam, Cambodia and Laos) Nepal, Liberia, Sierra Leone, Burkina Faso, Singapore, Finland and Switzerland.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
+                    <header>Andrew Clutterbuck
+                    </header>
+                    <section>
+                        <img src="../assets/img/andrew.jpg">
+                        <p class="info-text">Aalto University has an extensive active community of students/professors/researchers/faculty etc. that work within the areas of social impact. Due to the nature of the work and scope of the required resources and factors for continuation, we are developing a support network/community to serve and bring together these active members in order to benefit and impact their abilities to positively impact.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">member</a></span>
+                    <header>Daniel Connell
+                    </header>
+                    <section>
+                        <img src="../assets/img/daniel.jpg">
+                        <p class="info-text">I have over seven years professional experience in feature film, game cinematics, commercials and print material, working both as a freelancer and with studios in London, Glasgow, Vancouver, and throughout Australasia.
+
+                            Specialties:I am a Maya Generalist, plus specialise in Fluid & Solid Dynamics, Technical Lighting, Procedural Texturing and Trimmed Nurbs Modeling.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <div class="image-data">
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </div>
+                </div>
+                <div class="element thumbnail pull-left last btn add-map">
+                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <footer style="margin-top: 20px">
+                <div class="control-group controls pull-right">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
+                    </div>
+                </div>
+            </footer>
+        </fieldset>
+    </form>
+</div>
+<!-- modals collaborators -->
+<div id="view-project-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title">
+            Project Profile
+        </h2>
+    </div>
+    <div class="modal-body">
+        list of collaborators, List of locations, contact information, invite oneself
+    </div>
+</div>
+<div id="view-group-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title">
+            Aalto Global Impact
+        </h2>
+    </div>
+    <div class="modal-body">
+        Group profile
+    </div>
+</div>
+
+<div id="view-location-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title"></h2>
+    </div>
+    <div class="modal-body modal-body-map">
+
+        <div id="location-map"></div>
+        <p>A map + other groups and projects and collaborators (including those not member of this group)</p>
+    </div>
+    <footer>
+        some footer
+    </footer>
+</div>
+<script>
+    $(document).ready(function(){
+        // set up the map
+        map = new L.Map('location-map');
+
+        // create the tile layer with correct attribution
+        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib='Map data © OpenStreetMap contributors';
+        var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});
+
+        map.setView(new L.LatLng(60.169781,24.938779),12);
+        map.addLayer(osm);
+        $("#view-location-profile").on('shown',function(){
+            map.invalidateSize();
+        });
+        $("a[href=#view-location-profile]").click(function(){
+            $("#view-location-profile .modal-header h2.title").html($(this).text());
+        });
+
+    });
+</script>
+<div id="view-collaborator-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title">
+            Collaborator's profile
+        </h2>
+    </div>
+    <div class="modal-body">
+        list of collaborators
+    </div>
+</div>
+<div id="edit-collaborator-role" class="modal hide fade well">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Edit collaborator Role
+        </h3>
+    </div>
+    <div class="modal-body well">
+        <form method="post" class="form-horizontal">
+            <fieldset>
+                <p>
+                    Change the Role of {account-name}.
+                </p>
+                <div class="modal-footer">
+                    <div class="control-group controls pull-right">
+                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div id="remove-collaborator" class="modal hide fade well">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Remove this collaborator
+        </h3>
+    </div>
+    <div class="modal-body well">
+        <form method="post" class="form-horizontal">
+            <fieldset>
+                <p>
+                    You are now about to remove this collaborator from your group.
+                </p>
+                <div class="modal-footer">
+                    <div class="control-group controls pull-right">
+                        <div class="form-actions" style="padding:0;margin:0;border-top:0">
+                            <button class="btn">Cancel</button> <button type="submit" class="btn btn-primary btn-danger">Remove !</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<div id="invite-collaborator" class="modal hide fade well">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Invite person to this group
+        </h3>
+    </div>
+    <div class="modal-body well">
+        <form method="post" class="form-horizontal">
+            <fieldset>
+                <div class="control-group">
+                    <label class="control-label" for="[!ATOM]ID[ATOM!]_EmailAddress">Email address</label>
+                    <div class="controls">
+                        <!--<input name="[!ATOM]ID[ATOM!]_EmailAddress" id="[!ATOM]ID[ATOM!]_EmailAddress" type="input" value="[!ATOM]EmailAddress[ATOM!]">-->
+                        <input type="text" data-source="[&quot;sujil@aalto.fi&quot;,&quot;teija@aalto.fi&quot;,&quot;anne@aalto.fi&quot;,&quot;andrew@aalto.fi&quot;]" data-items="4" data-provide="typeahead" style="margin: 0 auto;">
+                        <ul class="typeahead dropdown-menu" style="top: 2950px; left: 595.433px; display: none;">
+                            <li data-value="Ssujil@aalto.fi" class="active"><a href="#"><strong>S</strong>outh Carolina</a></li>
+                            <li data-value="teija@aalto.fi"><a href="#"><strong>S</strong>outh Dakota</a></li>
+                            <li data-value="anne@aalto.fi"><a href="#">Ala<strong>s</strong>ka</a></li>
+                            <li data-value="andrew@aalto.fi"><a href="#">Arkan<strong>s</strong>a<strong>s</strong></a></li>
+                        </ul>
+                        <p class="helptext">
+                            Use only valid email address that you trust to belong to that person.
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- end modals collaborators -->
+</div>
+
+<div class="tab-pane fade" id="tab-locations-current">
+    <div>
+        <form id="" method="post" class="form-horizontal ">
+            <fieldset id="current-locations">
+                <script type="text/javascript">
+                    $(document).ready(function(){
+
+                        $("#toggler").click(function(){
+                            $(this).toggleClass('active, inactive');
+                        })
+
+                    })
+                </script>
+                <div id="gallery-3" class="gallery" style="clear: both;">
+                    <div class="cards cards-profile pull-left ">
+                        <span class="label pull-right hidden"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
+                        <header>Location Name 1</header>
+                        <section  class="map">
+                            <img src="../assets/img/map-images/map-1.png">
+                            <ul>
+                                <li>
+                                    <i class="icon-file"></i>
+                                    <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                    <span><a href="#" data-toggle="modal">Open Innovation Platform</a></span>
+                                    <span><a href="#" data-toggle="modal">Base of Pyramid</a></span>
+                                    <span><a href="#" data-toggle="modal">Sanitation locally</a></span>
+                                    <span><a href="#" data-toggle="modal">From sand to paradise</a></span>
+                                    <span><a href="#" data-toggle="modal">fresh water from sewage</a></span>
+                                </li>
+                                <li>
+                                    <i class="icon-group"></i>
+                                    <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                    <span>Weconomy</span>
+                                    <span>Earthhouse</span>
+                                </li>
+                                <li class="hidden">
+                                    <i class="icon-map-marker"></i>
+                                    <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                                    <span>Delhi</span>
+                                </li>
+                            </ul>
+                        </section>
+                        <div class="clearfix"></div>
+                        <footer>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location" class="remove"><i class="icon-remove-sign"></i></a></span>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#view-location-profile"><i class="icon-eye-open"></i></a></span>
+                        </footer>
+                    </div>
+                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                        <div id="filter-demo" style="max-width: 220px">
+                            <div class="filter-map-item"><img src="../assets/img/map-images/map-1.png"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="image-data">
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
+                            <span class="title">Location name 1</span>
+                        </div>
+                    </div>
+                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                        <div id="filter-demo" style="max-width: 220px">
+                            <div class="filter-map-item"><img src="../assets/img/map-images/map-2.png"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="image-data">
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
+                            <span class="title">Location name 1</span>
+                        </div>
+                    </div>
+                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                        <div id="filter-demo" style="max-width: 220px">
+                            <div class="filter-map-item"><img src="../assets/img/map-images/map-3.png"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="image-data">
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
+                            <span class="title">Location name 1</span>
+                        </div>
+                    </div>
+                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                        <div id="filter-demo" style="max-width: 220px">
+                            <div class="filter-map-item"><img src="../assets/img/map-images/map-1.png"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="image-data">
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
+                            <span class="title">Location name 1</span>
+                        </div>
+                    </div>
+                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                        <div id="filter-demo" style="max-width: 220px">
+                            <div class="filter-map-item"><img src="../assets/img/map-images/map-1.png"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="image-data">
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
+                            <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
+                            <span class="title">Location name 1</span>
+                        </div>
+                    </div>
+                    <div class="element thumbnail pull-left last btn add-map">
+                        <a data-toggle="modal" role="button" href="#add-location"> <i class="icon-plus-sign"></i> </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <footer>
+                    <div class="control-group controls pull-right">
+                        <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                            <button value="true" name="btnCancel" class="btn">Cancel</button>
+                            <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
+                        </div>
+                    </div>
+                </footer>
+            </fieldset>
+        </form>
+    </div>
+    <!-- modals locations-->
+    <div id="edit-location-name" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                Rename {location-name}
+            </h3>
+        </div>
+        <div class="modal-body">
+            <form method="post" class="form-horizontal">
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <fieldset>
+                    <div class="control-group">
+                        <!-- Text input-->
+                        <label for="name-image-group-input" class="control-label">Rename {location}</label>
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" placeholder="Image group 1">
+                            <p class="help-block">Supporting help text</p>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    <div id="remove-location" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                Remove {location-name}
+            </h3>
+        </div>
+        <div class="modal-body">
+            <form method="post" class="form-horizontal">
+                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+                <fieldset>
+                    <div class="control-group">
+                        <!-- Text input-->
+                        <label for="name-image-group-input" class="control-label">Remove</label>
+                        <div class="controls">
+                            <input type="checkbox">
+                            <p class="help-block">If you remove {location} the location itself will become <em>unavailable</em> to {group-name}.</p>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-danger">Remove Image Group</button>
+        </div>
+    </div>
+    <div id="add-location" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                Add a location
+            </h3>
+        </div>
+        <div class="modal-body">
+            <form method="post" class="form-horizontal">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="[!ATOM]ID[ATOM!]_ImageGroupTitle">Location Name</label>
+                        <div class="controls">
+                            <input name="[!ATOM]ID[ATOM!]_ImageGroupTitle" class="span4" id="[!ATOM]ID[ATOM!]_ImageGroupTitle" type="text" value="[!ATOM]ImageGroupTitle[ATOM!]">
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- THEBALL-CONTEXT-END:* -->
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    <!-- end modals locations-->
+</div>
+<div class="tab-pane fade" id="tab-delete">
+    <form id="" method="post" class="form-horizontal ">
+        <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+        <fieldset id="">
+            <p>are you sure you want to delete this group? You break all the links as well</p>
+            <?php include '../caloom-atoms/caloom-atom-form-cancel-delete.txt' ?>
+        </fieldset>
+    </form
+</div>
+</div><!--.tab-content-->
+</div><!--.fancy-tab-content-->
+</div><!-- .span12-->
+</div><!-- .row-fluid-->
+<footer>
+    <hr>
+    <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Caloom Ltd</a></p>
+    <p>&copy; 2013 <a href="#">Caloom / OIP / Aalto Global Impact</a></p>
+</footer>
+</div><!--.container-fluid-->
+</div><!--.content-->
+
+<script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript">
+    $("[rel=tooltip]").tooltip();
+    $(function() {
+        $('.demo-cancel-click').click(function(){return false;});
+    });
+</script>
+
+</body>
 </html>
-
-
