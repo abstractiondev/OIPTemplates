@@ -1868,6 +1868,9 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   border-top: 0px;
   border-radius: 0px;
 }
+.cards-profile section .tab-pane span:after {
+  content: ",";
+}
 .cards-profile section ul {
   list-style: none outside none;
   margin-left: 0px;
@@ -1879,9 +1882,6 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   padding-left: 10px;
   padding-right: 5px;
   line-height: 14px;
-}
-.cards-profile section ul li span:after {
-  content: ",";
 }
 .cards-profile section ul span {
   margin-right: 2px;
