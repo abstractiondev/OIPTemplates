@@ -330,7 +330,8 @@ hr {
 }
 .tab-content footer .control-group {
   margin: 0;
-  padding: 10px;
+  padding: 17px;
+  margin-bottom: -14px;
 }
 /*
   * admin-footer
