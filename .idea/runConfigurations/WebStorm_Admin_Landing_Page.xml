@@ -2,7 +2,7 @@
   <configuration default="false" name="WebStorm Admin Landing Page" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
     <JSRemoteDebuggerConfigurationSettings>
       <option name="engineId" value="chrome" />
-      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/templates/admin/profile.html" />
+      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/templates/admin/admin-group.html" />
     </JSRemoteDebuggerConfigurationSettings>
     <RunnerSettings RunnerId="JavascriptDebugRunner" />
     <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
