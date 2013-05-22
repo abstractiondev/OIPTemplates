@@ -149,78 +149,31 @@
     <![endif]-->
 
 	<script>
-	function GetLayerLabelText(textvalue, iconUrl)
-{
-	if(iconUrl != null)
-		return "<img src='" + iconUrl + "' height='16' width='16'></img> " + textvalue;
-	return textvalue;
-}
-		var map;
-		// Marker arrays
-	var ActivitiesMarkers = new Array();
-	var ActivitiesMarkerIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-Activities.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-	var NewsMarkers = new Array();
-	var NewsMarkerIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-News.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-	var ProjectsMarkers = new Array();
-	var ProjectsMarkerIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-Projects.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-	var EventsMarkers = new Array();
-	var EventsMarkerIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-Events.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-	var BlogsMarkers = new Array();
-	var BlogsMarkerIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-Blogs.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
+	    function GetLayerLabelText(textvalue, iconUrl)
+            {
+                if(iconUrl != null)
+                    return "<img src='" + iconUrl + "' height='16' width='16'></img> " + textvalue;
+                return textvalue;
+            }
 
-	// Cluster markers - only thing that has actual map-visible markers
-	var markers = new L.MarkerClusterGroup();
-	var MarkerTypes = ["Activities","News", "Projects","Events","Blogs"];
+
+		var map;
+        // Cluster markers - only thing that has actual map-visible markers
+        var markers = new L.MarkerClusterGroup();
+        var MarkerTypes = ["Activities","News", "Projects","Events","Blogs"];
+        // Marker arrays
+        $.each(MarkerTypes, function(i,item){
+            window[item+"Markers"] = new Array();
+            window[item+"MarkerIcon"] = L.icon({
+                iconUrl: '../assets/img/oip-markers/map-marker-'+item+'.png',
+                iconSize: [25, 41],
+                iconAnchor: [12, 40],
+                popupAnchor: [-3, -76],
+                shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
+                shadowSize: [41, 41],
+                shadowAnchor: [12, 40]
+            });
+        })
 	</script>
 
     <!-- Le fav and touch icons -->
@@ -1362,7 +1315,7 @@
             <p>are you sure you want to delete this group? You break all the links as well</p>
             <?php include '../caloom-atoms/caloom-atom-form-cancel-delete.txt' ?>
         </fieldset>
-    </form
+    </form>
 </div>
 </div><!--.tab-content-->
 </div><!--.fancy-tab-content-->
