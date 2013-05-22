@@ -397,12 +397,15 @@
 <div class="tab-pane fade" id="tab-media">
 <script type="text/javascript">
     $(function(){
-        $('#gallery-media').imagesLoaded( function(){
-            $(this).isotope();
-            $(this).find(".filter-demo").isotope();
-        });
         fancyFilter('.filter', '#gallery-media');
-    });
+        	// load isotope when tab is shown
+            $('a[data-toggle="tab"]').on('shown', function (e) {
+    			if ($(e.target).attr('href')=="#tab-media"){
+    				$("gallery-media").isotope();
+    			} 
+    			
+    			});
+    		});
 </script>
 <div>
     <form id="" method="post" class="form-horizontal ">
