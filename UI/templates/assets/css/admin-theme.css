@@ -1822,7 +1822,7 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .cards-profile header {
   color: #0F0501;
   line-height: 1.2em;
-  padding: 1em;
+  padding: 16px 14px 1px 10px;
   margin-top: 0.3em;
   text-shadow: 1px 1px 0 #FFFFFF;
   text-transform: uppercase;
