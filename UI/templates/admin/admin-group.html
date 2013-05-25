@@ -158,6 +158,7 @@
 
 
 		var map;
+        var mediamap;
         // Cluster markers - only thing that has actual map-visible markers
         var markers = new L.MarkerClusterGroup();
         var MarkerTypes = ["Activities","News", "Projects","Events","Blogs"];
@@ -354,7 +355,7 @@
         	// load isotope when tab is shown
             $('a[data-toggle="tab"]').on('shown', function (e) {
     			if ($(e.target).attr('href')=="#tab-media"){
-    				$("#gallery-media").isotope();
+    				$("#gallery-media").isotope({'filter':".cards"});
     			} 
     			
     			});
@@ -374,7 +375,7 @@
             </script>
             <ul class="filter nav nav-pills pull-left">
                 <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
-                <li class="active"><a href="#all" data-filter=".element">All</a></li>
+                <li class="active"><a href="#all" data-filter=".cards:not(.location)">All</a></li>
                 <li><a href="#images" data-filter=".images">Images</a></li>
                 <li><a href="#videos" data-filter=".files">Files</a></li>
                 <li><a href="#videos" data-filter=".events">Events</a></li>
@@ -534,8 +535,45 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
                     </footer>
                 </div>
+                <div id="by-location" class="location" style="width:100%;height:500px;"></div>
                 <div class="clearfix"></div>
             </div>
+
+            <!-- LEAFLET CODE -->
+            <script>
+                $(document).ready(function(){
+                    // set up the map
+                    mediamap = new L.Map('by-location');
+
+                    // create the tile layer with correct attribution
+                    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                    var osmAttrib='Map data © OpenStreetMap contributors';
+                    var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttrib});
+                    var mediamarkers = L.layerGroup();
+                    mediamarkers.addTo(mediamap);
+
+                    mediamap.setView(new L.LatLng(0,0),2);
+                    mediamap.addLayer(osm);
+
+                    $('a[data-toggle="tab"]').on('shown', function (e) {
+                        if ($(e.target).attr('href')=="#tab-media"){
+                            mediamap.invalidateSize();
+                        }
+                    });
+                    $("a[href=#by-location]").click(function(){
+                        $.getJSON("media-location.json",function(result){
+                            mediamarkers.clearLayers();
+                            var bounds = new L.LatLngBounds();
+                            $.each(result.features, function(i,item){
+                                mediamarkers.addLayer(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]]).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent).addTo(mediamap));
+                                bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
+                            });
+                            mediamap.fitBounds(bounds);
+                        });
+                    });
+                });
+            </script>
+            <!-- LEAFLET CODE -->
             <footer>
                 <div class="control-group controls pull-right">
                     <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
@@ -546,6 +584,7 @@
             </footer>
         </fieldset>
     </form>
+
 </div>
 <!-- modals image -->
 <div id="add-image" class="modal hide fade">

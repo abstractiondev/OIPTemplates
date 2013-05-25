@@ -1,0 +1,65 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.187537,24.911127
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Beach Bahamas",
+                "popupContent": "Beach Bahamas",
+				"markerType": "Activities"
+            },
+            "id": 51
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.150306,24.957819
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Metro Paris",
+                "popupContent": "Metro Paris",
+				"markerType": "News"
+            },
+            "id": 52
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.201957,24.96417
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Sunset San-Francisco",
+                "popupContent": "Sunset San-Francisco",
+				"markerType": "Blogs"
+            },
+            "id": 53
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.185318,24.949751
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Sidney on Saturday",
+                "popupContent": "Sidney on Saturday",
+				"markerType": "Projects"
+            },
+            "id": 54
+        }
+    ]
+}
