@@ -7,12 +7,12 @@
 
 //  Base Colors
 // -------------------------
-@blue: #52c3ff;
+@blue: #3aacff;
 @red:       #d94546;
 @green: #72cb44;
 
 //little mixin
-@base: @blue;
+@base: desaturate(@blue, 30%);
 
 // Grays
 // -------------------------
@@ -51,6 +51,8 @@
 @navbarLinkBackgroundActive:      darken(@linkColorHover, 10%);
 
 @navbarBrandColor:                lighten(@base, 30%);
+
+@borderFormColor:                 desaturate(lighten(@bodyBackground, 15%),20%);
 
 @navbarBackgroundColor: @navbarBackground;
 @selectedColor: @navbarText;

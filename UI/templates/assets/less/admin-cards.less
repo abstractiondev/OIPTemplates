@@ -123,8 +123,8 @@
     height: auto;
     margin-top: 10px;
     background-clip: padding-box;
-    border: 2px solid lighten(@grayLight, 30%);
-    border-radius: 0 0 0 0;
+    .bordered(@borderFormColor);
+    .border-radius(0);
     margin: 0.75em 0.75em 0 0;
     span.label {
       color: @grayDark;
@@ -134,7 +134,7 @@
       letter-spacing: 1.5px;
       text-shadow: 1px 1px 0 @white;
       .rounded (0px);
-      background-color: lighten(@grayLight, 30%);
+      background-color: lighten(@borderFormColor, 5%);
       a {
         //color: @grayDark;
       }
@@ -167,8 +167,9 @@
       font-size: 12px;
       padding: 0px;
       .nav-tabs {
+        border-color: @borderFormColor;
         border-top: medium none;
-        margin-bottom: 0;
+        margin-bottom: 0px;
         margin-left: 10px;
         width: 200px;
         margin-top: 5px;
@@ -179,8 +180,13 @@
           padding: 2px;
           padding-bottom:0px;
           }
-
         }
+      }
+      .nav-tabs > .active > a,
+      .nav-tabs > .active > a:hover,
+      .nav-tabs > .active > a:focus {
+        border-color: @borderFormColor @borderFormColor lighten(@borderFormColor, 10%);
+        background-color: lighten(@borderFormColor, 10%);
       }
       .tab-content{
         width:178px;
@@ -188,7 +194,9 @@
         margin-bottom:2px;
         font-size:11px;
         line-height: 12px;
-        border: 1px solid lighten(@grayLight, 30%);
+        border: 1px solid @borderFormColor;
+        background-color: lighten(@borderFormColor, 10%);
+
         border-top:0px;
         border-radius: 0px;
       }
@@ -214,7 +222,7 @@
     }
     footer{
       height: 20px;
-      .headerGradient(@highlight: 10%);
+      .gradient();
       border: 0px solid lighten(@navbarBackgroundColor, 3%);
       .rounded(0px);
       margin-bottom: 0px;

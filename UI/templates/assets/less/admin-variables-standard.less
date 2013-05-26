@@ -2,16 +2,34 @@
 * pikock, autreplanete http://www.autreplanete.com/ 
 *  
 **/
+//  Base Colors
+// -------------------------
+@blue: #3aacff;
+@red:       #d94546;
+@green: #72cb44;
+
+//little mixin
+@base: desaturate(@blue, 30%);
+
+// Grays
+// -------------------------
+@black:                 desaturate(darken(@base, 1000%),100%);;
+@grayDarker:            desaturate(darken(@base, 50%),12%);;
+@grayDark:              desaturate(darken(@base, 50%),12%);;
+@gray:                  desaturate(darken(@base, 50%),50%);;
+@grayLight:             desaturate(lighten(@base, 25%),10%);;
+@grayLighter:           desaturate(lighten(@base, 50%),20%);;
+@white:                 desaturate(lighten(@base, 100%),100%);;
 
 
 // Colors
-@black: #000;
-@grayDarker: #222;
-@grayDark: #333;
-@gray: #555;
-@grayLight: #999;
-@grayLighter: #eee;
-@white: #fff;
+//@black: #000;
+//@grayDarker: #222;
+//@grayDark: #333;
+//@gray: #555;
+//@grayLight: #999;
+//@grayLighter: #eee;
+//@white: #fff;
 @blue: #049cdb;
 @blueDark: #0064cd;
 @green: #46a546;
@@ -30,10 +48,10 @@
 
 
 // Scaffolding
-@bodyBackground: @white;
-@textColor: @grayDark;
-@linkColor: #3c5c99;
-@linkColorHover: darken(@linkColor, 15%);
+@bodyBackground:        lighten(@base, 30%);
+@textColor:             darken(@base, 60%);
+@linkColor:             @base;
+@linkColorHover:        darken(@linkColor, 18%);
 @baseBorderRadius: 4px;
 @borderRadiusLarge: 6px;
 @borderRadiusSmall: 3px;
@@ -64,7 +82,7 @@
 // Buttons
 @btnBackground: @white;
 @btnBackgroundHighlight: darken(@white, 10%);
-@btnBorder: #bbb;
+@btnBorder:                 desaturate(lighten(@bodyBackground, 15%),20%);
 @btnPrimaryBackground: @linkColor;
 @btnPrimaryBackgroundHighlight: darken(@btnPrimaryBackground, 5%);
 @btnInfoBackground: #5bc0de;
@@ -92,6 +110,7 @@
 
 
 // Forms
+@borderFormColor:                 desaturate(lighten(@bodyBackground, 15%),20%);
 @inputBackground: @white;
 @inputBorder: #ccc;
 @inputBorderRadius: @baseBorderRadius;
@@ -115,16 +134,16 @@
 @navbarCollapseWidth: 979px;
 @navbarCollapseDesktopWidth: @navbarCollapseWidth + 1;
 @navbarHeight: 40px;
-@navbarBackgroundHighlight: #ffffff;
-@navbarBackground: darken(@navbarBackgroundHighlight, 5%);
-@navbarBorder: darken(@navbarBackground, 12%);
-@navbarText: #777;
-@navbarLinkColor: #777;
-@navbarLinkColorHover: @grayDark;
-@navbarLinkColorActive: @gray;
-@navbarLinkBackgroundHover: transparent;
-@navbarLinkBackgroundActive: darken(@navbarBackground, 5%);
-@navbarBrandColor: @navbarLinkColor;
+@navbarBackgroundHighlight:       desaturate(darken(@base, 20%),50%);
+@navbarBackground:                desaturate(darken(@base, 50%),50%);
+@navbarBorder:                    darken(@navbarBackground, 12%);
+@navbarText:                      lighten(@base, 5%);
+@navbarLinkColor:                 @linkColor;
+@navbarLinkColorHover:            lighten(@navbarLinkColor, 20%);
+@navbarLinkColorActive:           lighten(@navbarLinkColor, 30%);
+@navbarLinkBackgroundHover:       transparent;
+@navbarLinkBackgroundActive:      darken(@linkColorHover, 10%);
+@navbarBrandColor:                lighten(@base, 30%);
 
 
 // Hero Unit

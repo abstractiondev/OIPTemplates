@@ -10,6 +10,8 @@
     margin-right: 10px;
     vertical-align: middle;
     width: 98%;
+    border: 1px solid @borderFormColor;
+
   }
 
   /* end */
@@ -41,11 +43,11 @@
 
 input[type="text"], input[type="password"] {
   &:focus {
-    border: 1px solid darken(@navbarBackgroundColor, 15%);
-    .box-shadow(0px 0px 5px darken(@navbarBackgroundColor, 15%));
+    border: 1px solid @borderFormColor;
+    .box-shadow(0px 0px 5px @borderFormColor);
   }
   .rounded(0px);
-  border: 1px solid darken(@navbarBackgroundColor, 15%);
+  border: 1px solid @borderFormColor;
 }
 
 .login {
