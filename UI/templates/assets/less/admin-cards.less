@@ -123,15 +123,20 @@
     height: auto;
     margin-top: 10px;
     background-clip: padding-box;
-    border: 1px solid #CCCCCC;
+    border: 2px solid lighten(@grayLight, 30%);
     border-radius: 0 0 0 0;
     margin: 0.75em 0.75em 0 0;
     span.label {
-      font-size: 10px;
-      line-height: 12px;
+      color: @grayDark;
+      font-weight: 300;
+      font-size: 9px;
+      line-height: 10px;
+      letter-spacing: 1.5px;
+      text-shadow: 1px 1px 0 @white;
       .rounded (0px);
+      background-color: lighten(@grayLight, 30%);
       a {
-        color: @white;
+        //color: @grayDark;
       }
     }
     header {
@@ -139,7 +144,8 @@
         line-height: 1.2em;
         //margin-bottom: 1em;
         padding: 16px 14px 1px 10px;
-      margin-top: 0.3em;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
         text-shadow: 1px 1px 0 #FFFFFF;
         text-transform: uppercase;
     }
@@ -182,7 +188,7 @@
         margin-bottom:2px;
         font-size:11px;
         line-height: 12px;
-        border: 1px solid #DDDDDD;
+        border: 1px solid lighten(@grayLight, 30%);
         border-top:0px;
         border-radius: 0px;
       }
@@ -218,7 +224,8 @@
         height: 18px;
         font-size: 18px;
         a {
-          color:#564A4A;
+          //color: @linkColor;
+          text-decoration: none;
         }
         i {
           margin-top: 2px;

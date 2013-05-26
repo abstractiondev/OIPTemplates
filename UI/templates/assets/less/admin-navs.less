@@ -46,11 +46,11 @@
   text-shadow: 1px 1px 0px #fff;
 }
 #main-menu {
-  background: #f3f3f5;
+  background: @bodyBackground;
   border-bottom: 0px;
   position: relative;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #bcbcc6;
+  border-top: 1px solid lighten(@bodyBackground, 5%);
+  border-bottom: 1px solid darken(@bodyBackground, 20%);
   z-index: 1;
 }
 #main-menu .nav-tabs {
@@ -126,7 +126,7 @@
   overflow: hidden;
 }
 #main-menu .nav-tabs > li.active > a {
-  background: #54a0c6;
+  background: #95c75f;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3a87ad), color-stop(1, #91c2da));
   background: -ms-linear-gradient(bottom, #3a87ad, #91c2da);
   background: -moz-linear-gradient(center bottom, #3a87ad 0%, #91c2da 100%);
@@ -160,42 +160,7 @@
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
 }
-#sidebar-nav {
-  position: absolute;
-  width: 200px;
-  float: left;
-  margin: 0em;
-  padding-top: 1.5em;
-}
-#sidebar-nav .nav-list {
-  padding: 0px;
-}
-#sidebar-nav .nav-list li:hover {
-  background: #e8e8eb;
-}
-#sidebar-nav .nav-list li.active {
-  background: #f3f3f5;
-  border-right: 0px;
-  border-top: 1px solid #cfcfd6;
-  border-bottom: 1px solid #cfcfd6;
-}
-#sidebar-nav .nav-list li.active a {
-  border: 0px;
-}
-#sidebar-nav .nav-list li {
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-  margin-bottom: -1px;
-}
-#sidebar-nav .nav-list li a,
-#sidebar-nav .nav-list li a:hover {
-  color: #585868;
-  text-shadow: 1px 1px 0px #fff;
-  padding: .5em 2em;
-  border: 0px;
-  margin: 0px 1px;
-  background: none;
-}
+
 .fc-state-highlight {
   background: #ebebee;
 }

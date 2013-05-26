@@ -1,5 +1,5 @@
   /*
-  * admin-side-nav
+  * admin-sidenav
   */
 
   #sidebar-nav {
@@ -20,7 +20,7 @@
       margin-bottom: -1px;
 
       &.active {
-        background: lighten(@navbarBackgroundColor, 8%);
+        background: @navbarLinkBackgroundActive;
         border-right: 0px;
         border-top: 1px solid darken(@navbarBackgroundColor, 5%);
         border-bottom: 1px solid darken(@navbarBackgroundColor, 5%);
@@ -30,8 +30,8 @@
       }
 
       a, a:hover {
-        color: darken(@navbarBackgroundColor, 50%);
-        text-shadow: 1px 1px 0px #fff;
+        //color: @linkColorHover;
+        //text-shadow: 1px 1px 0px #fff;
         padding: .5em 2em;
         border:0px;
         margin: 0px 1px;
@@ -44,7 +44,7 @@
       }
 
       &:hover {
-        background: lighten(@navbarBackgroundColor, 4%);
+        //background: lighten(@navbarBackgroundColor, 4%);
         //border-top: 1px solid darken(@navbarBackgroundColor, 5%);
         //border-bottom: 1px solid darken(@navbarBackgroundColor, 5%);
       }

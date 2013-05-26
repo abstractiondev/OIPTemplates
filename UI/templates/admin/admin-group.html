@@ -230,7 +230,7 @@
             <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
         </ul>
     </div>
-</div>
+</div><!-- .navbar -->
 
 <div id="main-menu">
     <div id="phone-navigation">
@@ -256,7 +256,8 @@
             </ul>
         </li>-->
     </ul>
-</div>
+</div><!-- .main-manu -->
+
 <div id="sidebar-nav">
     <ul id="dashboard-menu" class="nav nav-list">
         <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
@@ -266,11 +267,11 @@
         <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
     </ul>
 </div><!-- .sidebar-nav-->
+
 <div class="content">
 <div class="container-fluid">
 <div class="row-fluid">
 <div class="span12">
-<h2></h2>
 <div class="fancy-tab-container">
 <div class="tab-content">
 <div class="tab-pane fade in active" id="tab-identity">
@@ -363,7 +364,7 @@
 </script>
 <div>
     <form id="" method="post" class="form-horizontal ">
-        <fieldset id="current-imagegroups">
+        <fieldset id="current-imagegroups"><!-- id was current-imagegroups-->
             <script type="text/javascript">
                 $(document).ready(function(){
 
@@ -392,7 +393,7 @@
             <div id="gallery-media" class="gallery" style="clear: both;">
 
                 <div class="cards cards-profile pull-left images">
-                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">Sujil Kodathoor</a></span>
+                    <span class="label pull-right"><a href="#view-collaborator-profile-sujil" data-toggle="modal" role="button">Sujil Kodathoor</a></span>
                     <header>Beach Bahamas</header>
                     <section>
                         <img src="../theme-files/images/gallery/9.jpg" style="width:200px; height: 100%;">
@@ -405,8 +406,8 @@
                         <div  class="tab-content">
                             <div id="by-project-1" class="tab-pane fade active in">
                                 <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">BoP blog post</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Sanitation in Sahara</a></span>
+                                <span><a href="##" data-toggle="modal">BoP blog post</a></span>
+                                <span><a href="##" data-toggle="modal">Sanitation in Sahara</a></span>
                             </div>
                             <div id="by-date-1" class="tab-pane fade ">
                                 <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
@@ -423,8 +424,8 @@
                     </section>
                     <div class="clearfix"></div>
                     <footer>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-media-card" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-media-card"><i class="icon-eye-open"></i></a></span>
                     </footer>
                 </div>
                 <div class="cards cards-profile pull-left images">
@@ -535,7 +536,7 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
                     </footer>
                 </div>
-                <div id="by-location" class="location" style="width:100%;height:500px;"></div>
+                <div id="by-location" class="location" style="width:100%;height:500px;"></div><!-- this loads the actual map plus contents inside the modal -->
                 <div class="clearfix"></div>
             </div>
 
@@ -584,7 +585,50 @@
             </footer>
         </fieldset>
     </form>
-
+<!-- admin-group-media modals -->
+    <div id="view-collaborator-profile-sujil" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                view-collaborator-profile-sujil
+            </h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    <div id="view-media-card" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                view-media-card
+            </h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+    <div id="remove-media-card" class="modal hide fade">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                remove-media-card
+            </h3>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-primary">Save changes</button>
+        </div>
+    </div>
+<!-- end admin-group-modals -->
 </div>
 <!-- modals image -->
 <div id="add-image" class="modal hide fade">
@@ -707,7 +751,6 @@
         <button class="btn btn-primary">Save changes</button>
     </div>
 </div>
-<!-- end modals imagegroup-->
 </div>
 <div class="tab-pane fade" id="tab-collaborators">
 <div>
@@ -719,341 +762,344 @@
                     $("#toggler").click(function(){
                         $(this).toggleClass('active, inactive');
                     });
+                });
+            </script>
+            <div id="gallery-5" class="gallery" style="clear: both;">
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
+                    <header>Sujil Kodathoor
+                    </header>
+                    <section>
+                        <img src="../assets/img/sujil.jpg">
+                        <p class="info-text">I design, evaluate and advise for social sustainability related projects. My approach utilizes research methodologies, creative practices, and design thinking as a process to breaking down systemic world problems.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
+                    <header>Teija Lehtonen
+                    </header>
+                    <section>
+                        <img src="../assets/img/teija.jpg">
+                        <p class="info-text">Teija Lehtonen, M.Sc. (Econ), is currently working as a Director of the Aalto Global Impact at Aalto University. She is also promoting inclusive innovations and business at the the Base of the Pyramid (BOP) through various networks</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
+                    <header>Anne Badan
+                    </header>
+                    <section>
+                        <img src="../assets/img/anne.jpg">
+                        <p class="info-text">Provide strategic services and build large scale soci(et)al impact/development projects for public and private institutions. =>Have been active in Sub-Mekong Region (Thailand, Myanmar, Vietnam, Cambodia and Laos) Nepal, Liberia, Sierra Leone, Burkina Faso, Singapore, Finland and Switzerland.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
+                    <header>Andrew Clutterbuck
+                    </header>
+                    <section>
+                        <img src="../assets/img/andrew.jpg">
+                        <p class="info-text">Aalto University has an extensive active community of students/professors/researchers/faculty etc. that work within the areas of social impact. Due to the nature of the work and scope of the required resources and factors for continuation, we are developing a support network/community to serve and bring together these active members in order to benefit and impact their abilities to positively impact.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <footer>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </footer>
+                </div>
+                <div class="cards cards-profile pull-left">
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">member</a></span>
+                    <header>Daniel Connell
+                    </header>
+                    <section>
+                        <img src="../assets/img/daniel.jpg">
+                        <p class="info-text">I have over seven years professional experience in feature film, game cinematics, commercials and print material, working both as a freelancer and with studios in London, Glasgow, Vancouver, and throughout Australasia.
+
+                            Specialties:I am a Maya Generalist, plus specialise in Fluid & Solid Dynamics, Technical Lighting, Procedural Texturing and Trimmed Nurbs Modeling.</p>
+                        <ul>
+                            <li>
+                                <i class="icon-file"></i>
+                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
+                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
+                            </li>
+                            <li>
+                                <i class="icon-group"></i>
+                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
+                                <span>Weconomy</span>
+                                <span>Earthhouse</span>
+                            </li>
+                            <li>
+                                <i class="icon-map-marker"></i>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
+                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
+                            </li>
+                        </ul>
+                    </section>
+                    <div class="clearfix"></div>
+                    <div class="image-data">
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
+                    </div>
+                </div>
+                <div class="element thumbnail pull-left last btn add-map">
+                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <footer style="margin-top: 20px">
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
+                        <button value="true" name="btnCancel" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
+                    </div>
+                </div>
+            </footer>
+        </fieldset>
+    </form>
+</div>
+<!-- modals collaborators -->
+<div id="view-project-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title">
+            Project Profile
+        </h2>
+    </div>
+    <div class="modal-body">
+        list of collaborators, List of locations, contact information, invite oneself
+    </div>
+    <div class="modal-footer">
+        footer
+    </div>
+</div>
+<div id="view-group-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title">
+            Aalto Global Impact
+        </h2>
+    </div>
+    <div class="modal-body">
+        Group profile
+    </div>
+    <div class="modal-footer">
+        footer
+    </div>
+</div>
+
+<div id="view-location-profile" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h2 class="title"></h2>
+    </div>
+    <div class="modal-body modal-body-map">
+
+    <div id="location-map"></div>
+        <p>A map + other groups and projects and collaborators (including those not member of this group)</p>
+    </div>
+    <footer>
+        some footer
+    </footer>
+</div>
+<!-- LEAFLET CODE -->
+<script>
+    $(document).ready(function(){
+            // set up the map
+            map = new L.Map('location-map');
+
+            // create the tile layer with correct attribution
+            var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+            var osmAttrib='Map data © OpenStreetMap contributors';
+            var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});
+
+            map.setView(new L.LatLng(0,0),12);
+            map.addLayer(osm);
+            // Layers (empty per themselves, but control the toggling)
+
+            var ActivitiesLayer = L.layerGroup();
+            ActivitiesLayer.addTo(map);
+            var NewsLayer = L.layerGroup();
+            NewsLayer.addTo(map);
+            var ProjectsLayer = L.layerGroup();
+            ProjectsLayer.addTo(map);
+            var EventsLayer = L.layerGroup();
+            EventsLayer.addTo(map);
+            var BlogsLayer = L.layerGroup();
+            BlogsLayer.addTo(map);
+
+            var activitiesText = GetLayerLabelText("Activities", ActivitiesMarkerIcon);
+            var newsText = GetLayerLabelText("News", NewsMarkerIcon);
+            var projectsText = GetLayerLabelText("Projects", ProjectsMarkerIcon);
+            var eventsText = GetLayerLabelText("Events", EventsMarkerIcon);
+            var blogsText = GetLayerLabelText("Blogs", BlogsMarkerIcon);
+
+            var overlayMaps = {};
+            overlayMaps[activitiesText] = ActivitiesLayer;
+            overlayMaps[newsText] = NewsLayer;
+            overlayMaps[projectsText] = ProjectsLayer;
+            overlayMaps[eventsText] = EventsLayer;
+            overlayMaps[blogsText] = BlogsLayer;
 
 
+            // Adding marker arrays
+            markers.addLayers(ActivitiesMarkers);
+            markers.addLayers(NewsMarkers);
+            markers.addLayers(ProjectsMarkers);
+            markers.addLayers(EventsMarkers);
+            markers.addLayers(BlogsMarkers);
 
-                                               });
-                                            </script>
-                                            <div id="gallery-5" class="gallery" style="clear: both;">
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
-                                                    <header>Sujil Kodathoor
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/sujil.jpg">
-                                                        <p class="info-text">I design, evaluate and advise for social sustainability related projects. My approach utilizes research methodologies, creative practices, and design thinking as a process to breaking down systemic world problems.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                                                    <header>Teija Lehtonen
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/teija.jpg">
-                                                        <p class="info-text">Teija Lehtonen, M.Sc. (Econ), is currently working as a Director of the Aalto Global Impact at Aalto University. She is also promoting inclusive innovations and business at the the Base of the Pyramid (BOP) through various networks</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span> 
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                                                    <header>Anne Badan
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/anne.jpg">
-                                                        <p class="info-text">Provide strategic services and build large scale soci(et)al impact/development projects for public and private institutions. =>Have been active in Sub-Mekong Region (Thailand, Myanmar, Vietnam, Cambodia and Laos) Nepal, Liberia, Sierra Leone, Burkina Faso, Singapore, Finland and Switzerland.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                                                    <header>Andrew Clutterbuck
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/andrew.jpg">
-                                                        <p class="info-text">Aalto University has an extensive active community of students/professors/researchers/faculty etc. that work within the areas of social impact. Due to the nature of the work and scope of the required resources and factors for continuation, we are developing a support network/community to serve and bring together these active members in order to benefit and impact their abilities to positively impact.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <footer>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </footer>
-                                                </div>
-                                                <div class="cards cards-profile pull-left">
-                                                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">member</a></span>
-                                                    <header>Daniel Connell
-                                                    </header>
-                                                    <section>
-                                                        <img src="../assets/img/daniel.jpg">
-                                                        <p class="info-text">I have over seven years professional experience in feature film, game cinematics, commercials and print material, working both as a freelancer and with studios in London, Glasgow, Vancouver, and throughout Australasia.
+            map.addLayer(markers);
+            markers.addTo(map);
 
-                                                            Specialties:I am a Maya Generalist, plus specialise in Fluid & Solid Dynamics, Technical Lighting, Procedural Texturing and Trimmed Nurbs Modeling.</p>
-                                                        <ul>
-                                                            <li>
-                                                                <i class="icon-file"></i>
-                                                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-group"></i>
-                                                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                                                <span>Weconomy</span>
-                                                                <span>Earthhouse</span>
-                                                            </li>
-                                                            <li>
-                                                                <i class="icon-map-marker"></i>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                    <div class="clearfix"></div>
-                                                    <div class="image-data">
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                                                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                                                    </div>
-                                                </div>
-                                                <div class="element thumbnail pull-left last btn add-map">
-                                                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
-                                                </div>
-                                                
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <footer style="margin-top: 20px">
-                                                <div class="control-group controls">
-                                                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                                                        <button value="true" name="btnCancel" class="btn">Cancel</button>
-                                                        <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-                                                    </div>
-                                                </div>
-                                            </footer>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <!-- modals collaborators -->
-                                <div id="view-project-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            Project Profile
-                                        </h2>
-                                    </div>
-                                    <div class="modal-body">
-                                        list of collaborators, List of locations, contact information, invite oneself
-                                    </div>
-                                </div>
-                                <div id="view-group-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title">
-                                            Aalto Global Impact
-                                        </h2>
-                                    </div>
-                                    <div class="modal-body">
-                                        Group profile
-                                    </div>
-                                </div>
-                                
-                                <div id="view-location-profile" class="modal hide fade">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h2 class="title"></h2>
-                                    </div>
-                                    <div class="modal-body modal-body-map">
-                                        
-                                    <div id="location-map"></div>
-                                        <p>A map + other groups and projects and collaborators (including those not member of this group)</p>
-                                    </div>
-                                    <footer>
-                                        some footer
-                                    </footer>
-                                </div>
-                                <!-- LEAFLET CODE -->
-                                <script>
-                                	$(document).ready(function(){
-                                			// set up the map
-											map = new L.Map('location-map');
-										
-											// create the tile layer with correct attribution
-											var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-											var osmAttrib='Map data © OpenStreetMap contributors';
-											var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});		
-											
-											map.setView(new L.LatLng(0,0),12);
-											map.addLayer(osm);
-											// Layers (empty per themselves, but control the toggling)
-	
-											var ActivitiesLayer = L.layerGroup();
-											ActivitiesLayer.addTo(map);
-											var NewsLayer = L.layerGroup();
-											NewsLayer.addTo(map);
-											var ProjectsLayer = L.layerGroup();
-											ProjectsLayer.addTo(map);
-											var EventsLayer = L.layerGroup();
-											EventsLayer.addTo(map);
-											var BlogsLayer = L.layerGroup();
-											BlogsLayer.addTo(map);
-										
-										    var activitiesText = GetLayerLabelText("Activities", ActivitiesMarkerIcon);
-											var newsText = GetLayerLabelText("News", NewsMarkerIcon);
-											var projectsText = GetLayerLabelText("Projects", ProjectsMarkerIcon);
-											var eventsText = GetLayerLabelText("Events", EventsMarkerIcon);
-											var blogsText = GetLayerLabelText("Blogs", BlogsMarkerIcon);
-										
-											var overlayMaps = {};
-											overlayMaps[activitiesText] = ActivitiesLayer;
-											overlayMaps[newsText] = NewsLayer;
-											overlayMaps[projectsText] = ProjectsLayer;
-											overlayMaps[eventsText] = EventsLayer;
-											overlayMaps[blogsText] = BlogsLayer;
-										
-										
-											// Adding marker arrays 
-											markers.addLayers(ActivitiesMarkers);
-											markers.addLayers(NewsMarkers);
-											markers.addLayers(ProjectsMarkers);
-											markers.addLayers(EventsMarkers);
-											markers.addLayers(BlogsMarkers);
-											
-											map.addLayer(markers);
-											markers.addTo(map);
-											
-											map.on("layeradd", function(e) {
-												if(e.layer == ActivitiesLayer)
-													markers.addLayers(ActivitiesMarkers);
-												if(e.layer == NewsLayer)
-													markers.addLayers(NewsMarkers);
-												if(e.layer == ProjectsLayer)
-													markers.addLayers(ProjectsMarkers);
-												if(e.layer == EventsLayer)
-													markers.addLayers(EventsMarkers);
-												if(e.layer == BlogsLayer)
-													markers.addLayers(BlogsMarkers);
-											});
-											map.on("layerremove", function(e) {
-												if(e.layer == ActivitiesLayer)
-													markers.removeLayers(ActivitiesMarkers);
-												if(e.layer == NewsLayer)
-													markers.removeLayers(NewsMarkers);
-												if(e.layer == ProjectsLayer)
-													markers.removeLayers(ProjectsMarkers);
-												if(e.layer == EventsLayer)
-													markers.removeLayers(EventsMarkers);
-												if(e.layer == BlogsLayer)
-													markers.removeLayers(BlogsMarkers);
-											});
-										
-											L.control.layers(null, overlayMaps).addTo(map);
-											
-											$("#view-location-profile").on('shown',function(){
-												map.invalidateSize();
-												
-											});
-											$("a[href=#view-location-profile]").click(function(){
-												$("#view-location-profile .modal-header h2.title").html($(this).text());
-												map.setView(new L.LatLng($(this).attr("lat"),$(this).attr("lng")),12);
-												$.getJSON($(this).text().toLowerCase()+"-activities.json",function(result){
-													$.each(MarkerTypes,function(i,item){
-														eval(item+"Markers.length=0;");
-														eval("markers.removeLayers("+item+"Markers);");
-													});
-													markers.clearLayers();
-													var bounds = new L.LatLngBounds();
-													$.each(result.features, function(i,item){
-														markersHolder = window[item.properties.markerType+"Markers"];
-														markersIcon = window[item.properties.markerType+"MarkerIcon"];
-														markersHolder.push(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]],{icon: markersIcon}).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent));
-														bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
-													});
-													$.each(MarkerTypes,function(i,item){
-														eval("markers.addLayers("+item+"Markers);");
-													});
-													map.fitBounds(bounds);
-												});
-											});
+            map.on("layeradd", function(e) {
+                if(e.layer == ActivitiesLayer)
+                    markers.addLayers(ActivitiesMarkers);
+                if(e.layer == NewsLayer)
+                    markers.addLayers(NewsMarkers);
+                if(e.layer == ProjectsLayer)
+                    markers.addLayers(ProjectsMarkers);
+                if(e.layer == EventsLayer)
+                    markers.addLayers(EventsMarkers);
+                if(e.layer == BlogsLayer)
+                    markers.addLayers(BlogsMarkers);
+            });
+            map.on("layerremove", function(e) {
+                if(e.layer == ActivitiesLayer)
+                    markers.removeLayers(ActivitiesMarkers);
+                if(e.layer == NewsLayer)
+                    markers.removeLayers(NewsMarkers);
+                if(e.layer == ProjectsLayer)
+                    markers.removeLayers(ProjectsMarkers);
+                if(e.layer == EventsLayer)
+                    markers.removeLayers(EventsMarkers);
+                if(e.layer == BlogsLayer)
+                    markers.removeLayers(BlogsMarkers);
+            });
 
-                                	});
-                                </script>
-                                <!-- LEAFLET CODE -->
+            L.control.layers(null, overlayMaps).addTo(map);
+
+            $("#view-location-profile").on('shown',function(){
+                map.invalidateSize();
+
+            });
+            $("a[href=#view-location-profile]").click(function(){
+                $("#view-location-profile .modal-header h2.title").html($(this).text());
+                map.setView(new L.LatLng($(this).attr("lat"),$(this).attr("lng")),12);
+                $.getJSON($(this).text().toLowerCase()+"-activities.json",function(result){
+                    $.each(MarkerTypes,function(i,item){
+                        eval(item+"Markers.length=0;");
+                        eval("markers.removeLayers("+item+"Markers);");
+                    });
+                    markers.clearLayers();
+                    var bounds = new L.LatLngBounds();
+                    $.each(result.features, function(i,item){
+                        markersHolder = window[item.properties.markerType+"Markers"];
+                        markersIcon = window[item.properties.markerType+"MarkerIcon"];
+                        markersHolder.push(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]],{icon: markersIcon}).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent));
+                        bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
+                    });
+                    $.each(MarkerTypes,function(i,item){
+                        eval("markers.addLayers("+item+"Markers);");
+                    });
+                    map.fitBounds(bounds);
+                });
+            });
+
+    });
+</script>
+<!-- LEAFLET CODE -->
 
 <div id="view-collaborator-profile" class="modal hide fade">
     <div class="modal-header">
@@ -1350,9 +1396,15 @@
 <div class="tab-pane fade" id="tab-delete">
     <form id="" method="post" class="form-horizontal ">
         <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-        <fieldset id="">
+        <fieldset id="group-admin-delete">
             <p>are you sure you want to delete this group? You break all the links as well</p>
-            <?php include '../caloom-atoms/caloom-atom-form-cancel-delete.txt' ?>
+            <div class="control-group controls">
+                <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                    <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
+                </div>
+                <p class="help-block">Here we could add some explanatory text</p>
+            </div>
         </fieldset>
     </form>
 </div>

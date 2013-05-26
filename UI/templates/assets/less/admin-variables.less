@@ -2,60 +2,57 @@
 * admin-variables
 */
 
+
+
+
+//  Base Colors
+// -------------------------
+@blue: #52c3ff;
+@red:       #d94546;
+@green: #72cb44;
+
+//little mixin
+@base: @blue;
+
 // Grays
 // -------------------------
-@black:                 #0f0501;
-@grayDarker:            #230b01;
-@grayDark:              #4f3434;
-@gray:                  #7b6767;
-@grayLight:             #a79999;
-@grayLighter:           #d3cccc;
-@white:                 #fff;
+@black:                 desaturate(darken(@base, 1000%),100%);;
+@grayDarker:            desaturate(darken(@base, 50%),12%);;
+@grayDark:              desaturate(darken(@base, 50%),12%);;
+@gray:                  desaturate(darken(@base, 50%),50%);;
+@grayLight:             desaturate(lighten(@base, 25%),10%);;
+@grayLighter:           desaturate(lighten(@base, 50%),20%);;
+@white:                 desaturate(lighten(@base, 100%),100%);;
 
-
-//  Paper Colors
-// -------------------------
-@paperDarker:           #a58047;
-@paper:                 #c3aa84;
-@paperLighter:          #ebe3d6;
-
-//  Sky Colors
-// -------------------------
-@skyTop:                #41aeee;
-@skyTopMiddle:          #5cb5e7;
-@skyHorizonMiddle:      #92c3d9;
-@skyHorizon:            #bacecf;
 
 // Scaffolding
 // -------------------------
-@bodyBackground:        @white;
-@textColor:             @black;
+@bodyBackground:        lighten(@base, 10%);
+@textColor:             darken(@base, 60%);
 
 
 // Links
 // -------------------------
-@linkColor:             lighten(@grayDarker, 30%);
-@linkColorHover:        darken(@linkColor, 15%);
-
-
+@linkColor:             @base;
+@linkColorHover:        darken(@linkColor, 18%);
 
 // Navbar
 // -------------------------
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       desaturate(darken(@grayDark, 5%),12%);
-@navbarBackground:                desaturate(darken(@grayDark, 5%),12%);
+@navbarBackgroundHighlight:       desaturate(darken(@base, 50%),12%);
+@navbarBackground:                desaturate(darken(@base, 80%),30%);
 @navbarBorder:                    darken(@navbarBackground, 12%);
 
-@navbarText:                      lighten(@grayDarker, 30%);
-@navbarLinkColor:                 @navbarText;
+@navbarText:                      lighten(@base, 5%);
+@navbarLinkColor:                 @linkColor;
 @navbarLinkColorHover:            lighten(@navbarLinkColor, 20%);
 @navbarLinkColorActive:           lighten(@navbarLinkColor, 30%);
 @navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkBackgroundActive:      darken(@linkColorHover, 10%);
 
-@navbarBrandColor:                lighten(@grayDarker, 30%);
+@navbarBrandColor:                lighten(@base, 30%);
 
-@navbarBackgroundColor: @grayLighter;
+@navbarBackgroundColor: @navbarBackground;
 @selectedColor: @navbarText;
 @headerColor: @textColor;
 
