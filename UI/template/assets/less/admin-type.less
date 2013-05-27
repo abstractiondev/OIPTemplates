@@ -4,7 +4,7 @@
 
   /*Standard Elements*/
   body {
-    background: lighten(@bodyBackground,20%);
+    background: @bodyBackground;
     color: @textColor;
     font-weight: 200;
     letter-spacing: 1px;
@@ -26,8 +26,8 @@
   }
 
   a {
-    //color: @navbarBrandColor;
-    //text-shadow: 0px 0px 1px lighten(@navbarLinkColorHover, 10%);
+    color: @linkColor;
+    text-shadow: 0px 0px 1px lighten(@navbarLinkColorHover, 10%);
   }
   a:hover {
     text-decoration: none;
