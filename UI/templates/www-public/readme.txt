@@ -1,2 +1,0 @@
-Weconomy website readme.txt
----------------------------
