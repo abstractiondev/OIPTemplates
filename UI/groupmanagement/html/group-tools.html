@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Admin-Group</title>
+    <title>Group Tools</title>
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -305,8 +305,8 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a tabindex="-1" href="#">{groupName}'s Account</a></li>
-                    <li><a tabindex="-1" href="group-management.html">{groupName}'s Management</a></li>
-                    <li><a tabindex="-1" href="group-tools.html">{groupName}'s Tools</a></li>
+                    <li><a tabindex="-1" class="visible-phone" href="group-management.html">{groupName}'s Management</a></li>
+                    <li><a tabindex="-1" class="visible-phone" href="group-tools.html">{groupName}'s Tools</a></li>
                     <li><a tabindex="-1" href="www-preview.html">{groupName}'s www-preview</a></li>
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
@@ -328,7 +328,7 @@
 <div id="main-menu">
     <div id="phone-navigation">
         <select class="selectnav" id="phone-menu">
-            <option value="#tab-identity"  data-toggle="tab"> Identity</option>
+            <option value="#tab-compare"  data-toggle="tab"> Compare</option>
             <option value="#tab-media" data-toggle="tab" a href="#tab-media"> Media</option>
             <option value="#tab-collaborators" data-toggle="tab"  a href="#tab-collaborators"> Collaborators</option>
             <option value="#tab-locations-current" data-toggle="tab"  a href="#tab-locations-current"> Locations</option>
@@ -528,11 +528,11 @@
 
 <div id="sidebar-nav">
     <ul id="dashboard-menu" class="nav nav-list">
-        <li class="active"><a href="#tab-identity" data-toggle="tab"><i class="icon-home"></i> <span>Identity</span></a></li>
-        <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
-        <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
-        <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
-        <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
+        <li class="active"><a href="#tab-compare" data-toggle="tab"><i class="icon-random"></i> <span>Find Links</span></a></li>
+        <!--<li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>-->
+        <!--<li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>-->
+        <!--<li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>-->
+        <!--<li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>-->
     </ul>
 </div><!-- .sidebar-nav-->
 
@@ -542,73 +542,114 @@
 <div class="span12">
 <div class="fancy-tab-container">
 <div class="tab-content">
-<div class="tab-pane fade in active" id="tab-identity">
+<div class="tab-pane fade in active" id="tab-compare">
+    <script type="text/javascript">
+        $(function(){
+            fancyFilter('.filter', '#gallery-bookmarks');
+            // load isotope when tab is shown
+            $('a[data-toggle="tab"]').on('shown', function (e) {
+                if ($(e.target).attr('href')=="#tab-media"){
+                    $("#gallery-media").isotope({'filter':".cards"});
+                }
+
+            });
+        });
+    </script>
     <form id="form-id-1" method="post" class="form-horizontal" enctype="multipart/form-data">
-        <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-        <fieldset id="profile">
+        <fieldset id="compare">
             <!-- group profile image and group icon image -->
-            <div class="span12">
-                <div style="float:left">
-                    <div class="control-group">
-                        <label class="control-label">Group Profile Image</label>
-                        <div class="controls">
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
-                            <!-- ImageData -->
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                <div>
-                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                </div>
+            <div class="span12"style="min-height: 400px">
+                <div class="span9 well" style="float:left;min-height: 400px;padding: 10px">
+                    <H2>Playing field</H2>
+                    <section></section>
+                    <footer>
+                        <div class="control-group controls pull-right" style="position: relative;margin-bottom: 0px">
+                            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                                <button type="submit" class="btn btn-primary" name="" id="" value="Save">Find links</button>
                             </div>
-                            <!-- * -->
-                            <!-- THEBALL-CONTEXT-END:* -->
+                        </div>
+                    </footer>
+                </div>
+                <div class="span3 well clearfix" style="float:left;min-height: 400px;padding: 10px">
+                    <h2>Bookmarks</h2>
+                    <ul class="filter nav nav-pills pull-left">
+                        <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
+                        <li class="active"><a href="#all" data-filter=".cards:not(.location)">All</a></li>
+                        <li><a href="#images" data-filter=".people">People</a></li>
+                        <li><a href="#videos" data-filter=".activities">Activities</a></li>
+                        <li><a href="#videos" data-filter=".dates">Dates</a></li>
+                        <li><a href="#videos" data-filter=".locations">Locations</a></li>
+                    </ul>
+                    <div id="gallery-bookmarks" class="gallery" style="clear: both;">
+                        <div class="cards cards-profile pull-left people">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_green_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left people">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_green_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left people">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_green_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left dates">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_purple_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left dates">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_purple_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left activities">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left activities">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left activities">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left activities">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left locations">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_pink_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left locations">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_pink_th.jpg" style="margin: 0"></a>
+                            </section>
+                        </div>
+                        <div class="cards cards-profile pull-left locations">
+                            <section>
+                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_pink_th.jpg" style="margin: 0"></a>
+                            </section>
                         </div>
                     </div>
                 </div>
-                <div class="clearfix" style="float:left">
-                    <div class="control-group">
-                        <label class="control-label">Group Icon Image</label>
-                        <div class="controls">
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:IconImage -->
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ImageData -->
-                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                <div>
-                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                </div>
-                            </div>
-                            <!-- THEBALL-CONTEXT-END:* -->
-                            <!-- THEBALL-CONTEXT-END:* -->
-                        </div>
-                    </div>
-                </div>
-            </div>
             <!-- end group profile image and group icon image -->
-            <div class="control-group">
-                <label class="control-label" for="[!ATOM]ID[ATOM!]_GroupName">Group name</label>
-                <div class="controls">
-                    <input name="[!ATOM]ID[ATOM!]_GroupName"  id="[!ATOM]ID[ATOM!]_GroupName" type="text" value="[!ATOM]GroupName[ATOM!]">
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="[!ATOM]ID[ATOM!]_Description">Description</label>
-                <div class="controls">
-                    <textarea id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
-                <div class="controls">
-                    <textarea id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
-                </div>
-            </div>
+
             <footer>
                 <div class="control-group controls pull-right">
                     <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                        <label>save this result</label>
+                        <input type="text" placeholder="Give this result a good name">
                         <button value="true" name="btnCancel"  class="btn">Cancel</button>
                         <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
                     </div>
