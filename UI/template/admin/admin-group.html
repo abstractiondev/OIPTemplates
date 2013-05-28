@@ -332,11 +332,11 @@
 <div id="main-menu">
     <div id="phone-navigation">
         <select class="selectnav" id="phone-menu">
-            <option value="index.html" > Identity</option>
-            <option value="reports.html" > Media</option>
-            <option value="#tab-collaborators" data-toggle="tab" > Collaborators</option>
-            <option value="media.html" > Locations</option>
-            <option value="blog.html" > Delete</option>
+            <option value="#tab-identity"  data-toggle="tab"> Identity</option>
+            <option value="#tab-media" data-toggle="tab" a href="#tab-media"> Media</option>
+            <option value="#tab-collaborators" data-toggle="tab"  a href="#tab-collaborators"> Collaborators</option>
+            <option value="#tab-locations-current" data-toggle="tab"  a href="#tab-locations-current"> Locations</option>
+            <option value="#tab-delete" data-toggle="tab" style="color:red"  a href="#tab-delete"> Delete</option>
         </select>
     </div>
     <ul class="nav nav-tabs">
@@ -387,7 +387,6 @@
         <button class="btn btn-primary">Save changes</button>
     </div>
 </div>
-
 <div id="add-activity" class="modal hide fade">
     <div class="modal-header">
         <button class="close" data-dismiss="modal">&times;</button>
@@ -401,7 +400,7 @@
                 <div class="control-group">
                     <label class="control-label" for="">Location Name</label>
                     <div class="controls">
-                        <input name="" class="span4" id="" type="text" value="">
+                        <input name="" class="span4"  type="text" value="">
                     </div>
                 </div>
             </fieldset>
@@ -425,7 +424,7 @@
                 <div class="control-group">
                     <label class="control-label" for="">Location Name</label>
                     <div class="controls">
-                        <input name="" class="span4" id="" type="text" value="">
+                        <input name="" class="span4"  type="text" value="">
                     </div>
                 </div>
             </fieldset>
@@ -449,7 +448,7 @@
                 <div class="control-group">
                     <label class="control-label" for="">Location Name</label>
                     <div class="controls">
-                        <input name="" class="span4" id="" type="text" value="">
+                        <input name="" class="span4"  type="text" value="">
                     </div>
                 </div>
             </fieldset>
@@ -636,7 +635,7 @@
                             <li class=""><a data-toggle="tab" href="#by-date-1"><i class="icon-calendar"></i></a></li>
                             <li class=""><a data-toggle="tab" href="#by-location-1"><i class="icon-map-marker"></i></a></li>
                         </ul>
-                        <div  class="tab-content">
+                        <div class="tab-content">
                             <div id="by-project-1" class="tab-pane fade active in">
                                 <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
                                 <span><a href="##" data-toggle="modal">BoP blog post</a></span>
@@ -953,7 +952,7 @@
                 <div class="control-group">
                     <label class="control-label" for="">Image group title</label>
                     <div class="controls">
-                        <input name="" class="span4" id="" type="text" value="">
+                        <input name="" class="span4"  type="text" value="">
                     </div>
                 </div>
             </fieldset>
@@ -968,7 +967,7 @@
 </div>
 <div class="tab-pane fade" id="tab-collaborators">
 <div>
-    <form id="" method="post" class="form-horizontal ">
+    <form  method="post" class="form-horizontal ">
         <fieldset id="collaborators-alt">
             <script type="text/javascript">
                 $(document).ready(function(){
@@ -986,25 +985,30 @@
                     <section>
                         <img src="../assets/img/dummy/profile-images/sujil.jpg">
                         <p class="info-text">I design, evaluate and advise for social sustainability related projects. My approach utilizes research methodologies, creative practices, and design thinking as a process to breaking down systemic world problems.</p>
-                        <ul>
-                            <li>
-                                <i class="icon-file"></i>
+                        <div class="clearfix"></div>
+                        <ul class="nav nav-tabs three-tabs">
+                            <li class="active"><a data-toggle="tab" href="#collaborator-project-sujil"> <i class="icon-file"></i></a></li>
+                            <li class=""><a data-toggle="tab" href="#collaborator-group-sujil"><i class="icon-calendar"></i></a></li>
+                            <li class=""><a data-toggle="tab" href="#collaborator-location-sujil"><i class="icon-map-marker"></i></a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="collaborator-project-sujil" class="tab-pane fade active in">
                                 <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
                                 <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
                                 <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                            </li>
-                            <li>
+                            </div>
+                            <div id="collaborator-group-sujil" class="tab-pane fade ">
                                 <i class="icon-group"></i>
                                 <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
                                 <span>Weconomy</span>
                                 <span>Earthhouse</span>
-                            </li>
-                            <li>
+                            </div>
+                            <div id="collaborator-location-sujil" class="tab-pane fade">
                                 <i class="icon-map-marker"></i>
                                 <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
                                 <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </section>
                     <div class="clearfix"></div>
                     <footer>
@@ -1146,10 +1150,6 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
                     </div>
                 </div>
-                <div class="element thumbnail pull-left last btn add-map">
-                    <a data-toggle="modal" role="button" href="#invite-collaborator"> <i class="icon-plus-sign"></i> </a>
-                </div>
-
                 <div class="clearfix"></div>
             </div>
             <footer style="margin-top: 20px">
@@ -1378,7 +1378,7 @@
 </div>
 <div class="tab-pane fade" id="tab-locations-current">
     <div>
-        <form id="" method="post" class="form-horizontal ">
+        <form  method="post" class="form-horizontal ">
             <fieldset id="current-locations">
                 <script type="text/javascript">
                     $(document).ready(function(){
@@ -1550,7 +1550,7 @@
     <!-- end modals locations-->
 </div>
 <div class="tab-pane fade" id="tab-delete">
-    <form id="" method="post" class="form-horizontal ">
+    <form  method="post" class="form-horizontal ">
         <fieldset id="group-admin-delete">
             <p>are you sure you want to delete this group? You break all the links as well</p>
             <div class="control-group controls">
