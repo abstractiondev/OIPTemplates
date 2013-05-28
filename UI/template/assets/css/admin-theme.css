@@ -642,10 +642,10 @@ footer {
   background: -o-linear-gradient(bottom, #ffffff, #ffffff);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#ffffff');
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff',EndColorStr='#ffffff')";
-  border-top: solid 1px #ffffff;
-  border-left: solid 1px #ffffff;
-  border-right: solid 1px #ffffff;
-  border-bottom: solid 1px #ffffff;
+  border-top: solid 1px #cbdfee;
+  border-left: solid 1px #cbdfee;
+  border-right: solid 1px #cbdfee;
+  border-bottom: solid 1px #cbdfee;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -1194,7 +1194,7 @@ footer hr {
   margin-right: 10px;
   vertical-align: middle;
   width: 98%;
-  border: 1px solid #ffffff;
+  border: 1px solid #cbdfee;
 }
 /* end */
 .dialog,
@@ -1239,14 +1239,14 @@ input[type="password"] {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  border: 1px solid #ffffff;
+  border: 1px solid #cbdfee;
 }
 input[type="text"]:focus,
 input[type="password"]:focus {
-  border: 1px solid #ffffff;
-  -webkit-box-shadow: 0px 0px 5px #ffffff;
-  -moz-box-shadow: 0px 0px 5px #ffffff;
-  box-shadow: 0px 0px 5px #ffffff;
+  border: 1px solid #cbdfee;
+  -webkit-box-shadow: 0px 0px 5px #cbdfee;
+  -moz-box-shadow: 0px 0px 5px #cbdfee;
+  box-shadow: 0px 0px 5px #cbdfee;
 }
 .login {
   color: #555;
@@ -1965,10 +1965,10 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   max-width: 220px;
   height: auto;
   margin-top: 10px;
-  border-top: solid 1px #ffffff;
-  border-left: solid 1px #ffffff;
-  border-right: solid 1px #ffffff;
-  border-bottom: solid 1px #ffffff;
+  border-top: solid 1px #cbdfee;
+  border-left: solid 1px #cbdfee;
+  border-right: solid 1px #cbdfee;
+  border-bottom: solid 1px #cbdfee;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 0;
@@ -1999,7 +1999,7 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background-color: #ffffff;
+  background-color: #deebf4;
 }
 .cards-profile header {
   color: #0F0501;
@@ -2027,7 +2027,7 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   padding: 0px;
 }
 .cards-profile section .nav-tabs {
-  border-color: #ffffff;
+  border-color: #cbdfee;
   border-top: medium none;
   margin-bottom: 0px;
   margin-left: 10px;
@@ -2045,8 +2045,8 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
 .cards-profile section .nav-tabs > .active > a,
 .cards-profile section .nav-tabs > .active > a:hover,
 .cards-profile section .nav-tabs > .active > a:focus {
-  border-color: #ffffff #ffffff #ffffff;
-  background-color: #ffffff;
+  border-color: #cbdfee #cbdfee #f1f6fa;
+  background-color: #f1f6fa;
 }
 .cards-profile section .tab-content {
   width: 178px;
@@ -2054,8 +2054,8 @@ ul.nav.nav-tabs.fancy > li.active > a:hover {
   margin-bottom: 2px;
   font-size: 11px;
   line-height: 12px;
-  border: 1px solid #ffffff;
-  background-color: #ffffff;
+  border: 1px solid #cbdfee;
+  background-color: #f1f6fa;
   border-top: 0px;
   border-radius: 0px;
 }
