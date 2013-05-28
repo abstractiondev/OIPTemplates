@@ -266,12 +266,16 @@
 
     </script>
     <style type='text/css'>
-
         #calendar {
             width: 100%;
             margin: 0 auto;
         }
-
+    </style>
+    <style type="text/css">
+        .account-management .navbar .navbar-inner {
+            padding: 0;
+            border-top: red solid 3px;
+        }
     </style>
 
     <!-- Le fav and touch icons -->
@@ -287,41 +291,31 @@
 <!--[if IE 8 ]> <body class="ie ie8 "> <![endif]-->
 <!--[if IE 9 ]> <body class="ie ie9 "> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!-->
-<body class="">
+<body class="account-management">
 <!--<![endif]-->
 
 <div class="navbar">
     <div class="navbar-inner">
-        <ul class="nav pull-right">
-            <li id="fat-menu" class="dropdown">
-                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+        <ul class="nav pull-left">
+            <li id="group-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle active" data-toggle="dropdown">
                     <i class="icon-user"></i> {accountName}
                     <i class="icon-caret-down"></i>
                 </a>
-
                 <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="admin-account.html">My Account</a></li>
-                    <li><a tabindex="-1" href="#">My Groups</a></li>
+                    <li><a tabindex="-1" href="account-management.html">{accountName}'s Account</a></li>
+                    <li><a tabindex="-1" href="#">{accountName}'s Groups</a></li>
+                    <li><a tabindex="-1" href="#">{accountName}'s Content</a></li>
+                    <li><a tabindex="-1" href="#">{accountName}'s Locations</a></li>
+                    <li class="divider"></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="../../groupmanagement/html/group-management.html">{groupName}'s Account</a></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">{groupName}'s Management</a></li>
+                    <li><a tabindex="-1" href="../../groupmanagement/html/www-preview.html">{groupName}'s www-preview</a></li>
                     <li class="divider"></li>
                     <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
                     <li class="divider visible-phone"></li>
-                    <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
-                </ul>
-            </li>
-        </ul>
-        <ul class="nav pull-left">
-            <li id="group-menu" class="dropdown">
-                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-user"></i> {groupName}
-                    <i class="icon-caret-down"></i>
-                </a>
-
-                <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="admin-group.html">{groupName}'s Account</a></li>
-                    <li class="divider"></li>
-                    <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                    <li class="divider visible-phone"></li>
-                    <li><a tabindex="-1" href="sign-in.html">preview {groupName}</a></li>
+                    <li><a tabindex="-1" href="logout.html">Logout</a></li>
                 </ul>
             </li>
             <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
