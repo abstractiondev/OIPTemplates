@@ -1,0 +1,80 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.188647,24.933414
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Title 11",
+                "popupContent": "11",
+				"markerType": "Activities"
+            },
+            "id": 51
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.166109,24.935474
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Title 12",
+                "popupContent": "12",
+				"markerType": "News"
+            },
+            "id": 52
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.157739,24.938564
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Title 13",
+                "popupContent": "13",
+				"markerType": "Blogs"
+            },
+            "id": 54
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.186769,24.832821
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Title 14",
+                "popupContent": "14",
+				"markerType": "Events"
+            },
+            "id": 55
+        },
+        {
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    60.166621,24.947491
+                ]
+            },
+            "type": "Feature",
+            "properties": {
+				"popupTitle": "Title 15",
+                "popupContent": "15",
+				"markerType": "Projects"
+            },
+            "id": 65
+        }
+    ]
+}
