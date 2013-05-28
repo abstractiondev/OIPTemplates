@@ -1440,6 +1440,9 @@ body .http-error p {
   * admin-modals
   */
 /*Modals*/
+.modal-backdrop {
+  background-color: #daebf8;
+}
 .modal {
   -webkit-border-top-right-radius: 3px;
   -webkit-border-bottom-right-radius: 3px;
