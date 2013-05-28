@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Finland</Country>
+    <ID>8e7f119a-6803-445c-9657-4590b777cbe5</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/8e7f119a-6803-445c-9657-4590b777cbe5</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street>Lapuankatu (Arcadia) F-building. F3.19</Street>
+    <Town>Helsinki</Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>dd2e432f-7f17-4827-94ae-36dfd176933b</ID>
+  <Location>
+    <ID>6399f54a-41c0-4f22-9505-945590a9ac73</ID>
+    <Latitude>
+      <ID>41296f2a-f09c-4395-9fea-63533b9330bf</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/41296f2a-f09c-4395-9fea-63533b9330bf</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>60.171985</TextValue>
+    </Latitude>
+    <LocationName>Aalto School of Economics</LocationName>
+    <Longitude>
+      <ID>0a569fb6-ecc1-42c5-aa6a-6656461a53c5</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/0a569fb6-ecc1-42c5-aa6a-6656461a53c5</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>24.923592</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/6399f54a-41c0-4f22-9505-945590a9ac73</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>5c420185-4b2b-4bc0-80c7-d0bbfb8451aa</ID>
+    <MasterETag>"0x8CFCB5099FA9051"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/5c420185-4b2b-4bc0-80c7-d0bbfb8451aa</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Aalto School of Economics</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_dd2e432f-7f17-4827-94ae-36dfd176933b_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/dd2e432f-7f17-4827-94ae-36dfd176933b</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

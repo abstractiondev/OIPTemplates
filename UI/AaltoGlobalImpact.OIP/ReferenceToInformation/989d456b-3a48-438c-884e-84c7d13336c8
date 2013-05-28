@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>989d456b-3a48-438c-884e-84c7d13336c8</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/989d456b-3a48-438c-884e-84c7d13336c8</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Live Video form MOA Seminar: Sustainable opportunities on global scale at Masters of Aalto</Title>
+  <URL>AaltoGlobalImpact.OIP.Activity_501519c3-2c64-49af-bbaf-dbe726acd193_DefaultView.phtml</URL>
+</ReferenceToInformation>

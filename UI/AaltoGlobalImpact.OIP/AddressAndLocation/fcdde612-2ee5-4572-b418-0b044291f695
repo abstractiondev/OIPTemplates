@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Mexico</Country>
+    <ID>d52f29d6-e5cb-40a0-8e2a-b4a3aafc3a4a</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/d52f29d6-e5cb-40a0-8e2a-b4a3aafc3a4a</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street>City</Street>
+    <Town>Mexico City </Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>fcdde612-2ee5-4572-b418-0b044291f695</ID>
+  <Location>
+    <ID>5654162e-2e4d-40c6-b6c2-dafec2d49e84</ID>
+    <Latitude>
+      <ID>22fa63b0-d064-422a-839d-bba5653c7d14</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/22fa63b0-d064-422a-839d-bba5653c7d14</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>19.445874</TextValue>
+    </Latitude>
+    <LocationName>Aalto Lab Mexico </LocationName>
+    <Longitude>
+      <ID>4d849f48-5977-4c51-bcfd-e971e7622297</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/4d849f48-5977-4c51-bcfd-e971e7622297</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>-99.173584</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/5654162e-2e4d-40c6-b6c2-dafec2d49e84</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>04017227-f3b5-47b4-bc1e-28fcfbc05839</ID>
+    <MasterETag>"0x8CFCC0F7F97A78C"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/04017227-f3b5-47b4-bc1e-28fcfbc05839</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Aalto Lab Mexico </Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_fcdde612-2ee5-4572-b418-0b044291f695_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/fcdde612-2ee5-4572-b418-0b044291f695</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

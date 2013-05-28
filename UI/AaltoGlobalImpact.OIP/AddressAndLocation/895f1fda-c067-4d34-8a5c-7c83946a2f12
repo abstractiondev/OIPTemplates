@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Finland</Country>
+    <ID>9f5d0d9f-4424-4b1f-a8f8-1218731b8dd6</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/9f5d0d9f-4424-4b1f-a8f8-1218731b8dd6</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street>Hämeentie 39</Street>
+    <Town>Helsinki</Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>895f1fda-c067-4d34-8a5c-7c83946a2f12</ID>
+  <Location>
+    <ID>4798ebb4-fb0c-4379-9646-0bceb5d4c6b5</ID>
+    <Latitude>
+      <ID>8ed6b501-5344-4063-a624-3c0bfc374a86</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/8ed6b501-5344-4063-a624-3c0bfc374a86</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>60.189356</TextValue>
+    </Latitude>
+    <LocationName>MOA 2013</LocationName>
+    <Longitude>
+      <ID>aadaeadf-26b2-4062-8fe6-44052466b220</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/aadaeadf-26b2-4062-8fe6-44052466b220</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>24.964232</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/4798ebb4-fb0c-4379-9646-0bceb5d4c6b5</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>52620e4b-3d10-44d4-bd1d-8fce645fcd59</ID>
+    <MasterETag>"0x8D01C20E1839E54"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/52620e4b-3d10-44d4-bd1d-8fce645fcd59</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>MOA 2013</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_895f1fda-c067-4d34-8a5c-7c83946a2f12_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/895f1fda-c067-4d34-8a5c-7c83946a2f12</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

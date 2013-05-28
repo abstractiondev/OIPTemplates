@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>04da1631-3a80-4f5a-b7ce-d3aa005e1718</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/04da1631-3a80-4f5a-b7ce-d3aa005e1718</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Join the career night organized by Sustainable Business Club</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_7c1b99d6-b17f-4a3c-8210-bb3aab2a24c7_DefaultView.phtml</URL>
+</ReferenceToInformation>

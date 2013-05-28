@@ -1,0 +1,19 @@
+﻿<Category xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CategoryName>Projects</CategoryName>
+  <ID>174e7c74-ce74-43ef-b71c-b4e3c48be5ed</ID>
+  <MasterETag i:nil="true" />
+  <Name>Category</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>d0ececcd-ea4d-497b-8066-43288854b2f2</ID>
+    <MasterETag>"0x8CFAAA3142CD9C1"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/d0ececcd-ea4d-497b-8066-43288854b2f2</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Projects</Title>
+    <URL>AaltoGlobalImpact.OIP.Category_174e7c74-ce74-43ef-b71c-b4e3c48be5ed_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Category/174e7c74-ce74-43ef-b71c-b4e3c48be5ed</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</Category>

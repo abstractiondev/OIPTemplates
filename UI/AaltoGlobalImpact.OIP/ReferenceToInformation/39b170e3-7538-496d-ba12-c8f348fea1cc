@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>39b170e3-7538-496d-ba12-c8f348fea1cc</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/39b170e3-7538-496d-ba12-c8f348fea1cc</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>AGI Intern</Title>
+  <URL>AaltoGlobalImpact.OIP.ImageGroup_50728623-6e3d-42c0-8801-048ce700310f_DefaultView.phtml</URL>
+</ReferenceToInformation>

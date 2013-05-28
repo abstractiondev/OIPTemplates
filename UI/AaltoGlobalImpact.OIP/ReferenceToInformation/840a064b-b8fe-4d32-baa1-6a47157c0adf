@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>840a064b-b8fe-4d32-baa1-6a47157c0adf</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/840a064b-b8fe-4d32-baa1-6a47157c0adf</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Invitation: Weconomy Start Kickoff, 22 January 2013</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_2dbbcf10-3c60-488e-aa30-26f0be05dbb4_DefaultView.phtml</URL>
+</ReferenceToInformation>

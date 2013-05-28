@@ -1,0 +1,31 @@
+﻿<Image xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Caption>Laura Ansala from Aalto University wins first Master’s Award in Development Studies</Caption>
+  <ID>2238578f-b22b-4a2d-a425-e55633aa48eb</ID>
+  <ImageData>
+    <ContentLength>160435</ContentLength>
+    <FileExt>.JPG</FileExt>
+    <ID>816d9d2b-0e08-4a0f-9d2a-2face2ad800d</ID>
+    <MasterETag i:nil="true" />
+    <Name>MediaContent</Name>
+    <OriginalFileName i:nil="true" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/816d9d2b-0e08-4a0f-9d2a-2face2ad800d.JPG</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </ImageData>
+  <MasterETag i:nil="true" />
+  <Name>Image</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+    <MasterETag i:nil="true" />
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Laura Ansala</Title>
+    <URL>AaltoGlobalImpact.OIP.Image_2238578f-b22b-4a2d-a425-e55633aa48eb_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/2238578f-b22b-4a2d-a425-e55633aa48eb</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Laura Ansala</Title>
+</Image>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>c1007d2e-0611-45a7-bb7f-53c99071908a</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/c1007d2e-0611-45a7-bb7f-53c99071908a</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>F212 - Share your thoughts on the future – learn from others – have your ideas published </Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_fdecde4e-e343-416a-8904-5ab08e4d0ad2_DefaultView.phtml</URL>
+</ReferenceToInformation>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>319120f3-ba56-4f76-ac93-0180e8449af2</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/319120f3-ba56-4f76-ac93-0180e8449af2</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Aalto Global Impact - internship announcement</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_32d0899d-105f-419a-868e-1fd3b85db8de_DefaultView.phtml</URL>
+</ReferenceToInformation>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>6af532b0-be0e-4966-8167-56c5410fb7c1</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/6af532b0-be0e-4966-8167-56c5410fb7c1</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Movember</Title>
+  <URL>AaltoGlobalImpact.OIP.ImageGroup_7a8d3e3d-9a85-4035-8b78-94db693953ad_DefaultView.phtml</URL>
+</ReferenceToInformation>

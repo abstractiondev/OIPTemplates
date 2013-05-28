@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>10fd7d4f-3c17-480b-92da-578298fc155c</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/10fd7d4f-3c17-480b-92da-578298fc155c</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Laura Ansala from Aalto University wins first Master's Award in Development Studies</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_33d3f178-9d33-4b89-8a6a-f68abe36ab4e_DefaultView.phtml</URL>
+</ReferenceToInformation>

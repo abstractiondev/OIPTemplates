@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country />
+    <ID>94336d09-b683-4a5c-b1ed-e73132c7c315</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/94336d09-b683-4a5c-b1ed-e73132c7c315</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street />
+    <Town />
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>f4071445-1af0-40a0-93f3-dabede100d78</ID>
+  <Location>
+    <ID>0aeb94ca-eb68-4c26-8d94-f69d82683452</ID>
+    <Latitude>
+      <ID>2651081d-0aaf-45ba-9f79-ee2fa765db7e</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/2651081d-0aaf-45ba-9f79-ee2fa765db7e</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>60.163732</TextValue>
+    </Latitude>
+    <LocationName>Weconomy START </LocationName>
+    <Longitude>
+      <ID>33da9aa8-aa4d-4cbf-ba86-9c449a79a565</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/33da9aa8-aa4d-4cbf-ba86-9c449a79a565</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>24.924685</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/0aeb94ca-eb68-4c26-8d94-f69d82683452</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>1a387cdf-88cc-49bc-a6ae-5a3b081b8875</ID>
+    <MasterETag>"0x8D019E14AD26B21"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/1a387cdf-88cc-49bc-a6ae-5a3b081b8875</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Weconomy START </Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_f4071445-1af0-40a0-93f3-dabede100d78_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/f4071445-1af0-40a0-93f3-dabede100d78</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

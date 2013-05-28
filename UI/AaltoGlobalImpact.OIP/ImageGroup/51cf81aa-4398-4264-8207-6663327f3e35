@@ -1,0 +1,125 @@
+﻿<ImageGroup xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Description>Current Activities </Description>
+  <FeaturedImage>
+    <Caption>Kalle at work</Caption>
+    <ID>4c5029a4-c04c-49a0-bc7a-8d8bea78366b</ID>
+    <ImageData>
+      <ContentLength>272511</ContentLength>
+      <FileExt>.png</FileExt>
+      <ID>b04c3340-6a23-43f1-89e1-e97fe31eda0f</ID>
+      <MasterETag i:nil="true" />
+      <Name>MediaContent</Name>
+      <OriginalFileName i:nil="true" />
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/b04c3340-6a23-43f1-89e1-e97fe31eda0f.png</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </ImageData>
+    <MasterETag>"0x8CF9B8C6C62096C"</MasterETag>
+    <Name>Image</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ReferenceToInformation>
+      <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+      <MasterETag i:nil="true" />
+      <Name>ReferenceToInformation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <Title i:nil="true" />
+      <URL i:nil="true" />
+    </ReferenceToInformation>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/4c5029a4-c04c-49a0-bc7a-8d8bea78366b</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Kalle again</Title>
+  </FeaturedImage>
+  <ID>51cf81aa-4398-4264-8207-6663327f3e35</ID>
+  <ImagesCollection>
+    <CollectionContent>
+      <Image>
+        <Caption>Organizing the market place</Caption>
+        <ID>297565bf-57ef-4bab-9460-00213b8fae4b</ID>
+        <ImageData>
+          <ContentLength>150612</ContentLength>
+          <FileExt>.jpg</FileExt>
+          <ID>ebf43041-e1d4-458b-b838-9f1a3f5736ed</ID>
+          <MasterETag i:nil="true" />
+          <Name>MediaContent</Name>
+          <OriginalFileName i:nil="true" />
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/ebf43041-e1d4-458b-b838-9f1a3f5736ed.jpg</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        </ImageData>
+        <MasterETag>"0x8CFC38F0491669D"</MasterETag>
+        <Name>Image</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <ReferenceToInformation>
+          <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+          <MasterETag i:nil="true" />
+          <Name>ReferenceToInformation</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <Title>ACCESS: Design Needs Your Voice!</Title>
+          <URL>AaltoGlobalImpact.OIP.Image_297565bf-57ef-4bab-9460-00213b8fae4b_DefaultView.phtml</URL>
+        </ReferenceToInformation>
+        <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/297565bf-57ef-4bab-9460-00213b8fae4b</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Title>ACCESS: Design Needs Your Voice!</Title>
+      </Image>
+      <Image>
+        <Caption>Laura Ansala from Aalto University wins first Master’s Award in Development Studies</Caption>
+        <ID>2238578f-b22b-4a2d-a425-e55633aa48eb</ID>
+        <ImageData>
+          <ContentLength>160435</ContentLength>
+          <FileExt>.JPG</FileExt>
+          <ID>816d9d2b-0e08-4a0f-9d2a-2face2ad800d</ID>
+          <MasterETag i:nil="true" />
+          <Name>MediaContent</Name>
+          <OriginalFileName i:nil="true" />
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/816d9d2b-0e08-4a0f-9d2a-2face2ad800d.JPG</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        </ImageData>
+        <MasterETag>"0x8CFC38F81547A1C"</MasterETag>
+        <Name>Image</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <ReferenceToInformation>
+          <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+          <MasterETag i:nil="true" />
+          <Name>ReferenceToInformation</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <Title>Laura Ansala</Title>
+          <URL>AaltoGlobalImpact.OIP.Image_2238578f-b22b-4a2d-a425-e55633aa48eb_DefaultView.phtml</URL>
+        </ReferenceToInformation>
+        <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/2238578f-b22b-4a2d-a425-e55633aa48eb</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Title>Laura Ansala</Title>
+      </Image>
+    </CollectionContent>
+    <ID>8eeb6e3a-6123-47b2-8ad5-374c1aaf9f55</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>ImagesCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ImagesCollection/8eeb6e3a-6123-47b2-8ad5-374c1aaf9f55</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </ImagesCollection>
+  <MasterETag i:nil="true" />
+  <Name>ImageGroup</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>c4375763-35e6-41f7-9916-9c9e834cf0f4</ID>
+    <MasterETag>"0x8CFC38E76243C4D"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/c4375763-35e6-41f7-9916-9c9e834cf0f4</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>News Letter December 2012</Title>
+    <URL>AaltoGlobalImpact.OIP.ImageGroup_51cf81aa-4398-4264-8207-6663327f3e35_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ImageGroup/51cf81aa-4398-4264-8207-6663327f3e35</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>News Letter December 2012</Title>
+</ImageGroup>

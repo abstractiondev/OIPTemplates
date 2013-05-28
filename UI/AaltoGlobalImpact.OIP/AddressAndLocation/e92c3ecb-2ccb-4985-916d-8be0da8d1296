@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Mozambique</Country>
+    <ID>9d8a2de4-6151-40df-ad4b-34ba936cc28a</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/9d8a2de4-6151-40df-ad4b-34ba936cc28a</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street>Lionde Millennium Village (MV)</Street>
+    <Town>Gaza Province</Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>e92c3ecb-2ccb-4985-916d-8be0da8d1296</ID>
+  <Location>
+    <ID>004df586-7ef4-4bf3-bf6d-0102cc64ced6</ID>
+    <Latitude>
+      <ID>90de26b5-08a4-4443-b901-cca6d351a0d7</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/90de26b5-08a4-4443-b901-cca6d351a0d7</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue> -23.022193</TextValue>
+    </Latitude>
+    <LocationName>Mozambique: Business Models for Local Producers</LocationName>
+    <Longitude>
+      <ID>3f73c25d-00a0-4c3b-b76d-611125a53e7c</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/3f73c25d-00a0-4c3b-b76d-611125a53e7c</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>32.718137</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/004df586-7ef4-4bf3-bf6d-0102cc64ced6</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>298657b0-acf9-4da2-96d3-8ff3ad20326a</ID>
+    <MasterETag>"0x8CFCC121D1D1A42"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/298657b0-acf9-4da2-96d3-8ff3ad20326a</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Mozambique: Business Models for Local Producers</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_e92c3ecb-2ccb-4985-916d-8be0da8d1296_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/e92c3ecb-2ccb-4985-916d-8be0da8d1296</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

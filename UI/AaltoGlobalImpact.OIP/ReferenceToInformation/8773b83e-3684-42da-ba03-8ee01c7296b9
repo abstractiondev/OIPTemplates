@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>8773b83e-3684-42da-ba03-8ee01c7296b9</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/8773b83e-3684-42da-ba03-8ee01c7296b9</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>GloCal, Gujarat</Title>
+  <URL>AaltoGlobalImpact.OIP.AddressAndLocation_4ab5177b-d3a3-4196-a595-0227bad92b46_DefaultView.phtml</URL>
+</ReferenceToInformation>

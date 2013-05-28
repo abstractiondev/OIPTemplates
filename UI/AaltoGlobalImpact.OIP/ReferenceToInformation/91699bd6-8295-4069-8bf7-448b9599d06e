@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>91699bd6-8295-4069-8bf7-448b9599d06e</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/91699bd6-8295-4069-8bf7-448b9599d06e</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Aalto Design Factory </Title>
+  <URL>AaltoGlobalImpact.OIP.AddressAndLocation_e74b14c5-30ea-4f20-aa36-dc5ab5629228_DefaultView.phtml</URL>
+</ReferenceToInformation>

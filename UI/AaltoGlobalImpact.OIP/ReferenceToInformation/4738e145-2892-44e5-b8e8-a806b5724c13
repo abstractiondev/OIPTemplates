@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>4738e145-2892-44e5-b8e8-a806b5724c13</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/4738e145-2892-44e5-b8e8-a806b5724c13</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Uganda: Water, Sanitation and Hygiene</Title>
+  <URL>AaltoGlobalImpact.OIP.AddressAndLocation_bb4607ee-113d-498d-9377-5022fca55aa7_DefaultView.phtml</URL>
+</ReferenceToInformation>
