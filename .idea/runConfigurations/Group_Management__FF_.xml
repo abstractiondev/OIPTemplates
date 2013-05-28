@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Admin Langing Page (Chrome)" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
+  <configuration default="false" name="Group Management (FF)" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
     <JSRemoteDebuggerConfigurationSettings>
-      <option name="engineId" value="chrome" />
-      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/template/admin/admin-group.html" />
+      <option name="engineId" value="firefox" />
+      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/groupmanagement/html/group-management.html" />
     </JSRemoteDebuggerConfigurationSettings>
     <RunnerSettings RunnerId="JavascriptDebugRunner" />
     <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
