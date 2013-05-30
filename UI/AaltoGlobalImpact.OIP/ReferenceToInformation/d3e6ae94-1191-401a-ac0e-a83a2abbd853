@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>d3e6ae94-1191-401a-ac0e-a83a2abbd853</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/d3e6ae94-1191-401a-ac0e-a83a2abbd853</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Aalto Global Impact at MOA, May 14 on runaway urbanization, transforming businesses and sharing insights for societal change makers </Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_0d79bbc3-473b-4d49-b8f2-180666869249_DefaultView.phtml</URL>
+</ReferenceToInformation>

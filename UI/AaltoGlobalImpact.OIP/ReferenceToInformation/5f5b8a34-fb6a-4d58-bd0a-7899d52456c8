@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>5f5b8a34-fb6a-4d58-bd0a-7899d52456c8</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/5f5b8a34-fb6a-4d58-bd0a-7899d52456c8</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Kalle's test category 3</Title>
+  <URL>AaltoGlobalImpact.OIP.Category_84372e20-aadd-4403-8db0-e11a194febac_DefaultView.phtml</URL>
+</ReferenceToInformation>

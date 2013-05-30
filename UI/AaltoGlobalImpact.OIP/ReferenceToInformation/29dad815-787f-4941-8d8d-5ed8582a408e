@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>29dad815-787f-4941-8d8d-5ed8582a408e</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/29dad815-787f-4941-8d8d-5ed8582a408e</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>DESIGNMATTERS — Art Center College of Design</Title>
+  <URL>AaltoGlobalImpact.OIP.AddressAndLocation_0585ce60-a757-40e1-91b8-f77b401fbbf7_DefaultView.phtml</URL>
+</ReferenceToInformation>

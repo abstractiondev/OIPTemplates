@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Tanzania</Country>
+    <ID>ef2e10ec-6e6a-40ff-9446-bfab0927016f</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/ef2e10ec-6e6a-40ff-9446-bfab0927016f</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street>Kinondoni, Dar es Salaam </Street>
+    <Town>Dar es Salaam </Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>a6fd3410-3f70-4486-a33b-44ade9728d0d</ID>
+  <Location>
+    <ID>7921d07c-8a01-4787-ad8b-ca237f6c9b3f</ID>
+    <Latitude>
+      <ID>f6650d5d-9f8a-457f-b22b-480831f283da</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/f6650d5d-9f8a-457f-b22b-480831f283da</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>-6.510079</TextValue>
+    </Latitude>
+    <LocationName>Dar Es Salaam</LocationName>
+    <Longitude>
+      <ID>75fb337e-6f45-4b39-b1b4-cc515a583cb5</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/75fb337e-6f45-4b39-b1b4-cc515a583cb5</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>32.587819</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/7921d07c-8a01-4787-ad8b-ca237f6c9b3f</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>de52219c-376a-4831-a2da-f82b30e3b8fa</ID>
+    <MasterETag>"0x8CFAA6CAA579AA9"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/de52219c-376a-4831-a2da-f82b30e3b8fa</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Dar Es Salaam</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_a6fd3410-3f70-4486-a33b-44ade9728d0d_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/a6fd3410-3f70-4486-a33b-44ade9728d0d</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>52620e4b-3d10-44d4-bd1d-8fce645fcd59</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/52620e4b-3d10-44d4-bd1d-8fce645fcd59</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>MOA 2013</Title>
+  <URL>AaltoGlobalImpact.OIP.AddressAndLocation_895f1fda-c067-4d34-8a5c-7c83946a2f12_DefaultView.phtml</URL>
+</ReferenceToInformation>

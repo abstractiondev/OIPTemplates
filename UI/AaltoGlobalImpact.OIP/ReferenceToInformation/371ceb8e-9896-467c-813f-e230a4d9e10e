@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>371ceb8e-9896-467c-813f-e230a4d9e10e</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/371ceb8e-9896-467c-813f-e230a4d9e10e</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>AGI Newsletter April 2013</Title>
+  <URL>AaltoGlobalImpact.OIP.Activity_615b2a20-af83-4958-9c8c-351b9b43de1a_DefaultView.phtml</URL>
+</ReferenceToInformation>

@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country />
+    <ID>ed74c0c7-8768-4b43-88f4-d43d1aed0656</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/ed74c0c7-8768-4b43-88f4-d43d1aed0656</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street />
+    <Town />
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>54f6d9ba-8e2a-455e-85ef-fb618b0cf25c</ID>
+  <Location>
+    <ID>f17f6676-8365-45f1-bf46-37fdbe759cba</ID>
+    <Latitude>
+      <ID>f958b636-35c8-4785-882f-641a576aadc7</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/f958b636-35c8-4785-882f-641a576aadc7</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>14</TextValue>
+    </Latitude>
+    <LocationName>Nairobi, Kenya</LocationName>
+    <Longitude>
+      <ID>0eef0487-eb53-4796-b4d4-44e12bc9f881</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/0eef0487-eb53-4796-b4d4-44e12bc9f881</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>15</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/f17f6676-8365-45f1-bf46-37fdbe759cba</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>34d9c5bd-2f0c-491f-89ec-a48e07edc363</ID>
+    <MasterETag>"0x8CF9B6728DF794C"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/34d9c5bd-2f0c-491f-89ec-a48e07edc363</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Nairobi, Kenya</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_54f6d9ba-8e2a-455e-85ef-fb618b0cf25c_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/54f6d9ba-8e2a-455e-85ef-fb618b0cf25c</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

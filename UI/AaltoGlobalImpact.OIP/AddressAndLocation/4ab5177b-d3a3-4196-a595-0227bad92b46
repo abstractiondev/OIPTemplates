@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>India</Country>
+    <ID>bca267ac-07c7-474e-bc9d-856fea0b767d</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/bca267ac-07c7-474e-bc9d-856fea0b767d</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street />
+    <Town>Ahmedabad</Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>4ab5177b-d3a3-4196-a595-0227bad92b46</ID>
+  <Location>
+    <ID>7035fe5f-6c3c-4c95-b3b7-075965e0ff4a</ID>
+    <Latitude>
+      <ID>a5359941-03d1-4044-8ce8-9adc2f3842a5</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/a5359941-03d1-4044-8ce8-9adc2f3842a5</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>23.022571</TextValue>
+    </Latitude>
+    <LocationName>GloCal, Gujarat</LocationName>
+    <Longitude>
+      <ID>a199fe85-ac5f-4e45-909a-fadd5e5a16f4</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/a199fe85-ac5f-4e45-909a-fadd5e5a16f4</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>72.577599</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/7035fe5f-6c3c-4c95-b3b7-075965e0ff4a</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>8773b83e-3684-42da-ba03-8ee01c7296b9</ID>
+    <MasterETag>"0x8CFCC07E2DD0102"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/8773b83e-3684-42da-ba03-8ee01c7296b9</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>GloCal, Gujarat</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_4ab5177b-d3a3-4196-a595-0227bad92b46_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/4ab5177b-d3a3-4196-a595-0227bad92b46</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

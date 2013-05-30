@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>c87d5dce-8974-4ccf-ba90-835a98252e84</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/c87d5dce-8974-4ccf-ba90-835a98252e84</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Tommi Rimpiläinen sheds light on the entrepreneurial processes in BOP markets </Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_4170a423-00f9-4d87-871c-1401d3284f25_DefaultView.phtml</URL>
+</ReferenceToInformation>

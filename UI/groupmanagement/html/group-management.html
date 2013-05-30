@@ -171,11 +171,11 @@
         $.each(MarkerTypes, function(i,item){
             window[item+"Markers"] = new Array();
             window[item+"MarkerIcon"] = L.icon({
-                iconUrl: '../assets/img/oip-markers/map-marker-'+item+'.png',
+                iconUrl: '../assets/img/dummy/oip-markers/map-marker-'+item+'.png',
                 iconSize: [25, 41],
                 iconAnchor: [12, 40],
                 popupAnchor: [-3, -76],
-                shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
+                shadowUrl: '../assets/img/dummy/oip-markers/marker-shadow.png',
                 shadowSize: [41, 41],
                 shadowAnchor: [12, 40]
             });
@@ -638,8 +638,24 @@
 
                     $("#toggler").click(function(){
                         $(this).toggleClass('active, inactive');
-                    })
-
+                    });
+                    // handle filter clicks
+                     $('.filter a').on('click',function(){
+                             var href = $(this).attr('href');
+                             if($(this).parent().parent().hasClass('pull-left')){
+                                 $('.filter a[href=#as-isotope]').parent().addClass('active');
+                             }
+                             if($(this).parent().parent().hasClass('pull-right')){
+                                if(href=='#as-isotope'){
+                                    console.log($('.filter a[href=#all]').length);
+                                    $('.filter a[href=#all]').click();
+                                }
+                                if(href=='#tab-view-as-calendar'){
+                                   return true;
+                                }
+                             }
+                         return false;
+                     });
                 })
             </script>
             <ul class="filter nav nav-pills pull-left">

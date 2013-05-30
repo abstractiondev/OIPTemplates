@@ -1,0 +1,9 @@
+﻿<CreateGroupInfo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <GroupName>CreateGroupInfo.GroupName</GroupName>
+  <ID>aaaba6e4-1f19-46cf-a2b5-45820e8357ee</ID>
+  <MasterETag i:nil="true" />
+  <Name>CreateGroupInfo</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/CreateGroupInfo/CreateGroup</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</CreateGroupInfo>

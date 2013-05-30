@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>0008c33a-b087-4025-8495-19e66dbb2a90</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/0008c33a-b087-4025-8495-19e66dbb2a90</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Jeroen's news of today 11 Dec 2012</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_ca8e6eb7-e292-4a3c-bed7-1632b43051df_DefaultView.phtml</URL>
+</ReferenceToInformation>

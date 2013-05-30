@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Tanzania</Country>
+    <ID>87ef0b61-8c07-466d-a9e9-684508d5b80f</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/87ef0b61-8c07-466d-a9e9-684508d5b80f</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street />
+    <Town>Dar es Salaam</Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>ebaf15fb-c700-4632-895f-8d12628711c8</ID>
+  <Location>
+    <ID>1b79a15d-f870-4b0a-bbc7-c3745eaa2901</ID>
+    <Latitude>
+      <ID>b2a5900d-1cfa-47c8-94e2-62364258e2fa</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/b2a5900d-1cfa-47c8-94e2-62364258e2fa</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>-6.814977</TextValue>
+    </Latitude>
+    <LocationName>Tanzania — KTH partnership</LocationName>
+    <Longitude>
+      <ID>4d0fc52c-7b83-4502-9802-9fce768488db</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/4d0fc52c-7b83-4502-9802-9fce768488db</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>39.288945</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/1b79a15d-f870-4b0a-bbc7-c3745eaa2901</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>78df0d73-0562-49be-963f-df191a36b58a</ID>
+    <MasterETag>"0x8CFCC0D0DC934AC"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/78df0d73-0562-49be-963f-df191a36b58a</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Tanzania — KTH partnership</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_ebaf15fb-c700-4632-895f-8d12628711c8_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/ebaf15fb-c700-4632-895f-8d12628711c8</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>281efb7c-fbef-4ef1-a3e1-9f46beb4817d</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/281efb7c-fbef-4ef1-a3e1-9f46beb4817d</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Test Anna</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_9e3efec4-457c-4648-bbbc-1f3df107bfad_DefaultView.phtml</URL>
+</ReferenceToInformation>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>3b9e9e4c-d73a-4478-960a-825ce08d6560</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/3b9e9e4c-d73a-4478-960a-825ce08d6560</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Mozambique: Business Models for Local Producers</Title>
+  <URL>AaltoGlobalImpact.OIP.Activity_e9ead5e9-9e6e-48cf-9ffb-34f65d16ca9d_DefaultView.phtml</URL>
+</ReferenceToInformation>

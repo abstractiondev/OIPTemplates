@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country>Finland</Country>
+    <ID>73209673-4834-4d56-8709-d52fa7930502</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/73209673-4834-4d56-8709-d52fa7930502</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street />
+    <Town>Arabia</Town>
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>8026c400-15ad-405a-9656-d7991b705631</ID>
+  <Location>
+    <ID>c437e7d4-5fa8-489b-a599-b8a499da583f</ID>
+    <Latitude>
+      <ID>4e547621-a9fb-4955-90ed-8c597a1fe215</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/4e547621-a9fb-4955-90ed-8c597a1fe215</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>60.209032</TextValue>
+    </Latitude>
+    <LocationName>Aalto School of Arts Design and Architecture</LocationName>
+    <Longitude>
+      <ID>2a8d3d98-5830-4b84-865f-ae75dc15c11e</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/2a8d3d98-5830-4b84-865f-ae75dc15c11e</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>24.975648</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/c437e7d4-5fa8-489b-a599-b8a499da583f</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>c2fbe7bd-7ad0-41a8-a91e-f05eeee2558c</ID>
+    <MasterETag>"0x8CFCC16CF51F220"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/c2fbe7bd-7ad0-41a8-a91e-f05eeee2558c</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Aalto School of Arts Design and Architecture</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_8026c400-15ad-405a-9656-d7991b705631_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/8026c400-15ad-405a-9656-d7991b705631</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

@@ -1,0 +1,125 @@
+﻿<ImageGroup xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Description>Exploring Opportunity Gaps, Cape Town, South Africa</Description>
+  <FeaturedImage>
+    <Caption>Workshop bringing together some 80 participants from Finland and South Africa.</Caption>
+    <ID>a340585c-3d18-4e1a-9661-97daf0aeea65</ID>
+    <ImageData>
+      <ContentLength>12777</ContentLength>
+      <FileExt>.jpeg</FileExt>
+      <ID>6a73d48d-dec0-4c4d-9100-df534401c7f8</ID>
+      <MasterETag i:nil="true" />
+      <Name>MediaContent</Name>
+      <OriginalFileName i:nil="true" />
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/6a73d48d-dec0-4c4d-9100-df534401c7f8.jpeg</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </ImageData>
+    <MasterETag>"0x8CFC38D8599A8FC"</MasterETag>
+    <Name>Image</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ReferenceToInformation>
+      <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+      <MasterETag i:nil="true" />
+      <Name>ReferenceToInformation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <Title i:nil="true" />
+      <URL i:nil="true" />
+    </ReferenceToInformation>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/a340585c-3d18-4e1a-9661-97daf0aeea65</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>ACCESS_CPUT_08112012</Title>
+  </FeaturedImage>
+  <ID>bb0f5b28-ad1f-406e-9afa-779d5f42d152</ID>
+  <ImagesCollection>
+    <CollectionContent>
+      <Image>
+        <Caption>Workshop bringing together some 80 participants from Finland and South Africa.</Caption>
+        <ID>a340585c-3d18-4e1a-9661-97daf0aeea65</ID>
+        <ImageData>
+          <ContentLength>12777</ContentLength>
+          <FileExt>.jpeg</FileExt>
+          <ID>6a73d48d-dec0-4c4d-9100-df534401c7f8</ID>
+          <MasterETag i:nil="true" />
+          <Name>MediaContent</Name>
+          <OriginalFileName i:nil="true" />
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/6a73d48d-dec0-4c4d-9100-df534401c7f8.jpeg</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        </ImageData>
+        <MasterETag>"0x8CFC38D8599A8FC"</MasterETag>
+        <Name>Image</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <ReferenceToInformation>
+          <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+          <MasterETag i:nil="true" />
+          <Name>ReferenceToInformation</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <Title i:nil="true" />
+          <URL i:nil="true" />
+        </ReferenceToInformation>
+        <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/a340585c-3d18-4e1a-9661-97daf0aeea65</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Title>ACCESS_CPUT_08112012</Title>
+      </Image>
+      <Image>
+        <Caption />
+        <ID>81f111f4-5f49-48e9-960f-f2401e491e61</ID>
+        <ImageData>
+          <ContentLength>269748</ContentLength>
+          <FileExt>.jpg</FileExt>
+          <ID>e5592f80-4b08-4b96-ad80-3b231f943d62</ID>
+          <MasterETag i:nil="true" />
+          <Name>MediaContent</Name>
+          <OriginalFileName i:nil="true" />
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/MediaContent/e5592f80-4b08-4b96-ad80-3b231f943d62.jpg</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        </ImageData>
+        <MasterETag>"0x8CFD4F65DAA15E5"</MasterETag>
+        <Name>Image</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <ReferenceToInformation>
+          <ID>64546b71-62eb-4c01-b917-42e2d4b72bd0</ID>
+          <MasterETag i:nil="true" />
+          <Name>ReferenceToInformation</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/64546b71-62eb-4c01-b917-42e2d4b72bd0</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <Title i:nil="true" />
+          <URL i:nil="true" />
+        </ReferenceToInformation>
+        <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/Image/81f111f4-5f49-48e9-960f-f2401e491e61</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Title />
+      </Image>
+    </CollectionContent>
+    <ID>478d64dd-1794-4cfe-b40e-6e36a8ee4791</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>ImagesCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ImagesCollection/478d64dd-1794-4cfe-b40e-6e36a8ee4791</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </ImagesCollection>
+  <MasterETag i:nil="true" />
+  <Name>ImageGroup</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>212f523c-a43e-4538-aba7-0e3b459135ad</ID>
+    <MasterETag>"0x8CFC38C5F102386"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/212f523c-a43e-4538-aba7-0e3b459135ad</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>ACCESS</Title>
+    <URL>AaltoGlobalImpact.OIP.ImageGroup_bb0f5b28-ad1f-406e-9afa-779d5f42d152_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ImageGroup/bb0f5b28-ad1f-406e-9afa-779d5f42d152</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>ACCESS</Title>
+</ImageGroup>

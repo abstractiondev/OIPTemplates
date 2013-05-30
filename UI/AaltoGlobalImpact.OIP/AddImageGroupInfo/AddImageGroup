@@ -1,0 +1,9 @@
+﻿<AddImageGroupInfo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>737dcb27-6e73-4181-8e1d-c65b172c5008</ID>
+  <ImageGroupTitle i:nil="true" />
+  <MasterETag i:nil="true" />
+  <Name>AddImageGroupInfo</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddImageGroupInfo/AddImageGroup</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddImageGroupInfo>

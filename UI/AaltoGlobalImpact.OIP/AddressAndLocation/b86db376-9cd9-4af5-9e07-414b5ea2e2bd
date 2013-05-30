@@ -1,0 +1,57 @@
+﻿<AddressAndLocation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Address>
+    <Country />
+    <ID>97e4269c-fbd4-4c85-8f8f-2ec325cbe627</ID>
+    <MasterETag i:nil="true" />
+    <Name>StreetAddress</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/97e4269c-fbd4-4c85-8f8f-2ec325cbe627</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Street>Mannerheimintie 13</Street>
+    <Town />
+    <ZipCode i:nil="true" />
+  </Address>
+  <ID>b86db376-9cd9-4af5-9e07-414b5ea2e2bd</ID>
+  <Location>
+    <ID>84e74e67-691a-49d9-a98c-3ceec1a6bb8f</ID>
+    <Latitude>
+      <ID>800f26b7-08d8-425a-8f3d-0277480f87db</ID>
+      <MasterETag i:nil="true" />
+      <Name>Latitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/800f26b7-08d8-425a-8f3d-0277480f87db</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>60.175</TextValue>
+    </Latitude>
+    <LocationName>Finlandia Hall</LocationName>
+    <Longitude>
+      <ID>0bc8db8b-f8f0-41a8-88c7-f104dfbee2a3</ID>
+      <MasterETag i:nil="true" />
+      <Name>Longitude</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/0bc8db8b-f8f0-41a8-88c7-f104dfbee2a3</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <TextValue>24.933847</TextValue>
+    </Longitude>
+    <MasterETag i:nil="true" />
+    <Name>Location</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Location/84e74e67-691a-49d9-a98c-3ceec1a6bb8f</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Location>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ReferenceToInformation>
+    <ID>34ef6561-66ab-4ba9-86de-70ee8df4273d</ID>
+    <MasterETag>"0x8CFE73A632F1C77"</MasterETag>
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/34ef6561-66ab-4ba9-86de-70ee8df4273d</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Finlandia Hall</Title>
+    <URL>AaltoGlobalImpact.OIP.AddressAndLocation_b86db376-9cd9-4af5-9e07-414b5ea2e2bd_DefaultView.phtml</URL>
+  </ReferenceToInformation>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddressAndLocation/b86db376-9cd9-4af5-9e07-414b5ea2e2bd</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocation>

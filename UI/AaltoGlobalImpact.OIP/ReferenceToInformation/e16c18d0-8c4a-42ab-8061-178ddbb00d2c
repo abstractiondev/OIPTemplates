@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>e16c18d0-8c4a-42ab-8061-178ddbb00d2c</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/e16c18d0-8c4a-42ab-8061-178ddbb00d2c</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Irena Bakić wins the Women and Technology Prize</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_5bbf7c5d-4133-4915-bf33-f0ebe3d75a98_DefaultView.phtml</URL>
+</ReferenceToInformation>

@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>84c94647-6472-4c1d-93b3-20780b988b81</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/84c94647-6472-4c1d-93b3-20780b988b81</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Tanzania: Community and market improvement projects</Title>
+  <URL>AaltoGlobalImpact.OIP.Activity_409bf342-57d8-4e8e-9094-ffd5b30e3e67_DefaultView.phtml</URL>
+</ReferenceToInformation>

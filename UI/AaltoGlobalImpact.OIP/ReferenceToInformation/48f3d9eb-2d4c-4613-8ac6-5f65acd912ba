@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>48f3d9eb-2d4c-4613-8ac6-5f65acd912ba</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/ReferenceToInformation/48f3d9eb-2d4c-4613-8ac6-5f65acd912ba</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>ACCESS: Matchmaking and Co-creation for New Collaborative Projects</Title>
+  <URL>AaltoGlobalImpact.OIP.Blog_87493283-5cba-4715-bf2d-d5a2eb3f8753_DefaultView.phtml</URL>
+</ReferenceToInformation>
