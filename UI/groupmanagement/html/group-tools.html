@@ -1,17 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Group Tools</title>
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- For sample logo only-->
-    <!--Remove if you no longer need this font-->
-    <link href="http://fonts.googleapis.com/css?family=Aguafina+Script" rel="stylesheet" type="text/css" >
-    <!--For sample logo only-->
+  <meta charset="UTF-8">
+  <title>Basic Demo</title>
 
     <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/lib/font-awesome/css/font-awesome.css">
@@ -27,122 +18,46 @@
 
     <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
-    <style type="text/css">
-            /*h2 { margin-top: 2em; }*/
-        #dropdown-buttons .btn-group:first-child { margin-left: 0px; }
-        #dropdown-buttons .btn-group { margin-left: 31px; }
-        #dropdown-buttons2 .btn-group:first-child { margin-left: 0px; }
-        #dropdown-buttons2 .btn-group { margin-left: 18px; }
-        .sample-buttons .btn-group {
-            width: 115px;
-            height: 40px;
-            margin: 0em;
-        }
-        .filter-demo-item {
-            /*float: left;*/
-            width: 50px;
-            height: 50px;
-            margin: .5em;
-            background: #667;
-            overflow: hidden;
-        }
-            /**** Isotope Filtering ****/
 
-        .isotope-item {
-            z-index: 2;
-        }
+  <!-- jQuery / jQuery UI -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 
-        .isotope-hidden.isotope-item {
-            pointer-events: none;
-            z-index: 1;
-        }
+  <!-- jQuery Touch Punch - Enable Touch Drag and Drop -->
+  <script src="../assets/js/jquery.touch-punch.min.js"></script>
 
-            /**** Isotope CSS3 transitions ****/
-        .isotope {
-            margin-bottom: 30px;
-        }
-        .isotope,
-        .isotope .isotope-item {
-            -webkit-transition-duration: 0.8s;
-            -moz-transition-duration: 0.8s;
-            -ms-transition-duration: 0.8s;
-            -o-transition-duration: 0.8s;
-            transition-duration: 0.8s;
-        }
+  <!-- jQuery.Shapeshift -->
+  <script src="../assets/js/jquery.shapeshift.js"></script>
 
-        .isotope {
-            -webkit-transition-property: height, width;
-            -moz-transition-property: height, width;
-            -ms-transition-property: height, width;
-            -o-transition-property: height, width;
-            transition-property: height, width;
-        }
+  <!-- CSS -->
+  <style>
+    .container {
+         border: 1px dashed #CCC;
+         position: relative;
+     }
 
-        .isotope .isotope-item {
-            -webkit-transition-property: -webkit-transform, opacity;
-            -moz-transition-property:    -moz-transform, opacity;
-            -ms-transition-property:     -ms-transform, opacity;
-            -o-transition-property:      -o-transform, opacity;
-            transition-property:         transform, opacity;
-        }
+    .container > div {
+      background: #AAA;
+      border: 1px solid #333;
+      position: absolute;
+      height: 100px;
+      width: 100px;
+    }
 
-            /**** disabling Isotope CSS3 transitions ****/
+    .container > .ss-placeholder-child {
+      background: transparent;
+      border: 1px dashed blue;
+    }
+  </style>
 
-        .isotope.no-transition,
-        .isotope.no-transition .isotope-item,
-        .isotope .isotope-item.no-transition {
-            -webkit-transition-duration: 0s;
-            -moz-transition-duration: 0s;
-            -ms-transition-duration: 0s;
-            -o-transition-duration: 0s;
-            transition-duration: 0s;
-        }
-
-        .loading {
-            margin-right: .25em;
-        }
-        #location-map{
-            height: 400px;
-        }
-    </style>
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-
-  <style type="text/css">
-        .group-management .navbar .navbar-inner {
-            padding: 0;
-            border-top: darkblue solid 3px;
-        }
-    </style>
-    <script type="text/javascript">
+  <!-- Javascript -->
+  <script>
+    $(document).ready(function() {
         $(".container").shapeshift({
             minColumns: 3
         });
-    </script>
-    <style type="text/css">
-        .container {
-            border: 1px dashed #ccc;
-            position: relative;
-        }
-
-        .container > div {
-            background: #CCC;
-            height: 100px;
-            position: absolute;
-            width: 80px;
-        }
-
-        .container > div[data-ss-colspan='2'] { width: 170px; }
-
-        .container .ss-placeholder-child {
-            background: transparent;
-            border: 1px dashed red;
-        }
-    </style><!-- shapeshift style -->
+    })
+  </script>
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="../assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -158,7 +73,6 @@
 <!--[if (gt IE 9)|!(IE)]><!-->
 <body class="group-management">
 <!--<![endif]-->
-
 <div class="navbar">
     <div class="navbar-inner">
         <ul class="nav pull-left">
@@ -188,7 +102,6 @@
         </ul>
     </div>
 </div><!-- .navbar -->
-
 <div id="main-menu">
     <div id="phone-navigation">
         <select class="selectnav" id="phone-menu">
@@ -390,16 +303,13 @@
 </div>
 <!-- end main-menu modals -->
 
+
 <div id="sidebar-nav">
     <ul id="dashboard-menu" class="nav nav-list">
         <li class="active"><a href="#tab-compare" data-toggle="tab"><i class="icon-random"></i> <span>Find Links</span></a></li>
-        <!--<li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>-->
-        <!--<li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>-->
-        <!--<li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>-->
-        <!--<li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>-->
+        <li class=" "><a href="#tab-dive-into" data-toggle="tab"><i class="icon-film"></i> <span>Dive into</span></a></li>
     </ul>
 </div><!-- .sidebar-nav-->
-
 <div class="content">
 <div class="container-fluid">
 <div class="row-fluid">
@@ -407,152 +317,46 @@
 <div class="fancy-tab-container">
 <div class="tab-content">
 <div class="tab-pane fade in active" id="tab-compare">
-    <script type="text/javascript">
-        $(function(){
-            fancyFilter('.filter', '#gallery-bookmarks');
-            // load isotope when tab is shown
-            $('a[data-toggle="tab"]').on('shown', function (e) {
-                if ($(e.target).attr('href')=="#tab-media"){
-                    $("#gallery-media").isotope({'filter':".cards"});
-                }
-
-            });
-        });
-    </script>
-            <!-- group profile image and group icon image -->
-            <div class="span12"style="min-height: 400px">
-                <div class="container">
-                    <div></div>
-                    <div></div>
-                    <div data-ss-colspan='2'></div>
-                    <div></div>
-                </div>
-
-                <div class="container">
-                    <div></div>
-                    <div data-ss-colspan='2'></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div class="span12"style="min-height: 400px">
-                <div class="span9 well" style="float:left;min-height: 400px;padding: 10px">
-                    <H2>Playing field</H2>
-                    <section></section>
-                    <footer>
-                        <div class="control-group controls pull-right" style="position: relative;margin-bottom: 0px">
-                            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                <button type="submit" class="btn btn-primary" name="" id="" value="Save">Find links</button>
-                            </div>
-                        </div>
-                    </footer>
-                </div>
-                <div class="span3 well clearfix" style="float:left;min-height: 400px;padding: 10px">
-                    <h2>Bookmarks</h2>
-                    <ul class="filter nav nav-pills pull-left">
-                        <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
-                        <li class="active"><a href="#all" data-filter=".cards:not(.location)">All</a></li>
-                        <li><a href="#images" data-filter=".people">People</a></li>
-                        <li><a href="#videos" data-filter=".activities">Activities</a></li>
-                        <li><a href="#videos" data-filter=".dates">Dates</a></li>
-                        <li><a href="#videos" data-filter=".locations">Locations</a></li>
-                    </ul>
-                    <div id="gallery-bookmarks" class="gallery" style="clear: both;">
-                        <div class="cards cards-profile pull-left people">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_green_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left people">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_green_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left people">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_green_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left dates">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_purple_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left dates">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_purple_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left activities">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left activities">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left activities">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left activities">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_lightblue_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left locations">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_pink_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left locations">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_pink_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                        <div class="cards cards-profile pull-left locations">
-                            <section>
-                                <a href="#"><img src="../assets/img/dummy/placeholder-images/web-480x640_pink_th.jpg" style="margin: 0"></a>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            <!-- end group profile image and group icon image -->
-
-            <footer>
-                <div class="control-group controls pull-right">
-                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                        <label>save this result</label>
-                        <input type="text" placeholder="Give this result a good name">
-                        <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                        <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
-                    </div>
-                </div>
-            </footer>
-</div>
+<div class="container span7" style="background-color: red">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</div><!-- .container -->
+<div class="container span4">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+  </div><!-- .container -->
+</div><!-- #tab-compare -->
+<div class="tab-pane fade in" id="tab-dive-into">
+<div class="span7" style="background-color: green">
+<div></div>
+</div><!-- .container -->
+<div class="span4" style="background-color: yellow">
+      <div></div>
+  </div><!-- .container -->
+</div><!-- #tab-compare -->
 </div><!--.tab-content-->
-</div><!--.fancy-tab-content-->
-</div><!-- .span12-->
-</div><!-- .row-fluid-->
+</div><!--.fancy-tab-container-->
+</div><!--.span12-->
+</div><!--.row-fluid-->
 <footer>
-    <hr>
-    <p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Caloom Ltd</a></p>
-    <p>&copy; 2013 <a href="#">Caloom / OIP / Aalto Global Impact</a></p>
+<hr>
+<p class="pull-right">Design by <a href="http://www.portnine.com" target="_blank">Caloom Ltd</a></p>
+<p>&copy; 2013 <a href="#">Caloom / OIP / Aalto Global Impact</a></p>
 </footer>
 </div><!--.container-fluid-->
 </div><!--.content-->
-
 <script src="../assets/lib/bootstrap/js/bootstrap.js"></script>
-<script type="text/javascript">
-    $("[rel=tooltip]").tooltip();
-    $(function() {
-        $('.demo-cancel-click').click(function(){return false;});
-    });
-</script>
-<script src='../assets/js/jquery.shapeshift.min.js' type='text/javascript'></script>
-
 </body>
 </html>
