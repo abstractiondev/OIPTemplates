@@ -98,30 +98,98 @@
                     <li><a tabindex="-1" href="logout.html">Logout</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="#add" data-toggle="collapse" class="accordion-toggle collapsed">
+                    <i class="icon-plus-sign"></i> Add
+                </a>
+            </li>
             <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
         </ul>
     </div>
 </div><!-- .navbar -->
-<div id="main-menu">
-    <div id="phone-navigation">
-        <select class="selectnav" id="phone-menu">
-            <option value="#tab-compare"  data-toggle="tab"> Compare</option>
-            <option value="#tab-media" data-toggle="tab" a href="#tab-media"> Media</option>
-            <option value="#tab-collaborators" data-toggle="tab"  a href="#tab-collaborators"> Collaborators</option>
-            <option value="#tab-locations-current" data-toggle="tab"  a href="#tab-locations-current"> Locations</option>
-            <option value="#tab-delete" data-toggle="tab" style="color:red"  a href="#tab-delete"> Delete</option>
-        </select>
+<div class="main-menu accordion-group code_example">
+    <div class="accordion-heading">
     </div>
-    <ul class="nav nav-tabs">
-        <li ><a data-toggle="modal" role="button" href="#add-image"><i class="icon-plus-sign"></i> <span>Image</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#add-file"><i class="icon-plus-sign"></i> <span>File</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#add-activity"><i class="icon-plus-sign"></i> <span>Activity</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#add-story" ><i class="icon-plus-sign"></i> <span>Story</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#invite-collaborator"><i class="icon-plus-sign"></i>Collaborator</a></li>
-        <li ><a data-toggle="modal" role="button" href="#add-location"><i class="icon-plus-sign"></i>Location</a></li>
-        <li class="pull-right" style="margin-right: 10px"><a data-toggle="modal" role="button" href="#bookmarks"><i class="icon-bookmark"></i>Bookmarks</a></li>
-    </ul>
-</div><!-- .main-menu -->
+    <div class="accordion-body collapse" id="add" style="height: 0px;">
+        <div class="accordion-inner">
+                <div class="tabbable">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab-add-image" data-toggle="tab">Image</a></li>
+                        <li><a href="#tab-add-file" data-toggle="tab">File</a></li>
+                        <li><a href="#tab-add-activity" data-toggle="tab">Activity</a></li>
+                        <li><a href="#tab-add-story" data-toggle="tab">Story</a></li>
+                        <li><a href="#tab-add-collaborator" data-toggle="tab">Collaborator</a></li>
+                        <li><a href="#tab-add-location" data-toggle="tab">Location</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-add-image" class="tab-pane active">
+                            <header>tab-add-image</header>
+                            <section>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                        <div id="tab-add-file" class="tab-pane">
+                            <header>tab-add-file</header>
+                            <section>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                        <div id="tab-add-activity" class="tab-pane">
+                            <header>tab-add-activity</header>
+                            <section>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                        <div id="tab-add-story" class="tab-pane">
+                            <header>tab-add-story</header>
+                            <section>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                        <div id="tab-add-collaborator" class="tab-pane">
+                            <header>tab-add-collaborator</header>
+                            <section>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                        <div id="tab-add-location" class="tab-pane">
+                            <header>tab-add-location</header>
+                            <section>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                    </div><!-- /.tab-content -->
+                </div><!-- /.tabbable -->
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div id="main-menu">-->
+    <!--<div id="phone-navigation">-->
+        <!--<select class="selectnav" id="phone-menu">-->
+            <!--<option value="#tab-compare"  data-toggle="tab"> Compare</option>-->
+            <!--<option value="#tab-media" data-toggle="tab" a href="#tab-media"> Media</option>-->
+            <!--<option value="#tab-collaborators" data-toggle="tab"  a href="#tab-collaborators"> Collaborators</option>-->
+            <!--<option value="#tab-locations-current" data-toggle="tab"  a href="#tab-locations-current"> Locations</option>-->
+            <!--<option value="#tab-delete" data-toggle="tab" style="color:red"  a href="#tab-delete"> Delete</option>-->
+        <!--</select>-->
+    <!--</div>-->
+    <!--<ul class="nav nav-tabs">-->
+        <!--<li ><a data-toggle="modal" role="button" href="#add-image"><i class="icon-plus-sign"></i> <span>Image</span></a></li>-->
+        <!--<li ><a data-toggle="modal" role="button" href="#add-file"><i class="icon-plus-sign"></i> <span>File</span></a></li>-->
+        <!--<li ><a data-toggle="modal" role="button" href="#add-activity"><i class="icon-plus-sign"></i> <span>Activity</span></a></li>-->
+        <!--<li ><a data-toggle="modal" role="button" href="#add-story" ><i class="icon-plus-sign"></i> <span>Story</span></a></li>-->
+        <!--<li ><a data-toggle="modal" role="button" href="#invite-collaborator"><i class="icon-plus-sign"></i>Collaborator</a></li>-->
+        <!--<li ><a data-toggle="modal" role="button" href="#add-location"><i class="icon-plus-sign"></i>Location</a></li>-->
+        <!--<li class="pull-right" style="margin-right: 10px"><a data-toggle="modal" role="button" href="#bookmarks"><i class="icon-bookmark"></i>Bookmarks</a></li>-->
+    <!--</ul>-->
+<!--</div>&lt;!&ndash; .main-menu &ndash;&gt;-->
 <!-- main-menu modals -->
 <div id="add-image" class="modal hide fade">
     <div class="modal-header">
