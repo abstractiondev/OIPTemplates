@@ -341,15 +341,13 @@
         <div class="accordion-inner">
             <div class="tabbable">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab-add-image-minimal" data-toggle="tab">Image Minimal </a></li>
-                    <li><a href="#tab-add-file" data-toggle="tab">File</a></li>
+                    <li class="active"><a href="#tab-add-media" data-toggle="tab">Media</a></li>
                     <li><a href="#tab-add-activity" data-toggle="tab">Activity</a></li>
-                    <li><a href="#tab-add-story" data-toggle="tab">Story</a></li>
                     <li><a href="#tab-add-collaborator" data-toggle="tab">Collaborator</a></li>
                     <li><a href="#tab-add-location" data-toggle="tab">Location</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div id="tab-add-image-minimal" class="tab-pane active">
+                    <div id="tab-add-media" class="tab-pane active">
                         <form id="form-id-5" method="post" class="form-horizontal" enctype="multipart/form-data">
                             <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                             <fieldset id="add-image-minimal">
@@ -358,11 +356,20 @@
                                     <div style="float:left">
                                         <div class="control-group">
                                             <div class="controls">
+                                                <select id="selectbasic" name="selectbasic" class="input-xlarge">
+                                                    <option>Image</option>
+                                                    <option>Excell</option>
+                                                    <option>PDF</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="controls">
                                                 <div class="fileupload fileupload-new" data-provides="fileupload">
                                                     <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
                                                     <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                                     <div>
-                                                        <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                                        <span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
                                                         <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                                     </div>
                                                 </div>
@@ -372,17 +379,17 @@
                                     <div class="clearfix" style="float:left">
                                         <div class="control-group">
                                             <div class="controls">
-                                                <input name="image-name"  id="{image-name}" type="text" value="Image Name">
+                                                <input name="file-name"  id="{image-name}" type="text" value="File Name">
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <div class="controls">
-                                                <input name="image-alt"  id="{image-alt}" type="text" value="Image Alt Text">
+                                                <input name="file-alt"  id="{image-alt}" type="text" value="File Alt Text">
                                             </div>
                                         </div>
                                         <div class="control-group">
                                             <div class="controls">
-                                                <textarea id="image-description" name="{image-description} rows="6" placeholder="add org name">Image Description</textarea>
+                                                <textarea id="file-description" name="{image-description}" rows="6" placeholder="File Description">File Description</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -440,13 +447,6 @@
                             </fieldset>
                         </form>
                     </div>
-                    <div id="tab-add-file" class="tab-pane">
-                        <header>tab-add-file</header>
-                        <section>
-                        </section>
-                        <footer>
-                        </footer>
-                    </div>
                     <div id="tab-add-activity" class="tab-pane">
                         <header>tab-add-activity</header>
                         <section>
@@ -454,14 +454,7 @@
                         <footer>
                         </footer>
                     </div>
-                    <div id="tab-add-story" class="tab-pane">
-                        <header>tab-add-story</header>
-                        <section>
-                        </section>
-                        <footer>
-                        </footer>
-                    </div>
-                    <div id="tab-add-collaborator" class="tab-pane">
+                   <div id="tab-add-collaborator" class="tab-pane">
                         <header>tab-add-collaborator</header>
                         <section>
                         </section>
