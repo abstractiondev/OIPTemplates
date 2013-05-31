@@ -345,6 +345,7 @@
                     <li><a href="#tab-add-activity" data-toggle="tab">Activity</a></li>
                     <li><a href="#tab-add-collaborator" data-toggle="tab">Collaborator</a></li>
                     <li><a href="#tab-add-location" data-toggle="tab">Location</a></li>
+                    <li><a href="#tab-add-category" data-toggle="tab">Category</a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="tab-add-media" class="tab-pane active">
@@ -356,7 +357,7 @@
                                     <div style="float:left">
                                         <div class="control-group">
                                             <div class="controls">
-                                                <select id="selectbasic" name="selectbasic" class="input-xlarge">
+                                                <select id="add-media-category" name="add-media-category" class="input-xlarge">
                                                     <option>Image</option>
                                                     <option>Excell</option>
                                                     <option>PDF</option>
@@ -402,12 +403,12 @@
                                        <H2>Where</H2>
                                        <div class="control-group">
                                            <div class="controls">
-                                           <select id="selectbasic" name="selectbasic" class="input-xlarge">
-                                               <option>Helsinki</option>
-                                               <option>Seattle</option>
-                                               <option>Amsterdam</option>
-                                           </select>
-                                              </div>
+                                               <select id="selectbasic" name="selectbasic" class="input-xlarge">
+                                                   <option>Helsinki</option>
+                                                   <option>Seattle</option>
+                                                   <option>Amsterdam</option>
+                                               </select>
+                                           </div>
                                        </div>
                                     </div>
                                 </div>
@@ -454,7 +455,7 @@
                         <footer>
                         </footer>
                     </div>
-                   <div id="tab-add-collaborator" class="tab-pane">
+                    <div id="tab-add-collaborator" class="tab-pane">
                         <header>tab-add-collaborator</header>
                         <section>
                         </section>
@@ -464,6 +465,14 @@
                     <div id="tab-add-location" class="tab-pane">
                         <header>tab-add-location</header>
                         <section>
+                            map + address lookup
+                        </section>
+                        <footer>
+                        </footer>
+                    </div>
+                    <div id="tab-add-category" class="tab-pane">
+                        <header>tab-add-category</header>
+                        <section>new category<br>select parent category<br> match to OIP category system
                         </section>
                         <footer>
                         </footer>

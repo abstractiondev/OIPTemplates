@@ -529,7 +529,7 @@ hr {
 * add-menu.less
 */
 .add-menu {
-  background-color: #5f7a8e;
+  background-color: #ffffff;
   margin: 10px 40px 40px 40px;
 }
 .add-menu .nav-tabs > .active > a,
@@ -562,6 +562,10 @@ hr {
 }
 .add-menu .nav-tabs {
   border-bottom: 0px;
+}
+.accordion-group {
+  border: 0px;
+  margin-bottom: 0px;
 }
 /*
   * admin-content
