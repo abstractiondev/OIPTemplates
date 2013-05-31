@@ -526,6 +526,30 @@ hr {
   margin: 0em;
 }
 /*
+* add-menu.less
+*/
+.add-menu {
+  background-color: #ffffff;
+}
+.add-menu .nav-tabs > .active > a,
+.add-menu .nav-tabs > .active > a:hover,
+.add-menu .nav-tabs > .active > a:focus {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background-color: #FFFFFF;
+  border-color: #DDDDDD #DDDDDD transparent;
+  border-image: none;
+  border-style: solid;
+  border-width: 1px;
+  color: #555555;
+  cursor: default;
+}
+.add-menu .form-horizontal .controls {
+  margin-left: 18px;
+}
+/*
   * admin-content
   */
 .content {
@@ -533,9 +557,11 @@ hr {
   position: relative;
   background: #ffffff;
   margin-left: 200px;
+  margin-top: 23px;
   padding-bottom: 20px;
-  border-left: 1px solid #aed5f1;
-  border-bottom: 1px solid #aed5f1;
+  border-top: 1px solid #6a879c;
+  border-bottom: 1px solid #6a879c;
+  border-left: 1px solid #6a879c;
 }
 .content .actionbar.btn-toolbar {
   font-size: 1em;
