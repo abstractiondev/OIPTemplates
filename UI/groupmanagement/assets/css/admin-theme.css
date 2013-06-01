@@ -1350,6 +1350,13 @@ input[type="password"]:focus {
 .form-actions {
   background: #e8f2f9;
 }
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: none;
+  outline-offset: none;
+}
 /*
   * admin-alerts
   */

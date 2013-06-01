@@ -105,3 +105,13 @@ input[type="text"], input[type="password"] {
 .form-actions {
   background: lighten(@navbarBackgroundColor, 8%);
 }
+
+//remove the dotted outline
+  select:focus,
+  input[type="file"]:focus,
+  input[type="radio"]:focus,
+  input[type="checkbox"]:focus
+  {
+    outline: none;
+    outline-offset: none;
+  }
