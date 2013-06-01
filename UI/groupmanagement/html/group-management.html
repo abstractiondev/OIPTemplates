@@ -88,7 +88,8 @@
         height: 50px;
         margin: .5em;
         background: #667;
-        overflow: hidden;
+        overflow: visible;
+        margin-bottom: 20px;
     }
         /**** Isotope Filtering ****/
 
@@ -337,7 +338,7 @@
 
     });
 
-</script>
+</script><!-- calendar -->
 <style type='text/css'>
 
     #calendar {
@@ -345,13 +346,13 @@
         margin: 0 auto;
     }
 
-</style>
+</style><!-- calendar -->
 <style type="text/css">
     .group-management .navbar .navbar-inner {
         padding: 0;
         border-top: darkblue solid 3px;
     }
-</style>
+</style><!-- navbar group and account management styling -->
 <!-- Le fav and touch icons -->
 <link rel="shortcut icon" href="../assets/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
@@ -591,101 +592,67 @@
                                             <li class="active">
                                                 <a data-filter=".filter-demo-item" href="#all">All</a>
                                             </li>
-                                            <li><a data-filter=".image" href="#images">Filter Some</a></li>
-                                            <li><a data-filter=".video" href="#videos">Filter Others</a></li>
+                                            <li><a data-filter=".image" href="#images">Images</a></li>
+                                            <li><a data-filter=".video" href="#videos">Videos</a></li>
+                                            <li><a data-filter=".document" href="#documents">Documents</a></li>
                                         </ul>
                                         <div style="max-width: 400px; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color: yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(64px, 0px);">
+                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(128px, 0px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(192px, 0px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(256px, 0px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(320px, 0px);">
+                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(0px, 64px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(64px, 64px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(128px, 64px);">
+                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(192px, 64px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item video image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(256px, 64px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(320px, 64px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(0px, 128px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(64px, 128px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(128px, 128px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(192px, 128px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(256px, 128px);">
+                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(320px, 128px);">
+                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
                                                     <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
                                             </div>
-                                            <div class="filter-demo-item video image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(0px, 192px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(64px, 192px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(128px, 192px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(192px, 192px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(256px, 192px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(320px, 192px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(0px, 256px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(64px, 256px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(128px, 256px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(192px, 256px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(256px, 256px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image video isotope-item" style="overflow:visible; position: absolute; left: 0px; top: 0px; transform: translate(320px, 256px);">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                        </div></div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <footer>
                                     <div class="control-group controls pull-right">
