@@ -152,7 +152,75 @@
         width:100%;
     }
 </style>
+<script type="text/javascript">
+    $(function() {
+        $('.datepicker').datepicker();
+        $('.timepicker').timepicker();
+        $('.color').colorpicker();
+        $('.popover-btn').popover();
+        $('#MySpinner').spinner();
+        $('#some-textarea').wysihtml5({"stylesheets": ["lib/bootstrap-wysihtml5/lib/css/wysiwyg-color.css"]});
+        $('#qrcode').qrcode({render: 'table', width: 96,height: 96,text: "Hope you like the theme!"});
+        $('#warning-toggle-button').toggleButtons({
+            style: {
+                enabled: "warning",
+                disabled: "danger"
+            }
+        });
 
+
+
+        $('#danger-toggle-button').toggleButtons({
+            style: {
+                enabled: "danger",
+                disabled: "info"
+            }
+        });
+
+
+        $('#info-toggle-button').toggleButtons({
+            style: {
+                enabled: "info",
+                disabled: "success"
+            }
+        });
+
+
+        $('#success-toggle-button').toggleButtons({
+            style: {
+                enabled: "success",
+                disabled: "warning"
+            }
+        });
+
+
+
+        // Random Messages
+        var messages = [
+            [ 'bottom-right', 'success',     "What's up? This is a message." ],
+            [ 'bottom-right', 'info',     "What's up? This is a message."],
+            [ 'top-right',    'inverse',  "What's up? This is a message." ],
+            [ 'top-right',    'success',  "What's up? This is a message." ],
+            [ 'top-right',  'danger',   "What's up? This is a message." ],
+            [ 'bottom-left',  'warning',  "What's up? This is a message." ],
+            [ 'bottom-left', 'info',     "What's up? This is a message." ],
+            [ 'bottom-left',    'success',  "What's up? This is a message." ],
+        ];
+
+        $('.show-notification').click(function (e) {
+            var message = messages[Math.floor(Math.random() * messages.length)];
+
+            $('.' + message[0]).notify({
+                message: { text: message[2] },
+                type: message[1]
+            }).show();
+        });
+
+        $('#filter-demo').isotope();
+
+        fancyFilter('.filter', '#filter-demo');
+    }); //&lt;--document.ready
+</script><!-- needed for isotope demo at #add-activity -->
 <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 <!--[if lt IE 9]>
 <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -519,29 +587,45 @@
                                 <div style="margin-left:30px;float:left">
                                     <div class="clearfix" style="float:left">
                                         Choose the content you like to attach to this activity.
-                                        <ul class="nav nav-tabs three-tabs" id="">
-                                            <li class="active"><a data-toggle="tab" href="#activity-add-images"><i class="icon-camera-retro"></i></a></li>
-                                            <li class=""><a data-toggle="tab" href="#activity-add-xls"><i class="icon-calendar"></i></a></li>
-                                            <li class=""><a data-toggle="tab" href="#activity-add-pdf"><i class="icon-map-marker"></i></a></li>
+                                        <ul class="filter nav nav-pills">
+                                            <li class="active">
+                                                <a data-filter=".filter-demo-item" href="#all">All</a>
+                                            </li>
+                                            <li><a data-filter=".image" href="#images">Filter Some</a></li>
+                                            <li><a data-filter=".video" href="#videos">Filter Others</a></li>
                                         </ul>
-                                        <div class="tab-content">
-                                            <div id="activity-add-images" class="tab-pane fade active in">
-                                                <span>Image 1</span>
-                                                <span>Image 2</span>
-                                                <span>Image 3</span>
-                                            </div>
-                                            <div id="activity-add-xls" class="tab-pane fade ">
-                                                <span>XLS 1</span>
-                                                <span>XLS 2</span>
-                                                <span>XLS 3</span>
-                                            </div>
-                                            <div id="activity-add-pdf" class="tab-pane fade">
-                                                <span>PDF 1</span>
-                                                <span>PDF 2</span>
-                                                <span>PDF 3</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <div style="max-width: 400px; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 0px);"></div>
+                                            <div class="filter-demo-item isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 0px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 0px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 0px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 0px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 64px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 64px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 64px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 64px);"></div>
+                                            <div class="filter-demo-item video image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 64px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 64px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 128px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 128px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 128px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 128px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 128px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 128px);"></div>
+                                            <div class="filter-demo-item video image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 192px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 192px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 192px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 192px);"></div>
+                                            <div class="filter-demo-item video image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 192px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 192px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 256px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(64px, 256px);"></div>
+                                            <div class="filter-demo-item video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(128px, 256px);"></div>
+                                            <div class="filter-demo-item image isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(192px, 256px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(256px, 256px);"></div>
+                                            <div class="filter-demo-item image video isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate(320px, 256px);"></div>
+                                        </div></div>
                                 </div>
                                 <footer>
                                     <div class="control-group controls pull-right">
@@ -1263,7 +1347,7 @@
                             <span class="pull-right"><a data-toggle="modal" role="button" href="#view-location-profile"><i class="icon-eye-open"></i></a></span>
                         </footer>
                     </div>
-                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                    <div class="element thumbnail pull-left imagefalse videofalse">
                         <div id="filter-demo" style="max-width: 220px">
                             <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
                         </div>
@@ -1274,7 +1358,7 @@
                             <span class="title">Location name 1</span>
                         </div>
                     </div>
-                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                    <div class="element thumbnail pull-left imagefalse videofalse">
                         <div id="filter-demo" style="max-width: 220px">
                             <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-2.png"></div>
                         </div>
@@ -1285,7 +1369,7 @@
                             <span class="title">Location name 1</span>
                         </div>
                     </div>
-                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                    <div class="element thumbnail pull-left imagefalse videofalse">
                         <div id="filter-demo" style="max-width: 220px">
                             <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-3.png"></div>
                         </div>
@@ -1296,7 +1380,7 @@
                             <span class="title">Location name 1</span>
                         </div>
                     </div>
-                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                    <div class="element thumbnail pull-left imagefalse videofalse">
                         <div id="filter-demo" style="max-width: 220px">
                             <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
                         </div>
@@ -1307,7 +1391,7 @@
                             <span class="title">Location name 1</span>
                         </div>
                     </div>
-                    <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                    <div class="element thumbnail pull-left imagefalse videofalse">
                         <div id="filter-demo" style="max-width: 220px">
                             <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
                         </div>
