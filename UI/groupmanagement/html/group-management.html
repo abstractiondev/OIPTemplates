@@ -69,6 +69,11 @@
 
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
+<!--WYSI HTML EDITOR-->
+<link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
+<script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
+<script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
+
 <link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
 
 <style type="text/css">
@@ -421,32 +426,32 @@
                         <form id="add-media" method="post" class="" enctype="multipart/form-data">
                             <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                             <fieldset id="add-media">
-                                <div style="float:left">
+                                <div class="span3">
                                     <H2>Describe</H2>
-                                    <div style="float:left">
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <select id="add-media-category" name="add-media-category" class="input-xlarge">
-                                                    <option>Image</option>
-                                                    <option>Excell</option>
-                                                    <option>PDF</option>
-                                                </select>
-                                            </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <select id="add-media-category" name="add-media-category" class="input-xlarge">
+                                                <option>Image</option>
+                                                <option>Excell</option>
+                                                <option>PDF</option>
+                                            </select>
                                         </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                    <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                                    <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                                    <div>
-                                                        <span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-                                                        <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                                    </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                                <div>
+                                                    <span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="clearfix" style="float:left">
+                                </div>
+                                <div class="span3">
+                                        <H2>&nbsp;</H2>
                                         <div class="control-group">
                                             <div class="controls">
                                                 <input name="file-name"  id="{image-name}" type="text" value="File Name">
@@ -462,45 +467,39 @@
                                                 <textarea id="file-description" name="{image-description}" rows="6" placeholder="File Description">File Description</textarea>
                                             </div>
                                         </div>
-                                    </div>
                                 </div>
-                                <div class="when" style="float:left">
-                                    <!-- when is automatically generated and added to the context aware data -->
-                                </div>
-                                <div style="margin-left:30px;float:left">
-                                   <div class="clearfix" style="float:left">
-                                       <H2>Pick the location...</H2>
-                                       <div class="control-group">
-                                           <div class="controls">
-                                               <select id="selectbasic" name="selectbasic" class="input-xlarge">
-                                                   <option>Helsinki</option>
-                                                   <option>Seattle</option>
-                                                   <option>Amsterdam</option>
-                                               </select>
-                                           </div>
+                                <div class="span3">
+                                   <H2>Pick the location...</H2>
+                                   <div class="control-group">
+                                       <div class="controls">
+                                           <select id="location" name="location" class="input-xlarge">
+                                               <option>Helsinki</option>
+                                               <option>Seattle</option>
+                                               <option>Amsterdam</option>
+                                           </select>
                                        </div>
-                                       <H2>For whom...</H2>
-                                       <div class="control-group">
-                                           <div class="controls">
-                                               <label class="checkbox" for="whom-0">
-                                                   <input name="checkboxes" id="whom-0" value="Option zero" type="radio">
-                                                   Everyone
-                                               </label>
-                                               <label class="checkbox" for="whom-1">
-                                                   <input name="checkboxes" id="whom-1" value="Option one" type="radio">
-                                                   Only this group
-                                               </label>
-                                               <label class="checkbox" for="whom-2">
-                                                   <input name="checkboxes" id="whom-2" value="Option two" type="radio">
-                                                   All my group groups
-                                               </label>
-                                               <label class="checkbox" for="whom-3">
-                                                   <input name="checkboxes" id="whom-3" value="Option three" type="radio">
-                                                   Only me
-                                               </label>
-                                           </div>
+                                   </div>
+                                   <H2>For whom...</H2>
+                                   <div class="control-group">
+                                       <div class="controls">
+                                           <label class="checkbox" for="whom-0">
+                                               <input name="checkboxes" id="whom-0" value="Option zero" type="radio">
+                                               Everyone
+                                           </label>
+                                           <label class="checkbox" for="whom-1">
+                                               <input name="checkboxes" id="whom-1" value="Option one" type="radio">
+                                               Only this group
+                                           </label>
+                                           <label class="checkbox" for="whom-2">
+                                               <input name="checkboxes" id="whom-2" value="Option two" type="radio">
+                                               All my group groups
+                                           </label>
+                                           <label class="checkbox" for="whom-3">
+                                               <input name="checkboxes" id="whom-3" value="Option three" type="radio">
+                                               Only me
+                                           </label>
                                        </div>
-                                    </div>
+                                   </div>
                                 </div>
                                 <footer>
                                     <div class="control-group controls pull-right">
@@ -517,77 +516,68 @@
                         <form id="add-activity" method="post" class="" enctype="multipart/form-data">
                             <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                             <fieldset id="add-activity">
-                                <div style="float:left">
+                                <div class="span3">
                                     <H2>Describe...</H2>
-                                    <div style="float:left">
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <select id="add-activity-category" name="add-media-category" class="input-xlarge">
-                                                    <option>Event</option>
-                                                    <option>Story</option>
-                                                    <option>News</option>
-                                                    <option>Blog</option>
-                                                </select>
-                                            </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <select id="add-activity-category" name="add-media-category" class="input-xlarge">
+                                                <option>Event</option>
+                                                <option>Story</option>
+                                                <option>News</option>
+                                                <option>Blog</option>
+                                            </select>
                                         </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <input name="file-name"  id="{image-name}" type="text" value="File Name">
-                                            </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input name="title"  id="{title}" type="text" value="Title">
                                         </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <input name="file-alt"  id="{image-alt}" type="text" value="File Alt Text">
-                                            </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input name="sub-heading"  id="{sub-heading}" type="text" value="sub-heading">
                                         </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <textarea id="file-description" name="{image-description}" rows="6" placeholder="File Description">File Description</textarea>
-                                            </div>
+                                    </div>
+                                    <H2>Pick the location...</H2>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <select id="selectbasic" name="selectbasic" class="input-xlarge">
+                                                <option>Helsinki</option>
+                                                <option>Seattle</option>
+                                                <option>Amsterdam</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <H2>For whom...</H2>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <label class="checkbox" for="whom-0">
+                                                <input name="checkboxes" id="whom-0" value="Option zero" type="radio">
+                                                Everyone
+                                            </label>
+                                            <label class="checkbox" for="whom-1">
+                                                <input name="checkboxes" id="whom-1" value="Option one" type="radio">
+                                                Only this group
+                                            </label>
+                                            <label class="checkbox" for="whom-2">
+                                                <input name="checkboxes" id="whom-2" value="Option two" type="radio">
+                                                All my group groups
+                                            </label>
+                                            <label class="checkbox" for="whom-3">
+                                                <input name="checkboxes" id="whom-3" value="Option three" type="radio">
+                                                Only me
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="when" style="float:left">
-                                    <!-- when is automatically generated and added to the context aware data -->
+                                <div class="span6">
+                                    <h2>&nbsp;</h2>
+                                    <textarea id="some-textarea" placeholder="Enter text ..." style="width: 95%; max-width: 810px; height: 200px"></textarea>
                                 </div>
-                                <div style="margin-left:30px;float:left">
-                                   <div class="clearfix" style="float:left">
-                                       <H2>Pick the location...</H2>
-                                       <div class="control-group">
-                                           <div class="controls">
-                                               <select id="selectbasic" name="selectbasic" class="input-xlarge">
-                                                   <option>Helsinki</option>
-                                                   <option>Seattle</option>
-                                                   <option>Amsterdam</option>
-                                               </select>
-                                           </div>
-                                       </div>
-                                       <H2>For whom...</H2>
-                                       <div class="control-group">
-                                           <div class="controls">
-                                               <label class="checkbox" for="whom-0">
-                                                   <input name="checkboxes" id="whom-0" value="Option zero" type="radio">
-                                                   Everyone
-                                               </label>
-                                               <label class="checkbox" for="whom-1">
-                                                   <input name="checkboxes" id="whom-1" value="Option one" type="radio">
-                                                   Only this group
-                                               </label>
-                                               <label class="checkbox" for="whom-2">
-                                                   <input name="checkboxes" id="whom-2" value="Option two" type="radio">
-                                                   All my group groups
-                                               </label>
-                                               <label class="checkbox" for="whom-3">
-                                                   <input name="checkboxes" id="whom-3" value="Option three" type="radio">
-                                                   Only me
-                                               </label>
-                                           </div>
-                                       </div>
-                                    </div>
-                                </div>
-                                <div style="margin-left:30px;float:left">
+                                <div class="span3">
                                     <div class="clearfix" style="float:left">
-                                        Choose the content you like to attach to this activity.
+                                        <h2>Add media</h2>
+                                        <p>Choose the content you like to attach to this activity.</p>
                                         <ul class="filter nav nav-pills">
                                             <li class="active">
                                                 <a data-filter=".filter-demo-item" href="#all">All</a>
