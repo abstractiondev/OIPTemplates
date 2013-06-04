@@ -56,7 +56,8 @@
 <link rel="stylesheet" href="../assets/css/DT_bootstrap.css" />
 <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="../assets/lib/DataTables-1.9.4/media/js/jquery.dataTables.bootstrap.js" type="text/javascript"></script>
-<script src="../assets/js/DT_bootstrap.js"></scrip>
+<script src="../assets/lib/moment.min.js" type="text/javascript"></script>
+
 <!--WYSI HTML EDITOR-->
 <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
 <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
@@ -1285,20 +1286,47 @@
     <div id="by-collaboration" class="collaborator" style="width:100%;">
         <table id="collaborator-table" class="table table-bordered">
             <thead>
-            <tr><th>Collaborator</th><th>Filename</th><th>Media type</th><th>Date</th></tr>
+            <tr><th>Collaborator</th><th>Title</th><th>Media type</th><th>Date</th></tr>
             </thead>
             <tbody>
-            <tr><td>Sujil Kodathoor</td><td>Beach Bahamas</td><td><i class="icon-picture"></i>Image</td><td>12 May 2013</td></tr>
-            <tr><td>Sujil Kodathoor</td><td>Metro Paris</td><td><i class="icon-picture"></i>Image</td><td> 23 April 2013</td></tr>
-            <tr><td>Sujil Kodathoor</td><td>Sunset San-Francisco</td><td><i class="icon-picture"></i>Image</td><td>12 May 2013</td></tr>
-            <tr><td>Sujil Kodathoor</td><td>Sidney on Saturday</td><td><i class="icon-picture"></i>Image</td><td>17 April 2013</td></tr>
-
             </tbody>
         </table>
     </div><!-- this loads the actual table plus contents inside the modal -->
 
     <div class="clearfix"></div>
 </div>
+<!-- DATATABLES -->
+<script>
+    /* Table initialisation */
+    $(document).ready(function() {
+        $('#collaborator-table').dataTable( {
+            "bProcessing": true,
+            "bServerSide": true,
+            "sAjaxDataProp": "data",
+            "sAjaxSource": "datatable.json",
+            "fnServerData": function ( sSource, aoData, fnCallback ) {
+                request = $.ajax({
+                    "dataType": 'json',
+                    "type": "GET",
+                    "url": sSource,
+                    "data": aoData,
+                    "success": fnCallback
+                });
+            },
+            "aoColumns": [
+                { "mDataProp": "author.name"},
+                { "mDataProp": "title"},
+                { "mDataProp": "type"},
+                { "mDataProp": "date",
+                  "mRender": function (data, type, row) {
+                    return moment(data).format('D MMM YYYY');
+                    }
+                }
+            ]
+        });
+    } );
+</script>
+<!-- DATATABLES -->
 <!-- LEAFLET CODE -->
 <script>
     $(document).ready(function(){
@@ -1318,6 +1346,7 @@
         $('a[data-toggle="tab"]').on('shown', function (e) {
             if ($(e.target).attr('href')=="#tab-media"){
                 mediamap.invalidateSize();
+                $('a[href=#all]').click();
             }
         });
         $("a[href=#by-location]").click(function(){
