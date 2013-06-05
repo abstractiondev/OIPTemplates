@@ -404,11 +404,11 @@
                     <li><a tabindex="-1" href="logout.html">Logout</a></li>
                 </ul>
             </li>
-            <li class="nav-add">
-                <a href="#role" data-toggle="collapse" class="accordion-toggle collapsed">
-                    <i class="icon-plus-sign"></i> Role
-                </a>
-            </li>
+            <!--<li class="nav-add">-->
+                <!--<a href="#role" data-toggle="collapse" class="accordion-toggle collapsed">-->
+                    <!--<i class="icon-plus-sign"></i> Role-->
+                <!--</a>-->
+            <!--</li>-->
             <li class="nav-add">
                 <a href="#add" data-toggle="collapse" class="accordion-toggle collapsed">
                     <i class="icon-plus-sign"></i> Add
@@ -418,280 +418,6 @@
         </ul>
     </div>
 </div><!-- .navbar -->
-<div class="accordion-group role" style="margin-top: 0px;">
-    <div class="accordion-heading">
-    </div>
-    <div class="accordion-body collapse" id="role" style="height: 0px;">
-        <div class="accordion-inner">
-            <div class="tabbable">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab-add-media" data-toggle="tab">Media</a></li>
-                    <li><a href="#tab-add-activity" data-toggle="tab">Activity</a></li>
-                    <li><a href="#tab-add-collaborator" data-toggle="tab">Collaborator</a></li>
-                    <li><a href="#tab-add-location" data-toggle="tab">Location</a></li>
-                    <li><a href="#tab-add-category" data-toggle="tab">Category</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div id="" class="tab-pane active">
-                        <form id="" method="post" class="" enctype="multipart/form-data">
-                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                            <fieldset id="">
-                                <div class="span3">
-                                    <H2>Describe</H2>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <select id="" name="add-media-category" class="input-xlarge">
-                                                <option>Image</option>
-                                                <option>Excell</option>
-                                                <option>PDF</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <div class="fileupload fileupload-new" data-provides="fileupload">
-                                                <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-                                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
-                                                <div>
-                                                    <span class="btn btn-file"><span class="fileupload-new">Select file</span><span class="fileupload-exists">Change</span><input type="file" /></span>
-                                                    <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span3">
-                                        <H2>&nbsp;</H2>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <input name="file-name"  id="{image-name}" type="text" value="File Name">
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <input name="file-alt"  id="{image-alt}" type="text" value="File Alt Text">
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <textarea id="file-description" name="{image-description}" rows="6" placeholder="File Description">File Description</textarea>
-                                            </div>
-                                        </div>
-                                </div>
-                                <div class="span3">
-                                   <H2>Pick the location...</H2>
-                                   <div class="control-group">
-                                       <div class="controls">
-                                           <select id="location" name="location" class="input-xlarge">
-                                               <option>Helsinki</option>
-                                               <option>Seattle</option>
-                                               <option>Amsterdam</option>
-                                           </select>
-                                       </div>
-                                   </div>
-                                   <H2>For whom...</H2>
-                                   <div class="control-group">
-                                       <div class="controls">
-                                           <label class="checkbox" for="whom-0">
-                                               <input name="checkboxes" id="whom-0" value="Option zero" type="radio">
-                                               Everyone
-                                           </label>
-                                           <label class="checkbox" for="whom-1">
-                                               <input name="checkboxes" id="whom-1" value="Option one" type="radio">
-                                               Only this group
-                                           </label>
-                                           <label class="checkbox" for="whom-2">
-                                               <input name="checkboxes" id="whom-2" value="Option two" type="radio">
-                                               All my group groups
-                                           </label>
-                                           <label class="checkbox" for="whom-3">
-                                               <input name="checkboxes" id="whom-3" value="Option three" type="radio">
-                                               Only me
-                                           </label>
-                                       </div>
-                                   </div>
-                                </div>
-                                <footer>
-                                    <div class="control-group controls pull-right">
-                                        <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                            <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                                            <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
-                                        </div>
-                                    </div>
-                                </footer>
-                            </fieldset>
-                        </form>
-                    </div>
-                    <div id="" class="tab-pane">
-                        <form id="add-activity" method="post" class="" enctype="multipart/form-data">
-                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                            <fieldset id="add-activity">
-                                <div class="span3">
-                                    <H2>Describe...</H2>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <select id="add-activity-category" name="add-media-category" class="input-xlarge">
-                                                <option>Event</option>
-                                                <option>Story</option>
-                                                <option>News</option>
-                                                <option>Blog</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <input name="title"  id="{title}" type="text" value="Title">
-                                        </div>
-                                    </div>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <input name="sub-heading"  id="{sub-heading}" type="text" value="sub-heading">
-                                        </div>
-                                    </div>
-                                    <H2>Pick the location...</H2>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <select id="selectbasic" name="selectbasic" class="input-xlarge">
-                                                <option>Helsinki</option>
-                                                <option>Seattle</option>
-                                                <option>Amsterdam</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <H2>For whom...</H2>
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <label class="checkbox" for="whom-0">
-                                                <input name="checkboxes" id="whom-0" value="Option zero" type="radio">
-                                                Everyone
-                                            </label>
-                                            <label class="checkbox" for="whom-1">
-                                                <input name="checkboxes" id="whom-1" value="Option one" type="radio">
-                                                Only this group
-                                            </label>
-                                            <label class="checkbox" for="whom-2">
-                                                <input name="checkboxes" id="whom-2" value="Option two" type="radio">
-                                                All my group groups
-                                            </label>
-                                            <label class="checkbox" for="whom-3">
-                                                <input name="checkboxes" id="whom-3" value="Option three" type="radio">
-                                                Only me
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="span6">
-                                    <h2>&nbsp;</h2>
-                                    <textarea id="some-textarea" placeholder="Enter text ..." style="width: 95%; max-width: 810px; height: 200px"></textarea>
-                                </div>
-                                <div class="span3">
-                                    <div class="clearfix" style="float:left">
-                                        <h2>Add media</h2>
-                                        <p>Choose the content you like to attach to this activity.</p>
-                                        <ul class="filter nav nav-pills">
-                                            <li class="active">
-                                                <a data-filter=".filter-demo-item" href="#all">All</a>
-                                            </li>
-                                            <li><a data-filter=".image" href="#images">Images</a></li>
-                                            <li><a data-filter=".video" href="#videos">Videos</a></li>
-                                            <li><a data-filter=".document" href="#documents">Documents</a></li>
-                                        </ul>
-                                        <div style="max-width: 400px; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
-                                            <div class="filter-demo-item image isotope-item" style="background-color: yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <footer>
-                                    <div class="control-group controls pull-right">
-                                        <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
-                                            <button value="true" name="btnCancel"  class="btn">Cancel</button>
-                                            <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
-                                        </div>
-                                    </div>
-                                </footer>
-                            </fieldset>
-                        </form>
-                    </div>
-                    <div id="" class="tab-pane">
-                        <header>tab-add-collaborator</header>
-                        <section>
-                        </section>
-                        <footer>
-                        </footer>
-                    </div>
-                    <div id="" class="tab-pane">
-                        <header>tab-add-location</header>
-                        <section>
-                            map + address lookup
-                        </section>
-                        <footer>
-                        </footer>
-                    </div>
-                    <div id="" class="tab-pane">
-                        <header>tab-add-category</header>
-                        <section>new category<br>select parent category<br> match to OIP category system
-                        </section>
-                        <footer>
-                        </footer>
-                    </div>
-                </div><!-- /.tab-content -->
-            </div><!-- /.tabbable -->
-        </div>
-    </div>
-</div>
 <div class="accordion-group add-menu" style="margin-top: 0px;">
     <div class="accordion-heading">
     </div>
@@ -795,13 +521,13 @@
                                 </footer>
                             </fieldset>
                         </form>
-                    </div>
+                    </div><!-- tab-add-media-->
                     <div id="tab-add-activity" class="tab-pane">
                         <form id="add-activity" method="post" class="" enctype="multipart/form-data">
-                            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
                             <fieldset id="add-activity">
-                                <div class="span3">
-                                    <H2>Describe...</H2>
+                                <div class="span4">
+                                    <header><H2>Describe...</H2></header>
+                                    <section>
                                     <div class="control-group">
                                         <div class="controls">
                                             <select id="add-activity-category" name="add-media-category" class="input-xlarge">
@@ -853,80 +579,87 @@
                                             </label>
                                         </div>
                                     </div>
+                                    </section>
                                 </div>
-                                <div class="span6">
-                                    <h2>&nbsp;</h2>
+                                <div class="span7">
+                                    <header><h2>&nbsp;</h2></header>
+                                    <section>
                                     <textarea id="some-textarea" placeholder="Enter text ..." style="width: 95%; max-width: 810px; height: 200px"></textarea>
-                                </div>
-                                <div class="span3">
-                                    <div class="clearfix" style="float:left">
-                                        <h2>Add media</h2>
-                                        <p>Choose the content you like to attach to this activity.</p>
-                                        <ul class="filter nav nav-pills">
-                                            <li class="active">
-                                                <a data-filter=".filter-demo-item" href="#all">All</a>
-                                            </li>
-                                            <li><a data-filter=".image" href="#images">Images</a></li>
-                                            <li><a data-filter=".video" href="#videos">Videos</a></li>
-                                            <li><a data-filter=".document" href="#documents">Documents</a></li>
-                                        </ul>
-                                        <div style="max-width: 400px; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
-                                            <div class="filter-demo-item image isotope-item" style="background-color: yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item document isotope-item" style="background-color:orange">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
-                                            <div class="filter-demo-item image isotope-item" style="background-color:yellow">
-                                                    <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
-                                            </div>
+                                    <hr class="clearfix">
+                                        <div>
+                                            <header><h2>Add media</h2></header>
+                                            <section>
+                                                <p>Choose the content you like to attach to this activity.</p>
+                                                <ul class="filter nav nav-pills">
+                                                    <li class="active">
+                                                        <a data-filter=".filter-demo-item" href="#all">All</a>
+                                                    </li>
+                                                    <li><a data-filter=".image" href="#images">Images</a></li>
+                                                    <li><a data-filter=".video" href="#videos">Videos</a></li>
+                                                    <li><a data-filter=".document" href="#documents">Documents</a></li>
+                                                </ul>
+                                                <div style="max-width: 400px; position: relative; overflow: hidden; height: 320px;" id="filter-demo" class="isotope">
+                                                    <div class="filter-demo-item image isotope-item" style="background-color: yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item document isotope-item" style="background-color:orange">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item document isotope-item" style="background-color:orange">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item document isotope-item" style="background-color:orange">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item video isotope-item" style="background-color:yellowgreen">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                    <div class="filter-demo-item image isotope-item" style="background-color:yellow">
+                                                        <input name="checkboxes" id="whom-0" value="checkbox zero" type="checkbox" style="margin-top: 50px; margin-left: 18px; z-index: 10">
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <footer></footer>
                                         </div>
-                                    </div>
+
+                                    </section>
+                                    <footer></footer>
                                 </div>
                                 <footer>
                                     <div class="control-group controls pull-right">
@@ -938,29 +671,113 @@
                                 </footer>
                             </fieldset>
                         </form>
-                    </div>
+                    </div><!-- tab-add-activity -->
                     <div id="tab-add-collaborator" class="tab-pane">
-                        <header>tab-add-collaborator</header>
-                        <section>
-                        </section>
-                        <footer>
-                        </footer>
-                    </div>
+                        <div class="span3">
+                            <header><H2>Invite...</H2></header>
+                            <section>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input name="first-name"  id="{first-name}" type="text" value="First name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input name="last-name"  id="{last-name}" type="text" value="Last-name">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input name="email"  id="{email}" type="text" value="email">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <select id="add-activity-category" name="add-media-category" class="input-xlarge">
+                                            <option>Choose group:</option>
+                                            <option>Group Aalto Global Impact</option>
+                                            <option>Group Sand in the Sahara</option>
+                                            <option>Group Ice on Antartica</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </section>
+                            <footer>
+                            </footer>
+                        </div>
+                    </div><!-- tab-add-collaborator -->
                     <div id="tab-add-location" class="tab-pane">
-                        <header>tab-add-location</header>
-                        <section>
-                            map + address lookup
-                        </section>
+                        <div class="span3">
+                            <header><H2>Add Location...</H2></header>
+                            <section  class="map">
+                                <img src="../assets/img/dummy/map-images/map-1.png">
+                            </section>
+                            <footer></footer>
+                        </div><!-- map based lookup -->
+                        <div class="span3">
+                            <header><H2>Lookup Address...</H2></header>
+                            <section>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input name="street-name"  id="{street-name}" type="text" value="Street name">
+                                    </div>
+                                    <div class="controls">
+                                        <input name="building-number"  id="{building-number}" type="text" value="Building number">
+                                    </div>
+                                    <div class="controls">
+                                        <input name="country"  id="{country}" type="text" value="Country">
+                                    </div>
+                                </div>
+                            </section>
+                            <footer></footer>
+                        </div><!-- query based lookup -->
+                        <div class="span3">
+                            <header><H2>Describe...</H2></header>
+                            <section>
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <input name="location-name"  id="{location-name}" type="text" value="Location name">
+                                    </div>
+                                    <div class="controls">
+                                        <select id="add-location-category" name="add-location-category" class="input-xlarge">
+                                            <option>Choose category:</option>
+                                            <option>Home</option>
+                                            <option>Work</option>
+                                            <option>Project 1</option>
+                                        </select>
+                                    </div>
+                                    <div class="controls">
+                                        <select id="add-location-group" name="add-location-group" class="input-xlarge">
+                                            <option>Choose group:</option>
+                                            <option>Group Aalto Global Impact</option>
+                                            <option>Group Sand in the Sahara</option>
+                                            <option>Group Ice on Antartica</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </section>
                         <footer>
                         </footer>
-                    </div>
+                    </div><!-- describe location -->
+                    </div><!-- tab-add-location -->
                     <div id="tab-add-category" class="tab-pane">
                         <header>tab-add-category</header>
                         <section>new category<br>select parent category<br> match to OIP category system
+                            <ul>
+                                <li>media categor</li>
+                                <li>activity category</li>
+                                <Li>collaborator category</li>
+                                <li>location category</li>
+                            </ul>
+                            which of those are used in other groups
+                            <br>
+                            what are the default categories at OIP/Caloom
+                            <br>
+                            put this in a table
                         </section>
                         <footer>
                         </footer>
-                    </div>
+                    </div><!-- tab-add-category -->
                 </div><!-- /.tab-content -->
             </div><!-- /.tabbable -->
         </div>
@@ -994,6 +811,7 @@
         <li class=" "><a href="#tab-media" data-toggle="tab"><i class="icon-film"></i> <span>Media</span></a></li>
         <li class=" "><a href="#tab-collaborators" data-toggle="tab"><i class="icon-group"></i> <span>Collaborators</span></a></li>
         <li class=" "><a href="#tab-locations-current" data-toggle="tab"><i class="icon-map-marker"></i> <span>Locations</span></a></li>
+        <li class=" "><a href="#tab-apps" data-toggle="tab"><i class="icon-adjust"></i> <span>Apps</span></a></li>
         <li class=" "><a href="#tab-delete" data-toggle="tab"><i class="icon-off"></i> <span>Delete</span></a></li>
     </ul>
 </div><!-- .sidebar-nav-->
@@ -1013,8 +831,6 @@
                     <div class="control-group">
                         <label class="control-label">Group Profile Image</label>
                         <div class="controls">
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
-                            <!-- ImageData -->
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -1023,8 +839,6 @@
                                     <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                            <!-- * -->
-                            <!-- THEBALL-CONTEXT-END:* -->
                         </div>
                     </div>
                 </div>
@@ -1032,8 +846,6 @@
                     <div class="control-group">
                         <label class="control-label">Group Icon Image</label>
                         <div class="controls">
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:IconImage -->
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ImageData -->
                             <div class="fileupload fileupload-new" data-provides="fileupload">
                                 <div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
@@ -1042,8 +854,6 @@
                                     <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                            <!-- THEBALL-CONTEXT-END:* -->
-                            <!-- THEBALL-CONTEXT-END:* -->
                         </div>
                     </div>
                 </div>
@@ -1790,6 +1600,41 @@
         </div>
     </div>
     <!-- end modals locations-->
+</div>
+<div class="tab-pane fade" id="tab-apps">
+    <form  method="post" class="form-horizontal ">
+        <fieldset id="group-admin-apps">
+            <header>Apps</header>
+            <section>
+                <ul>
+                    <li>
+                        Innopinion
+                    </li>
+                    <li>
+                        Flattr
+                    </li>
+                    <li>
+                        Reports
+                    </li>
+                    <li>
+                        Statistics
+                    </li>
+                    <li>
+                        Context Aware
+                    </li>
+                </ul>
+            </section>
+            <footer>
+                <div class="control-group controls">
+                    <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                        <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-danger" name="RootSourceAction" id="RootSourceAction" value="Delete">Delete</button>
+                    </div>
+                    <p class="help-block">Here we could add some explanatory text</p>
+                </div>
+            </footer>
+        </fieldset>
+    </form>
 </div>
 <div class="tab-pane fade" id="tab-delete">
     <form  method="post" class="form-horizontal ">
