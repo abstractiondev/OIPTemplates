@@ -9,7 +9,19 @@
                         "id":1,
                         "name":"Sujil Kodathoor"
                     },
-                    "type":"<i class=\"icon-picture\"></i>Image",
+                    "location":{
+                        "id":1,
+                        "name":"Helsinki"
+                    },
+                    "group":{
+                        "id":1,
+                        "name":"AGI"
+                    },
+                    "category":{
+                        "id":3,
+                        "name":"Story"
+                    },
+                    "type":"image",
                     "date":"2012-05-12T00:00Z"
                 },
                 {
@@ -19,7 +31,19 @@
                         "id":1,
                         "name":"Sujil Kodathoor"
                     },
-                    "type":"<i class=\"icon-picture\"></i>Image",
+                    "location":{
+                        "id":1,
+                        "name":"Helsinki"
+                    },
+                    "group":{
+                        "id":1,
+                        "name":"AGI"
+                    },
+                    "category":{
+                        "id":1,
+                        "name":"Event"
+                    },
+                    "type":"image",
                     "date":"2012-04-23T00:00Z"
                 },
                 {
@@ -29,7 +53,19 @@
                         "id":1,
                         "name":"Sujil Kodathoor"
                     },
-                    "type":"<i class=\"icon-picture\"></i>Image",
+                    "location":{
+                        "id":1,
+                        "name":"Helsinki"
+                    },
+                    "group":{
+                        "id":1,
+                        "name":"AGI"
+                    },
+                    "category":{
+                        "id":1,
+                        "name":"Event"
+                    },
+                    "type":"image",
                     "date":"2012-04-17T00:00Z"
                 },
                 {
@@ -39,7 +75,19 @@
                         "id":1,
                         "name":"Sujil Kodathoor"
                     },
-                    "type":"<i class=\"icon-picture\"></i>Image",
+                    "location":{
+                        "id":2,
+                        "name":"Delhi"
+                    },
+                    "group":{
+                        "id":1,
+                        "name":"AGI"
+                    },
+                    "category":{
+                        "id":2,
+                        "name":"News"
+                    },
+                    "type":"image",
                     "date":"2012-05-12T00:00Z"
                 }
 

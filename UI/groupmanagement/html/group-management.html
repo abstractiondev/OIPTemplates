@@ -1096,7 +1096,14 @@
     <div id="by-collaboration" class="collaborator" style="width:100%;">
         <table id="collaborator-table" class="table table-bordered">
             <thead>
-            <tr><th>Collaborator</th><th>Title</th><th>Media type</th><th>Date</th></tr>
+            <tr><th>Collaborator</th>
+                <th>Title</th>
+                <th>Group</th>
+                <th>Category</th>
+                <th>Location</th>
+                <th>Media type</th>
+                <th>Date</th>
+            </tr>
             </thead>
             <tbody>
             </tbody>
@@ -1110,8 +1117,8 @@
     /* Table initialisation */
     $(document).ready(function() {
         $('#collaborator-table').dataTable( {
-            "bProcessing": true,
-            "bServerSide": true,
+            //"bProcessing": true,
+            //"bServerSide": true,
             "sAjaxDataProp": "data",
             "sAjaxSource": "datatable.json",
             "fnServerData": function ( sSource, aoData, fnCallback ) {
@@ -1124,10 +1131,43 @@
                 });
             },
             "aoColumns": [
-                { "mDataProp": "author.name"},
-                { "mDataProp": "title"},
-                { "mDataProp": "type"},
+                { "mDataProp": "author.name","sWidth":"15%"},
+                { "mDataProp": "title","sWidth":"20%"},
+                { "mDataProp": "group.name","sWidth":"15%"},
+                { "mDataProp": "category.name","sWidth":"10%"},
+                { "mDataProp": "location.name","sWidth":"10%"},
+                { "mDataProp": "type",
+                  "sWidth":"5%",
+                  "mRender": function (data, type, row) {
+                        console.log(data);
+                        var icon_class="";
+                        var type_desc="";
+                        var type_string="<i class=\"icon-";
+                        switch(data){
+                            case "image":
+                                var icon_class="picture";
+                                var type_desc="Image";
+                                break;
+                            case "video":
+                                var icon_class="film";
+                                var type_desc="Video";
+                                break;
+                            case "audio":
+                                var icon_class="music";
+                                var type_desc="Audio";
+                                break;
+                            default:
+                                var icon_class="file";
+                                var type_desc="Unknown";
+                        }
+                        console.log(icon_class+"\n"+type_desc);
+                        type_string+=icon_class+"\"></i>"+type_desc;
+                        console.log(type_string);
+                        return type_string;
+                  }
+                },
                 { "mDataProp": "date",
+                   "sWidth":"25%",
                   "mRender": function (data, type, row) {
                     return moment(data).format('D MMM YYYY');
                     }
