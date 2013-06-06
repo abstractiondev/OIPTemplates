@@ -3797,7 +3797,8 @@ my.SlickGrid = Backbone.View.extend({
     // row = row index, cell = cell index, value = value, columnDef = column definition, dataContext = full row values
     var formatter = function(row, cell, value, columnDef, dataContext) {
       var field = self.model.fields.get(columnDef.id);
-      if (field.renderer) {
+
+        if (field.renderer) {
         return field.renderer(value, field, dataContext);
       } else {
         return value;

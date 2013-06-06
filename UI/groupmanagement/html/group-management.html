@@ -61,6 +61,7 @@
 <!-- recline js -->
 <link rel="stylesheet" href="../assets/css/grid.css" />
 <link rel="stylesheet" href="../assets/css/slick.grid.css" />
+<link rel="stylesheet" href="../assets/css/slickgrid.css" />
 <script src="../assets/lib/underscore/1.4.4/underscore.js"></script>
 <script src="../assets/lib/backbone/1.0.0/backbone.js"></script>
 <script src="../assets/lib/recline.js"></script>
@@ -915,6 +916,10 @@
 <form id="form-id-2" method="post" class="form-horizontal ">
 <fieldset id="current-imagegroups"><!-- id was current-imagegroups-->
 <script type="text/javascript">
+    function DateRender(value, field, record) {
+        console.log('Rendering:'+value);
+        return moment(value).format('D MMM YYYY');
+    }
     $(document).ready(function(){
 
         $("#toggler").click(function(){
@@ -944,11 +949,12 @@
                                 {id: 'group'},
                                 {id: 'category'},
                                 {id: 'type'},
-                                {id: 'date', type: 'date'}
+                                {id: 'date', type: 'datetime', renderer:DateRender}
                             ]
 
                         });
-                        console.log(data);
+
+                        console.log(dataset);
                         var $el = $('#by-collaboration');
                         var grid = new recline.View.SlickGrid({
                             model: dataset,
