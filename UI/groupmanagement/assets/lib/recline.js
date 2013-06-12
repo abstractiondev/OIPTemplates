@@ -898,11 +898,16 @@ this.recline.Backend.Memory = this.recline.Backend.Memory || {};
       
       results = this._applyFilters(results, queryObj);
       results = this._applyFreeTextQuery(results, queryObj);
-
+        if(queryObj.sort){
+        console.log(queryObj.sort[0]);
+        var format = $.grep(this.fields, function(e){ return e.id == queryObj.sort[0].field; })[0];
+        console.log(format);
+        }
       // TODO: this is not complete sorting!
       // What's wrong is we sort on the *last* entry in the sort list if there are multiple sort criteria
       _.each(queryObj.sort, function(sortObj) {
         var fieldName = sortObj.field;
+
         results = _.sortBy(results, function(doc) {
           var _out = doc[fieldName];
           return _out;
@@ -1543,7 +1548,12 @@ my.Field = Backbone.Model.extend({
   },
   defaultRenderers: {
     object: function(val, field, doc) {
-      return JSON.stringify(val);
+        var format = field.get('format');
+        console.log("Rendering:"+val);
+        if (format){
+            return val[format];
+        }
+        return JSON.stringify(val);
     },
     geo_point: function(val, field, doc) {
       return JSON.stringify(val);
@@ -1555,6 +1565,10 @@ my.Field = Backbone.Model.extend({
       }
       return val;
     },
+      'date-time': function(val, field, doc) {
+          var format = field.get('format');
+          return moment(val).format(format);
+      },
     'string': function(val, field, doc) {
       var format = field.get('format');
       if (format === 'markdown') {
