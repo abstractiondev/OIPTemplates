@@ -62,11 +62,11 @@
 <!-- recline js -->
 <link rel="stylesheet" href="../assets/css/grid.css" />
 <link rel="stylesheet" href="../assets/css/slick.grid.css" />
-<link rel="stylesheet" href="../assets/css/verite-timeline.css" />
+<link rel="stylesheet" href="../assets/css/timeline.css" />
 <!--<link rel="stylesheet" href="../assets/css/slickgrid.css" /> -->
 <link rel="stylesheet" href="../assets/css/example-bootstrap.css" />
-<script src="../assets/lib/underscore/1.4.4/underscore.js"></script>
-<script src="../assets/lib/backbone/1.0.0/backbone.js"></script>
+<script src="../assets/lib/underscore.js"></script>
+<script src="../assets/lib/backbone.js"></script>
 <script src="../assets/lib/recline.js"></script>
 <script src="../assets/lib/jquery-ui-1.8.16.custom.min.js"></script>
 <script src="../assets/lib/jquery.event.drag-2.0.min.js"></script>
@@ -75,6 +75,8 @@
 <script type="text/javascript" src="../assets/lib/timeline.js"></script>
 <script type="text/javascript" src="../assets/lib/view.timeline.js"></script>
 <script type="text/javascript" src="../assets/lib/bootstrap-slickgrid.js"></script>
+<script type="text/javascript" src="../assets/lib/timeline.js"></script>
+<script type="text/javascript" src="../assets/lib/view.timeline.js"></script>
 <!--WYSI HTML EDITOR-->
 <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
 <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
@@ -954,6 +956,42 @@
                             el: $el
                         });
                         grid.show();
+
+                    });
+                }
+                if(href=='#by-timeline'){
+                    $.getJSON("recline.json",function(data){
+                        var dataset = new recline.Model.Dataset({
+                            records: data.data,
+                            fields: [
+                                {id: 'id'},
+                                {id: 'title', label:'Title'},
+                                {id: 'author',label:'Author'},
+                                {id: 'location',label:'Location'},
+                                {id: 'group',label:'Group'},
+                                {id: 'category',label:'Category'},
+                                {id: 'type',label:'Type'},
+                                {id: 'date', type: 'datetime',label:'Date', formatter:DateRender, format:"D MMM YY"}
+                            ]
+
+                        });
+
+
+                        var $el = $('#by-timeline');
+                        var timeline = new recline.View.Timeline({
+                            model: dataset
+                        });
+                        $el.append(timeline.el);
+                        // set the headline/title for each record with x column
+                        timeline.convertRecord = function(record, fields) {
+                            var out = this._convertRecord(record);
+                            if (out) {
+                                out.headline = record.get('title').toString();
+                            }
+                            return out;
+                        }
+                        timeline.render();
+
 
                     });
                 }
