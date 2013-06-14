@@ -300,7 +300,8 @@
                 center: 'title',
                 right: 'month,basicWeek,basicDay'
             },
-            editable: true,
+            eventSources: ['calendar.json'],
+            editable: true/*,
             events: [
                 {
                     title: 'All Day Event',
@@ -354,7 +355,7 @@
                     url: 'http://google.com/',
                     color: '#54a0f6'
                 }
-            ]
+            ]*/
         });
 
     });
@@ -884,7 +885,9 @@
             if ($(e.target).attr('href')=="#tab-media"){
                 $("#gallery-media").isotope({'filter':".cards"});
             }
-
+            if ($(e.target).attr('href')=="#tab-view-as-calendar"){
+                $('#calendar').fullCalendar('render');
+            }
         });
     });
 </script>
