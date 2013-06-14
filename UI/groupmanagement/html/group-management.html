@@ -51,6 +51,7 @@
 <script src="../assets/lib/bootstrap-spinner/bootstrap-spinner.js" type="text/javascript"></script>
 <script src="../assets/js/bootstrap-fileupload.js" type="text/javascript"></script>
 <script src='../assets/lib/fullcalendar-1.5.3/fullcalendar/fullcalendar.js' type='text/javascript'></script>
+<script src="../assets/lib/mustache.js" type="text/javascript"></script>
 
 <!-- data-table-->
 <link rel="stylesheet" href="../assets/css/DT_bootstrap.css" />
@@ -61,6 +62,7 @@
 <!-- recline js -->
 <link rel="stylesheet" href="../assets/css/grid.css" />
 <link rel="stylesheet" href="../assets/css/slick.grid.css" />
+<link rel="stylesheet" href="../assets/css/verite-timeline.css" />
 <!--<link rel="stylesheet" href="../assets/css/slickgrid.css" /> -->
 <link rel="stylesheet" href="../assets/css/example-bootstrap.css" />
 <script src="../assets/lib/underscore/1.4.4/underscore.js"></script>
@@ -70,6 +72,8 @@
 <script src="../assets/lib/jquery.event.drag-2.0.min.js"></script>
 <script type="text/javascript" src="../assets/lib/slick.grid.min.js"></script>
 <script type="text/javascript" src="../assets/lib/view.slickgrid.js"></script>
+<script type="text/javascript" src="../assets/lib/timeline.js"></script>
+<script type="text/javascript" src="../assets/lib/view.timeline.js"></script>
 <script type="text/javascript" src="../assets/lib/bootstrap-slickgrid.js"></script>
 <!--WYSI HTML EDITOR-->
 <link rel="stylesheet" type="text/css" href="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.css">
@@ -888,6 +892,7 @@
             if ($(e.target).attr('href')=="#tab-view-as-calendar"){
                 $('#calendar').fullCalendar('render');
             }
+
         });
     });
 </script>
@@ -955,6 +960,38 @@
                 if(href=='#tab-view-as-calendar'){
                     return true;
                 }
+                if(href=='#by-timeline'){
+                    $.getJSON("recline.json",function(data){
+                        var dataset = new recline.Model.Dataset({
+                            records: data.data,
+                            fields: [
+                                {id: 'id'},
+                                {id: 'title', label:'Title'},
+                                {id: 'author',label:'Author'},
+                                {id: 'location',label:'Location'},
+                                {id: 'group',label:'Group'},
+                                {id: 'category',label:'Category'},
+                                {id: 'type',label:'Type'},
+                                {id: 'date', type: 'datetime',label:'Date', formatter:DateRender, format:"D MMM YY"}
+                            ]
+
+                        });
+                    var $el = $('#by-timeline');
+                    var timeline = new recline.View.Timeline({
+                        model: dataset
+                    });
+                    $el.append(timeline.el);
+                    // set the headline/title for each record with x column
+                    timeline.convertRecord = function(record, fields) {
+                        var out = this._convertRecord(record);
+                        if (out) {
+                            out.headline = record.get('title').toString();
+                        }
+                        return out;
+                    }
+                    timeline.render();
+                    });
+                }
             }
             return false;
         });
@@ -974,6 +1011,8 @@
     <li><a href="#tab-view-as-calendar" data-toggle="tab" title="show media in calendar format"><i class="icon-calendar"></i> </a></li>
     <li><a href="#by-location" data-filter=".location" title="show media as locations"><i class="icon-map-marker"></i> </a></li>
     <li><a href="#by-collaborator" data-filter=".collaborator" title="show media by collaborator"><i class="icon-user"></i> </a></li>
+    <li><a href="#by-timeline" data-filter=".timeline" title="show media on a timeline"><i class="icon-time"></i> </a></li>
+
 </ul>
 <div id="gallery-media" class="gallery" style="clear: both;">
 
@@ -1123,6 +1162,7 @@
             <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
         </footer>
     </div>
+    <div id="by-timeline" class="timeline" style="width:95%;height:400px;"></div>
     <div id="by-location" class="location" style="width:100%;height:500px;"></div><!-- this loads the actual map plus contents inside the modal -->
     <div id="by-collaboration" class="collaborator grid" style="width:95%;height:400px;">
         <!--<table id="collaborator-table" class="table table-bordered">
