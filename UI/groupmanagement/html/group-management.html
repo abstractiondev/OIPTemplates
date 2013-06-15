@@ -90,7 +90,7 @@
 <script src="../assets/lib/bootstrap-wysihtml5/lib/js/wysihtml5-0.3.0.js"></script>
 <script src="../assets/lib/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-0.0.2.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="../assets/css/admin-theme.css">
+<link rel="stylesheet" type="text/css" href="../assets/css/groupmanagement-theme.css">
 
 <style type="text/css">
         /*h2 { margin-top: 2em; }*/
@@ -371,7 +371,7 @@
 <style type="text/css">
     .group-management .navbar .navbar-inner {
         padding: 0;
-        border-top: darkblue solid 3px;
+        border-top: darkblue solid 0px;
     }
 </style><!-- navbar group and account management styling -->
 <!-- Le fav and touch icons -->
@@ -439,6 +439,7 @@
                     <li><a href="#tab-add-collaborator" data-toggle="tab">Collaborator</a></li>
                     <li><a href="#tab-add-location" data-toggle="tab">Location</a></li>
                     <li><a href="#tab-add-category" data-toggle="tab">Category</a></li>
+                    <li><a href="#tab-add-group" data-toggle="tab">Group (only in account management)</a></li>
                 </ul>
                 <div class="tab-content">
                     <div id="tab-add-media" class="tab-pane active">
@@ -449,7 +450,7 @@
                                     <H2>Describe</H2>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <select id="add-media-category" name="add-media-category" class="input-xlarge">
+                                            <select id="add-media-category" name="add-media-category" class="">
                                                 <option>Image</option>
                                                 <option>Excell</option>
                                                 <option>PDF</option>
@@ -491,7 +492,7 @@
                                    <H2>Pick the location...</H2>
                                    <div class="control-group">
                                        <div class="controls">
-                                           <select id="location" name="location" class="input-xlarge">
+                                           <select id="location" name="location" class="">
                                                <option>Helsinki</option>
                                                <option>Seattle</option>
                                                <option>Amsterdam</option>
@@ -532,14 +533,16 @@
                         </form>
                     </div><!-- tab-add-media-->
                     <div id="tab-add-activity" class="tab-pane">
-                        <form id="add-activity" method="post" class="" enctype="multipart/form-data">
+                       <form id="" method="post" class="" enctype="multipart/form-data">
                             <fieldset id="add-activity">
+                                <header></header>
+                                <section>
                                 <div class="span4">
                                     <header><H2>Describe...</H2></header>
                                     <section>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <select id="add-activity-category" name="add-media-category" class="input-xlarge">
+                                            <select id="add-activity-category" name="add-media-category" class="">
                                                 <option>Event</option>
                                                 <option>Story</option>
                                                 <option>News</option>
@@ -560,7 +563,7 @@
                                     <H2>Pick the location...</H2>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <select id="selectbasic" name="selectbasic" class="input-xlarge">
+                                            <select id="selectbasic" name="selectbasic" class="">
                                                 <option>Helsinki</option>
                                                 <option>Seattle</option>
                                                 <option>Amsterdam</option>
@@ -670,6 +673,7 @@
                                     </section>
                                     <footer></footer>
                                 </div>
+                                </section>
                                 <footer>
                                     <div class="control-group controls pull-right">
                                         <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
@@ -679,68 +683,96 @@
                                     </div>
                                 </footer>
                             </fieldset>
-                        </form>
+                       </form>
                     </div><!-- tab-add-activity -->
                     <div id="tab-add-collaborator" class="tab-pane">
-                        <div class="span3">
-                            <header><H2>Invite...</H2></header>
-                            <section>
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input name="first-name"  id="{first-name}" type="text" value="First name">
+                        <header></header>
+                        <section>
+                            <div class="span3">
+                                <header><H2>Invite...</H2></header>
+                                <section>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input name="first-name"  id="{first-name}" type="text" value="First name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input name="last-name"  id="{last-name}" type="text" value="Last-name">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input name="last-name"  id="{last-name}" type="text" value="Last-name">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input name="email"  id="{email}" type="text" value="email">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input name="email"  id="{email}" type="text" value="email">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <select id="add-activity-category" name="add-media-category" class="input-xlarge">
-                                            <option>Choose group:</option>
-                                            <option>Group Aalto Global Impact</option>
-                                            <option>Group Sand in the Sahara</option>
-                                            <option>Group Ice on Antartica</option>
-                                        </select>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <select id="add-activity-category" name="add-media-category" class="">
+                                                <option>Choose group:</option>
+                                                <option>Group Aalto Global Impact</option>
+                                                <option>Group Sand in the Sahara</option>
+                                                <option>Group Ice on Antartica</option>
+                                            </select>
+                                        </div>
                                     </div>
+                                </section>
+                            </div>
+                        </section>
+                        <footer>
+                            <div class="control-group controls pull-right">
+                                <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                                    <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
                                 </div>
-                            </section>
-                            <footer>
-                            </footer>
-                        </div>
+                            </div>
+                        </footer>
                     </div><!-- tab-add-collaborator -->
                     <div id="tab-add-location" class="tab-pane">
-                        <div class="span3">
-                            <header><H2>Add Location...</H2></header>
-                            <section  class="map">
-                                <img src="../assets/img/dummy/map-images/map-1.png">
-                            </section>
-                            <footer></footer>
-                        </div><!-- map based lookup -->
-                        <div class="span3">
-                            <header><H2>Lookup Address...</H2></header>
-                            <section>
-                                <div class="control-group">
-                                    <div class="controls">
-                                        <input name="street-name"  id="{street-name}" type="text" value="Street name">
+                        <header></header>
+                        <section>
+                            <div class="span3">
+                                <header><H2>Add Location...</H2></header>
+                                <section  class="map">
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <img src="../assets/img/dummy/map-images/map-1.png">
+                                        </div>
+                                        <div class="controls">
+                                            <span class="btn btn-file">
+                                                <span class="select-location">Select location</span>
+                                                <!--<span class="select-location">Change</span>-->
+                                                <input type="file" />
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="controls">
-                                        <input name="building-number"  id="{building-number}" type="text" value="Building number">
+                                </section>
+                                <footer>
+                                    <div class="control-group controls pull-right">
+                                        <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                                            <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                                            <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
+                                        </div>
                                     </div>
-                                    <div class="controls">
-                                        <input name="country"  id="{country}" type="text" value="Country">
+                                </footer>
+                            </div><!-- map based lookup -->
+                            <div class="span3">
+                                <header><H2>Lookup Address...</H2></header>
+                                <section>
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <input name="street-name"  id="{street-name}" type="text" value="Street name">
+                                        </div>
+                                        <div class="controls">
+                                            <input name="building-number"  id="{building-number}" type="text" value="Building number">
+                                        </div>
+                                        <div class="controls">
+                                            <input name="country"  id="{country}" type="text" value="Country">
+                                        </div>
                                     </div>
-                                </div>
-                            </section>
-                            <footer></footer>
-                        </div><!-- query based lookup -->
-                        <div class="span3">
+                                </section>
+                            </div><!-- query based lookup -->
+                            <div class="span3">
                             <header><H2>Describe...</H2></header>
                             <section>
                                 <div class="control-group">
@@ -748,7 +780,7 @@
                                         <input name="location-name"  id="{location-name}" type="text" value="Location name">
                                     </div>
                                     <div class="controls">
-                                        <select id="add-location-category" name="add-location-category" class="input-xlarge">
+                                        <select id="add-location-category" name="add-location-category" class="">
                                             <option>Choose category:</option>
                                             <option>Home</option>
                                             <option>Work</option>
@@ -756,7 +788,7 @@
                                         </select>
                                     </div>
                                     <div class="controls">
-                                        <select id="add-location-group" name="add-location-group" class="input-xlarge">
+                                        <select id="add-location-group" name="add-location-group" class="">
                                             <option>Choose group:</option>
                                             <option>Group Aalto Global Impact</option>
                                             <option>Group Sand in the Sahara</option>
@@ -765,9 +797,16 @@
                                     </div>
                                 </div>
                             </section>
-                        <footer>
-                        </footer>
                     </div><!-- describe location -->
+                        </section>
+                        <footer>
+                            <div class="control-group controls pull-right">
+                                <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                                    <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
+                                </div>
+                            </div>
+                        </footer>
                     </div><!-- tab-add-location -->
                     <div id="tab-add-category" class="tab-pane">
                         <header>tab-add-category</header>
@@ -785,6 +824,12 @@
                             put this in a table
                         </section>
                         <footer>
+                            <div class="control-group controls pull-right">
+                                <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
+                                    <button value="true" name="btnCancel"  class="btn">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" name="RootSourceAction" id="RootSourceAction" value="Save">Save changes</button>
+                                </div>
+                            </div>
                         </footer>
                     </div><!-- tab-add-category -->
                 </div><!-- /.tab-content -->
@@ -1629,7 +1674,7 @@
                         <!-- Text input-->
                         <label for="name-image-group-input" class="control-label">Rename {location}</label>
                         <div class="controls">
-                            <input type="text" class="input-xlarge" placeholder="Image group 1">
+                            <input type="text" class="" placeholder="Image group 1">
                             <p class="help-block">Supporting help text</p>
                         </div>
                     </div>
