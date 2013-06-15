@@ -301,6 +301,7 @@
          */
 
         $('#calendar').fullCalendar({
+            height: 420,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -371,6 +372,7 @@
 
     #calendar {
         width: 100%;
+        height:450px;
         margin: 0 auto;
     }
 
@@ -936,9 +938,6 @@
             if ($(e.target).attr('href')=="#tab-media"){
                 $("#gallery-media").isotope({'filter':".cards"});
             }
-            if ($(e.target).attr('href')=="#tab-view-as-calendar"){
-                $('#calendar').fullCalendar('render');
-            }
 
         });
     });
@@ -1040,8 +1039,8 @@
 
                     });
                 }
-                if(href=='#tab-view-as-calendar'){
-                    return true;
+                if(href=='#as-calendar'){
+                    $('#calendar').fullCalendar('render');
                 }
                 if(href=='#by-timeline'){
                     $.getJSON("recline.json",function(data){
@@ -1091,13 +1090,13 @@
 <ul class="filter nav nav-pills pull-right">
     <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px">View as: </li>
     <li class="active"><a href="#as-isotope" data-filter=".isotope" title="show media in isotope format"><i class="icon-bar-chart"></i> </a></li>
-    <li><a href="#tab-view-as-calendar" data-toggle="tab" title="show media in calendar format"><i class="icon-calendar"></i> </a></li>
+    <li><a href="#as-calendar" data-filter=".calendar" title="show media in calendar format"><i class="icon-calendar"></i> </a></li>
     <li><a href="#by-location" data-filter=".location" title="show media as locations"><i class="icon-map-marker"></i> </a></li>
     <li><a href="#by-collaborator" data-filter=".collaborator" title="show media by collaborator"><i class="icon-user"></i> </a></li>
     <li><a href="#by-timeline" data-filter=".timeline" title="show media on a timeline"><i class="icon-time"></i> </a></li>
 
 </ul>
-<div id="gallery-media" class="gallery" style="clear: both;">
+<div id="gallery-media" class="gallery" style="clear: both; height:500px;">
 
     <div class="cards cards-profile pull-left images">
         <span class="label pull-right"><a href="#view-collaborator-profile-sujil" data-toggle="modal" role="button">Sujil Kodathoor</a></span>
@@ -1245,7 +1244,11 @@
             <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
         </footer>
     </div>
-    <div id="by-timeline" class="timeline" style="width:95%;height:400px;"></div>
+    <div id="as-calendar" class="calendar" style="width:95%;height:500px;">
+                <h2>Upcoming Events</h2>
+                <div id='calendar'></div>
+    </div>
+    <div id="by-timeline" class="timeline" style="width:95%;height:500px;"></div>
     <div id="by-location" class="location" style="width:100%;height:500px;"></div><!-- this loads the actual map plus contents inside the modal -->
     <div id="by-collaboration" class="collaborator grid" style="width:95%;height:400px;">
         <!--<table id="collaborator-table" class="table table-bordered">
@@ -1842,17 +1845,6 @@
                 </div>
                 <p class="help-block">Here we could add some explanatory text</p>
             </div>
-        </fieldset>
-    </form>
-</div>
-<div class="tab-pane fade" id="tab-view-as-calendar">
-    <form id="some-id" method="post" class="form-horizontal ">
-        <fieldset id="group-admin-calendar">
-            <h2>Upcoming Events</h2>
-            <div id='calendar'></div>
-            <footer>
-
-            </footer>
         </fieldset>
     </form>
 </div>
