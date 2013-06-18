@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Kallen testi</title>
+    <title>Backbone testing</title>
 </head>
 <body>
+<section id="main"></section>
+<script id="main-content-template" type="text/html">
+    <div id="choices">
+        <h2>Blog posts:</h2>
+        <ul> {{#bloglist}}
+            <hr>
+            <li><h2>Type: {{type}}</h2>
+            <p>{{text}}</p>
+            </li>
 
+            {{/bloglist}}
+        </ul>
+    </div>
+</script>
+<!-- JavaScript-kirjastot -->
+<script src="../assets/js/xml2json.js"></script>
+<script src="../assets/js/jquery-1.9.1.min.js"></script>
+<script src="../assets/js/mustache.js"></script>
+
+<script src="../assets/js/underscore-min.js"></script>
+<script src="../assets/js/backbone-min.js"></script>
+
+<!-- Omat koodit -->
+<script src="../assets/js/code.js"></script>
 </body>
 </html>
