@@ -305,10 +305,24 @@
 <div class="dustph" id="sidebar-nav_placeholder">sidebar</div>
 <div class="dustph" id="content_placeholder">content</div>
 
+<script>
+    $("#content_placeholder").data({
+        datasource: {
+            AddressCollection: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection"
+        }
+    });
+</script>
 
 <script language="javascript">
     dustifyph = function() {
         var placeholderID = $(this).attr("id");
+        var dataSources = $(this).data("datasource");
+        //alert(placeholderID);
+        for(var key in dataSources)
+        {
+            //alert(key);
+            //alert(dataSources[key]);
+        }
         var templateID = placeholderID.replace("_placeholder", "");
         var dustfilename = templateID + ".dust";
         var successCB = function(responseTemplate) {
