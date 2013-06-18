@@ -2,8 +2,10 @@
   <configuration default="false" name="Group Management (dusted) (Chrome)" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
     <JSRemoteDebuggerConfigurationSettings>
       <option name="engineId" value="chrome" />
-      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/groupmanagement/html/group-management.html" />
+      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/groupmanagement/html/group-management-dusted.html" />
     </JSRemoteDebuggerConfigurationSettings>
+    <RunnerSettings RunnerId="JavascriptDebugRunner" />
+    <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
     <method />
   </configuration>
 </component>
