@@ -1,0 +1,28 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <ul class="nav pull-left">
+            <li id="group-menu" class="dropdown">
+                <a href="#" role="button" class="dropdown-toggle active" data-toggle="dropdown">
+                    <i class="icon-user"></i> {groupName}
+                    <i class="icon-caret-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a tabindex="-1" href="#">{groupName}'s Account</a></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">{groupName}'s Management</a></li>
+                    <li><a tabindex="-1" href="www-preview.html">{groupName}'s www-preview</a></li>
+                    <li class="divider"></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="../../accountmanagement/html/account-management.html">{accountName}'s Account</a></li>
+                    <li><a tabindex="-1" href="#">{accountName}'s Groups</a></li>
+                    <li><a tabindex="-1" href="#">{accountName}'s Content</a></li>
+                    <li><a tabindex="-1" href="#">{accountName}'s Locations</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
+                    <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="logout.html">Logout</a></li>
+                </ul>
+            </li>
+            <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
+        </ul>
+    </div>
+</div><!-- .navbar -->
