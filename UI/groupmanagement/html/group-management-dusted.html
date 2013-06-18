@@ -153,7 +153,12 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-	<script>
+    <!-- Dust + xml -->
+    <script src="../assets/js/dust-full-1.1.1.js"></script>
+    <script src="../assets/js/xml2json.js"></script>
+
+
+    <script>
 	    function GetLayerLabelText(textvalue, iconUrl)
             {
                 if(iconUrl != null)
@@ -295,10 +300,34 @@
 <body class="group-management">
 <!--<![endif]-->
 
-<div id="navbar_placeholder">navbar</div>
-<div id="main-menu_placeholder">mainmenu</div>
-<div id="sidebar-nav_placeholder">sidebar</div>
-<div id="content_placeholder">content</div>
+<div class="dustph" id="navbar_placeholder">navbar</div>
+<div class="dustph" id="main-menu_placeholder">mainmenu</div>
+<div class="dustph" id="sidebar-nav_placeholder">sidebar</div>
+<div class="dustph" id="content_placeholder">content</div>
+
+
+<script language="javascript">
+    dustifyph = function() {
+        var placeholderID = $(this).attr("id");
+        var templateID = placeholderID.replace("_placeholder", "");
+        var dustfilename = templateID + ".dust";
+        var successCB = function(responseTemplate) {
+            var templateCompiled = dust.compile(responseTemplate, templateID);
+            dust.loadSource(templateCompiled);
+            dust.render(templateID, null, function(err, out) {
+                $("#" + placeholderID).html(out);
+            });
+        };
+        $.ajax({ url: dustfilename,
+        cache:false,
+        success:successCB
+        });
+        //alert(id);
+    };
+    $(function() {
+        $(".dustph").each(dustifyph);
+    });
+</script>
 
 <script>
     var fetchXmlContent = function(contentUrl)
