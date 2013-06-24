@@ -7,14 +7,16 @@
 <section id="main"></section>
 <script id="main-content-template" type="text/html">
     <div id="choices">
-        <h2>Blog posts:</h2>
-        <ul> {{#bloglist}}
+        <h2>Activities:</h2>
+        <ul> {{#activities}}
             <hr>
-            <li><h2>Type: {{type}}</h2>
-            <p>{{text}}</p>
+            <li><h2>Title: {{title}}</h2>
+            <p>{{author.name}}</p>
+                <p>{{location.name}}</p>
+                <p>{{group.name}}</p>
             </li>
 
-            {{/bloglist}}
+            {{/activities}}
         </ul>
     </div>
 </script>
