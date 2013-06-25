@@ -311,76 +311,115 @@
             AddressCollection: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection"
         }
     });
+    $("#navbar_placeholder").data({
+        datasource: {
+            AddressCollection: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection"
+        }
+    });
+
 </script>
 
 <script language="javascript">
+
+    var xml2JSObj = function(xmlResponse) {
+        var dom;
+        if (window.DOMParser) {
+            parser = new DOMParser();
+            dom = parser.parseFromString(xmlResponse, "text/xml");
+        }
+        else // Internet Explorer
+        {
+            dom = new ActiveXObject("Microsoft.XMLDOM");
+            dom.async = false;
+            dom.loadXML(xmlResponse);
+        }
+        var json = xml2json(dom, "  ");
+        //alert(json);
+        var jsonResult = jQuery.parseJSON(json);
+        return jsonResult;
+    };
+    var renderDustFromResponse = function(placeholderID, templateContent, dataObject) {
+        var templateID = placeholderID.replace("_placeholder", "");
+        var templateCompiled = dust.compile(templateContent, templateID);
+        dust.loadSource(templateCompiled);
+        dust.render(templateID, dataObject, function(err, out) {
+            $("#" + placeholderID).html(out);
+        });
+    };
+
     dustifyph = function() {
         var placeholderID = $(this).attr("id");
         var dataSources = $(this).data("datasource");
         //alert(placeholderID);
-        for(var key in dataSources)
-        {
-            //alert(key);
-            //alert(dataSources[key]);
+        var fetchContentPromises = [];
+        var dataSourceKeys = [];
+        if(dataSources != null) {
+            for(var key in dataSources)
+            {
+                dataSourceKeys.push(key);
+                fetchContentPromises.push(dataSources[key]);
+            }
         }
         var templateID = placeholderID.replace("_placeholder", "");
         var dustfilename = templateID + ".dust";
-        var successCB = function(responseTemplate) {
-            var templateCompiled = dust.compile(responseTemplate, templateID);
-            dust.loadSource(templateCompiled);
-            dust.render(templateID, null, function(err, out) {
-                $("#" + placeholderID).html(out);
-            });
-        };
-        $.ajax({ url: dustfilename,
-        cache:false,
-        success:successCB
+        fetchContentPromises.push($.ajax({ url: dustfilename,cache:false}));
+        $.when.apply($, fetchContentPromises).then(function() {
+            var dataObject = {};
+            var dustTemplateContent;
+            if(dataSourceKeys.length > 0) {
+                for(var i = 0; i < arguments.length - 1; i++)
+                {
+                    var key = dataSourceKeys[i];
+                    var response = arguments[i][0];
+                    var jsonObj = xml2JSObj(response);
+                    dataObject[key] = jsonObj;
+                }
+                dustTemplateContent = arguments[arguments.length - 1][0];
+            } else
+                dustTemplateContent = arguments[0];
+            renderDustFromResponse(placeholderID, dustTemplateContent, dataObject);
+
         });
-        //alert(id);
+        //var dataObject = null;
+    };
+    var DataPromiseCache = {};
+    var replaceDatasourceUrlsWithAjaxPromises = function()
+    {
+        var dataSources = $(this).data("datasource");
+        if(dataSources == null)
+            return;
+        for(var key in dataSources)
+        {
+            var url = dataSources[key];
+            var urlPromise = DataPromiseCache[url];
+            if(urlPromise == null)
+            {
+                urlPromise = $.ajax({ url: url, cache:false});
+                DataPromiseCache[url] = urlPromise;
+            }
+            dataSources[key] = urlPromise;
+        }
     };
     $(function() {
-        $(".dustph").each(dustifyph);
+        $(".dustph").each(replaceDatasourceUrlsWithAjaxPromises).each(dustifyph);
     });
 </script>
 
 <script>
-    var fetchXmlContent = function(contentUrl)
-    {
-        var jsonResult;
-        $.ajax({
-            url: contentUrl,
-            cache: false,
-            async: false,
-            success: function (xmlResponse) {
-                var dom;
-                if (window.DOMParser) {
-                    parser = new DOMParser();
-                    dom = parser.parseFromString(xmlResponse, "text/xml");
-                }
-                else // Internet Explorer
-                {
-                    dom = new ActiveXObject("Microsoft.XMLDOM");
-                    dom.async = false;
-                    dom.loadXML(xmlResponse);
-                }
-                var json = xml2json(dom, "  ");
-                //alert(json);
-                jsonResult = jQuery.parseJSON(json);
-            }
-        });
-        return jsonResult;
-    };
-    var dustify = function(idTag, operationName, dataSources)
-    {
-        for(var i = 0; i < dataSources.length; i++)
-        {
-            var key = 0;
-            var contentUrl = "";
-            var dataContent = fetchXmlContent(contentUrl);
-            dataSources[key] = dataContent;
+    function getData( val ){
+
+        // Return a promise from the cache (if available)
+        // or create a new one (a jqXHR object) and store it in the cache.
+        var promise = cache[val];
+        if (!promise) {
+            promise = $.ajax('/foo/', {
+                data: { value: val },
+                dataType: 'json'
+            });
+            cache[val] = promise;
         }
-    };
-    dustify('invite-collaborator', 'InviteCollaborator');
+        return promise;
+    }
 
 </script>
 
