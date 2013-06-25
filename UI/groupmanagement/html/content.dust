@@ -468,6 +468,7 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
 </div>
 <div class="tab-pane fade" id="tab-collaborators">
 <div>
+    {#GroupContainer.GroupContainer.Collaborators}
     <form  method="post" class="form-horizontal ">
         <fieldset id="collaborators-alt">
             <script type="text/javascript">
@@ -479,178 +480,22 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
                 });
             </script>
             <div id="gallery-5" class="gallery" style="clear: both;">
+            {#CollectionContent.Collaborator}
                 <div class="cards cards-profile pull-left">
-                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
-                    <header>Sujil Kodathoor
+                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">{Role}</a></span>
+                    <header>{CollaboratorName}
                     </header>
                     <section>
-                        <img src="../assets/img/dummy/profile-images/sujil.jpg">
-                        <p class="info-text">I design, evaluate and advise for social sustainability related projects. My approach utilizes research methodologies, creative practices, and design thinking as a process to breaking down systemic world problems.</p>
+                        <p class="info-text">{?EmailAddress}Email: {EmailAddress}{/EmailAddress}</p>
                         <div class="clearfix"></div>
-                        <ul class="nav nav-tabs three-tabs">
-                            <li class="active"><a data-toggle="tab" href="#collaborator-project-sujil"> <i class="icon-file"></i></a></li>
-                            <li class=""><a data-toggle="tab" href="#collaborator-group-sujil"><i class="icon-calendar"></i></a></li>
-                            <li class=""><a data-toggle="tab" href="#collaborator-location-sujil"><i class="icon-map-marker"></i></a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="collaborator-project-sujil" class="tab-pane fade active in">
-                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                            </div>
-                            <div id="collaborator-group-sujil" class="tab-pane fade ">
-                                <i class="icon-group"></i>
-                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                <span>Weconomy</span>
-                                <span>Earthhouse</span>
-                            </div>
-                            <div id="collaborator-location-sujil" class="tab-pane fade">
-                                <i class="icon-map-marker"></i>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                            </div>
-                        </div>
                     </section>
-                    <div class="clearfix"></div>
                     <footer>
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
                     </footer>
                 </div>
-                <div class="cards cards-profile pull-left">
-                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                    <header>Teija Lehtonen
-                    </header>
-                    <section>
-                        <img src="../assets/img/dummy/profile-images/teija.jpg">
-                        <p class="info-text">Teija Lehtonen, M.Sc. (Econ), is currently working as a Director of the Aalto Global Impact at Aalto University. She is also promoting inclusive innovations and business at the the Base of the Pyramid (BOP) through various networks</p>
-                        <ul>
-                            <li>
-                                <i class="icon-file"></i>
-                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                            </li>
-                            <li>
-                                <i class="icon-group"></i>
-                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                <span>Weconomy</span>
-                                <span>Earthhouse</span>
-                            </li>
-                            <li>
-                                <i class="icon-map-marker"></i>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                            </li>
-                        </ul>
-                    </section>
-                    <div class="clearfix"></div>
-                    <footer>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                    </footer>
-                </div>
-                <div class="cards cards-profile pull-left">
-                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                    <header>Anne Badan
-                    </header>
-                    <section>
-                        <img src="../assets/img/dummy/profile-images/anne.jpg">
-                        <p class="info-text">Provide strategic services and build large scale soci(et)al impact/development projects for public and private institutions. =>Have been active in Sub-Mekong Region (Thailand, Myanmar, Vietnam, Cambodia and Laos) Nepal, Liberia, Sierra Leone, Burkina Faso, Singapore, Finland and Switzerland.</p>
-                        <ul>
-                            <li>
-                                <i class="icon-file"></i>
-                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                            </li>
-                            <li>
-                                <i class="icon-group"></i>
-                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                <span>Weconomy</span>
-                                <span>Earthhouse</span>
-                            </li>
-                            <li>
-                                <i class="icon-map-marker"></i>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                            </li>
-                        </ul>
-                    </section>
-                    <div class="clearfix"></div>
-                    <footer>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                    </footer>
-                </div>
-                <div class="cards cards-profile pull-left">
-                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">collaborator</a></span>
-                    <header>Andrew Clutterbuck
-                    </header>
-                    <section>
-                        <img src="../assets/img/dummy/profile-images/andrew.jpg">
-                        <p class="info-text">Aalto University has an extensive active community of students/professors/researchers/faculty etc. that work within the areas of social impact. Due to the nature of the work and scope of the required resources and factors for continuation, we are developing a support network/community to serve and bring together these active members in order to benefit and impact their abilities to positively impact.</p>
-                        <ul>
-                            <li>
-                                <i class="icon-file"></i>
-                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                            </li>
-                            <li>
-                                <i class="icon-group"></i>
-                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                <span>Weconomy</span>
-                                <span>Earthhouse</span>
-                            </li>
-                            <li>
-                                <i class="icon-map-marker"></i>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                            </li>
-                        </ul>
-                    </section>
-                    <div class="clearfix"></div>
-                    <footer>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                    </footer>
-                </div>
-                <div class="cards cards-profile pull-left">
-                    <span class="label pull-right"><a data-toggle="modal" role="button" href="#edit-collaborator-role">member</a></span>
-                    <header>Daniel Connell
-                    </header>
-                    <section>
-                        <img src="../assets/img/dummy/profile-images/daniel.jpg">
-                        <p class="info-text">I have over seven years professional experience in feature film, game cinematics, commercials and print material, working both as a freelancer and with studios in London, Glasgow, Vancouver, and throughout Australasia.
+            {/CollectionContent.Collaborator}
 
-                            Specialties:I am a Maya Generalist, plus specialise in Fluid & Solid Dynamics, Technical Lighting, Procedural Texturing and Trimmed Nurbs Modeling.</p>
-                        <ul>
-                            <li>
-                                <i class="icon-file"></i>
-                                <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_weconomy-start" data-toggle="modal">Open Innovation Platform</a></span>
-                                <span><a href="#view-project-profile_base-of-pyramid" data-toggle="modal">Base of Pyramid</a></span>
-                            </li>
-                            <li>
-                                <i class="icon-group"></i>
-                                <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                                <span>Weconomy</span>
-                                <span>Earthhouse</span>
-                            </li>
-                            <li>
-                                <i class="icon-map-marker"></i>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="60.169866" lng="24.938607">Helsinki</a> </span>
-                                <span><a href="#view-location-profile" data-toggle="modal" lat="28.633952" lng="77.225418">Delhi</a></span>
-                            </li>
-                        </ul>
-                    </section>
-                    <div class="clearfix"></div>
-                    <div class="image-data">
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator"><i class="icon-remove-sign"></i></a></span>
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
-                    </div>
-                </div>
                 <div class="clearfix"></div>
             </div>
             <footer style="margin-top: 20px">
@@ -663,7 +508,9 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
             </footer>
         </fieldset>
     </form>
+    {/GroupContainer.GroupContainer.Collaborators}
 </div>
+
 <!-- modals collaborators -->
 <div id="view-project-profile" class="modal hide fade">
     <div class="modal-header">
