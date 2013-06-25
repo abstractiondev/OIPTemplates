@@ -5,8 +5,10 @@
 <div class="fancy-tab-container">
 <div class="tab-content">
 <div class="tab-pane fade in active" id="tab-identity">
-    <form id="form-id-1" method="post" class="form-horizontal" enctype="multipart/form-data">
+{#GroupContainer.GroupContainer}
+        <form id="form-id-1" method="post" class="form-horizontal" enctype="multipart/form-data">
         <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+        {#GroupProfile}
         <fieldset id="profile">
             <!-- group profile image and group icon image -->
             <div class="span12">
@@ -51,21 +53,21 @@
             </div>
             <!-- end group profile image and group icon image -->
             <div class="control-group">
-                <label class="control-label" for="[!ATOM]ID[ATOM!]_GroupName">Group name</label>
+                <label class="control-label" for="{ID}_GroupName">Group name</label>
                 <div class="controls">
-                    <input name="[!ATOM]ID[ATOM!]_GroupName"  id="[!ATOM]ID[ATOM!]_GroupName" type="text" value="[!ATOM]GroupName[ATOM!]">
+                    <input name="{ID}_GroupName"  id="{ID}_GroupName" type="text" value="{GroupName}">
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="[!ATOM]ID[ATOM!]_Description">Description</label>
+                <label class="control-label" for="{ID}_Description">Description</label>
                 <div class="controls">
-                    <textarea id="[!ATOM]ID[ATOM!]_Description" name="[!ATOM]ID[ATOM!]_Description" rows="6" placeholder="add org name">[!ATOM]Description[ATOM!]</textarea>
+                    <textarea id="{ID}_Description" name="{ID}_Description" rows="6" placeholder="add org name">{Description}</textarea>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
+                <label class="control-label" for="{ID}_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
                 <div class="controls">
-                    <textarea id="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" name="[!ATOM]ID[ATOM!]_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">[!ATOM]OrganizationsAndGroupsLinkedToUs[ATOM!]</textarea>
+                    <textarea id="{ID}_OrganizationsAndGroupsLinkedToUs" name="{ID}_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">{OrganizationsAndGroupsLinkedToUs}</textarea>
                 </div>
             </div>
             <footer>
@@ -77,7 +79,9 @@
                 </div>
             </footer>
         </fieldset>
+        {/GroupProfile}
     </form>
+{/GroupContainer.GroupContainer}
 </div>
 <div class="tab-pane fade" id="tab-media">
 <script type="text/javascript">
@@ -1082,3 +1086,4 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttr
 </footer>
 </div><!--.container-fluid-->
 </div><!--.content-->
+
