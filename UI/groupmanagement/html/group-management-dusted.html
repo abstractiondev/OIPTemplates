@@ -339,11 +339,12 @@
         var jsonResult = jQuery.parseJSON(json);
         return jsonResult;
     };
-    var renderDustFromResponse = function(placeholderID, templateContent, dataObject) {
-        var templateID = placeholderID.replace("_placeholder", "");
-        var templateCompiled = dust.compile(templateContent, templateID);
-        dust.loadSource(templateCompiled);
-        dust.render(templateID, dataObject, function(err, out) {
+    var renderDustFromResponse = function(placeholderID, dusttemplatename, templateContent, dataObject) {
+        //var templateID = placeholderID.replace("_placeholder", "");
+        //var templateCompiled = dust.compile(templateContent, templateID);
+        //dust.loadSource(templateCompiled);
+        dust.loadSource(templateContent);
+        dust.render(dusttemplatename, dataObject, function(err, out) {
             $("#" + placeholderID).html(out);
         });
     };
@@ -363,7 +364,9 @@
         }
         var templateID = placeholderID.replace("_placeholder", "");
         var dustfilename = templateID + ".dust";
-        fetchContentPromises.push($.ajax({ url: dustfilename,cache:false}));
+        var dustcompiled = templateID + "_dust.js";
+        var dusttemplatename = dustfilename;
+        fetchContentPromises.push($.ajax({ url: dustcompiled,cache:false}));
         $.when.apply($, fetchContentPromises).then(function() {
             var dataObject = {};
             var dustTemplateContent;
@@ -378,7 +381,7 @@
                 dustTemplateContent = arguments[arguments.length - 1][0];
             } else
                 dustTemplateContent = arguments[0];
-            renderDustFromResponse(placeholderID, dustTemplateContent, dataObject);
+            renderDustFromResponse(placeholderID, dusttemplatename, dustTemplateContent, dataObject);
 
         });
         //var dataObject = null;
