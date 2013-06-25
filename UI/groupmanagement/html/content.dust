@@ -925,6 +925,7 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttr
                 <span class="pull-right"><a data-toggle="modal" role="button" href="#view-location-profile"><i class="icon-eye-open"></i></a></span>
             </footer>
         </div>
+{#Locations.AddressAndLocationCollection.CollectionContent.AddressAndLocation}
         <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
             <div id="filter-demo" style="max-width: 220px">
                 <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
@@ -933,53 +934,10 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttr
             <div class="image-data">
                 <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
                 <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                <span class="title">Location name 1</span>
+                <span class="title">{Location.LocationName}</span>
             </div>
         </div>
-        <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-            <div id="filter-demo" style="max-width: 220px">
-                <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-2.png"></div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="image-data">
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                <span class="title">Location name 1</span>
-            </div>
-        </div>
-        <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-            <div id="filter-demo" style="max-width: 220px">
-                <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-3.png"></div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="image-data">
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                <span class="title">Location name 1</span>
-            </div>
-        </div>
-        <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-            <div id="filter-demo" style="max-width: 220px">
-                <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="image-data">
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                <span class="title">Location name 1</span>
-            </div>
-        </div>
-        <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-            <div id="filter-demo" style="max-width: 220px">
-                <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="image-data">
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                <span class="title">Location name 1</span>
-            </div>
-        </div>
+{/Locations.AddressAndLocationCollection.CollectionContent.AddressAndLocation}
         <div class="clearfix"></div>
     </div>
     <footer>
