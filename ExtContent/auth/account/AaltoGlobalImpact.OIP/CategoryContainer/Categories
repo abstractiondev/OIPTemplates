@@ -1,0 +1,58 @@
+﻿<CategoryContainer xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Categories>
+    <CollectionContent>
+      <Category>
+        <CategoryName>Kalle's Personal Category 1</CategoryName>
+        <ID>335aa8c5-b15b-4dc8-a084-34d79edb7816</ID>
+        <MasterETag>"0x8D03F9FC882B282"</MasterETag>
+        <Name>Category</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <ReferenceToInformation>
+          <ID>5d0a3498-4836-4a10-b4b0-e9e9cfc2a06e</ID>
+          <MasterETag>"0x8D03F9FC6AD4A3E"</MasterETag>
+          <Name>ReferenceToInformation</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/ReferenceToInformation/5d0a3498-4836-4a10-b4b0-e9e9cfc2a06e</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <Title>Kalle's Personal Category 1</Title>
+          <URL>AaltoGlobalImpact.OIP.Category_335aa8c5-b15b-4dc8-a084-34d79edb7816_DefaultView.phtml</URL>
+        </ReferenceToInformation>
+        <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/Category/335aa8c5-b15b-4dc8-a084-34d79edb7816</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Category>
+      <Category>
+        <CategoryName>Kalle's Personal Category 2</CategoryName>
+        <ID>3f1dfa3e-f6d0-4180-9200-a17056ed3a33</ID>
+        <MasterETag>"0x8D03F9FF46EA663"</MasterETag>
+        <Name>Category</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <ReferenceToInformation>
+          <ID>47487b70-76bb-4ac4-9f16-b22529149c5c</ID>
+          <MasterETag>"0x8D03F9FF2E16C88"</MasterETag>
+          <Name>ReferenceToInformation</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/ReferenceToInformation/47487b70-76bb-4ac4-9f16-b22529149c5c</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <Title>Kalle's Personal Category 2</Title>
+          <URL>AaltoGlobalImpact.OIP.Category_3f1dfa3e-f6d0-4180-9200-a17056ed3a33_DefaultView.phtml</URL>
+        </ReferenceToInformation>
+        <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/Category/3f1dfa3e-f6d0-4180-9200-a17056ed3a33</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Category>
+    </CollectionContent>
+    <ID>430dce1c-2dc0-45db-9c14-ff62b175b398</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>CategoryCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/CategoryCollection/430dce1c-2dc0-45db-9c14-ff62b175b398</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Categories>
+  <ID>8309faa1-4f69-4d7f-9da0-fb3819195504</ID>
+  <MasterETag i:nil="true" />
+  <Name>CategoryContainer</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/CategoryContainer/Categories</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</CategoryContainer>

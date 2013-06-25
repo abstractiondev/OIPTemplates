@@ -1,0 +1,84 @@
+﻿<AboutContainer xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <Author i:nil="true" />
+  <Body i:nil="true" />
+  <Excerpt i:nil="true" />
+  <Header>
+    <ID>e7ad2777-d94c-4850-b17e-9d94950eb8e1</ID>
+    <MasterETag i:nil="true" />
+    <Name>ContainerHeader</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ContainerHeader/e7ad2777-d94c-4850-b17e-9d94950eb8e1</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <SubTitle i:nil="true" />
+    <Title i:nil="true" />
+  </Header>
+  <ID>f76ce33e-ce02-4f43-99ac-293cef5d8d71</ID>
+  <ImageGroup>
+    <Description i:nil="true" />
+    <FeaturedImage i:nil="true" />
+    <ID>f1311c70-705b-455b-9fc5-f70a8fc32dc8</ID>
+    <ImagesCollection>
+      <CollectionContent />
+      <ID>98f42473-349c-450a-9881-e7c5081801ef</ID>
+      <MasterETag i:nil="true" />
+      <Name>ImagesCollection</Name>
+      <OrderFilterIDList xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ImagesCollection/98f42473-349c-450a-9881-e7c5081801ef</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </ImagesCollection>
+    <MasterETag i:nil="true" />
+    <Name>ImageGroup</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ReferenceToInformation>
+      <ID>881352ad-da03-435e-8d64-ee0bad14a400</ID>
+      <MasterETag i:nil="true" />
+      <Name>ReferenceToInformation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/881352ad-da03-435e-8d64-ee0bad14a400</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <Title i:nil="true" />
+      <URL i:nil="true" />
+    </ReferenceToInformation>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ImageGroup/f1311c70-705b-455b-9fc5-f70a8fc32dc8</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title i:nil="true" />
+  </ImageGroup>
+  <MainImage>
+    <Caption i:nil="true" />
+    <ID>f4385aaf-b74d-4af8-b2e2-029635c63290</ID>
+    <ImageData>
+      <ContentLength>0</ContentLength>
+      <FileExt i:nil="true" />
+      <ID>6113c72f-1df1-4aa5-8577-97b03c54f7db</ID>
+      <MasterETag i:nil="true" />
+      <Name>MediaContent</Name>
+      <OriginalFileName i:nil="true" />
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/MediaContent/6113c72f-1df1-4aa5-8577-97b03c54f7db</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </ImageData>
+    <MasterETag i:nil="true" />
+    <Name>Image</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ReferenceToInformation>
+      <ID>37d43396-bfd7-4676-840e-56136f84d42d</ID>
+      <MasterETag i:nil="true" />
+      <Name>ReferenceToInformation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/37d43396-bfd7-4676-840e-56136f84d42d</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <Title i:nil="true" />
+      <URL i:nil="true" />
+    </ReferenceToInformation>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Image/f4385aaf-b74d-4af8-b2e2-029635c63290</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title i:nil="true" />
+  </MainImage>
+  <MasterETag i:nil="true" />
+  <Name>AboutContainer</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <Published>0001-01-01T00:00:00</Published>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/AboutContainer/default</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AboutContainer>

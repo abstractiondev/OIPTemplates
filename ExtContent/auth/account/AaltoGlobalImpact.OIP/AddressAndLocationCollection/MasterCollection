@@ -1,0 +1,126 @@
+﻿<AddressAndLocationCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CollectionContent>
+    <AddressAndLocation>
+      <Address>
+        <Country>Finland</Country>
+        <ID>e0bc6cd0-bc2b-47dc-8d43-e07524889e80</ID>
+        <MasterETag i:nil="true" />
+        <Name>StreetAddress</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/e0bc6cd0-bc2b-47dc-8d43-e07524889e80</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Street>Särkänniemen Näsinneula</Street>
+        <Town>Tampere</Town>
+        <ZipCode i:nil="true" />
+      </Address>
+      <ID>1905bf37-a3d4-4190-97c4-972d16202ee1</ID>
+      <Location>
+        <ID>6a058dad-121b-4f32-a968-eedc945241a2</ID>
+        <Latitude>
+          <ID>d429d4b4-ac1f-481a-b53f-d80bfcdf4a6d</ID>
+          <MasterETag i:nil="true" />
+          <Name>Latitude</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/d429d4b4-ac1f-481a-b53f-d80bfcdf4a6d</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <TextValue>61.505026</TextValue>
+        </Latitude>
+        <LocationName>Kalle's another location</LocationName>
+        <Longitude>
+          <ID>21f5c813-463f-45e5-afab-de6e966e5557</ID>
+          <MasterETag i:nil="true" />
+          <Name>Longitude</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/21f5c813-463f-45e5-afab-de6e966e5557</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <TextValue>23.743236</TextValue>
+        </Longitude>
+        <MasterETag i:nil="true" />
+        <Name>Location</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/Location/6a058dad-121b-4f32-a968-eedc945241a2</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Location>
+      <MasterETag>"0x8D03FA12CE4A48D"</MasterETag>
+      <Name>AddressAndLocation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <ReferenceToInformation>
+        <ID>c9c2faf5-79b4-46f3-a443-4261db55fd79</ID>
+        <MasterETag>"0x8D03FA081A54490"</MasterETag>
+        <Name>ReferenceToInformation</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/ReferenceToInformation/c9c2faf5-79b4-46f3-a443-4261db55fd79</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Title>Kalle's another location</Title>
+        <URL>AaltoGlobalImpact.OIP.AddressAndLocation_1905bf37-a3d4-4190-97c4-972d16202ee1_DefaultView.phtml</URL>
+      </ReferenceToInformation>
+      <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/AddressAndLocation/1905bf37-a3d4-4190-97c4-972d16202ee1</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </AddressAndLocation>
+    <AddressAndLocation>
+      <Address>
+        <Country>Finland</Country>
+        <ID>a7bc384e-d4e2-468c-972f-a937eb042999</ID>
+        <MasterETag i:nil="true" />
+        <Name>StreetAddress</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/StreetAddress/a7bc384e-d4e2-468c-972f-a937eb042999</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Street>Lauttasaaren Vesitorni</Street>
+        <Town>Helsinki</Town>
+        <ZipCode i:nil="true" />
+      </Address>
+      <ID>9355b417-7843-4fe0-8f12-a8a5694e54a3</ID>
+      <Location>
+        <ID>6c0e991f-dde5-4be9-a680-66c8187934e9</ID>
+        <Latitude>
+          <ID>a6fa6c24-2b56-47fb-9f06-6518f5a18d99</ID>
+          <MasterETag i:nil="true" />
+          <Name>Latitude</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/Latitude/a6fa6c24-2b56-47fb-9f06-6518f5a18d99</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <TextValue>60.162991</TextValue>
+        </Latitude>
+        <LocationName>Kalle's Personal Location</LocationName>
+        <Longitude>
+          <ID>2cba81ab-ea30-43b0-a53f-7248ca73a359</ID>
+          <MasterETag i:nil="true" />
+          <Name>Longitude</Name>
+          <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+          <RelativeLocation>AaltoGlobalImpact.OIP/Longitude/2cba81ab-ea30-43b0-a53f-7248ca73a359</RelativeLocation>
+          <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+          <TextValue>24.883603</TextValue>
+        </Longitude>
+        <MasterETag i:nil="true" />
+        <Name>Location</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/Location/6c0e991f-dde5-4be9-a680-66c8187934e9</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Location>
+      <MasterETag>"0x8D03FA0DC0212F4"</MasterETag>
+      <Name>AddressAndLocation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <ReferenceToInformation>
+        <ID>69369a9a-4871-4ec8-9c53-21a7fe8632d3</ID>
+        <MasterETag>"0x8D03F9EECC164C7"</MasterETag>
+        <Name>ReferenceToInformation</Name>
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/ReferenceToInformation/69369a9a-4871-4ec8-9c53-21a7fe8632d3</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+        <Title>Kalle's Personal Location</Title>
+        <URL>AaltoGlobalImpact.OIP.AddressAndLocation_9355b417-7843-4fe0-8f12-a8a5694e54a3_DefaultView.phtml</URL>
+      </ReferenceToInformation>
+      <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/AddressAndLocation/9355b417-7843-4fe0-8f12-a8a5694e54a3</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </AddressAndLocation>
+  </CollectionContent>
+  <ID>69d4777c-66fb-493d-a9c6-0f3a16ef2269</ID>
+  <IsCollectionFiltered>false</IsCollectionFiltered>
+  <MasterETag i:nil="true" />
+  <Name>AddressAndLocationCollection</Name>
+  <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</AddressAndLocationCollection>

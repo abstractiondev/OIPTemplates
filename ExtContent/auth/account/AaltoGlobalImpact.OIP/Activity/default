@@ -1,0 +1,136 @@
+﻿<Activity xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ActivityName i:nil="true" />
+  <CategoryCollection>
+    <CollectionContent />
+    <ID>e833d7f3-1e01-4c06-9ae9-b5ac7879f195</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>CategoryCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/e833d7f3-1e01-4c06-9ae9-b5ac7879f195</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </CategoryCollection>
+  <Collaborators>
+    <CollectionContent />
+    <ID>432dc988-9d8a-4cc6-b468-f44644412f4c</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>CollaboratorCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/CollaboratorCollection/432dc988-9d8a-4cc6-b468-f44644412f4c</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </Collaborators>
+  <Description i:nil="true" />
+  <ID>20d863d5-eaf6-4f99-a19f-da11ce9c4f43</ID>
+  <IconImage>
+    <Caption i:nil="true" />
+    <ID>d7efc44a-d6f1-418e-91b7-619650664351</ID>
+    <ImageData>
+      <ContentLength>0</ContentLength>
+      <FileExt i:nil="true" />
+      <ID>9044a461-c5b9-43f8-aacf-24e1409095a3</ID>
+      <MasterETag i:nil="true" />
+      <Name>MediaContent</Name>
+      <OriginalFileName i:nil="true" />
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/MediaContent/9044a461-c5b9-43f8-aacf-24e1409095a3</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </ImageData>
+    <MasterETag i:nil="true" />
+    <Name>Image</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ReferenceToInformation>
+      <ID>b9f28abf-7b11-42b9-b23f-17b6fda20d37</ID>
+      <MasterETag i:nil="true" />
+      <Name>ReferenceToInformation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/b9f28abf-7b11-42b9-b23f-17b6fda20d37</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <Title i:nil="true" />
+      <URL i:nil="true" />
+    </ReferenceToInformation>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Image/d7efc44a-d6f1-418e-91b7-619650664351</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title i:nil="true" />
+  </IconImage>
+  <ImageGroupCollection>
+    <CollectionContent />
+    <ID>ca516c1d-e20e-4396-b278-182f1ce23b3b</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>ImageGroupCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ImageGroupCollection/ca516c1d-e20e-4396-b278-182f1ce23b3b</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </ImageGroupCollection>
+  <Introduction>
+    <Body i:nil="true" />
+    <ID>021d7da1-c47f-4098-9b44-608dcec23a9f</ID>
+    <MasterETag i:nil="true" />
+    <Name>Introduction</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Introduction/021d7da1-c47f-4098-9b44-608dcec23a9f</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title i:nil="true" />
+  </Introduction>
+  <LocationCollection>
+    <CollectionContent />
+    <ID>d78b4310-c5b6-4581-a54a-0237a548f1f4</ID>
+    <IsCollectionFiltered>false</IsCollectionFiltered>
+    <MasterETag i:nil="true" />
+    <Name>AddressAndLocationCollection</Name>
+    <OrderFilterIDList xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/AddressAndLocationCollection/d78b4310-c5b6-4581-a54a-0237a548f1f4</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </LocationCollection>
+  <MasterETag i:nil="true" />
+  <Name>Activity</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ProfileImage>
+    <Caption i:nil="true" />
+    <ID>84b9b33b-14c7-4bbe-83b8-2e81f3d1335c</ID>
+    <ImageData>
+      <ContentLength>0</ContentLength>
+      <FileExt i:nil="true" />
+      <ID>504e43eb-a357-4b21-870c-0591fcf8e5a7</ID>
+      <MasterETag i:nil="true" />
+      <Name>MediaContent</Name>
+      <OriginalFileName i:nil="true" />
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/MediaContent/504e43eb-a357-4b21-870c-0591fcf8e5a7</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    </ImageData>
+    <MasterETag i:nil="true" />
+    <Name>Image</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ReferenceToInformation>
+      <ID>c9301083-b52d-4fbc-8936-b9a3d2b2b41b</ID>
+      <MasterETag i:nil="true" />
+      <Name>ReferenceToInformation</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/c9301083-b52d-4fbc-8936-b9a3d2b2b41b</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <Title i:nil="true" />
+      <URL i:nil="true" />
+    </ReferenceToInformation>
+    <RelativeLocation>AaltoGlobalImpact.OIP/Image/84b9b33b-14c7-4bbe-83b8-2e81f3d1335c</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title i:nil="true" />
+  </ProfileImage>
+  <ReferenceToInformation>
+    <ID>e65b0fbd-030b-4e23-9e0b-116694bf9709</ID>
+    <MasterETag i:nil="true" />
+    <Name>ReferenceToInformation</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/e65b0fbd-030b-4e23-9e0b-116694bf9709</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title i:nil="true" />
+    <URL i:nil="true" />
+  </ReferenceToInformation>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/Activity/default</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</Activity>

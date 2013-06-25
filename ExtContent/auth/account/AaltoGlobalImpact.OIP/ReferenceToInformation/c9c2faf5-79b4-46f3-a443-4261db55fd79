@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>c9c2faf5-79b4-46f3-a443-4261db55fd79</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/ReferenceToInformation/c9c2faf5-79b4-46f3-a443-4261db55fd79</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Kalle's another location</Title>
+  <URL>AaltoGlobalImpact.OIP.AddressAndLocation_1905bf37-a3d4-4190-97c4-972d16202ee1_DefaultView.phtml</URL>
+</ReferenceToInformation>

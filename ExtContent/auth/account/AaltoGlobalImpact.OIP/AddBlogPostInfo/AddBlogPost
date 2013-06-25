@@ -1,0 +1,9 @@
+﻿<AddBlogPostInfo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>841a05fe-7b6b-4d4f-9543-60112718406a</ID>
+  <MasterETag i:nil="true" />
+  <Name>AddBlogPostInfo</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/AddBlogPostInfo/AddBlogPost</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title i:nil="true" />
+</AddBlogPostInfo>

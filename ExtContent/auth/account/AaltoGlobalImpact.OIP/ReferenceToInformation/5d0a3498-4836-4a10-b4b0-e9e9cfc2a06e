@@ -1,0 +1,10 @@
+﻿<ReferenceToInformation xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <ID>5d0a3498-4836-4a10-b4b0-e9e9cfc2a06e</ID>
+  <MasterETag i:nil="true" />
+  <Name>ReferenceToInformation</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/ReferenceToInformation/5d0a3498-4836-4a10-b4b0-e9e9cfc2a06e</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Kalle's Personal Category 1</Title>
+  <URL>AaltoGlobalImpact.OIP.Category_335aa8c5-b15b-4dc8-a084-34d79edb7816_DefaultView.phtml</URL>
+</ReferenceToInformation>
