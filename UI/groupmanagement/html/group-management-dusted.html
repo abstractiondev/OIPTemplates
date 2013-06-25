@@ -306,6 +306,13 @@
 <div class="dustph" id="content_placeholder">content</div>
 
 <script>
+
+    var fixContentUrl = function(originalUrl)
+    {
+        if(window.location.hostname != "localhost")
+            return originalUrl;
+        return originalUrl.replace("/auth/account/", "../../../ExtContent/auth/account/");
+    };
     $("#content_placeholder").data({
         datasource: {
             GroupContainer: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
@@ -314,7 +321,8 @@
     });
     $("#navbar_placeholder").data({
         datasource: {
-            AddressCollection: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection"
+            GroupContainer: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
+            AccountContainer: fixContentUrl("/auth/account/AaltoGlobalImpact.OIP/AccountContainer/default")
         }
     });
 
