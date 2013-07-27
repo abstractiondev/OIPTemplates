@@ -736,37 +736,37 @@
 </script>
 
 <!-- LEAFLET CODE -->
-<script>
+<script type="text/javascript">
     $(document).ready(function(){
         /* set up the map */
         mediamap = new L.Map('by-location');
 
         /* create the tile layer with correct attribution */
-        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmUrl='http://{~lb}s{~rb}.tile.openstreetmap.org/{~lb}z{~rb}/{~lb}x{~rb}/{~lb}y{~rb}.png';
         var osmAttrib='Map data © OpenStreetMap contributors';
-    var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttrib});
-            var mediamarkers = L.layerGroup();
-            mediamarkers.addTo(mediamap);
+        var osm = new L.TileLayer(osmUrl, { minZoom: 2, maxZoom: 15, attribution: osmAttrib });
+        var mediamarkers = L.layerGroup();
+        mediamarkers.addTo(mediamap);
 
-            mediamap.setView(new L.LatLng(0,0),2);
-            mediamap.addLayer(osm);
+        mediamap.setView(new L.LatLng(0,0),2);
+        mediamap.addLayer(osm);
 
-            $('a[data-toggle="tab"]').on('shown', function (e) {
-                if ($(e.target).attr('href')=="#tab-media"){
-                    mediamap.invalidateSize();
-                }
-            });
-                $("a[href=#by-location]").click(function(){
-                $.getJSON("media-location.json",function(result){
-            mediamarkers.clearLayers();
-            var bounds = new L.LatLngBounds();
+        $('a[data-toggle="tab"]').on('shown', function (e) {
+            if ($(e.target).attr('href')=="#tab-media"){
+                mediamap.invalidateSize();
+            }
+        });
+        $("a[href=#by-location]").click(function(){
+            $.getJSON("media-location.json",function(result){
+                mediamarkers.clearLayers();
+                var bounds = new L.LatLngBounds();
                 $.each(result.features, function(i,item){
-        mediamarkers.addLayer(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]]).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent).addTo(mediamap));
-        bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
-    });
-        mediamap.fitBounds(bounds);
-    });
-    });
+                    mediamarkers.addLayer(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]]).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent).addTo(mediamap));
+                    bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
+                });
+                mediamap.fitBounds(bounds);
+            });
+        });
     });
 </script>
 <!-- LEAFLET CODE -->

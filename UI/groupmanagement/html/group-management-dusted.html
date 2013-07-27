@@ -312,15 +312,15 @@
     };
     $("#content_placeholder").data({
         datasource: {
-            GroupContainerSource: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
-            Locations: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection",
-            CategoriesSource: "../../AaltoGlobalImpact.OIP/CategoryCollection/MasterCollection"
+            GroupContainerSource: ["../../AaltoGlobalImpact.OIP/GroupContainer/default", null],
+            Locations: ["../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection", null],
+            CategoriesSource: ["../../AaltoGlobalImpact.OIP/CategoryCollection/MasterCollection.json", null, "CategoryCollection"]
         }
     });
     $("#navbar_placeholder").data({
         datasource: {
-            GroupContainerSource: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
-            AccountContainer: fixContentUrl("/auth/account/AaltoGlobalImpact.OIP/AccountContainer/default")
+            GroupContainerSource: ["../../AaltoGlobalImpact.OIP/GroupContainer/default", null],
+            AccountContainer: [fixContentUrl("/auth/account/AaltoGlobalImpact.OIP/AccountContainer/default"), null]
         }
     });
 
@@ -365,7 +365,7 @@
             for(var key in dataSources)
             {
                 dataSourceKeys.push(key);
-                fetchContentPromises.push(dataSources[key]);
+                fetchContentPromises.push(dataSources[key][1]);
             }
         }
         var templateID = placeholderID.replace("_placeholder", "");
@@ -380,10 +380,21 @@
                 for(var i = 0; i < arguments.length - 1; i++)
                 {
                     var key = dataSourceKeys[i];
+                    var ds = dataSources[key];
+                    var url = ds[0];
+                    var jsonRootObjectName = ds[2];
+                    var isJSON = url.endsWith(".json");
                     var response = arguments[i][0];
                     var status = arguments[i][1];
                     var request = arguments[i][2];
-                    var jsonObj = xml2JSObj(response);
+                    var jsonObj;
+                    if(isJSON)
+                    {
+                        jsonObj = { };
+                        jsonObj[jsonRootObjectName] = response;
+                    } else {
+                        jsonObj = xml2JSObj(response);
+                    }
                     var eTag = request.getResponseHeader("ETag")
                     if(eTag == null)
                         eTag = "DefaultUndefined";
@@ -406,14 +417,14 @@
             return;
         for(var key in dataSources)
         {
-            var url = dataSources[key];
+            var url = dataSources[key][0];
             var urlPromise = DataPromiseCache[url];
             if(urlPromise == null)
             {
                 urlPromise = $.ajax({ url: url, cache:false});
                 DataPromiseCache[url] = urlPromise;
             }
-            dataSources[key] = urlPromise;
+            dataSources[key][1] = urlPromise;
         }
     };
     $(function() {
@@ -448,6 +459,14 @@
     $(function() {
         $('.demo-cancel-click').click(function(){return false;});
     });
+</script>
+
+<script type="text/javascript">
+    if (typeof String.prototype.endsWith !== 'function') {
+        String.prototype.endsWith = function(suffix) {
+            return this.indexOf(suffix, this.length - suffix.length) !== -1;
+        };
+    }
 </script>
 
 </body>
