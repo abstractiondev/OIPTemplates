@@ -309,7 +309,7 @@
 
     var fixContentUrl = function(originalUrl)
     {
-        if(window.location.hostname != "localhost")
+        if(window.location.host != "localhost:63342")
             return originalUrl;
         return originalUrl.replace("/auth/account/", "../../../ExtContent/auth/account/");
     };
