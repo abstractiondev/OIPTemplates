@@ -83,10 +83,9 @@
 </div>
 <div class="tab-pane fade" id="tab-content">
 <script type="text/javascript">
-    alert("KK!");
     $(function(){
         fancyFilter('.filter', '#gallery-media');
-        // load isotope when tab is shown
+        /* load isotope when tab is shown */
         $('a[data-toggle="tab"]').on('shown', function (e) {
             if ($(e.target).attr('href')=="#tab-media"){
                 $("#gallery-media").isotope({'filter':".cards"});
@@ -98,15 +97,6 @@
 <div>
 <form id="form-id-2" method="post" class="form-horizontal ">
 <fieldset id="current-imagegroups"><!-- id was current-imagegroups-->
-<script type="text/javascript">
-    $(document).ready(function(){
-
-        $("#toggler").click(function(){
-            $(this).toggleClass('active, inactive');
-        })
-
-    })
-</script>
 <ul class="filter nav nav-pills pull-left">
     <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
     <li class="active"><a href="#all" data-filter=".cards:not(.location)">All</a></li>
@@ -272,41 +262,6 @@
     <div class="clearfix"></div>
 </div>
 
-<!-- LEAFLET CODE -->
-<script>
-        $(document).ready(function(){
-    // set up the map
-    mediamap = new L.Map('by-location');
-
-    // create the tile layer with correct attribution
-    var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © OpenStreetMap contributors';
-var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttrib});
-    var mediamarkers = L.layerGroup();
-    mediamarkers.addTo(mediamap);
-
-    mediamap.setView(new L.LatLng(0,0),2);
-    mediamap.addLayer(osm);
-
-    $('a[data-toggle="tab"]').on('shown', function (e) {
-        if ($(e.target).attr('href')=="#tab-media"){
-            mediamap.invalidateSize();
-        }
-    });
-        $("a[href=#by-location]").click(function(){
-        $.getJSON("media-location.json",function(result){
-    mediamarkers.clearLayers();
-    var bounds = new L.LatLngBounds();
-        $.each(result.features, function(i,item){
-        mediamarkers.addLayer(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]]).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent).addTo(mediamap));
-        bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
-    });
-        mediamap.fitBounds(bounds);
-    });
-    });
-    });
-    </script>
-    <!-- LEAFLET CODE -->
     <footer>
         <div class="control-group controls pull-right">
             <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
@@ -473,14 +428,6 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
     {#GroupContainerSource.GroupContainer.Collaborators}
     <form  method="post" class="form-horizontal ">
         <fieldset id="collaborators-alt">
-            <script type="text/javascript">
-                $(document).ready(function(){
-
-                    $("#toggler").click(function(){
-                        $(this).toggleClass('active, inactive');
-                    });
-                });
-            </script>
             <div id="gallery-5" class="gallery" style="clear: both;">
             {#CollectionContent.Collaborator}
                 <div class="cards cards-profile pull-left">
@@ -557,113 +504,6 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
         some footer
     </footer>
 </div>
-<!-- LEAFLET CODE -->
-<script>
-        $(document).ready(function(){
-    // set up the map
-    map = new L.Map('location-map');
-
-    // create the tile layer with correct attribution
-var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-    var osmAttrib='Map data © OpenStreetMap contributors';
-var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttrib});
-
-    map.setView(new L.LatLng(0,0),12);
-    map.addLayer(osm);
-    // Layers (empty per themselves, but control the toggling)
-
-    var ActivitiesLayer = L.layerGroup();
-    ActivitiesLayer.addTo(map);
-    var NewsLayer = L.layerGroup();
-    NewsLayer.addTo(map);
-    var ProjectsLayer = L.layerGroup();
-    ProjectsLayer.addTo(map);
-    var EventsLayer = L.layerGroup();
-    EventsLayer.addTo(map);
-    var BlogsLayer = L.layerGroup();
-    BlogsLayer.addTo(map);
-
-    var activitiesText = GetLayerLabelText("Activities", ActivitiesMarkerIcon);
-    var newsText = GetLayerLabelText("News", NewsMarkerIcon);
-    var projectsText = GetLayerLabelText("Projects", ProjectsMarkerIcon);
-    var eventsText = GetLayerLabelText("Events", EventsMarkerIcon);
-    var blogsText = GetLayerLabelText("Blogs", BlogsMarkerIcon);
-
-    var overlayMaps = {};
-    overlayMaps[activitiesText] = ActivitiesLayer;
-    overlayMaps[newsText] = NewsLayer;
-    overlayMaps[projectsText] = ProjectsLayer;
-    overlayMaps[eventsText] = EventsLayer;
-    overlayMaps[blogsText] = BlogsLayer;
-
-
-    // Adding marker arrays
-    markers.addLayers(ActivitiesMarkers);
-    markers.addLayers(NewsMarkers);
-    markers.addLayers(ProjectsMarkers);
-    markers.addLayers(EventsMarkers);
-    markers.addLayers(BlogsMarkers);
-
-    map.addLayer(markers);
-    markers.addTo(map);
-
-    map.on("layeradd", function(e) {
-        if(e.layer == ActivitiesLayer)
-            markers.addLayers(ActivitiesMarkers);
-        if(e.layer == NewsLayer)
-            markers.addLayers(NewsMarkers);
-        if(e.layer == ProjectsLayer)
-            markers.addLayers(ProjectsMarkers);
-        if(e.layer == EventsLayer)
-            markers.addLayers(EventsMarkers);
-        if(e.layer == BlogsLayer)
-            markers.addLayers(BlogsMarkers);
-    });
-    map.on("layerremove", function(e) {
-        if(e.layer == ActivitiesLayer)
-            markers.removeLayers(ActivitiesMarkers);
-        if(e.layer == NewsLayer)
-            markers.removeLayers(NewsMarkers);
-        if(e.layer == ProjectsLayer)
-            markers.removeLayers(ProjectsMarkers);
-        if(e.layer == EventsLayer)
-            markers.removeLayers(EventsMarkers);
-        if(e.layer == BlogsLayer)
-            markers.removeLayers(BlogsMarkers);
-    });
-
-    L.control.layers(null, overlayMaps).addTo(map);
-
-    $("#view-location-profile").on('shown',function(){
-        map.invalidateSize();
-
-    });
-        $("a[href=#view-location-profile]").click(function(){
-    $("#view-location-profile .modal-header h2.title").html($(this).text());
-    map.setView(new L.LatLng($(this).attr("lat"),$(this).attr("lng")),12);
-        $.getJSON($(this).text().toLowerCase()+"-activities.json",function(result){
-        $.each(MarkerTypes,function(i,item){
-    eval(item+"Markers.length=0;");
-    eval("markers.removeLayers("+item+"Markers);");
-});
-    markers.clearLayers();
-    var bounds = new L.LatLngBounds();
-    $.each(result.features, function(i,item){
-        markersHolder = window[item.properties.markerType+"Markers"];
-        markersIcon = window[item.properties.markerType+"MarkerIcon"];
-        markersHolder.push(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]],{icon: markersIcon}).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent));
-        bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
-    });
-    $.each(MarkerTypes,function(i,item){
-        eval("markers.addLayers("+item+"Markers);");
-    });
-    map.fitBounds(bounds);
-});
-});
-
-});
-</script>
-<!-- LEAFLET CODE -->
 
 <div id="view-collaborator-profile" class="modal hide fade">
     <div class="modal-header">
@@ -730,15 +570,6 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttr
 <div>
 <form  method="post" class="form-horizontal ">
 <fieldset id="current-locations">
-<script type="text/javascript">
-        $(document).ready(function(){
-
-        $("#toggler").click(function(){
-    $(this).toggleClass('active, inactive');
-})
-
-})
-</script>
     <div id="gallery-3" class="gallery" style="clear: both;">
         <div class="cards cards-profile pull-left ">
             <span class="label pull-right hidden"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
@@ -894,3 +725,48 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 4, maxZoom: 15, attribution: osmAttr
 </div><!--.container-fluid-->
 </div><!--.content-->
 
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#toggler").click(function(){
+            $(this).toggleClass('active, inactive');
+        })
+
+    })
+</script>
+
+<!-- LEAFLET CODE -->
+<script>
+    $(document).ready(function(){
+        /* set up the map */
+        mediamap = new L.Map('by-location');
+
+        /* create the tile layer with correct attribution */
+        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        var osmAttrib='Map data © OpenStreetMap contributors';
+    var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttrib});
+            var mediamarkers = L.layerGroup();
+            mediamarkers.addTo(mediamap);
+
+            mediamap.setView(new L.LatLng(0,0),2);
+            mediamap.addLayer(osm);
+
+            $('a[data-toggle="tab"]').on('shown', function (e) {
+                if ($(e.target).attr('href')=="#tab-media"){
+                    mediamap.invalidateSize();
+                }
+            });
+                $("a[href=#by-location]").click(function(){
+                $.getJSON("media-location.json",function(result){
+            mediamarkers.clearLayers();
+            var bounds = new L.LatLngBounds();
+                $.each(result.features, function(i,item){
+        mediamarkers.addLayer(L.marker([item.geometry.coordinates[0], item.geometry.coordinates[1]]).bindPopup('<h2>'+item.properties.popupTitle+'</h2><br>'+item.properties.popupContent).addTo(mediamap));
+        bounds.extend([item.geometry.coordinates[0], item.geometry.coordinates[1]]);
+    });
+        mediamap.fitBounds(bounds);
+    });
+    });
+    });
+</script>
+<!-- LEAFLET CODE -->

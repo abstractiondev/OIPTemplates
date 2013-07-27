@@ -20,7 +20,8 @@
                     <div class="clearfix"></div>
                     <div class="image-data">
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-category"><i class="icon-remove-sign"></i></a></span>
-                        <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"><i class="icon-edit"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
+                                data-id="{ID}" data-categoryname="{CategoryName}" data-title="{Title}"><i class="icon-edit"></i></a></span>
                         <span class="title">{CategoryName}</span>
                     </div>
                 </div>
@@ -32,11 +33,30 @@
 
 <script>
     $(function() {
-        alert("Dn1");
         $(".open-categoryeditor").on("click",function () {
-            alert("KV!");
-            var contentinfo = $(this).data('contentinfo');
-            alert(contentinfo);
+            var contentinfo = $(this).data("contentinfo");
+            var id = $(this).data("id");
+            /* var inputField = $('.modal-body input[name=ContentSourceInfo]');*/
+            var inputField = $("#CategoryEditor_ContentSourceInfo");
+            inputField.val(contentinfo);
+
+            /* CategoryName */
+            var nameField = $("#CategoryEditor_CategoryName");
+            var nameName = id + "_CategoryName";
+            nameField.attr("name", nameName);
+            var nameValue = $(this).data("categoryname");
+            nameField.val(nameValue);
+
+            /* Title */
+            var titleField = $("#CategoryEditor_Title");
+            var titleName = id + "_Title";
+            titleField.attr("name", titleName);
+            var titleValue = $(this).data("title");
+            if(titleValue == null)
+                titleValue = "";
+            titleField.val(titleValue);
+
+            /* Show modal */
             $('#edit-category').modal('show');
         });
     });
@@ -49,25 +69,29 @@
             Edit Category
         </h3>
     </div>
-    <div class="modal-body">
-        <form method="post" class="form-horizontal" enctype="multipart/form-data">
-            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+    <form method="post" class="form-horizontal" enctype="multipart/form-data">
+        <div class="modal-body">
+            <input id="CategoryEditor_ContentSourceInfo" name="ContentSourceInfo" type="hidden" />
             <fieldset>
                 <div class="control-group">
-                    <!-- Text input-->
-                    <label for="name-image-group-input" class="control-label">Rename {location}</label>
+                    <label class="control-label" for="CategoryEditor_CategoryName">Category name</label>
                     <div class="controls">
-                        <input type="text" class="input-xlarge" placeholder="Image group 1">
-                        <p class="help-block">Supporting help text</p>
+                        <input name=""  id="CategoryEditor_CategoryName" type="text">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="CategoryEditor_Title">Title</label>
+                    <div class="controls">
+                        <input name=""  id="CategoryEditor_Title" type="text">
                     </div>
                 </div>
             </fieldset>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-        <button class="btn btn-primary">Save changes</button>
-    </div>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-primary" type="submit">Save changes</button>
+        </div>
+    </form>
 </div>
 <div id="remove-category" class="modal hide fade">
     <div class="modal-header">
