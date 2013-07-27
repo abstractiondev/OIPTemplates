@@ -10,7 +10,6 @@
             {#GroupContainerSource}
                 <input name="ContentSourceInfo" value="{GroupContainer.RelativeLocation}:{ETag}" type="hidden" />
             {/GroupContainerSource}
-        <!-- THEBALL-FORM-HIDDEN-FIELDS -->
         {#GroupProfile}
         <fieldset id="profile">
             <!-- group profile image and group icon image -->
@@ -19,18 +18,16 @@
                     <div class="control-group">
                         <label class="control-label">Group Profile Image</label>
                         <div class="controls">
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ProfileImage -->
-                            <!-- ImageData -->
+                            {#ProfileImage.ImageData}
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail" ><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                                <div class="fileupload-new thumbnail" ><img src="../../AaltoGlobalImpact.OIP/MediaContent/{ID}_256x256_crop.jpg" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
-                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                    <input type="file" id="{ID}" name="{ID}" />
                                     <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                            <!-- * -->
-                            <!-- THEBALL-CONTEXT-END:* -->
+                            {/ProfileImage.ImageData}
                         </div>
                     </div>
                 </div>
@@ -38,18 +35,16 @@
                     <div class="control-group">
                         <label class="control-label">Group Icon Image</label>
                         <div class="controls">
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:IconImage -->
-                            <!-- THEBALL-CONTEXT-OBJECT-BEGIN:ImageData -->
+                            {#IconImage.ImageData}
                             <div class="fileupload fileupload-new" data-provides="fileupload">
-                                <div class="fileupload-new thumbnail"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                                <div class="fileupload-new thumbnail"><img src="../../AaltoGlobalImpact.OIP/MediaContent/{ID}_64x64_crop.jpg" /></div>
                                 <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                 <div>
-                                    <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                    <input type="file" id="{ID}" name="{ID}" />
                                     <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                 </div>
                             </div>
-                            <!-- THEBALL-CONTEXT-END:* -->
-                            <!-- THEBALL-CONTEXT-END:* -->
+                            {/IconImage.ImageData}
                         </div>
                     </div>
                 </div>
