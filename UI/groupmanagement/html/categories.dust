@@ -14,7 +14,7 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                                                     {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
                                                     data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}
-                                                    {?Excerpt}data-title="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
+                                                    {?Excerpt}data-excerpt="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
                         <span class="title">{CategoryName}</span>
                         {?Title}<span class="title">{Title}</span>{/Title}
                         {?Excerpt}<span class="title">{Excerpt}</span>{/Excerpt}
@@ -119,7 +119,7 @@
                 <div class="control-group">
                     <label class="control-label">Category Image</label>
                     <div class="controls">
-                        <div id="CategoryEdit_FileUpload" class="fileupload fileupload-exists" data-provides="fileupload" data-name="">
+                        <div id="CategoryEdit_FileUpload" class="fileupload fileupload-exists" data-provides="fileupload" data-name="myimage">
                             <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
                             <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
                                 <img id="CategoryEdit_ExistingImage" src="">
