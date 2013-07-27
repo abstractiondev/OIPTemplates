@@ -13,8 +13,11 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-category"><i class="icon-remove-sign"></i></a></span>
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                                                     {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
-                                                    data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}><i class="icon-edit"></i></a></span>
+                                                    data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}
+                                                    {?Excerpt}data-title="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
                         <span class="title">{CategoryName}</span>
+                        {?Title}<span class="title">{Title}</span>{/Title}
+                        {?Excerpt}<span class="title">{Excerpt}</span>{/Excerpt}
                     </div>
                 </div>
 {/CategoriesSource.CategoryCollection.CollectionContent}
@@ -54,29 +57,19 @@
         }
     };
 
-    var PrepareCategoryEditForm = function()
-    {
-        var fileSubmitted = $("#CategoryEditor_ImageData").val();
-        if(Boolean(fileSubmitted))
-        {
-            alert("Clearing remove image cmd...");
-            var remCmd = $("#cmdCategoryEditor_RemoveImage");
-            remCmd.val("");
-            remCmd.attr("name", "");
-        }
-    };
-
     $(function() {
         $(".open-categoryeditor").on("click",function () {
             var me = $(this);
             ConnectInputField(me, "contentinfo", "CategoryEditor", "ContentSourceInfo", "", true);
             ConnectInputField(me, "categoryname", "CategoryEditor", "CategoryName", "");
             ConnectInputField(me, "title", "CategoryEditor", "Title", "");
+            ConnectInputField(me, "excerpt", "CategoryEditor", "Excerpt", "");
 
             var id = me.data("id");
             var imageid = me.data("imageid");
             var imageAddVisibility;
             var imageChangeAndRemoveVisibility;
+            /*
             if(imageid == null)
             {
                 imageAddVisibility = true;
@@ -86,23 +79,28 @@
                 imageAddVisibility = false;
                 imageChangeAndRemoveVisibility = true;
                 $("#CategoryEditor_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop.jpg");
+            } */
+            var fileuploadClass;
+            if(imageid != null)
+            {
+                fileuploadClass = "fileupload-exists";
+                $("#CategoryEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop.jpg");
+            } else {
+                fileuploadClass = "fileupload-new";
             }
-            $(".fileupload-preview img").remove();
-            $("#CategoryEditor_ImageData").val("");
-            SetElementVisibility("CategoryEditor_Image_Add", imageAddVisibility);
-            SetElementVisibility("CategoryEditor_Image_ChangeAndRemove", imageChangeAndRemoveVisibility);
-            SetElementName("CategoryEditor_ImageData", id + "_ImageData");
 
-            /* Show modal */
+            /*$(".fileupload-preview img").remove();
+            $("#CategoryEditor_ImageData").val(""); */
+            /*SetElementVisibility("CategoryEditor_Image_Add", imageAddVisibility);
+            SetElementVisibility("CategoryEditor_Image_ChangeAndRemove", imageChangeAndRemoveVisibility);
+            SetElementName("CategoryEditor_ImageData", id + "_ImageData");*/
+            var fileUploadCtrl = $("#CategoryEdit_FileUpload");
+            fileUploadCtrl.removeClass('fileupload-exists');
+            fileUploadCtrl.removeClass('fileupload-new');
+            fileUploadCtrl.addClass(fileuploadClass);
+            fileUploadCtrl.attr("data-name", "File_" + id + "_ImageData");
+
             $('#edit-category').modal('show');
-            $("#CategoryEditForm").submit(PrepareCategoryEditForm);
-            $("bCategoryEditor_RemoveImage").on("click", function()
-                    {
-                        var remCmd = $("#cmdCategoryEditor_RemoveImage");
-                        remCmd.val(id + "_ImageData");
-                        remCmd.attr("name", "cmdRemoveMedia");
-                        $("#CategoryEditor_ImageData").val(null);
-                    });
         });
     });
 </script>
@@ -121,22 +119,16 @@
                 <div class="control-group">
                     <label class="control-label">Category Image</label>
                     <div class="controls">
-                            <div class="fileupload fileupload-exists" data-provides="fileupload">
-                                <div id="CategoryEditor_Image_Add">
-                                    <div class="fileupload-new thumbnail" ><img id="CategoryEditor_ImgNew" /></div>
-                                </div>
-                                <div id="CategoryEditor_Image_ChangeAndRemove">
-                                    <a id="bCategoryEditor_RemoveImage" href="#" class="btn fileupload-new fileupload-exists" data-dismiss="fileupload">Remove</a>
-                                    <div class="fileupload-new thumbnail" ><img id="CategoryEditor_ExistingImage" /></div>
-                                </div>
-                                <input id="cmdCategoryEditor_RemoveImage" name="" type="hidden" />
-                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
-                                    <img id="CategoryEditor_ImgPre" />
-                                </div>
-                                <div>
-                                    <input type="file" id="CategoryEditor_ImageData" name="" />
-                                </div>
+                        <div id="CategoryEdit_FileUpload" class="fileupload fileupload-exists" data-provides="fileupload" data-name="">
+                            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
+                                <img id="CategoryEdit_ExistingImage" src="">
                             </div>
+                            <div>
+                                <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="control-group">
@@ -149,6 +141,12 @@
                     <label class="control-label" for="CategoryEditor_Title">Title</label>
                     <div class="controls">
                         <input name=""  id="CategoryEditor_Title" type="text">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="CategoryEditor_Excerpt">Excerpt</label>
+                    <div class="controls">
+                        <input name=""  id="CategoryEditor_Excerpt" type="text">
                     </div>
                 </div>
             </fieldset>
