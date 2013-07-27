@@ -312,13 +312,13 @@
     };
     $("#content_placeholder").data({
         datasource: {
-            GroupContainer: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
+            GroupContainerSource: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
             Locations: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection"
         }
     });
     $("#navbar_placeholder").data({
         datasource: {
-            GroupContainer: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
+            GroupContainerSource: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
             AccountContainer: fixContentUrl("/auth/account/AaltoGlobalImpact.OIP/AccountContainer/default")
         }
     });
@@ -380,7 +380,13 @@
                 {
                     var key = dataSourceKeys[i];
                     var response = arguments[i][0];
+                    var status = arguments[i][1];
+                    var request = arguments[i][2];
                     var jsonObj = xml2JSObj(response);
+                    var eTag = request.getResponseHeader("ETag")
+                    if(eTag == null)
+                        eTag = "DefaultUndefined";
+                    jsonObj["ETag"] = eTag;
                     dataObject[key] = jsonObj;
                 }
                 dustTemplateContent = arguments[arguments.length - 1][0];

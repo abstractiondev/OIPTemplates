@@ -5,8 +5,11 @@
 <div class="fancy-tab-container">
 <div class="tab-content">
 <div class="tab-pane fade in active" id="tab-identity">
-{#GroupContainer.GroupContainer}
+{#GroupContainerSource.GroupContainer}
         <form id="form-id-1" method="post" class="form-horizontal" enctype="multipart/form-data">
+            {#GroupContainerSource}
+                <input name="ContentSourceInfo" value="{GroupContainer.RelativeLocation}:{ETag}" type="hidden" />
+            {/GroupContainerSource}
         <!-- THEBALL-FORM-HIDDEN-FIELDS -->
         {#GroupProfile}
         <fieldset id="profile">
@@ -81,7 +84,7 @@
         </fieldset>
         {/GroupProfile}
     </form>
-{/GroupContainer.GroupContainer}
+{/GroupContainerSource.GroupContainer}
 </div>
 <div class="tab-pane fade" id="tab-content">
 <script type="text/javascript">
@@ -471,7 +474,7 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
 </div>
 <div class="tab-pane fade" id="tab-collaborators">
 <div>
-    {#GroupContainer.GroupContainer.Collaborators}
+    {#GroupContainerSource.GroupContainer.Collaborators}
     <form  method="post" class="form-horizontal ">
         <fieldset id="collaborators-alt">
             <script type="text/javascript">
@@ -511,7 +514,7 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
             </footer>
         </fieldset>
     </form>
-    {/GroupContainer.GroupContainer.Collaborators}
+    {/GroupContainerSource.GroupContainer.Collaborators}
 </div>
 
 <!-- modals collaborators -->

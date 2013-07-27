@@ -1,4 +1,4 @@
-{#GroupContainer.GroupContainer.GroupProfile}
+{#GroupContainerSource.GroupContainer.GroupProfile}
     <div class="navbar">
     <div class="navbar-inner">
         <ul class="nav pull-left">
@@ -11,7 +11,7 @@
                     <li><a tabindex="-1" href="www-preview.html">{GroupName}'s www-preview</a></li>
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
-{/GroupContainer.GroupContainer.GroupProfile}
+{/GroupContainerSource.GroupContainer.GroupProfile}
 {#AccountContainer.AccountContainer.AccountModule.Profile}
                     <li><a tabindex="-1" href="../../accountmanagement/html/account-management.html">{FirstName} {LastName}'s Account</a></li>
                     <li><a tabindex="-1" href="#">{FirstName} {LastName}'s Groups</a></li>
