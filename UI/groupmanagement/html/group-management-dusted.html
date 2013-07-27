@@ -313,7 +313,8 @@
     $("#content_placeholder").data({
         datasource: {
             GroupContainerSource: "../../AaltoGlobalImpact.OIP/GroupContainer/default",
-            Locations: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection"
+            Locations: "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection",
+            CategoriesSource: "../../AaltoGlobalImpact.OIP/CategoryCollection/MasterCollection"
         }
     });
     $("#navbar_placeholder").data({
@@ -416,9 +417,12 @@
         }
     };
     $(function() {
+
         $(".dustph").each(replaceDatasourceUrlsWithAjaxPromises).each(dustifyph);
     });
 </script>
+
+<script src="categories_dust.js"></script>
 
 <script>
     function getData( val ){

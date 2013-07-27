@@ -83,6 +83,7 @@
 </div>
 <div class="tab-pane fade" id="tab-content">
 <script type="text/javascript">
+    alert("KK!");
     $(function(){
         fancyFilter('.filter', '#gallery-media');
         // load isotope when tab is shown
@@ -465,7 +466,7 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 15, attribution: osmAttr
 </div>
 </div>
 <div class="tab-pane fade" id="tab-categories">
-    Categories...
+    {>"categories.dust"/}
 </div>
 <div class="tab-pane fade" id="tab-collaborators">
 <div>
