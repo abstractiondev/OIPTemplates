@@ -14,6 +14,7 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                                                     {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
                                                     data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}
+                                                    {?ParentCategory}data-parentcategory="{ParentCategory}"{/ParentCategory}
                                                     {?Excerpt}data-excerpt="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
                         <span class="title">{CategoryName}</span>
                         {?Title}<span class="title">{Title}</span>{/Title}
@@ -64,6 +65,7 @@
             ConnectInputField(me, "categoryname", "CategoryEditor", "CategoryName", "");
             ConnectInputField(me, "title", "CategoryEditor", "Title", "");
             ConnectInputField(me, "excerpt", "CategoryEditor", "Excerpt", "");
+            ConnectInputField(me, "parentcategory", "CategoryEditor", "ParentCategory", "");
 
             var id = me.data("id");
             var imageid = me.data("imageid");
@@ -147,6 +149,17 @@
                     <label class="control-label" for="CategoryEditor_Excerpt">Excerpt</label>
                     <div class="controls">
                         <input name=""  id="CategoryEditor_Excerpt" type="text">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="CategoryEditor_ParentCategory">Parent Category</label>
+                    <div class="controls">
+                        <select name="" id="CategoryEditor_ParentCategory">
+                            <option value="" selected>None</option>
+{#CategoriesSource.CategoryCollection.CollectionContent}
+                            <option name="{ID}" value="{ID}">{?Title}{Title}{:else}{CategoryName}{/Title}</option>
+{/CategoriesSource.CategoryCollection.CollectionContent}
+                        </select>
                     </div>
                 </div>
             </fieldset>
