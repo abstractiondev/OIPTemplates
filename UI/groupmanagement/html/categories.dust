@@ -27,7 +27,7 @@
     </fieldset>
 </div>
 <script>
-    var ConnectInputField = function(me, dataName, fieldIDPrefix, fieldName, defaultValue, suppressNameChange)
+    var ConnectInputField = function(me, dataName, fieldIDPrefix, fieldName, defaultValue, suppressNameChange, fieldTypePrefix)
     {
         var fieldID = fieldIDPrefix + "_" + fieldName;
         var content = me.data(dataName);
@@ -35,7 +35,7 @@
         var inputField = $("#" + fieldID);
 
         if(suppressNameChange == undefined || suppressNameChange == false) {
-            inputField.attr("name", id + "_" + fieldName);
+            inputField.attr("name", fieldTypePrefix + id + "_" + fieldName);
         }
         if(content == null && defaultValue) {
             content = defaultValue;
@@ -65,7 +65,7 @@
             ConnectInputField(me, "categoryname", "CategoryEditor", "CategoryName", "");
             ConnectInputField(me, "title", "CategoryEditor", "Title", "");
             ConnectInputField(me, "excerpt", "CategoryEditor", "Excerpt", "");
-            ConnectInputField(me, "parentcategory", "CategoryEditor", "ParentCategory", "");
+            ConnectInputField(me, "parentcategory", "CategoryEditor", "ParentCategory", "", false, "Object_");
 
             var id = me.data("id");
             var imageid = me.data("imageid");
