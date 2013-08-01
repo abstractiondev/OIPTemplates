@@ -358,6 +358,11 @@
         });
     };
 
+    String.prototype.replaceAll = function(strReplace, strWith) {
+        var reg = new RegExp(strReplace, 'ig');
+        return this.replace(reg, strWith);
+    };
+
     dustifyph = function() {
         var placeholderID = $(this).attr("id");
         var dataSources = $(this).data("datasource");
@@ -403,7 +408,7 @@
                                 var category = response.CollectionContent[i];
                                 if(category.Excerpt == undefined)
                                     category.Excerpt = "";
-                                var rendered = markdown.Transform(category.Excerpt);
+                                var rendered = markdown.Transform(category.Excerpt.replaceAll("javascript:", ""));
                                 category.ExcerptRendered = rendered;
                             }
                         }
