@@ -14,7 +14,7 @@
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                                                     {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
                                                     data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}
-                                                    {?ParentCategory}data-parentcategory="{ParentCategory}"{/ParentCategory}
+                                                    {?ParentCategory}data-parentcategory="{ParentCategory.ID}"{/ParentCategory}
                                                     {?Excerpt}data-excerpt="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
                         <span class="title">{CategoryName}</span>
                         {?Title}<span class="title">{Title}</span>{/Title}
