@@ -394,6 +394,19 @@
                     if(isJSON)
                     {
                         jsonObj = { };
+                        if(response.Name == "CategoryCollection")
+                        {
+                            var markdown = new MarkdownDeep.Markdown();
+                            markdown.SafeMode = true;
+                            for(var i = 0; i < response.CollectionContent.length; i++)
+                            {
+                                var category = response.CollectionContent[i];
+                                if(category.Excerpt == undefined)
+                                    category.Excerpt = "";
+                                var rendered = markdown.Transform(category.Excerpt);
+                                category.ExcerptRendered = rendered;
+                            }
+                        }
                         jsonObj[jsonRootObjectName] = response;
                     } else {
                         jsonObj = xml2JSObj(response);

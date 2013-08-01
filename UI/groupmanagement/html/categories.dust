@@ -18,7 +18,7 @@
                                                     {?Excerpt}data-excerpt="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
                         <span class="title">{CategoryName}</span>
                         {?Title}<span class="title">{Title}</span>{/Title}
-                        {?Excerpt}<span class="title">{Excerpt}</span>{/Excerpt}
+                        {?ExcerptRendered}<span class="title">{ExcerptRendered|s}</span>{/ExcerptRendered}
                     </div>
                 </div>
 {/CategoriesSource.CategoryCollection.CollectionContent}
