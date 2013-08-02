@@ -10,7 +10,8 @@
                 {/ImageData}
                     <div class="clearfix"></div>
                     <div class="image-data">
-                        <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-category"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" class="open-categorydelete" href="#category"
+                                                data-objectid="{ID}"><i class="icon-remove-sign"></i></a></span>
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                                                     {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
                                                     data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}
@@ -69,6 +70,11 @@
     });
   */
     $(function() {
+        $(".open-categorydelete").on("click", function() {
+            var me = $(this);
+            ConnectInputField(me, "objectid", "CategoryDelete", "ObjectID", "", true);
+            $('#delete-category').modal('show');
+        });
         $(".open-categoryeditor").on("click",function () {
             var me = $(this);
             ConnectInputField(me, "contentinfo", "CategoryEditor", "ContentSourceInfo", "", true);
@@ -170,30 +176,39 @@
         </div>
     </form>
 </div>
-<div id="remove-category" class="modal hide fade">
+<div id="delete-category" class="modal hide fade">
     <div class="modal-header">
         <button class="close" data-dismiss="modal">&times;</button>
         <h3>
-            Remove {location-name}
+            Delete Category
         </h3>
     </div>
-    <div class="modal-body">
-        <form method="post" class="form-horizontal">
-            <!-- THEBALL-FORM-HIDDEN-FIELDS -->
+    <form id="CategoryDeleteForm" method="post" class="form-horizontal" enctype="multipart/form-data">
+        <div class="modal-body">
+            <input id="CategoryDelete_ExecuteOperation" name="ExecuteOperation"
+                   value="DeleteSpecifiedInformationObject" type="hidden" />
+            <input id="CategoryDelete_ObjectDomainName" name="ObjectDomainName"
+                   value="AaltoGlobalImpact.OIP" type="hidden" />
+            <input id="CategoryDelete_ObjectName" name="ObjectName"
+                   value="Category" type="hidden" />
+            <input id="CategoryDelete_ObjectID" name="ObjectID"
+                   value="" type="hidden" />
             <fieldset>
                 <div class="control-group">
                     <!-- Text input-->
                     <label for="name-image-group-input" class="control-label">Remove</label>
                     <div class="controls">
+                        <!--
                         <input type="checkbox">
-                        <p class="help-block">If you remove {location} the location itself will become <em>unavailable</em> to {group-name}.</p>
+                        -->
+                        <p class="help-block">If you remove the category the links and tags to it will be <em>removed</em>.</p>
                     </div>
                 </div>
             </fieldset>
-        </form>
-    </div>
-    <div class="modal-footer">
-        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-        <button class="btn btn-danger">Remove Image Group</button>
-    </div>
+        </div>
+        <div class="modal-footer">
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+            <button class="btn btn-danger">Delete Category</button>
+        </div>
+    </form>
 </div>
