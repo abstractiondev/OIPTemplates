@@ -10,8 +10,9 @@
                 {/ImageData}
                     <div class="clearfix"></div>
                     <div class="image-data">
-                        <span class="pull-right"><a data-toggle="modal" role="button" class="open-categorydelete" href="#category"
-                                                data-objectid="{ID}"><i class="icon-remove-sign"></i></a></span>
+                        <span class="pull-right">
+                            {>"objectdeleteicon.dust" object_delete_title="{Title}" /}
+                        </span>
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-categoryeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                                                     {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
                                                     data-id="{ID}" data-categoryname="{CategoryName}" {?Title}data-title="{Title}"{/Title}
@@ -70,10 +71,13 @@
     });
   */
     $(function() {
-        $(".open-categorydelete").on("click", function() {
+        $(".open-objectdelete").on("click", function() {
             var me = $(this);
-            ConnectInputField(me, "objectid", "CategoryDelete", "ObjectID", "", true);
-            $('#delete-category').modal('show');
+            ConnectInputField(me, "objectid", "ObjectDelete", "ObjectID", "", true);
+            ConnectInputField(me, "domainname", "ObjectDelete", "ObjectDomainName", "", true);
+            ConnectInputField(me, "objectname", "ObjectDelete", "ObjectName", "", true);
+            $("#DeleteObjectFormHeader").html("Delete " + me.data("objectname") + ": '" + me.data("deletetitle") + "'?");
+            $('#delete-object').modal('show');
         });
         $(".open-categoryeditor").on("click",function () {
             var me = $(this);
@@ -176,39 +180,39 @@
         </div>
     </form>
 </div>
-<div id="delete-category" class="modal hide fade">
+<div id="delete-object" class="modal hide fade">
     <div class="modal-header">
         <button class="close" data-dismiss="modal">&times;</button>
-        <h3>
-            Delete Category
+        <h3 id="DeleteObjectFormHeader">
+            Delete Object
         </h3>
     </div>
-    <form id="CategoryDeleteForm" method="post" class="form-horizontal" enctype="multipart/form-data">
+    <form id="ObjectDeleteForm" method="post" class="form-horizontal" enctype="multipart/form-data">
         <div class="modal-body">
-            <input id="CategoryDelete_ExecuteOperation" name="ExecuteOperation"
+            <input id="ObjectDelete_ExecuteOperation" name="ExecuteOperation"
                    value="DeleteSpecifiedInformationObject" type="hidden" />
-            <input id="CategoryDelete_ObjectDomainName" name="ObjectDomainName"
-                   value="AaltoGlobalImpact.OIP" type="hidden" />
-            <input id="CategoryDelete_ObjectName" name="ObjectName"
-                   value="Category" type="hidden" />
-            <input id="CategoryDelete_ObjectID" name="ObjectID"
+            <input id="ObjectDelete_ObjectDomainName" name="ObjectDomainName"
+                   value="" type="hidden" />
+            <input id="ObjectDelete_ObjectName" name="ObjectName"
+                   value="" type="hidden" />
+            <input id="ObjectDelete_ObjectID" name="ObjectID"
                    value="" type="hidden" />
             <fieldset>
                 <div class="control-group">
                     <!-- Text input-->
-                    <label for="name-image-group-input" class="control-label">Remove</label>
+                    <label for="name-image-group-input" class="control-label">Delete...</label>
                     <div class="controls">
                         <!--
                         <input type="checkbox">
                         -->
-                        <p class="help-block">If you remove the category the links and tags to it will be <em>removed</em>.</p>
+                        <p class="help-block">If you delete this object the links and tags to it will be <em>removed</em> from other objects.</p>
                     </div>
                 </div>
             </fieldset>
         </div>
         <div class="modal-footer">
-            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-            <button class="btn btn-danger">Delete Category</button>
+            <button aria-hidden="true" data-dismiss="modal" class="btn">Cancel</button>
+            <button class="btn btn-danger">Delete</button>
         </div>
     </form>
 </div>
