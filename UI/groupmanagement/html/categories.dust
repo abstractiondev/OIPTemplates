@@ -122,11 +122,7 @@
             fileUploadCtrl.addClass(fileuploadClass);
             fileUploadCtrl.attr("data-name", "File_" + id + "_ImageData");
 
-            $("textarea.mdd_editor").MarkdownDeep({
-                help_location: "../assets/lib/markdowndeep/mdd_help.html",
-                disableTabHandling:true
-            });
-
+            InitializeModalClasses();
             $('#edit-category').modal('show');
         });
     });
