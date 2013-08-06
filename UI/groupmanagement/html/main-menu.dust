@@ -10,13 +10,13 @@
         </select>
     </div>
     <ul class="nav nav-tabs">
+        <li ><a data-toggle="modal" role="button" href="#" class="open-addtextcontent" ><i class="icon-plus-sign"></i> <span>Text Content</span></a></li>
+        <li ><a data-toggle="modal" role="button" href="#add-activity"><i class="icon-plus-sign"></i> <span>Activity</span></a></li>
         <li ><a data-toggle="modal" role="button" href="#add-image"><i class="icon-plus-sign"></i> <span>Image</span></a></li>
         <li ><a data-toggle="modal" role="button" href="#add-file"><i class="icon-plus-sign"></i> <span>File</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#add-activity"><i class="icon-plus-sign"></i> <span>Activity</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#add-story" ><i class="icon-plus-sign"></i> <span>Story</span></a></li>
-        <li ><a data-toggle="modal" role="button" href="#invite-collaborator"><i class="icon-plus-sign"></i>Collaborator</a></li>
         <li ><a data-toggle="modal" role="button" href="#add-location"><i class="icon-plus-sign"></i>Location</a></li>
-        <li ><a data-toggle="modal" role="button" class="open-addcategory" href="#"><i class="icon-plus-sign"></i>Category</a></li>
+        <li ><a data-toggle="modal" role="button" href="#" class="open-addcategory"><i class="icon-plus-sign"></i>Category</a></li>
+        <li ><a data-toggle="modal" role="button" href="#invite-collaborator"><i class="icon-plus-sign"></i>Collaborator</a></li>
     </ul>
 </div><!-- .main-menu -->
 <!-- main-menu modals -->
@@ -130,6 +130,38 @@
         <button class="btn btn-primary">Save changes</button>
     </div>
 </div>
+<div id="add-textcontent" class="modal hide fade">
+    <div class="modal-header">
+        <button class="close" data-dismiss="modal">&times;</button>
+        <h3>
+            Add text content
+        </h3>
+    </div>
+    <div class="modal-body">
+        <form method="post" class="form-horizontal" enctype="multipart/form-data">
+            <fieldset>
+                <input type="hidden" name="ObjectDomainName" value="AaltoGlobalImpact.OIP" />
+                <input type="hidden" name="ObjectName" value="TextContent" />
+                <input type="hidden" name="ExecuteOperation" value="CreateSpecifiedInformationObjectWithValues" />
+                {>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
+                {>"textinput_singleline.dust" field_id="AddTextContent_Title"
+                field_name="Title" field_label="Title" /}
+                {>"textinput_singleline.dust" field_id="AddTextContent_SubTitle"
+                field_name="SubTitle" field_label="SubTitle" /}
+                {>"textinput_singleline.dust" field_id="AddTextContent_Author"
+                field_name="Author" field_label="Author" /}
+                {>"textinput_multiline_markdown.dust" field_id="AddTextContent_Excerpt"
+                field_name="Excerpt" field_label="Excerpt" /}
+                {>"textinput_multiline_markdown.dust" field_id="AddTextContent_Body"
+                field_name="Body" field_label="Body" /}
+            </fieldset>
+            <div class="modal-footer">
+                <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
+                <button class="btn btn-primary">Save changes</button>
+            </div>
+        </form>
+    </div>
+</div>
 <div id="add-category" class="modal hide fade">
     <div class="modal-header">
         <button class="close" data-dismiss="modal">&times;</button>
@@ -193,6 +225,11 @@
         $(".open-addcategory").on("click", function() {
             InitializeModalClasses();
             $('#add-category').modal('show');
+        });
+
+        $(".open-addtextcontent").on("click", function() {
+            InitializeModalClasses();
+            $('#add-textcontent').modal('show');
         });
     });
 

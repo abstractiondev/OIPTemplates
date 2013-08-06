@@ -26,10 +26,10 @@
 <ul class="filter nav nav-pills pull-left">
     <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
     <li class="active"><a href="#all" data-filter=".cards:not(.location)">All</a></li>
+    <li><a href="#texts" data-filter=".texts">Texts</a></li>
+    <li><a href="#activities" data-filter=".activities">Activities</a></li>
     <li><a href="#images" data-filter=".images">Images</a></li>
-    <li><a href="#videos" data-filter=".files">Files</a></li>
-    <li><a href="#videos" data-filter=".activities">Activities</a></li>
-    <li><a href="#videos" data-filter=".stories">Stories</a></li>
+    <li><a href="#files" data-filter=".files">Files</a></li>
 </ul>
 <ul class="filter nav nav-pills pull-right">
     <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px">View as: </li>
@@ -39,6 +39,43 @@
     <li><a href="#by-collaborator" data-filter=".collaborator" title="show media by collaborator"><i class="icon-user"></i> </a></li>
 </ul>
 <div id="gallery-media" class="gallery" style="clear: both;">
+    {>"textcontents.dust" /}
+    <div class="cards cards-profile pull-left images">
+        <span class="label pull-right"><a href="#view-collaborator-profile-sujil" data-toggle="modal" role="button">Sujil Kodathoor</a></span>
+        <header>Beach Bahamas</header>
+        <section>
+            <img src="../assets/img/dummy/admin-theme/gallery/9.jpg" style="width:200px; height: 100%;">
+            <div class="clearfix"></div>
+            <ul class="nav nav-tabs three-tabs" id="profile-card-tab-1">
+                <li class="active"><a data-toggle="tab" href="#by-project-1"> <i class="icon-file"></i></a></li>
+                <li class=""><a data-toggle="tab" href="#by-date-1"><i class="icon-calendar"></i></a></li>
+                <li class=""><a data-toggle="tab" href="#by-location-1"><i class="icon-map-marker"></i></a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="by-project-1" class="tab-pane fade active in">
+                    <span><a href="#view-project-profile" data-toggle="modal">MOA event Helsinki</a></span>
+                    <span><a href="##" data-toggle="modal">BoP blog post</a></span>
+                    <span><a href="##" data-toggle="modal">Sanitation in Sahara</a></span>
+                </div>
+                <div id="by-date-1" class="tab-pane fade ">
+                    <span><a href="#view-group-profile" data-toggle="modal">12 May 2013</a> </span>
+                    <span>23 April 2013</span>
+                    <span>17 April 2013</span>
+                </div>
+                <div id="by-location-1" class="tab-pane fade">
+                    <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
+                    <span>Delhi</span>
+                    <span>Amsterdam</span>
+                    <span>Barcelona</span>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <footer>
+            <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-media-card" class="remove"><i class="icon-remove-sign"></i></a></span>
+            <span class="pull-right"><a data-toggle="modal" role="button" href="#view-media-card"><i class="icon-eye-open"></i></a></span>
+        </footer>
+    </div>
 
     <div class="cards cards-profile pull-left images">
         <span class="label pull-right"><a href="#view-collaborator-profile-sujil" data-toggle="modal" role="button">Sujil Kodathoor</a></span>
@@ -190,10 +227,7 @@
 
     <footer>
         <div class="control-group controls pull-right">
-            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                <button value="true" name="btnCancel" class="btn">Cancel</button>
-                <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-            </div>
+            <p>Content footer</p>
         </div>
     </footer>
     </fieldset>
