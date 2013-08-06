@@ -1,1 +1,1 @@
-CAT {?Title}{Title}{:else}{CategoryName}{/Title}
+{?Title}{Title}{:else}{CategoryName}{/Title}

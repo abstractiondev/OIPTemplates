@@ -21,7 +21,6 @@
     });
 </script>
 <div>
-<form id="form-id-2" method="post" class="form-horizontal ">
 <fieldset id="current-imagegroups"><!-- id was current-imagegroups-->
 <ul class="filter nav nav-pills pull-left">
     <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
@@ -231,7 +230,6 @@
         </div>
     </footer>
     </fieldset>
-    </form>
     <!-- admin-group-media modals -->
     <div id="view-collaborator-profile-sujil" class="modal hide fade">
         <div class="modal-header">

@@ -22,6 +22,8 @@
                             {?Author}data-author="{Author}" {/Author}
                             {?Excerpt}data-excerpt="{Excerpt}" {/Excerpt}
                             {?Body}data-body="{Body}" {/Body}
+                            data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
+                            data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
                             ><i class="icon-edit"></i></a></span>
                     <span class="title">{Title}</span>
                     {?SubTitle}<span class="title">{SubTitle}</span>{/SubTitle}
@@ -34,40 +36,6 @@
 </div>
 {/TextContentsSource.TextContentCollection.CollectionContent}
 <script>
-    var ConnectInputField = function(me, dataName, fieldIDPrefix, fieldName, defaultValue, suppressNameChange, fieldTypePrefix)
-    {
-        var fieldID = fieldIDPrefix + "_" + fieldName;
-        var content = me.data(dataName);
-        var id = me.data("id");
-        var inputField = $("#" + fieldID);
-
-        if(fieldTypePrefix == undefined)
-            fieldTypePrefix = "";
-
-        if(suppressNameChange == undefined || suppressNameChange == false) {
-            inputField.attr("name", fieldTypePrefix + id + "_" + fieldName);
-        }
-        if(content == null && defaultValue) {
-            content = defaultValue;
-        }
-        inputField.val(content);
-    };
-
-    var SetElementName = function(id, name)
-    {
-        $("#" + id).attr("name", name);
-    };
-
-    var SetElementVisibility = function(id, isVisible)
-    {
-        var activeElement = $("#" + id);
-        if(isVisible) {
-            activeElement.show();
-        } else {
-            activeElement.hide();
-        }
-    };
-
 /*    $(function() {
         $("textarea.mdd_editor").MarkdownDeep({
             help_location: "../assets/lib/markdowndeep/mdd_help.html",
@@ -92,6 +60,9 @@
             ConnectInputField(me, "author", "TextContentEditor", "Author", "");
             ConnectInputField(me, "excerpt", "TextContentEditor", "Excerpt", "");
             ConnectInputField(me, "body", "TextContentEditor", "Body", "");
+            ConnectInputField(me, "categories", "TextContentEditor", "Categories", "", false, "Object_", true);
+            ConnectInputField(me, "locations", "TextContentEditor", "Locations", "", false, "Object_", true);
+
             /*
             ConnectInputField(me, "parentcategory", "TextContentEditor", "ParentCategory", "", false, "Object_");
             */
@@ -127,6 +98,7 @@
             Edit Text Content
         </h3>
     </div>
+
     <form id="TextContentditForm" method="post" class="form-horizontal" enctype="multipart/form-data">
         <div class="modal-body">
             <input id="TextContentEditor_ContentSourceInfo" name="ContentSourceInfo" type="hidden" />
@@ -146,13 +118,17 @@
                         </div>
                     </div>
                 </div>
-
-
                 {>"textinput_singleline.dust" field_id="TextContentEditor_Title" field_label="Title" /}
                 {>"textinput_singleline.dust" field_id="TextContentEditor_SubTitle" field_label="SubTitle" /}
                 {>"textinput_singleline.dust" field_id="TextContentEditor_Author" field_label="Author" /}
                 {>"textinput_multiline_markdown.dust" field_id="TextContentEditor_Excerpt" field_label="Excerpt" /}
                 {>"textinput_multiline_markdown.dust" field_id="TextContentEditor_Body" field_label="Body" /}
+                {>"dropdown_select.dust" field_id="TextContentEditor_Categories" is_multiple="true"
+                item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
+                field_label="Categories" field_name="Categories" /}
+                {>"dropdown_select.dust" field_id="TextContentEditor_Locations" is_multiple="true"
+                item_collection=Locations.AddressAndLocationCollection.CollectionContent.AddressAndLocation item_type="location"
+                field_label="Locations" field_name="Locations" /}
             </fieldset>
         </div>
         <div class="modal-footer">
