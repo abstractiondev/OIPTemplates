@@ -515,7 +515,20 @@
             disableTabHandling:true
         });
     }
+
+/*
+    $(".open-objectdelete").on("click", function() {
+        var me = $(this);
+        ConnectInputField(me, "objectid", "ObjectDelete", "ObjectID", "", true);
+        ConnectInputField(me, "domainname", "ObjectDelete", "ObjectDomainName", "", true);
+        ConnectInputField(me, "objectname", "ObjectDelete", "ObjectName", "", true);
+        $("#DeleteObjectFormHeader").html("Delete " + me.data("objectname") + ": '" + me.data("deletetitle") + "'?");
+        $('#delete-object').modal('show');
+    });
+*/
 </script>
+
+<script src="../assets/dust/common_modals_dust.js"></script>
 
 </body>
 </html>
