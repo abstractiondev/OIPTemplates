@@ -1,0 +1,1 @@
+(function(){dust.register("devices.dust",body_0);function body_0(chk,ctx){return chk.write("devices");}return body_0;})();

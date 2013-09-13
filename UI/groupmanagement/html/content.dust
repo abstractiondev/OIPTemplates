@@ -385,7 +385,6 @@
 <div>
     {>"collaborators.dust"/}
 </div>
-
 <!-- modals collaborators -->
 <div id="view-project-profile" class="modal hide fade">
     <div class="modal-header">
@@ -613,6 +612,12 @@
     </div>
 </div>
     <!-- end modals locations-->
+</div>
+<div class="tab-pane fade" id="tab-devices">
+    {>"devices.dust"/}
+</div>
+<div class="tab-pane fade" id="tab-inputs">
+    {>"inputs.dust"/}
 </div>
 <div class="tab-pane fade" id="tab-delete">
     <form  method="post" class="form-horizontal ">
