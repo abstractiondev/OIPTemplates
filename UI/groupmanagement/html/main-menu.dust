@@ -133,10 +133,12 @@
         <button class="btn btn-primary">Save changes</button>
     </div>
 </div>
-{>"modal_addobject_begin.dust" form_name="informationinput" header_title="Add Information Input" object_domain="TheBall.CORE" object_type="InformationInput" prefix="pre" /}
+{>"modal_executeoperation_begin.dust" form_name="informationinput" header_title="Add Information Input" operation_name="CreateInformationInput" /}
     {>"textinput_singleline.dust" field_id="AddInformationInput_LocationURL"
     field_name="LocationURL" field_label="Location URL" /}
-{>"modal_addobject_end.dust" /}
+    {>"textinput_multiline.dust" field_id="AddInformationInput_InputDescription"
+    field_name="InputDescription" field_label="Input Description" /}
+{>"modal_executeoperation_end.dust" /}
 
 {>"modal_addobject_begin.dust" form_name="textcontent" header_title="Add Text Content" object_domain="AaltoGlobalImpact.OIP" object_type="TextContent" /}
     {>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
@@ -205,7 +207,7 @@
 
         $(".open-addinformationinput").on("click", function() {
             InitializeModalClasses();
-            $('#add-informationinput').modal('show');
+            $('#execute-informationinput').modal('show');
         });
     });
 
