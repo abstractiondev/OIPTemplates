@@ -6,6 +6,7 @@
             <option value="#tab-categories" data-toggle="tab" a href="#tab-categories"> Categories</option>
             <option value="#tab-collaborators" data-toggle="tab"  a href="#tab-collaborators"> Collaborators</option>
             <option value="#tab-locations-current" data-toggle="tab"  a href="#tab-locations-current"> Locations</option>
+            <option value="#tab-devices" data-toggle="tab"  a href="#tab-devices"> Device Connections</option>
             <option value="#tab-delete" data-toggle="tab" style="color:red"  a href="#tab-delete"> Delete</option>
         </select>
     </div>
