@@ -1,0 +1,43 @@
+[
+        {
+            "id": 1,
+            "title":"Beach Bahamas",
+            "author":"Sujil Kodathoor",
+            "location":"Helsinki",
+            "group":"AGI",
+            "category":"Story",
+            "type":"image",
+            "start":"2012-05-12T00:00Z"
+        },
+        {
+            "id": 2,
+            "title":"Metro Paris",
+            "author":"Sujil Kodathoor",
+            "location":"Helsinki",
+            "group":"AGI",
+            "category":"Event",
+            "type":"image",
+            "start":"2012-04-23T00:00Z"
+        },
+        {
+            "id": 3,
+            "title":"Sidney on Saturday",
+            "author":"Sujil Kodathoor",
+            "location":"Helsinki",
+            "group":"AGI",
+            "category":"Event",
+            "type":"image",
+            "start":"2012-04-17T00:00Z"
+        },
+        {
+            "id": 4,
+            "title":"Sunset San-Francisco",
+            "author":"Sujil Kodathoor",
+            "location":"Delhi",
+            "group":"AGI",
+            "category":"News",
+            "type":"image",
+            "start":"2012-05-12T00:00Z"
+        }
+
+]
