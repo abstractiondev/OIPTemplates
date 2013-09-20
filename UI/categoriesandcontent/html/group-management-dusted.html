@@ -534,8 +534,14 @@
     });
 */
 </script>
-
 <script src="../assets/dust/common_modals_dust.js"></script>
+<div id="common_modals_ph">
 
+</div>
+<script type="text/javascript">
+    dust.render("common_modals.dust", null, function(err, out) {
+        $("#common_modals_ph").html(out);
+    });
+</script>
 </body>
 </html>
