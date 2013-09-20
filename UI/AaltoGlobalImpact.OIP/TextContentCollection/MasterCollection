@@ -1,0 +1,626 @@
+﻿<TextContentCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CollectionContent>
+    <TextContent>
+      <Author />
+      <Body>Tytöille *suunnatut* **kerhot** pitempi kuvaus.</Body>
+      <Categories>
+        <CollectionContent>
+          <Category>
+            <CategoryName>MonikulttuurinenKoulu</CategoryName>
+            <Excerpt>Monikulttuurinen koulu kuvaus</Excerpt>
+            <ID>08a6ae1e-8f55-403a-bff2-8dedd5391dd2</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>Uteliaisuus</CategoryName>
+              <Excerpt />
+              <ID>f4034adb-87e7-4b33-be45-6eb1cafaf179</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>d539be33-2154-49b2-96f9-338dfa76b9c0</ID>
+                <MasterETag>"0x8D080E0CBA59F68"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/d539be33-2154-49b2-96f9-338dfa76b9c0</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>Uteliaisuus</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_f4034adb-87e7-4b33-be45-6eb1cafaf179_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/f4034adb-87e7-4b33-be45-6eb1cafaf179</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Uteliaisuus</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>cdea2df9-fe03-4d5e-b5c9-d16cc28cc378</ID>
+              <MasterETag>"0x8D080E10E3766B8"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/cdea2df9-fe03-4d5e-b5c9-d16cc28cc378</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>MonikulttuurinenKoulu</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_08a6ae1e-8f55-403a-bff2-8dedd5391dd2_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/08a6ae1e-8f55-403a-bff2-8dedd5391dd2</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Monikulttuurinen koulu</Title>
+          </Category>
+          <Category>
+            <CategoryName>EriytetytKerhot</CategoryName>
+            <Excerpt>Eriytetyt kerhot on suunnattu tietyille ryhmille.</Excerpt>
+            <ID>499939d1-0758-4a05-a363-fef94ba09e08</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory i:nil="true" />
+            <ReferenceToInformation>
+              <ID>0ebe094b-4412-40d3-8b72-e873a62c965d</ID>
+              <MasterETag>"0x8D080FAB80313C2"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/0ebe094b-4412-40d3-8b72-e873a62c965d</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>EriytetytKerhot</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_499939d1-0758-4a05-a363-fef94ba09e08_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/499939d1-0758-4a05-a363-fef94ba09e08</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Eriytetyt kerhot</Title>
+          </Category>
+        </CollectionContent>
+        <ID>56d64ef0-5b8e-4e47-a844-ea1763348595</ID>
+        <IsCollectionFiltered>false</IsCollectionFiltered>
+        <MasterETag i:nil="true" />
+        <Name>CategoryCollection</Name>
+        <OrderFilterIDList xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/56d64ef0-5b8e-4e47-a844-ea1763348595</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Categories>
+      <Excerpt>Tytöille suunnatut kerhot.</Excerpt>
+      <ID>6bcd924d-fbf9-4e22-bcac-59f6f6dc65ab</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D080FB00B7A021"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContent/6bcd924d-fbf9-4e22-bcac-59f6f6dc65ab</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle />
+      <Title>Tyttöjen kerhot</Title>
+    </TextContent>
+    <TextContent>
+      <Author />
+      <Body>Laajempi kuvaus</Body>
+      <Categories>
+        <CollectionContent>
+          <Category>
+            <CategoryName>PsykofyysinenHyvinvointi</CategoryName>
+            <Excerpt>Psykofyysinen hyvinvointi kuvaus.</Excerpt>
+            <ID>179a1bf6-0ab2-468b-8b9d-1d1193c0a72f</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>Uteliaisuus</CategoryName>
+              <Excerpt />
+              <ID>f4034adb-87e7-4b33-be45-6eb1cafaf179</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>d539be33-2154-49b2-96f9-338dfa76b9c0</ID>
+                <MasterETag>"0x8D080E0CBA59F68"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/d539be33-2154-49b2-96f9-338dfa76b9c0</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>Uteliaisuus</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_f4034adb-87e7-4b33-be45-6eb1cafaf179_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/f4034adb-87e7-4b33-be45-6eb1cafaf179</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Uteliaisuus</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>184f9d5f-7a02-4e36-832d-f7f90800a048</ID>
+              <MasterETag>"0x8D080E13F88D418"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/184f9d5f-7a02-4e36-832d-f7f90800a048</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>PsykofyysinenHyvinvointi</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_179a1bf6-0ab2-468b-8b9d-1d1193c0a72f_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/179a1bf6-0ab2-468b-8b9d-1d1193c0a72f</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Psykofyysinen hyvinvointi</Title>
+          </Category>
+          <Category>
+            <CategoryName>EriytetytKerhot</CategoryName>
+            <Excerpt>Eriytetyt kerhot on suunnattu tietyille ryhmille.</Excerpt>
+            <ID>499939d1-0758-4a05-a363-fef94ba09e08</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory i:nil="true" />
+            <ReferenceToInformation>
+              <ID>0ebe094b-4412-40d3-8b72-e873a62c965d</ID>
+              <MasterETag>"0x8D080FAB80313C2"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/0ebe094b-4412-40d3-8b72-e873a62c965d</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>EriytetytKerhot</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_499939d1-0758-4a05-a363-fef94ba09e08_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/499939d1-0758-4a05-a363-fef94ba09e08</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Eriytetyt kerhot</Title>
+          </Category>
+        </CollectionContent>
+        <ID>4228a642-63e2-477f-8497-f52759822a43</ID>
+        <IsCollectionFiltered>false</IsCollectionFiltered>
+        <MasterETag i:nil="true" />
+        <Name>CategoryCollection</Name>
+        <OrderFilterIDList xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/4228a642-63e2-477f-8497-f52759822a43</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Categories>
+      <Excerpt>Erityistä tukea tarjoavat kerhot</Excerpt>
+      <ID>95c3a569-8449-41ec-b417-7ad7f53d6303</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D080FB49D6D7EB"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContent/95c3a569-8449-41ec-b417-7ad7f53d6303</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle />
+      <Title>Erityisen tuen kerhot</Title>
+    </TextContent>
+    <TextContent>
+      <Author>Kalle</Author>
+      <Body>Pitempi body.</Body>
+      <Categories>
+        <CollectionContent>
+          <Category>
+            <CategoryName>Liikuntakerhot</CategoryName>
+            <Excerpt>Liikuntakerhojen kuvaus...</Excerpt>
+            <ID>43f7793a-f1fb-407f-bd63-2d7560071e03</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>KoulunKerhotoiminta</CategoryName>
+              <Excerpt />
+              <ID>755f3d94-0b0f-4daa-858e-78e65062cda3</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>ff431a38-996f-4982-98b4-378af42c7203</ID>
+                <MasterETag>"0x8D080EE37F64728"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/ff431a38-996f-4982-98b4-378af42c7203</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>KoulunKerhotoiminta</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_755f3d94-0b0f-4daa-858e-78e65062cda3_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/755f3d94-0b0f-4daa-858e-78e65062cda3</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Koulun kerhotoiminta</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>f6163b37-f069-4d1e-a699-b7aeae33d0d2</ID>
+              <MasterETag>"0x8D080F232294E18"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/f6163b37-f069-4d1e-a699-b7aeae33d0d2</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Liikuntakerhot</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_43f7793a-f1fb-407f-bd63-2d7560071e03_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/43f7793a-f1fb-407f-bd63-2d7560071e03</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Liikuntakerhot</Title>
+          </Category>
+        </CollectionContent>
+        <ID>37229591-9169-4ce8-b213-9c6c047d54b8</ID>
+        <IsCollectionFiltered>false</IsCollectionFiltered>
+        <MasterETag i:nil="true" />
+        <Name>CategoryCollection</Name>
+        <OrderFilterIDList xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/37229591-9169-4ce8-b213-9c6c047d54b8</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Categories>
+      <Excerpt>Pitempi kuvaus.</Excerpt>
+      <ID>9cd94bec-2207-4969-9eb9-dd727a6f2240</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D080F98BBE1FBC"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContent/9cd94bec-2207-4969-9eb9-dd727a6f2240</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle />
+      <Title>Liikuntakerho asia 2</Title>
+    </TextContent>
+    <TextContent>
+      <Author>Ilona Sammalkorpi</Author>
+      <Body />
+      <Categories>
+        <CollectionContent>
+          <Category>
+            <CategoryName>KielitietoinenKoulu</CategoryName>
+            <Excerpt>Kielitietoinen koulu kuvaus</Excerpt>
+            <ID>e38991dd-b529-4e0e-94c2-dd94b1699689</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>Uteliaisuus</CategoryName>
+              <Excerpt />
+              <ID>f4034adb-87e7-4b33-be45-6eb1cafaf179</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>d539be33-2154-49b2-96f9-338dfa76b9c0</ID>
+                <MasterETag>"0x8D080E0CBA59F68"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/d539be33-2154-49b2-96f9-338dfa76b9c0</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>Uteliaisuus</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_f4034adb-87e7-4b33-be45-6eb1cafaf179_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/f4034adb-87e7-4b33-be45-6eb1cafaf179</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Uteliaisuus</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>aad61a2e-bcfe-45df-8bef-fb6432e2c0d9</ID>
+              <MasterETag>"0x8D080E120AC9728"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/aad61a2e-bcfe-45df-8bef-fb6432e2c0d9</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>KielitietoinenKoulu</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_e38991dd-b529-4e0e-94c2-dd94b1699689_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/e38991dd-b529-4e0e-94c2-dd94b1699689</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Kielitietoinen koulu</Title>
+          </Category>
+          <Category>
+            <CategoryName>Tarinoita</CategoryName>
+            <Excerpt />
+            <ID>98da7499-8066-4687-a276-6fbea9d0cbfa</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory i:nil="true" />
+            <ReferenceToInformation>
+              <ID>8e604093-83c6-4876-ac23-0b053030ec89</ID>
+              <MasterETag>"0x8D080ECAFBAE6A8"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/8e604093-83c6-4876-ac23-0b053030ec89</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Tarinoita</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_98da7499-8066-4687-a276-6fbea9d0cbfa_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/98da7499-8066-4687-a276-6fbea9d0cbfa</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Tarinoita</Title>
+          </Category>
+        </CollectionContent>
+        <ID>142d4d87-5adf-4278-9e8a-06574429cd24</ID>
+        <IsCollectionFiltered>false</IsCollectionFiltered>
+        <MasterETag i:nil="true" />
+        <Name>CategoryCollection</Name>
+        <OrderFilterIDList xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/142d4d87-5adf-4278-9e8a-06574429cd24</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Categories>
+      <Excerpt />
+      <ID>b38af0ca-d0c1-483d-a51b-8180606dfc71</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D080EDDDBA4D68"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContent/b38af0ca-d0c1-483d-a51b-8180606dfc71</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle />
+      <Title>Kirjastokerho</Title>
+    </TextContent>
+    <TextContent>
+      <Author>Kalle</Author>
+      <Body>Body</Body>
+      <Categories>
+        <CollectionContent>
+          <Category>
+            <CategoryName>Liikuntakerhot</CategoryName>
+            <Excerpt>Liikuntakerhojen kuvaus...</Excerpt>
+            <ID>43f7793a-f1fb-407f-bd63-2d7560071e03</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>KoulunKerhotoiminta</CategoryName>
+              <Excerpt />
+              <ID>755f3d94-0b0f-4daa-858e-78e65062cda3</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>ff431a38-996f-4982-98b4-378af42c7203</ID>
+                <MasterETag>"0x8D080EE37F64728"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/ff431a38-996f-4982-98b4-378af42c7203</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>KoulunKerhotoiminta</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_755f3d94-0b0f-4daa-858e-78e65062cda3_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/755f3d94-0b0f-4daa-858e-78e65062cda3</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Koulun kerhotoiminta</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>f6163b37-f069-4d1e-a699-b7aeae33d0d2</ID>
+              <MasterETag>"0x8D080F232294E18"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/f6163b37-f069-4d1e-a699-b7aeae33d0d2</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Liikuntakerhot</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_43f7793a-f1fb-407f-bd63-2d7560071e03_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/43f7793a-f1fb-407f-bd63-2d7560071e03</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Liikuntakerhot</Title>
+          </Category>
+        </CollectionContent>
+        <ID>1d793558-0ca5-4adc-98a9-6e15efdc3412</ID>
+        <IsCollectionFiltered>false</IsCollectionFiltered>
+        <MasterETag i:nil="true" />
+        <Name>CategoryCollection</Name>
+        <OrderFilterIDList xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/1d793558-0ca5-4adc-98a9-6e15efdc3412</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Categories>
+      <Excerpt>Excerpt</Excerpt>
+      <ID>b3b22ed7-c45e-483e-b224-37e421274e05</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D080F97DB192AC"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContent/b3b22ed7-c45e-483e-b224-37e421274e05</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle />
+      <Title>Liikuntakerho asia 1</Title>
+    </TextContent>
+    <TextContent>
+      <Author>Ilona Sammalkorpi</Author>
+      <Body>Keväästä 2013 lähtien perusopetuksen oppilaat ovat alkaneet saada kerhoihin osallistumisesta
+suoritusmerkinnän Norssin aktiivisuuspassiin. Passi osoittaa, mihin koulutyön ohessa tapahtuvaan
+toimintaan oppilas on osallistunut perusopetuksen aikana. Se tekee
+oppilaalle itselleen näkyväksi
+lukuvuoden aikana koetun, tehdyn ja opit
+un. Oppilas voi käyttää passiaan esim. portfoliossaan ja
+kesätyönhaussa. Passin tarkoituksena on kannustaa oppilasta aktiivisuuteen oman elämänsä ja
+yhteisten asioiden hoidossa.</Body>
+      <Categories>
+        <CollectionContent>
+          <Category>
+            <CategoryName>Yrittajyyskasvatus</CategoryName>
+            <Excerpt>Yrittäjyyskasvatus kuvaus.</Excerpt>
+            <ID>052982e9-94d6-417e-b677-8767e0dbcb07</ID>
+            <ImageData>
+              <ContentLength>5542</ContentLength>
+              <FileExt>.png</FileExt>
+              <ID>b8d9862f-0d7c-467a-9e29-a3def8fd4566</ID>
+              <MasterETag i:nil="true" />
+              <Name>MediaContent</Name>
+              <OriginalFileName i:nil="true" />
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/MediaContent/b8d9862f-0d7c-467a-9e29-a3def8fd4566.png</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            </ImageData>
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>Uteliaisuus</CategoryName>
+              <Excerpt />
+              <ID>f4034adb-87e7-4b33-be45-6eb1cafaf179</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>d539be33-2154-49b2-96f9-338dfa76b9c0</ID>
+                <MasterETag>"0x8D080E0CBA59F68"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/d539be33-2154-49b2-96f9-338dfa76b9c0</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>Uteliaisuus</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_f4034adb-87e7-4b33-be45-6eb1cafaf179_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/f4034adb-87e7-4b33-be45-6eb1cafaf179</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Uteliaisuus</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>f2a7d103-0985-4b98-adff-14842d62ee11</ID>
+              <MasterETag>"0x8D080E163434078"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/f2a7d103-0985-4b98-adff-14842d62ee11</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Yrittajyyskasvatus</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_052982e9-94d6-417e-b677-8767e0dbcb07_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/052982e9-94d6-417e-b677-8767e0dbcb07</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Yrittäjyyskasvatus</Title>
+          </Category>
+          <Category>
+            <CategoryName>Tutkoke</CategoryName>
+            <Excerpt>Tutkimus-, kokeilu- ja kehittämistoiminta, Tutkoke</Excerpt>
+            <ID>3d7b726a-99fd-47cb-9513-09cf2c07ee38</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>Uteliaisuus</CategoryName>
+              <Excerpt />
+              <ID>f4034adb-87e7-4b33-be45-6eb1cafaf179</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>d539be33-2154-49b2-96f9-338dfa76b9c0</ID>
+                <MasterETag>"0x8D080E0CBA59F68"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/d539be33-2154-49b2-96f9-338dfa76b9c0</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>Uteliaisuus</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_f4034adb-87e7-4b33-be45-6eb1cafaf179_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/f4034adb-87e7-4b33-be45-6eb1cafaf179</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Uteliaisuus</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>bed3d721-8e08-4a3c-9075-2773ca33eb66</ID>
+              <MasterETag>"0x8D080E1A7143E88"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/bed3d721-8e08-4a3c-9075-2773ca33eb66</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Tutkoke</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_3d7b726a-99fd-47cb-9513-09cf2c07ee38_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/3d7b726a-99fd-47cb-9513-09cf2c07ee38</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Tutkoke</Title>
+          </Category>
+          <Category>
+            <CategoryName>OppilaidenOsallisuus</CategoryName>
+            <Excerpt>Oppilaiden osallisuus kuvaus.</Excerpt>
+            <ID>a89c806d-0a08-44a6-8381-a1067e668367</ID>
+            <ImageData i:nil="true" />
+            <MasterETag i:nil="true" />
+            <Name>Category</Name>
+            <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+            <ParentCategory>
+              <CategoryName>Uteliaisuus</CategoryName>
+              <Excerpt />
+              <ID>f4034adb-87e7-4b33-be45-6eb1cafaf179</ID>
+              <ImageData i:nil="true" />
+              <MasterETag i:nil="true" />
+              <Name>Category</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <ParentCategory i:nil="true" />
+              <ReferenceToInformation>
+                <ID>d539be33-2154-49b2-96f9-338dfa76b9c0</ID>
+                <MasterETag>"0x8D080E0CBA59F68"</MasterETag>
+                <Name>ReferenceToInformation</Name>
+                <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+                <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/d539be33-2154-49b2-96f9-338dfa76b9c0</RelativeLocation>
+                <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+                <Title>Uteliaisuus</Title>
+                <URL>AaltoGlobalImpact.OIP.Category_f4034adb-87e7-4b33-be45-6eb1cafaf179_DefaultView.phtml</URL>
+              </ReferenceToInformation>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/f4034adb-87e7-4b33-be45-6eb1cafaf179</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>Uteliaisuus</Title>
+            </ParentCategory>
+            <ReferenceToInformation>
+              <ID>00b108f3-2ff7-4cb7-ad6c-d13e48873bdf</ID>
+              <MasterETag>"0x8D080E172FEA818"</MasterETag>
+              <Name>ReferenceToInformation</Name>
+              <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+              <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/ReferenceToInformation/00b108f3-2ff7-4cb7-ad6c-d13e48873bdf</RelativeLocation>
+              <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+              <Title>OppilaidenOsallisuus</Title>
+              <URL>AaltoGlobalImpact.OIP.Category_a89c806d-0a08-44a6-8381-a1067e668367_DefaultView.phtml</URL>
+            </ReferenceToInformation>
+            <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/Category/a89c806d-0a08-44a6-8381-a1067e668367</RelativeLocation>
+            <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+            <Title>Oppilaiden osallisuus</Title>
+          </Category>
+        </CollectionContent>
+        <ID>bca27d75-3921-4086-83aa-5f7975375f05</ID>
+        <IsCollectionFiltered>false</IsCollectionFiltered>
+        <MasterETag i:nil="true" />
+        <Name>CategoryCollection</Name>
+        <OrderFilterIDList xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+        <RelativeLocation>AaltoGlobalImpact.OIP/CategoryCollection/bca27d75-3921-4086-83aa-5f7975375f05</RelativeLocation>
+        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      </Categories>
+      <Excerpt />
+      <ID>f8a5d8d4-2d82-4e27-ab07-f46e13e8a064</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D080EC12EC3B38"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContent/f8a5d8d4-2d82-4e27-ab07-f46e13e8a064</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle />
+      <Title>Norssin aktiivisuuspassi</Title>
+    </TextContent>
+  </CollectionContent>
+  <ID>3ce85004-152d-4410-8cb8-e3214f5775f3</ID>
+  <IsCollectionFiltered>false</IsCollectionFiltered>
+  <MasterETag i:nil="true" />
+  <Name>TextContentCollection</Name>
+  <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/b9ba3208-bf89-4fa8-bad5-c2cb524b5fd9/AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</TextContentCollection>
