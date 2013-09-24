@@ -19,3 +19,10 @@
     <div class="clearfix"></div>
 </div>
 {/GroupContainerSource.GroupContainer.Collaborators}
+
+{>"executeoperation_button.dust" form_name="invitemember" button_label="Invite New Member" icon_class_name="icon-plus-sign" /}
+
+{>"modal_executeoperation_begin.dust" form_name="invitemember" header_title="Invite New Member" operation_name="InviteMemberToGroup" /}
+{>"textinput_singleline.dust" field_id="InviteMember_EmailAddress"
+field_name="EmailAddress" field_label="Member Email Address" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Send Invitation Email" /}

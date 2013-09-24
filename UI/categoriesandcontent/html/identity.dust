@@ -1,7 +1,7 @@
 {#GroupContainerSource.GroupContainer}
     <form id="form-id-1" method="post" class="form-horizontal" enctype="multipart/form-data">
         {#GroupContainerSource}
-            <input name="ContentSourceInfo" value="{GroupContainer.RelativeLocation}:{ETag}" type="hidden" />
+            <input name="ContentSourceInfo" value="{GroupContainer.RelativeLocation}:{MasterETag}" type="hidden" />
         {/GroupContainerSource}
         {#GroupProfile}
             <fieldset id="profile">
