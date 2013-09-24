@@ -1,5 +1,3 @@
-<a data-toggle="modal" role="button" href="#" class="open-addcategory"><i class="icon-plus-sign"></i>Add New Category</a>
-
 {>"modal_addobject_begin.dust" form_name="category" header_title="Add Category" object_domain="AaltoGlobalImpact.OIP" object_type="Category" /}
 {>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
 {>"textinput_singleline.dust" field_id="AddCategory_Name"
