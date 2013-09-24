@@ -4,7 +4,7 @@
 <div class="span12">
 <div class="fancy-tab-container">
 <div class="tab-content">
-<div class="tab-pane fade in active" id="tab-identity">
+<div class="tab-pane fade" id="tab-identity">
     {>"identity.dust"/}
 </div>
 <script type="text/javascript">
@@ -22,7 +22,7 @@
     });
 </script>
 
-<div class="tab-pane fade" id="tab-content">
+<div class="tab-pane fade in active" id="tab-content">
     <ul class="filter nav nav-pills pull-left">
         <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
         <li class="active"><a href="#all" data-filter=".cards">All</a></li>
