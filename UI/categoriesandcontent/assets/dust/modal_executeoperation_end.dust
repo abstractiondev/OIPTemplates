@@ -1,7 +1,7 @@
 </fieldset>
 <div class="modal-footer">
-    <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <button aria-hidden="true" data-dismiss="modal" class="btn">{?cancel_button_label}{cancel_button_label}{:else}Close{/cancel_button_label}</button>
+    <button class="btn btn-primary">{?accept_button_label}{accept_button_label}{:else}Save Changes{/accept_button_label}</button>
 </div>
 </form>
 </div>
