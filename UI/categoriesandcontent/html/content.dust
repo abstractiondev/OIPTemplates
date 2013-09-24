@@ -12,10 +12,10 @@
         fancyFilter('.filter', '#content-tiles');
         /* load isotope when tab is shown */
         $('a[data-toggle="tab"]').on('shown', function (e) {
-            if ($(e.target).attr('href')=="#tab-contentXYZ"){
+            if ($(e.target).attr('href')=="#tab-content"){
                 $("#content-tiles").isotope({'filter':".cards"});
             }
-            if ($(e.target).attr('href')=="#tab-categoriesXYZ"){
+            if ($(e.target).attr('href')=="#tab-categories"){
                 $("#category-tiles").isotope({'filter':".category-card"});
             }
         });
@@ -38,6 +38,8 @@
     {>"button_addtextcontent.dust" /}
 </div>
 {>"form_addtextcontent.dust" /}
+{>"form_edittextcontent.dust" /}
+
 <div class="tab-pane fade" id="tab-categories">
     <div id="category-tiles" class="gallery" style="clear: both;">
         {>"categories.dust"/}
@@ -46,6 +48,7 @@
     {>"button_addcategory.dust" /}
 </div>
 {>"form_addcategory.dust" /}
+{>"form_editcategory.dust" /}
 <div class="tab-pane fade" id="tab-collaborators">
     {>"collaborators.dust"/}
 </div>
