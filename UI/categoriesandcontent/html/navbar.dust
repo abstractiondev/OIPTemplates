@@ -1,5 +1,5 @@
 {#GroupContainerSource.GroupContainer.GroupProfile}
-    <div class="navbar">
+<div class="navbar">
     <div class="navbar-inner">
         <ul class="nav pull-left">
             <li id="group-menu" class="dropdown">
@@ -8,24 +8,18 @@
                     <i class="icon-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="www-preview.html">{GroupName}'s www-preview</a></li>
+                    <li><a tabindex="-1" href="../../wwwsite/index.html">{GroupName}'s web presence preview</a></li>
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
 {/GroupContainerSource.GroupContainer.GroupProfile}
 {#AccountContainer.AccountContainer.AccountModule.Profile}
-                    <li><a tabindex="-1" href="../../accountmanagement/html/account-management.html">{FirstName} {LastName}'s Account</a></li>
-                    <li><a tabindex="-1" href="#">{FirstName} {LastName}'s Groups</a></li>
-                    <li><a tabindex="-1" href="#">{FirstName} {LastName}'s Content</a></li>
-                    <li><a tabindex="-1" href="#">{FirstName} {LastName}'s Locations</a></li>
+                    <li><a tabindex="-1" href="/auth/account/">{FirstName} {LastName}'s Account Home</a></li>
                     <li class="divider"></li>
 {/AccountContainer.AccountContainer.AccountModule.Profile}
-                    <li><a tabindex="-1" class="visible-phone" href="#">Settings</a></li>
-                    <li class="divider visible-phone"></li>
-                    <li><a tabindex="-1" href="logout.html">Logout</a></li>
+                    <li><a tabindex="-1" href="/TheBallLogin.aspx?SignOut=true">Logout</a></li>
                 </ul>
-            </li>
             <li class="hidden-phone"><a class="brand" href="index.html">@ Open Innovation Platform</a></li>
-        </ul>
+       </ul>
     </div>
 </div><!-- .navbar change-->
 

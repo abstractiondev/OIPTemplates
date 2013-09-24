@@ -1235,10 +1235,10 @@ footer hr {
 .form-horizontal .input-append {
   display: inline-block;
   margin-bottom: 0;
-  margin-right: 10px;
+  margin-right: 0px;
   vertical-align: middle;
   width: 98%;
-  border: 1px solid #cbdfee;
+  /* border: 0px solid #cbdfee; */
 }
 /* end */
 .dialog,
