@@ -76,15 +76,14 @@
     });
 </script>
 <!-- modals locations-->
-<div id="edit-textcontent" class="modal hide fade">
-    <div class="modal-header">
-        <button class="close" data-dismiss="modal">&times;</button>
-        <h3>
-            Edit Text Content
-        </h3>
-    </div>
-
-    <form id="TextContentditForm" method="post" class="form-horizontal" enctype="multipart/form-data">
+<div id="edit-textcontent" class="modal hide fade full-screen">
+    <form id="TextContentditForm" method="post" class="form-horizontal full-screen-content" enctype="multipart/form-data">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h3>
+                Edit Text Content
+            </h3>
+        </div>
         <div class="modal-body">
             <input id="TextContentEditor_ContentSourceInfo" name="ContentSourceInfo" type="hidden" />
             <fieldset>

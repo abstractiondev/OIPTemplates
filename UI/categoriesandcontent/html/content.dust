@@ -12,10 +12,10 @@
         fancyFilter('.filter', '#content-tiles');
         /* load isotope when tab is shown */
         $('a[data-toggle="tab"]').on('shown', function (e) {
-            if ($(e.target).attr('href')=="#tab-content"){
+            if ($(e.target).attr('href')=="#tab-contentXYZ"){
                 $("#content-tiles").isotope({'filter':".cards"});
             }
-            if ($(e.target).attr('href')=="#tab-categories"){
+            if ($(e.target).attr('href')=="#tab-categoriesXYZ"){
                 $("#category-tiles").isotope({'filter':".category-card"});
             }
         });
