@@ -48,13 +48,13 @@
                 <div class="control-group">
                     <label class="control-label" for="{ID}_Description">Description</label>
                     <div class="controls">
-                        <textarea id="{ID}_Description" name="{ID}_Description" rows="6" placeholder="add org name">{Description}</textarea>
+                        <textarea id="{ID}_Description" name="{ID}_Description" rows="6">{Description}</textarea>
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="{ID}_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
                     <div class="controls">
-                        <textarea id="{ID}_OrganizationsAndGroupsLinkedToUs" name="{ID}_OrganizationsAndGroupsLinkedToUs" rows="6" placeholder="add org name">{OrganizationsAndGroupsLinkedToUs}</textarea>
+                        <textarea id="{ID}_OrganizationsAndGroupsLinkedToUs" name="{ID}_OrganizationsAndGroupsLinkedToUs" rows="6">{OrganizationsAndGroupsLinkedToUs}</textarea>
                     </div>
                 </div>
                 <footer>
