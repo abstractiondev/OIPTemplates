@@ -89,7 +89,7 @@ img {
   max-width: 100%;
   /* Part 1: Set a maxium relative to the parent */
 
-  width: auto\9;
+  width: auto;
   /* IE7-8 need help adjusting responsive images */
 
   height: auto;
@@ -4315,7 +4315,7 @@ a.thumbnail:focus {
 .modal-body {
   position: relative;
   overflow-y: auto;
-  max-height: 400px;
+  /*max-height: 80%;*/
   padding: 15px;
 }
 .modal-form {

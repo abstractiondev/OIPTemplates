@@ -1,7 +1,7 @@
-<div>
-    <fieldset id="current-categories">
-        <div id="gallery-3" class="gallery" style="clear: both;">
 {#CategoriesSource.CategoryCollection.CollectionContent}
+<div class="category-card cards-profile pull-left texts">
+    <fieldset id="current-categories">
+        <div class="gallery" style="clear: both;">
                 <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
                 {?ImageData}
                     <div style="max-width: 220px">
@@ -23,21 +23,12 @@
                         {?ExcerptRendered}<span class="title">{ExcerptRendered|s}</span>{/ExcerptRendered}
                     </div>
                 </div>
-{/CategoriesSource.CategoryCollection.CollectionContent}
             <div class="clearfix"></div>
         </div>
     </fieldset>
 </div>
-<a data-toggle="modal" role="button" href="#" class="open-addcategory"><i class="icon-plus-sign"></i>Add New Category</a>
+{/CategoriesSource.CategoryCollection.CollectionContent}
 <script>
-
-/*    $(function() {
-        $("textarea.mdd_editor").MarkdownDeep({
-            help_location: "../assets/lib/markdowndeep/mdd_help.html",
-            disableTabHandling:true
-        });
-    });
-  */
     $(function() {
         $(".open-categoryeditor").on("click",function () {
             var me = $(this);
@@ -128,23 +119,4 @@
         </div>
     </form>
 </div>
-
-{>"modal_addobject_begin.dust" form_name="category" header_title="Add Category" object_domain="AaltoGlobalImpact.OIP" object_type="Category" /}
-{>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
-{>"textinput_singleline.dust" field_id="AddCategory_Name"
-field_name="CategoryName" field_label="Category Name" /}
-{>"textinput_singleline.dust" field_id="AddCategory_Title"
-field_name="Title" field_label="Title" /}
-{>"textinput_multiline_markdown.dust" field_id="AddCategory_Excerpt"
-field_name="Excerpt" field_label="Excerpt" /}
-{>"modal_addobject_end.dust" /}
-
-<script type="text/javascript">
-    $(function() {
-        $(".open-addcategory").on("click", function() {
-            InitializeModalClasses();
-            $('#add-category').modal('show');
-        });
-    });
-</script>
 

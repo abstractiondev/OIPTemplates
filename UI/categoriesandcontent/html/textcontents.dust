@@ -35,15 +35,7 @@
     </fieldset>
 </div>
 {/TextContentsSource.TextContentCollection.CollectionContent}
-<a data-toggle="modal" role="button" href="#" class="open-addtextcontent" ><i class="icon-plus-sign"></i> <span>Add New Text Content</span></a>
 <script>
-/*    $(function() {
-        $("textarea.mdd_editor").MarkdownDeep({
-            help_location: "../assets/lib/markdowndeep/mdd_help.html",
-            disableTabHandling:true
-        });
-    });
-  */
     $(function() {
         $(".open-textcontenteditor").on("click",function () {
             var me = $(this);
@@ -130,27 +122,4 @@
         </div>
     </form>
 </div>
-
-{>"modal_addobject_begin.dust" form_name="textcontent" header_title="Add Text Content" object_domain="AaltoGlobalImpact.OIP" object_type="TextContent" /}
-{>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
-{>"textinput_singleline.dust" field_id="AddTextContent_Title"
-field_name="Title" field_label="Title {form_name}" /}
-{>"textinput_singleline.dust" field_id="AddTextContent_SubTitle"
-field_name="SubTitle" field_label="SubTitle" /}
-{>"textinput_singleline.dust" field_id="AddTextContent_Author"
-field_name="Author" field_label="Author" /}
-{>"textinput_multiline_markdown.dust" field_id="AddTextContent_Excerpt"
-field_name="Excerpt" field_label="Excerpt" /}
-{>"textinput_multiline_markdown.dust" field_id="AddTextContent_Body"
-field_name="Body" field_label="Body" /}
-{>"modal_addobject_end.dust" /}
-
-<script type="text/javascript">
-    $(function() {
-        $(".open-addtextcontent").on("click", function() {
-            InitializeModalClasses();
-            $('#add-textcontent').modal('show');
-        });
-    });
-</script>
 
