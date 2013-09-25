@@ -1,5 +1,5 @@
 {>"modal_addobject_begin.dust" form_name="textcontent" header_title="Add Text Content" object_domain="AaltoGlobalImpact.OIP" object_type="TextContent" /}
-{>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
+{>"fileupload.dust" initial_class_mode="fileupload-new" field_name="File_ImageData" /}
 {>"textinput_singleline.dust" field_id="AddTextContent_Title"
 field_name="Title" field_label="Title {form_name}" /}
 {>"textinput_singleline.dust" field_id="AddTextContent_SubTitle"
