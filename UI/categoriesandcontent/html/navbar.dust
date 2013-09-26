@@ -8,7 +8,7 @@
                     <i class="icon-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a tabindex="-1" href="../../wwwsite/html/index.html">{GroupName}'s web presence preview</a></li>
+                    <li><a tabindex="-1" target="_blank" href="../../wwwsite/html/index.html">{GroupName}'s web presence preview</a></li>
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
 {/GroupContainerSource.GroupContainer.GroupProfile}
