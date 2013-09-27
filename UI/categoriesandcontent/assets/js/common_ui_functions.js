@@ -39,3 +39,24 @@ var SetElementVisibility = function(id, isVisible)
     }
 };
 
+
+var ConvertCategoriesFromParentToChildren = function(categoryArray){
+    var map = {};
+    for(var i = 0; i < categoryArray.length; i++){
+        var obj = categoryArray[i];
+        obj.UI_ChildrenCategories= [];
+
+        map[obj.ID] = obj;
+
+        var parentID = obj.ParentCategory ? obj.ParentCategory.ID : "-";
+        if(!map[parentID]){
+            map[parentID] = {
+                UI_ChildrenCategories: []
+            };
+        }
+        map[parentID].UI_ChildrenCategories.push(obj);
+    }
+
+    return map["-"].UI_ChildrenCategories;
+
+}

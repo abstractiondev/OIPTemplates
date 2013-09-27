@@ -1,0 +1,11 @@
+<div class="dd">
+    <ol class="dd-list">
+{#CategoriesSource.CategoriesWithChildren}
+    {>"category_treeitem.dust" /}
+{/CategoriesSource.CategoriesWithChildren}
+    </ol>
+</div>
+
+<script>
+    $('.dd').nestable({ });
+</script>

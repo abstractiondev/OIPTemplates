@@ -46,6 +46,10 @@
         <div class="clearfix"></div>
     </div>
     {>"button_addcategory.dust" /}
+    <h3>Test for category hierarchy editing (does not save changes)</h3>
+    <p>
+    {>"category_treeeditor.dust" /}
+    </p>
 </div>
 {>"form_addcategory.dust" /}
 {>"form_editcategory.dust" /}

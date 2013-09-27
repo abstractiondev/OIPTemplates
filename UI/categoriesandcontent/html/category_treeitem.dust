@@ -1,0 +1,12 @@
+<li class="dd-item" data-id="{IT}">
+    <div class="dd-handle">{Title}</div>
+    {?UI_ChildrenCategories}
+        <ol class="dd-list">
+    {/UI_ChildrenCategories}
+    {#UI_ChildrenCategories}
+        {>"category_treeitem.dust" /}
+    {/UI_ChildrenCategories}
+    {?UI_ChildrenCategories}
+        </ol>
+    {/UI_ChildrenCategories}
+</li>
