@@ -1,4 +1,4 @@
-<div class="dd">
+<div id="nesttest" class="dd">
     <ol class="dd-list">
 {#CategoriesSource.CategoriesWithChildren}
     {>"category_treeitem.dust" /}
@@ -6,6 +6,9 @@
     </ol>
 </div>
 
+<textarea id="nestable-output"></textarea>
+
 <script>
     $('.dd').nestable({ });
 </script>
+<button onclick="javascript:DoThing();">Testinappi</button>

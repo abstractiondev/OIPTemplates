@@ -1,4 +1,4 @@
-<li class="dd-item" data-id="{IT}">
+<li class="dd-item" data-id="{ID}">
     <div class="dd-handle">{Title}</div>
     {?UI_ChildrenCategories}
         <ol class="dd-list">

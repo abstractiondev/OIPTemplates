@@ -60,3 +60,4 @@ var ConvertCategoriesFromParentToChildren = function(categoryArray){
     return map["-"].UI_ChildrenCategories;
 
 }
+
