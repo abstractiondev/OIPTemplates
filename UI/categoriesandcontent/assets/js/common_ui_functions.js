@@ -42,12 +42,14 @@ var SetElementVisibility = function(id, isVisible)
 
 var ConvertCategoriesFromParentToChildren = function(categoryArray){
     var map = {};
-    for(var i = 0; i < categoryArray.length; i++){
+    for(var i = 0; i < categoryArray.length; i++)
+    {
         var obj = categoryArray[i];
         obj.UI_ChildrenCategories= [];
-
         map[obj.ID] = obj;
-
+    }
+    for(var i = 0; i < categoryArray.length; i++){
+        var obj = categoryArray[i];
         var parentID = obj.ParentCategoryID ? obj.ParentCategoryID : "-";
         if(!map[parentID]){
             map[parentID] = {
