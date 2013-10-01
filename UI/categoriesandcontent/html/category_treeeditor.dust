@@ -5,10 +5,7 @@
 {/CategoriesSource.CategoriesWithChildren}
     </ol>
 </div>
-
-<textarea id="nestable-output"></textarea>
-
 <script>
     $('.dd').nestable({ });
 </script>
-<button onclick="javascript:DoThing();">Testinappi</button>
+<button onclick="javascript:DoThing();">Save Category Hierarchy</button>

@@ -48,7 +48,7 @@ var ConvertCategoriesFromParentToChildren = function(categoryArray){
 
         map[obj.ID] = obj;
 
-        var parentID = obj.ParentCategory ? obj.ParentCategory.ID : "-";
+        var parentID = obj.ParentCategoryID ? obj.ParentCategoryID : "-";
         if(!map[parentID]){
             map[parentID] = {
                 UI_ChildrenCategories: []
