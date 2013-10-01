@@ -22,7 +22,7 @@
             }
             $.ajax(
                     { type: "POST",
-                    url: "?operation=AaltoGlobalImpact.OIP.SetCategoryHierarchy",
+                    url: "?operation=AaltoGlobalImpact.OIP.SetCategoryHierarchyAndOrderInNodeSummary",
                     dataType: "json",
                     contentType: "application/json",
                     data: jsonData,
@@ -222,7 +222,8 @@
             /*
             TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection", null],
              */
-            TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json", null, "TextContentCollection"]
+            TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json", null, "TextContentCollection"],
+            NodeSummarySource: ["../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", null, "NodeSummaryContainer"]
         }
     });
     $("#navbar_placeholder").data({
@@ -318,9 +319,9 @@
                                 category.ExcerptRendered = rendered;
                             }
                         }
-                        if(response.Name == "CategoryCollection")
+                        if(response.Name == "NodeSummaryContainer")
                         {
-                            CategoriesWithChildren = ConvertCategoriesFromParentToChildren(response.CollectionContent);
+                            CategoriesWithChildren = ConvertCategoriesFromParentToChildren(response.NodeSourceCategories.CollectionContent);
                             jsonObj["CategoriesWithChildren"] = CategoriesWithChildren;
                         }
                         jsonObj[jsonRootObjectName] = response;

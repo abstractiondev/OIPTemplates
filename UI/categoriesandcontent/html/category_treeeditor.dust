@@ -1,9 +1,9 @@
 <p>
 <div id="nesttest" class="dd">
     <ol class="dd-list">
-{#CategoriesSource.CategoriesWithChildren}
+{#NodeSummarySource.CategoriesWithChildren}
     {>"category_treeitem.dust" /}
-{/CategoriesSource.CategoriesWithChildren}
+{/NodeSummarySource.CategoriesWithChildren}
     </ol>
 </div>
 </p>
