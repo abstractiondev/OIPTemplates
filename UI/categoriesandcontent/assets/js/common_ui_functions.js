@@ -56,8 +56,8 @@ var ConvertCategoriesFromParentToChildren = function(categoryArray){
         }
         map[parentID].UI_ChildrenCategories.push(obj);
     }
-
+    if(categoryArray.length == 0)
+        return [];
     return map["-"].UI_ChildrenCategories;
-
 }
 

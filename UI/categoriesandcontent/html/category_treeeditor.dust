@@ -1,3 +1,4 @@
+<p>
 <div id="nesttest" class="dd">
     <ol class="dd-list">
 {#CategoriesSource.CategoriesWithChildren}
@@ -5,7 +6,10 @@
 {/CategoriesSource.CategoriesWithChildren}
     </ol>
 </div>
+</p>
 <script>
     $('.dd').nestable({ });
 </script>
-<button onclick="javascript:DoThing();">Save Category Hierarchy</button>
+<p>
+<button onclick="javascript:SaveCategoryHierarchy();">Save Category Hierarchy</button>
+</p>
