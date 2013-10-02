@@ -21,7 +21,6 @@
                                                     {?Excerpt}data-excerpt="{Excerpt}"{/Excerpt}><i class="icon-edit"></i></a></span>
                         {?Title}<span class="title">{Title}</span>{/Title}
                         {?ExcerptRendered}<span class="title">{ExcerptRendered|s}</span>{/ExcerptRendered}
-                        {?ParentCategory}<p>=> {ParentCategory.Title} </p>{/ParentCategory}
                     </div>
                 </div>
             <div class="clearfix"></div>
