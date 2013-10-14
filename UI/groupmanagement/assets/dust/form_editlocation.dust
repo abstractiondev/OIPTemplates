@@ -4,6 +4,12 @@
             var me = $(this);
             ConnectInputField(me, "contentinfo", "LocationEditor", "ContentSourceInfo", "", true);
             ConnectInputField(me, "location___locationname", "LocationEditor", "Location___LocationName", "");
+            ConnectInputField(me, "location___latitude___textvalue", "LocationEditor", "Location___Latitude___TextValue", "");
+            ConnectInputField(me, "location___longitude___textvalue", "LocationEditor", "Location___Longitude___TextValue", "");
+            ConnectInputField(me, "address___street", "LocationEditor", "Address___Street", "");
+            ConnectInputField(me, "address___zipcode", "LocationEditor", "Address___ZipCode", "");
+            ConnectInputField(me, "address___town", "LocationEditor", "Address___Town", "");
+            ConnectInputField(me, "address___country", "LocationEditor", "Address___Country", "");
 
             var id = me.data("id");
             /*$(".fileupload-preview img").remove();
@@ -12,7 +18,7 @@
             SetElementVisibility("CategoryEditor_Image_ChangeAndRemove", imageChangeAndRemoveVisibility);
             SetElementName("CategoryEditor_ImageData", id + "_ImageData");*/
             InitializeModalClasses();
-            $('#edit-category').modal('show');
+            $('#edit-location').modal('show');
         });
     });
 </script>
@@ -28,6 +34,12 @@
             <input id="LocationEditor_ContentSourceInfo" name="ContentSourceInfo" type="hidden" />
             <fieldset>
                 {>"textinput_singleline.dust" field_id="LocationEditor_Location___LocationName" field_label="Location Name" /}
+                {>"textinput_singleline.dust" field_id="LocationEditor_Location___Latitude___TextValue" field_label="Latitude" /}
+                {>"textinput_singleline.dust" field_id="LocationEditor_Location___Longitude___TextValue" field_label="Latitude" /}
+                {>"textinput_singleline.dust" field_id="LocationEditor_Address___Street" field_label="Street Address" /}
+                {>"textinput_singleline.dust" field_id="LocationEditor_Address___ZipCode" field_label="Zip Code" /}
+                {>"textinput_singleline.dust" field_id="LocationEditor_Address___Town" field_label="Town" /}
+                {>"textinput_singleline.dust" field_id="LocationEditor_Address___Country" field_label="Country" /}
             </fieldset>
         </div>
         <div class="modal-footer">
