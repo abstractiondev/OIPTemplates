@@ -310,127 +310,14 @@
 <!-- end modals collaborators -->
 </div>
 <div class="tab-pane fade" id="tab-locations-current">
-<div>
-<form  method="post" class="form-horizontal ">
-<fieldset id="current-locations">
-    <div id="gallery-3" class="gallery" style="clear: both;">
-        <div class="cards cards-profile pull-left ">
-            <span class="label pull-right hidden"><a data-toggle="modal" role="button" href="#edit-collaborator-role">initiator</a></span>
-            <header>Location Name 1</header>
-            <section  class="map">
-                <img src="../assets/img/dummy/map-images/map-1.png">
-                <ul>
-                    <li>
-                        <i class="icon-file"></i>
-                        <span><a href="#view-project-profile" data-toggle="modal">Open Innovation Platform</a></span>
-                        <span><a href="#" data-toggle="modal">Open Innovation Platform</a></span>
-                        <span><a href="#" data-toggle="modal">Base of Pyramid</a></span>
-                        <span><a href="#" data-toggle="modal">Sanitation locally</a></span>
-                        <span><a href="#" data-toggle="modal">From sand to paradise</a></span>
-                        <span><a href="#" data-toggle="modal">fresh water from sewage</a></span>
-                    </li>
-                    <li>
-                        <i class="icon-group"></i>
-                        <span><a href="#view-group-profile" data-toggle="modal">Aalto Global Impact</a> </span>
-                        <span>Weconomy</span>
-                        <span>Earthhouse</span>
-                    </li>
-                    <li class="hidden">
-                        <i class="icon-map-marker"></i>
-                        <span><a href="#view-location-profile" data-toggle="modal">Helsinki</a> </span>
-                        <span>Delhi</span>
-                    </li>
-                </ul>
-            </section>
-            <div class="clearfix"></div>
-            <footer>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location" class="remove"><i class="icon-remove-sign"></i></a></span>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#view-location-profile"><i class="icon-eye-open"></i></a></span>
-            </footer>
-        </div>
-{#Locations.AddressAndLocationCollection.CollectionContent.AddressAndLocation}
-        <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
-            <div id="filter-demo" style="max-width: 220px">
-                <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="image-data">
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-location"><i class="icon-remove-sign"></i></a></span>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#edit-location-name"><i class="icon-edit"></i></a></span>
-                <span class="title">{Location.LocationName}</span>
-            </div>
-        </div>
-{/Locations.AddressAndLocationCollection.CollectionContent.AddressAndLocation}
+    <div id="location-tiles" class="gallery" style="clear: both;">
+        {>"locations.dust"/}
         <div class="clearfix"></div>
     </div>
-    <footer>
-        <div class="control-group controls pull-right">
-            <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color:transparent;">
-                <button value="true" name="btnCancel" class="btn">Cancel</button>
-                <button type="submit" class="btn btn-primary" name="RootSourceAction" value="Save">Save changes</button>
-            </div>
-        </div>
-    </footer>
-</fieldset>
-</form>
+    {>"button_addlocation.dust" /}
 </div>
-    <!-- modals locations-->
-    <div id="edit-location-name" class="modal hide fade">
-        <div class="modal-header">
-            <button class="close" data-dismiss="modal">&times;</button>
-            <h3>
-                Rename {location-name}
-            </h3>
-        </div>
-        <div class="modal-body">
-            <form method="post" class="form-horizontal">
-                <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-                <fieldset>
-                    <div class="control-group">
-                        <!-- Text input-->
-                        <label for="name-image-group-input" class="control-label">Rename {location}</label>
-                        <div class="controls">
-                            <input type="text" class="input-xlarge" placeholder="Image group 1">
-                            <p class="help-block">Supporting help text</p>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-            <button class="btn btn-primary">Save changes</button>
-        </div>
-    </div>
-<div id="remove-location" class="modal hide fade">
-    <div class="modal-header">
-        <button class="close" data-dismiss="modal">&times;</button>
-        <h3>
-            Remove {location-name}
-        </h3>
-    </div>
-<div class="modal-body">
-<form method="post" class="form-horizontal">
-    <!-- THEBALL-FORM-HIDDEN-FIELDS -->
-<fieldset>
-<div class="control-group">
-    <!-- Text input-->
-    <label for="name-image-group-input" class="control-label">Remove</label>
-<div class="controls">
-    <input type="checkbox">
-<p class="help-block">If you remove {location} the location itself will become <em>unavailable</em> to {group-name}.</p>
-</div>
-</div>
-</fieldset>
-</form>
-</div>
-    <div class="modal-footer">
-        <button aria-hidden="true" data-dismiss="modal" class="btn">Close</button>
-        <button class="btn btn-danger">Remove Image Group</button>
-    </div>
-</div>
-    <!-- end modals locations-->
-</div>
+{>"form_addlocation.dust" /}
+{>"form_editlocation.dust" /}
 <div class="tab-pane fade" id="tab-devices">
     {>"devices.dust"/}
 </div>

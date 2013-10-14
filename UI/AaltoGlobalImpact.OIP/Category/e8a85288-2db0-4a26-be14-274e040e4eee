@@ -1,0 +1,29 @@
+﻿<Category xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CategoryName>catTheBall</CategoryName>
+  <Excerpt>The Ball is the core approach for information ecosystem.</Excerpt>
+  <ID>e8a85288-2db0-4a26-be14-274e040e4eee</ID>
+  <ImageData i:nil="true" />
+  <MasterETag i:nil="true" />
+  <Name>Category</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ParentCategory>
+    <CategoryName>catProductsAndSolutions</CategoryName>
+    <Excerpt />
+    <ID>4a18dcfb-9dd7-418b-9ddb-1e63b7330ff8</ID>
+    <ImageData i:nil="true" />
+    <MasterETag i:nil="true" />
+    <Name>Category</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ParentCategory i:nil="true" />
+    <ParentCategoryID i:nil="true" />
+    <ReferenceToInformation i:nil="true" />
+    <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/AaltoGlobalImpact.OIP/Category/4a18dcfb-9dd7-418b-9ddb-1e63b7330ff8</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>Products And Solutions</Title>
+  </ParentCategory>
+  <ParentCategoryID>4a18dcfb-9dd7-418b-9ddb-1e63b7330ff8</ParentCategoryID>
+  <ReferenceToInformation i:nil="true" />
+  <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/AaltoGlobalImpact.OIP/Category/e8a85288-2db0-4a26-be14-274e040e4eee</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>"The Ball"</Title>
+</Category>

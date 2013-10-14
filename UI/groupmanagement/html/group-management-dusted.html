@@ -319,7 +319,7 @@
     $("#content_placeholder").data({
         datasource: {
             GroupContainerSource: ["../../AaltoGlobalImpact.OIP/GroupContainer/default", null],
-            Locations: ["../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection", null],
+            Locations: ["../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection.json", null, "AddressAndLocationCollection"],
             CategoriesSource: ["../../AaltoGlobalImpact.OIP/CategoryCollection/MasterCollection.json", null, "CategoryCollection"] ,
             /*
             TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection", null],
@@ -464,11 +464,15 @@
 </script>
 
 <script src="categories_dust.js"></script>
+<script src="locations_dust.js"></script>
 <script src="textcontents_dust.js"></script>
 <script src="collaborators_dust.js"></script>
 <script src="devices_dust.js"></script>
 <script src="inputs_dust.js"></script>
 <script src="identity_dust.js"></script>
+<script src="../assets/dust/form_addlocation_dust.js"></script>
+<script src="../assets/dust/form_editlocation_dust.js"></script>
+<script src="../assets/dust/button_addlocation_dust.js"></script>
 <script src="../assets/dust/modal_addobject_begin_dust.js"></script>
 <script src="../assets/dust/modal_addobject_end_dust.js"></script>
 <script src="../assets/dust/modal_executeoperation_begin_dust.js"></script>

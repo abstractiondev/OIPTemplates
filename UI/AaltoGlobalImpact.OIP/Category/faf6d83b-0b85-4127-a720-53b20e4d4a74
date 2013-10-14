@@ -1,0 +1,15 @@
+﻿<Category xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CategoryName>catTestcategory</CategoryName>
+  <Excerpt />
+  <ID>faf6d83b-0b85-4127-a720-53b20e4d4a74</ID>
+  <ImageData i:nil="true" />
+  <MasterETag i:nil="true" />
+  <Name>Category</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ParentCategory i:nil="true" />
+  <ParentCategoryID i:nil="true" />
+  <ReferenceToInformation i:nil="true" />
+  <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/AaltoGlobalImpact.OIP/Category/faf6d83b-0b85-4127-a720-53b20e4d4a74</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>Test category</Title>
+</Category>

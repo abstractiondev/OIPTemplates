@@ -1,0 +1,25 @@
+{#Locations.AddressAndLocationCollection.CollectionContent}
+    <div class="location-card cards-profile pull-left texts">
+        <fieldset id="current-locations">
+            <div class="gallery" style="clear: both;">
+                <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
+                    <div id="filter-demo" style="max-width: 220px">
+                        <div class="filter-map-item"><img src="../assets/img/dummy/map-images/map-1.png"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="image-data">
+                        <span class="pull-right">
+                            {>"objectdeleteicon.dust" object_delete_title="{Location.LocationName}" /}
+                        </span>
+                        <span class="pull-right"><a data-toggle="modal" role="button" class="open-locationeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
+                            data-id="{ID}" data-location___locationname="{Location.LocationName}">
+                            <i class="icon-edit"></i></a></span>
+                        {?Location.LocationName}<span class="title">{Location.LocationName}</span>{/Location.LocationName}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </fieldset>
+    </div>
+
+{/Locations.AddressAndLocationCollection.CollectionContent}

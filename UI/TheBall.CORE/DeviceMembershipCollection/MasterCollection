@@ -1,0 +1,11 @@
+﻿<DeviceMembershipCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/TheBall.CORE">
+  <CollectionContent />
+  <ID>8d0f430c-190e-4fa3-abe9-b47dbc1f8148</ID>
+  <IsCollectionFiltered>false</IsCollectionFiltered>
+  <MasterETag i:nil="true" />
+  <Name>DeviceMembershipCollection</Name>
+  <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/TheBall.CORE/DeviceMembershipCollection/MasterCollection</RelativeLocation>
+  <SemanticDomainName>TheBall.CORE</SemanticDomainName>
+</DeviceMembershipCollection>

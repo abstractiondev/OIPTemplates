@@ -1,0 +1,39 @@
+﻿<Category xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CategoryName>catTheBallTeam</CategoryName>
+  <Excerpt>The Ball team is distributed among high-level focused small companies.</Excerpt>
+  <ID>727c7865-0e84-461b-93a1-1256fda3091d</ID>
+  <ImageData>
+    <ContentLength>4046</ContentLength>
+    <FileExt>.gif</FileExt>
+    <ID>b9cd5593-6920-43f7-a09d-f9f8f76cfca5</ID>
+    <MasterETag i:nil="true" />
+    <Name>MediaContent</Name>
+    <OriginalFileName i:nil="true" />
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/AaltoGlobalImpact.OIP/MediaContent/b9cd5593-6920-43f7-a09d-f9f8f76cfca5.gif</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  </ImageData>
+  <MasterETag i:nil="true" />
+  <Name>Category</Name>
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <ParentCategory>
+    <CategoryName>catAbout</CategoryName>
+    <Excerpt />
+    <ID>d32c9ce6-109f-47fd-bad0-18f7ecd3eebc</ID>
+    <ImageData i:nil="true" />
+    <MasterETag i:nil="true" />
+    <Name>Category</Name>
+    <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+    <ParentCategory i:nil="true" />
+    <ParentCategoryID i:nil="true" />
+    <ReferenceToInformation i:nil="true" />
+    <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/AaltoGlobalImpact.OIP/Category/d32c9ce6-109f-47fd-bad0-18f7ecd3eebc</RelativeLocation>
+    <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+    <Title>About</Title>
+  </ParentCategory>
+  <ParentCategoryID>d32c9ce6-109f-47fd-bad0-18f7ecd3eebc</ParentCategoryID>
+  <ReferenceToInformation i:nil="true" />
+  <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/AaltoGlobalImpact.OIP/Category/727c7865-0e84-461b-93a1-1256fda3091d</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+  <Title>"The Ball" Team</Title>
+</Category>

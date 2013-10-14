@@ -1,9 +1,0 @@
-﻿<AddActivityInfo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
-  <ActivityName>AddActivityInfo.ActivityName</ActivityName>
-  <ID>3aa91ed3-08aa-470d-ad0f-fdbaff79f6a8</ID>
-  <MasterETag i:nil="true" />
-  <Name>AddActivityInfo</Name>
-  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-  <RelativeLocation>grp/9798daca-afc4-4046-a99b-d0d88bb364e0/AaltoGlobalImpact.OIP/AddActivityInfo/AddActivity</RelativeLocation>
-  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-</AddActivityInfo>

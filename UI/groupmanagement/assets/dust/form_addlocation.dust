@@ -1,0 +1,14 @@
+{>"modal_addobject_begin.dust" form_name="location" header_title="Add Location" object_domain="AaltoGlobalImpact.OIP" object_type="AddressAndLocation" /}
+{>"textinput_singleline.dust" field_id="AddLocation_Location___LocationName"
+field_name="Location___LocationName" field_label="Location Name" /}
+{>"modal_addobject_end.dust" /}
+
+<script type="text/javascript">
+    $(function() {
+        $(".open-addlocation").on("click", function() {
+            InitializeModalClasses();
+            $('#add-location').modal('show');
+        });
+    });
+</script>
+
