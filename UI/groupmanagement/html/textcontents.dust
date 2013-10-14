@@ -119,7 +119,7 @@
                 item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
                 field_label="Categories" field_name="Categories" /}
                 {>"dropdown_select.dust" field_id="TextContentEditor_Locations" is_multiple="true"
-                item_collection=Locations.AddressAndLocationCollection.CollectionContent.AddressAndLocation item_type="location"
+                item_collection=Locations.AddressAndLocationCollection.CollectionContent item_type="location"
                 field_label="Locations" field_name="Locations" /}
             </fieldset>
         </div>

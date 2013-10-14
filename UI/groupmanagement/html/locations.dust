@@ -12,7 +12,8 @@
                             {>"objectdeleteicon.dust" object_delete_title="{Location.LocationName}" /}
                         </span>
                         <span class="pull-right"><a data-toggle="modal" role="button" class="open-locationeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
-                            data-id="{ID}" data-location___locationname="{Location.LocationName}">
+                            data-id="{ID}"
+                            data-location___locationname="{Location.LocationName}">
                             <i class="icon-edit"></i></a></span>
                         {?Location.LocationName}<span class="title">{Location.LocationName}</span>{/Location.LocationName}
                     </div>

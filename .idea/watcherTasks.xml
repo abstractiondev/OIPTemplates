@@ -6,7 +6,7 @@
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="" />
       <option name="exitCodeBehavior" value="ERROR" />
-      <option name="fileExtension" value="Dust" />
+      <option name="fileExtension" value="tl" />
       <option name="immediateSync" value="true" />
       <option name="name" value="Dust Compiler" />
       <option name="output" value="" />
@@ -15,7 +15,7 @@
       </option>
       <option name="outputFromStdout" value="false" />
       <option name="passParentEnvs" value="true" />
-      <option name="program" value="$PROJECT_DIR$/Tools/dustc" />
+      <option name="program" value="$PROJECT_DIR$/Tools/dustc.cmd" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="false" />
       <option name="workingDir" value="$FileDir$" />
