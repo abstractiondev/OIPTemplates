@@ -110,7 +110,7 @@ field_name="InformationOutputID" /}
 {>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Push to Output" /}
 
 {>"modal_executeoperation_begin.dust" form_name="DeleteInformationOutput"
-header_title="Delete Information Input" map_data_values="InformationOutputID"
+header_title="Delete Information Output" map_data_values="InformationOutputID"
 operation_name="DeleteInformationOutput" /}
 {>"hiddeninput.dust" field_id="DeleteInformationOutput_InformationOutputID"
 field_name="InformationOutputID" /}
