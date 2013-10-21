@@ -223,7 +223,9 @@
             TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection", null],
              */
             TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json", null, "TextContentCollection"],
-            NodeSummarySource: ["../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", null, "NodeSummaryContainer"]
+            NodeSummarySource: ["../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", null, "NodeSummaryContainer"],
+            DeviceMembershipsSource: ["../../TheBall.CORE/DeviceMembershipCollection/MasterCollection.json", null, "DeviceMembershipCollection"],
+            AuthenticatedAsDevicesSource: ["../../TheBall.CORE/AuthenticatedAsActiveDeviceCollection/MasterCollection.json", null, "AuthenticatedAsActiveDeviceCollection"]
         }
     });
     $("#navbar_placeholder").data({
@@ -391,6 +393,7 @@
 <script src="../assets/dust/executeoperation_button_end_dust.js"></script>
 <script src="../assets/dust/fileupload_dust.js"></script>
 <script src="../assets/dust/textinput_singleline_dust.js"></script>
+<script src="../assets/dust/hiddeninput_dust.js"></script>
 <script src="../assets/dust/textinput_multiline_dust.js"></script>
 <script src="../assets/dust/textinput_multiline_markdown_dust.js"></script>
 <script src="../assets/dust/objectdeleteicon_dust.js"></script>
