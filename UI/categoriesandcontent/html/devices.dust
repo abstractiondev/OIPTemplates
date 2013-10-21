@@ -11,7 +11,8 @@
                             {>"executeoperation_button_end.dust" icon_class_name="icon-remove-sign" /}
                         </span>
                         <p class="title">{DeviceDescription}</p>
-                        <p class="title">{SharedSecret}</p>
+                        <p class="title">Secret: {SharedSecret}</p>
+                        <p class="title">DeviceID: {ID}</p>
                         <p class="title">Is validated: {IsValidatedAndActive}</p>
                     </div>
                 </div>
@@ -37,8 +38,9 @@
 
                         </span>
                         <p class="title">{AuthenticationDescription}</p>
-                        <p class="title">{SharedSecret}</p>
-                        <p class="title">{NegotiationURL}</p>
+                        <p class="title">Secret: {SharedSecret}</p>
+                        <p class="title">Location: {NegotiationURL}</p>
+                        <p class="title">TrustID: {EstablishedTrustID}</p>
                         <p class="title">Is validated: {IsValidatedAndActive}</p>
                     </div>
                 </div>
