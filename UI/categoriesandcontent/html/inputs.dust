@@ -14,7 +14,7 @@
                             {>"executeoperation_button_end.dust" icon_class_name="icon-remove-sign" /}
 
                         </span>
-                        <p class="title">{InputDescription}</p>
+                        <p class="title">{InputDescription} ({ID})</p>
                         <p class="title">URL: {LocationURL}</p>
                         <p class="title">Local Content Name: {LocalContentName}</p>
                         <p class="title">Authentication ID: {AuthenticatedDeviceID}</p>
