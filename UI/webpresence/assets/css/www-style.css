@@ -2162,35 +2162,35 @@ p {
 a.all {
   background-color: #fd6309;
 }
-a.catUteliaisuus {
+a.catStories {
   background-color: #e61733;
 }
-.catUteliaisuus > a {
+.catStories > a {
   color: white;
   border-right: 0px;
 }
-a.catAjankohtaista {
+a.catProjects {
   background-color: #a20690;
 }
-.catAjankohtaista > a {
+.catProjects > a {
   color: white;
 }
-a.catStoriesKokemukset {
+a.catProductsAndSolutions {
   background-color: #1655b2;
 }
-.catStoriesKokemukset > a {
+.catProductsAndSolutions > a {
   color: white;
 }
-a.maps {
+a.catMaps {
   background-color: #5826ab;
 }
-.maps > a {
+.catMaps > a {
   color: white;
 }
-a.catTietoaMeist {
+a.catAbout {
   background-color: #1e9ca8;
 }
-.catTietoaMeist > a {
+.catAbout > a {
   color: white;
 }
 p.truncate {

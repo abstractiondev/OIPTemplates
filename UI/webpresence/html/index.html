@@ -65,8 +65,7 @@
 <div class="navbar navbar-static-top">
     <div>
         <div class="subnavbar-inner" style="background-color: white">
-            <div class="container logo-only">
-                <img src="../assets/img/TurunNorssi-logo.jpg" />
+            <div id="logocontainer" class="container logo-only">
             </div>
         </div>
         <div class="container powered-by">
@@ -126,8 +125,10 @@
                 currNode = locationNodes[nodeIX];
                 /*
                 popupText += "<br><a class=\"oipclicktoview\" href=\"#\" data-contenturl=\"" + currNode.ActualContentUrl + ".json\">" + currNode.Title + "</a>";
+                 popupText += "<br><a href=\"javascript:OipOpenArticle('"+ currNode.ActualContentUrl +".json', true);\">"  + currNode.Title + "</a>";
                 */
-                popupText += "<br><a href=\"javascript:OipOpenArticle('"+ currNode.ActualContentUrl +".json', true);\">"  + currNode.Title + "</a>";
+                popupText += "<br><a href='javascript:void(0)' onclick=\"OipOpenArticle('"+ currNode.ActualContentUrl +".json', true);\">"  + currNode.Title + "</a>";
+
             }
             currMarker =  L.marker([
                 parseFloat(currLocation.Location.Latitude.TextValue),
@@ -189,6 +190,19 @@
         var allMarkers = new Array();
         // Layers (empty per themselves, but control the toggling)
 
+        /*
+        var ActivitiesLayer = L.layerGroup();
+        ActivitiesLayer.addTo(map);
+        var NewsLayer = L.layerGroup();
+        NewsLayer.addTo(map);
+        var ProjectsLayer = L.layerGroup();
+        ProjectsLayer.addTo(map);
+        var EventsLayer = L.layerGroup();
+        EventsLayer.addTo(map);
+        var BlogsLayer = L.layerGroup();
+        BlogsLayer.addTo(map);
+        */
+
         {
             var myIcon = L.icon({
                 iconUrl: '../assets/img/oip-markers/Cyn_bMarker.png',
@@ -202,6 +216,11 @@
                 shadowAnchor: [12, 40]
             });
 
+            /*
+            var myMarker = L.marker([[!ATOM]LocationText[ATOM!]], {icon: myIcon })
+        .bindPopup('<h2>[!ATOM]PopupTitle[ATOM!]</h2><br>[!ATOM]PopupContent[ATOM!]');
+            [!ATOM]CategoryName[ATOM!]Markers.push(myMarker);
+            [!ATOM]CategoryName[ATOM!]MarkerIcon = "[!ATOM]IconUrl[ATOM!]";*/
         }
 
         $.each(activeMarkers, function(index, value) {
@@ -209,13 +228,66 @@
             allMarkers.push(value);
         });
 
+        /*
+        var activitiesText = GetLayerLabelText("Activities", ActivitiesMarkerIcon);
+        var newsText = GetLayerLabelText("News", NewsMarkerIcon);
+        var projectsText = GetLayerLabelText("Projects", ProjectsMarkerIcon);
+        var eventsText = GetLayerLabelText("Events", EventsMarkerIcon);
+        var blogsText = GetLayerLabelText("Blogs", BlogsMarkerIcon);
+
+        var overlayMaps = { };
+        if(showlayers == true) {
+            overlayMaps[activitiesText] = ActivitiesLayer;
+            overlayMaps[newsText] = NewsLayer;
+            overlayMaps[projectsText] = ProjectsLayer;
+            overlayMaps[eventsText] = EventsLayer;
+            overlayMaps[blogsText] = BlogsLayer;
+        }
+
+
+        // Adding marker arrays
+        markers.addLayers(ActivitiesMarkers);
+        markers.addLayers(NewsMarkers);
+        markers.addLayers(ProjectsMarkers);
+        markers.addLayers(EventsMarkers);
+        markers.addLayers(BlogsMarkers);
+          */
         markers.addLayers(allMarkers);
         map.addLayer(markers);
         markers.addTo(map);
 
+        /*
+        map.on("layeradd", function(e) {
+            if(e.layer == ActivitiesLayer)
+                markers.addLayers(ActivitiesMarkers);
+            if(e.layer == NewsLayer)
+                markers.addLayers(NewsMarkers);
+            if(e.layer == ProjectsLayer)
+                markers.addLayers(ProjectsMarkers);
+            if(e.layer == EventsLayer)
+                markers.addLayers(EventsMarkers);
+            if(e.layer == BlogsLayer)
+                markers.addLayers(BlogsMarkers);
+        });
+        map.on("layerremove", function(e) {
+            if(e.layer == ActivitiesLayer)
+                markers.removeLayers(ActivitiesMarkers);
+            if(e.layer == NewsLayer)
+                markers.removeLayers(NewsMarkers);
+            if(e.layer == ProjectsLayer)
+                markers.removeLayers(ProjectsMarkers);
+            if(e.layer == EventsLayer)
+                markers.removeLayers(EventsMarkers);
+            if(e.layer == BlogsLayer)
+                markers.removeLayers(BlogsMarkers);
+        });
+         if(showlayers == true)
+         L.control.layers(null, overlayMaps).addTo(map);
+        */
 
         map.invalidateSize(false);
     };
+        /*OipSetupDefaultMap('map');*/
 
 </script> 
 
@@ -264,6 +336,7 @@
 
     var CurrNodeSummary;
     var CurrLocations;
+    var CurrGroupContainer;
 
     var getCategoriesOrderedAndFiltered = function(categoryCollection)
     {
@@ -288,24 +361,37 @@
         var rootCategories = $.grep(orderedCategories, function(candidate) { return !candidate.ParentCategoryID; });
         return rootCategories;
     };
-    var getCategoriesBasedByNames = function(categoryCollection, nameShortTextCollection)
+    var getCategoriesBasedByNamesOrIDs = function(categoryCollection, nameShortTextCollection, categoryIDList)
     {
         var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
-        var filteredCategories = $.grep(orderedCategories,
-                function(candidate) {
-                    var foundList = $.grep(nameShortTextCollection.CollectionContent, function(nameCandidate) {
-                        return nameCandidate.Content == candidate.CategoryName;
+        var filteredCategories;
+        if(categoryIDList)
+        {
+            var categoryIDArray = categoryIDList.split(",");
+            filteredCategories = $.grep(orderedCategories,
+                    function(candidate) {
+                        var foundList = $.grep(categoryIDArray, function(idCandidate) {
+                            return idCandidate === candidate.ID;
+                        });
+                        return foundList.length > 0;
                     });
-                    return foundList.length > 0;
-                });
+        } else {
+            filteredCategories = $.grep(orderedCategories,
+                    function(candidate) {
+                        var foundList = $.grep(nameShortTextCollection.CollectionContent, function(nameCandidate) {
+                            return nameCandidate.Content == candidate.CategoryName;
+                        });
+                        return foundList.length > 0;
+                    });
+        }
         return filteredCategories;
     }
 
     var calcBrightness = function (color) {
         return Math.sqrt(
-            color.r * color.r * .299 +
-            color.g * color.g * .587 +
-            color.b * color.b * .114);
+                color.r * color.r * .299 +
+                        color.g * color.g * .587 +
+                        color.b * color.b * .114);
     }
 
     var blackOrWhiteTextColorOnBGColor = function(bgColor)
@@ -325,10 +411,12 @@
         return colour;
     }
 
+
     $(function () {
         var fetchDatas = [
                 "../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json",
-                "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection.json"
+                "../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection.json",
+                "../../AaltoGlobalImpact.OIP/GroupContainer/default.json"
             ];
         $.each(fetchDatas, function(index, value) {
             fetchDatas[index] = $.ajax({ url: value, cache:false });
@@ -339,12 +427,20 @@
             var nodeSummary = arguments[0][0];
             CurrNodeSummary = nodeSummary;
             CurrLocations = arguments[1][0];
+            CurrGroupContainer = arguments[2][0];
+
+            var imageData = CurrGroupContainer.GroupProfile.ProfileImage.ImageData;
+            if(imageData != null)
+            {
+                $("#logocontainer").html("<img src='../../AaltoGlobalImpact.OIP/MediaContent/" + imageData.ID + imageData.FileExt + "' />");
+            }
+
             var myObj = nodeSummary;
             nodeSummary.RootCategories = getRootCategories(nodeSummary.NodeSourceCategories);
             for(var nodeIX = 0; nodeIX < myObj.Nodes.CollectionContent.length; nodeIX++)
             {
                 var nodeObj = myObj.Nodes.CollectionContent[nodeIX];
-                nodeObj.Categories = getCategoriesBasedByNames(nodeSummary.NodeSourceCategories, nodeObj.CategoryNames);
+                nodeObj.Categories = getCategoriesBasedByNamesOrIDs(nodeSummary.NodeSourceCategories, nodeObj.CategoryNames, nodeObj.CategoryIDList);
                 ReplaceWithMarkdownRender(nodeObj, "Excerpt", "ExcerptRendered");
             }
             var base = dust.makeBase(
@@ -381,8 +477,8 @@
     <div class="container">
         <div class="span12" style="text-align: center;font-weight: 200;margin-bottom: 20px;color:black">
             <!--<p class="pull-right"><a href="#">Back to top</a></p>-->
-            <p style="text-align: center;font-style: oblique;font-size: 24px;font-family: Georgia">Uteliaisuus!</p>
-            <div style="text-align: center; color: lightseagreen"><a href="https://schools.caloom.com/" style="color: lightseagreen">Caloom kouluille - voimanlähteenään Pallo</a></div>
+            <p style="text-align: center;font-style: oblique;font-size: 24px;font-family: Georgia">Enabling Your Business</p>
+            <div style="text-align: center; color: lightseagreen"><a href="https://schools.caloom.com/" style="color: lightseagreen">Caloom for Business - Powered by The Ball</a></div>
         </div>
     </div>
 </footer>
@@ -444,7 +540,7 @@
                 $(document).scrollTop(0);
             }
         });
-        return true;
+        return;
     };
     $(function() {
         /*$(".oipclicktoview").on('click', OipOpenArticle);*/
