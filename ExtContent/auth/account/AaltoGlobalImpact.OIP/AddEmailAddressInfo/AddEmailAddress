@@ -1,9 +1,0 @@
-﻿<AddEmailAddressInfo xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
-  <EmailAddress i:nil="true" />
-  <ID>67a8ef90-d4a9-480e-b8f8-57b9529751e2</ID>
-  <MasterETag i:nil="true" />
-  <Name>AddEmailAddressInfo</Name>
-  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-  <RelativeLocation>acc/bc898f67-763e-414b-9c7c-2f3d73e8c0aa/AaltoGlobalImpact.OIP/AddEmailAddressInfo/AddEmailAddress</RelativeLocation>
-  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-</AddEmailAddressInfo>
