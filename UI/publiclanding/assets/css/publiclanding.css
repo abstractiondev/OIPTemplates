@@ -658,7 +658,7 @@ h4 small {
 .page-header {
     padding-bottom: 9px;
     margin: 20px 0 30px;
-    border-bottom: 1px solid #eeeeee;
+    /*border-bottom: 1px solid #eeeeee;*/
 }
 ul,
 ol {
@@ -5114,7 +5114,7 @@ a.badge:hover {
 }
 html,
 body {
-    background-color: #d7d3cd;
+    background-color: #ffffff;
     color: #492a1c;
     margin: 0px;
     padding: 0px;
@@ -5135,7 +5135,8 @@ body {
 section.body-background {
     background-image: url("../img/oip_landing.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-position: center;
+    /*background-size: 100% 100%;*/
 }
 @media (max-width: 480px) {
     section.body-background {
@@ -5195,7 +5196,7 @@ section.body-background {
     padding-top: 30px;
     padding-bottom: 0px;
     margin: 20px 0px;
-    background-color: #f9f8f8;
+    background-color: white;
 }
 .page-header .breadcrumb {
     margin-bottom: 0px;
@@ -6028,8 +6029,8 @@ section.body-background {
 }
 /* end */
 #footer {
-    background-color: #2a1a13;
-    color: #f9f8f2;
+    background-color: white;
+    color: dimgray;
     padding-top: 10px;
     line-height: 1.65;
     /*  twitter widget inside footer below footer content
@@ -6051,7 +6052,7 @@ section.body-background {
     color: #d7d3cd;
     margin: 0 0 10px 0;
     padding: 0 0 5px 0;
-    border-bottom: 1px solid #41271e;
+    /*border-bottom: 1px solid #41271e;*/
     text-transform: uppercase;
     font-size: 90%;
 }
@@ -6059,7 +6060,7 @@ section.body-background {
     margin: 0 0 10px;
 }
 #footer a {
-    color: #ff732b;
+    color: dimgray;
 }
 #footer a:hover {
     text-decoration: underline;
