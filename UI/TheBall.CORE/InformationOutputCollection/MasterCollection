@@ -1,0 +1,11 @@
+﻿<InformationOutputCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/TheBall.CORE">
+  <CollectionContent />
+  <ID>18fdb66d-6e70-4801-9f40-019f56a85274</ID>
+  <IsCollectionFiltered>false</IsCollectionFiltered>
+  <MasterETag i:nil="true" />
+  <Name>InformationOutputCollection</Name>
+  <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/9c7a9369-68b8-4609-9dcf-8e6fb8918200/TheBall.CORE/InformationOutputCollection/MasterCollection</RelativeLocation>
+  <SemanticDomainName>TheBall.CORE</SemanticDomainName>
+</InformationOutputCollection>
