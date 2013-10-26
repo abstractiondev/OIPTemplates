@@ -1,4 +1,3 @@
-{!
 <div class="container">
     <!-- The fileinput-button span is used to style the file input field as button -->
     <span class="btn btn-success fileinput-button">
@@ -17,32 +16,34 @@
     <div id="files" class="files"></div>
     <br>
 </div>
+
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="../assets/lib/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.min.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/ext/load-image.min.js"></script>
 <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/ext/JavaScript-Canvas-to-Blob_js_canvas-to-blob.js"></script>
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.fileupload.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload.js"></script>
 <!-- The File Upload processing plugin -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-process.js"></script>
 <!-- The File Upload image preview & resize plugin -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.fileupload-image.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-image.js"></script>
 <!-- The File Upload audio preview plugin -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-audio.js"></script>
 <!-- The File Upload video preview plugin -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.fileupload-video.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-video.js"></script>
 <!-- The File Upload validation plugin -->
-<script src="../assets/lib/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-validate.js"></script>
+
 <script>
     /*jslint unparam: true, regexp: true */
     /*global window, $ */
     $(function () {
         'use strict';
-        // Change this to the location of your server-side upload handler:
+        /* Change this to the location of your server-side upload handler:*/
         var url = window.location.hostname === 'blueimp.github.io' ?
                         '//jquery-file-upload.appspot.com/' : 'server/php/',
                 uploadButton = $('<button/>')
@@ -68,10 +69,12 @@
             dataType: 'json',
             autoUpload: false,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-            maxFileSize: 5000000, // 5 MB
-            // Enable image resizing, except for Android and Opera,
-            // which actually support image resizing, but fail to
-            // send Blob objects via XHR requests:
+            maxFileSize: 5000000,
+            /*
+            / 5 MB
+            / Enable image resizing, except for Android and Opera,
+            / which actually support image resizing, but fail to
+            / send Blob objects via XHR requests: */
             disableImageResize: /Android(?!.*Chrome)|Opera/
                     .test(window.navigator.userAgent),
             previewMaxWidth: 100,
@@ -140,4 +143,3 @@
                 .parent().addClass($.support.fileInput ? undefined : 'disabled');
     });
 </script>
-    !}
