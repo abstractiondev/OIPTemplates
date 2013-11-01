@@ -1,11 +1,11 @@
 ﻿<InvoiceCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/TheBall.CORE">
   <CollectionContent />
-  <ID>a81cd0f7-0a1c-4609-b5e8-2741c1bbd71d</ID>
+  <ID>e7d25218-e13e-40bb-a020-b67b4f2a6b94</ID>
   <IsCollectionFiltered>false</IsCollectionFiltered>
   <MasterETag i:nil="true" />
   <Name>InvoiceCollection</Name>
   <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-  <RelativeLocation>grp/f3481b71-5dbd-4de6-b774-4e8bc3b3265e/TheBall.CORE/InvoiceCollection/MasterCollection</RelativeLocation>
+  <RelativeLocation>grp/fd17836d-30e4-4d96-ae95-9217ac48867d/TheBall.CORE/InvoiceCollection/MasterCollection</RelativeLocation>
   <SemanticDomainName>TheBall.CORE</SemanticDomainName>
 </InvoiceCollection>
