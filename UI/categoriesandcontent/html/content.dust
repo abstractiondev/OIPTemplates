@@ -36,11 +36,13 @@
         <div class="clearfix"></div>
     </div>
     {>"button_addtextcontent.dust" /}
+    {!
     <div id="content-tiles" class="gallery" style="clear: both;">
-{!        {>"files.dust" /} !}
+        {>"files.dust" /}
         <div class="clearfix"></div>
     </div>
     {>"completefileupload.dust" /}
+    !}
 </div>
 {>"form_addtextcontent.dust" /}
 {>"form_edittextcontent.dust" /}
