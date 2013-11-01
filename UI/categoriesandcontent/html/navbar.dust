@@ -18,6 +18,7 @@
 {/AccountContainer.AccountContainer.AccountModule.Profile}
                     <li><a tabindex="-1" href="/TheBallLogin.aspx?SignOut=true">Logout</a></li>
                 </ul>
+            </li>
             <li class="hidden-phone"><a class="brand" href="#">@ Caloom & Open Innovation Platform</a></li>
        </ul>
     </div>
