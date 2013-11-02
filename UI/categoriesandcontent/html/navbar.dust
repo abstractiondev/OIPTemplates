@@ -9,6 +9,14 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a tabindex="-1" target="_blank" href="../../wwwsite/html/index.html">{GroupName}'s web presence preview</a></li>
+                    <li>
+                        {>"executeoperation_button_begin.dust" form_name="UpdateGroupUsage" /}
+                        {>"executeoperation_button_end.dust" button_label="Update Group Usage Monitoring" icon_class_name="icon-bar-chart" /}
+                    </li>
+                    <li>
+                        {>"executeoperation_button_begin.dust" form_name="UpdateAllGroupsRawUsage" /}
+                        {>"executeoperation_button_end.dust" button_label="Update All Groups Raw Usage" icon_class_name="icon-bar-chart" /}
+                    </li>
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
 {/GroupContainerSource.GroupContainer.GroupProfile}
@@ -24,3 +32,12 @@
     </div>
 </div><!-- .navbar change-->
 
+{>"modal_executeoperation_begin.dust" form_name="UpdateAllGroupsRawUsage"
+header_title="Update Group Platform Usage Statistics"
+operation_name="ProcessAllResourceUsagesToOwnerCollections" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Perform Update!" /}
+
+{>"modal_executeoperation_begin.dust" form_name="UpdateGroupUsage"
+header_title="Update Group Usage Monitoring"
+operation_name="UpdateUsageMonitoringItems" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Perform Update!" /}
