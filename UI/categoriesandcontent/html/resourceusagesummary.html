@@ -150,6 +150,10 @@
         return yyyy + (mm[1]?mm:"0"+mm[0]) + (dd[1]?dd:"0"+dd[0]); // padding
     };
 
+    function convertDateToUTC(date) {
+        return new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
+    }
+
     var getTotalMsFromNETDateTimes = function(startTime, endTime)
     {
         var startDate = eval ("new " + ("\\" + startTime + "/").replace( /[\\/]/g, ""));
@@ -159,7 +163,7 @@
     };
 
     $(function () {
-        var today = new Date();
+        var today = convertDateToUTC(new Date());
         // To test yesterday, uncomment below
         //today.setDate(today.getDate() - 1);
         var todayStr = today.yyyymmdd();
