@@ -2,12 +2,16 @@
 <html>
 <head>
     <title></title>
+    <meta charset="UTF-8">
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
 <canvas id="myChart" width="600" height="400"></canvas>
-<canvas id="myChart2" width="600" height="400"></canvas>
+<span>
+    <canvas id="myChart2" width="600" height="400"></canvas>
+    <span id="myChart2Details"></span>
+</span>
 <canvas id="myChart3" width="600" height="400"></canvas>
 </body>
 
@@ -21,8 +25,8 @@
 
     $(function () {
         var fetchDatas = [
-            "../../TheBall.CORE/UsageSummary/20131103_Hourly.json",
-            "../../TheBall.CORE/UsageSummary/20131103_Detailed.json",
+            "../../TheBall.CORE/UsageSummary/20131102_Hourly.json",
+            "../../TheBall.CORE/UsageSummary/20131102_Detailed.json",
             //"../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection.json",
             //"../../AaltoGlobalImpact.OIP/GroupContainer/default.json"
         ];
@@ -40,11 +44,19 @@
             hourRealWorldtimes = [];
             networkBytes = [];
             var totalCPUms = 0;
+            var totalRealworldms = 0;
             var totalNetworkBytes = 0;
             $.each(usageSummary.SummaryMonitoringItem.ProcessorUsages.CollectionContent, function(index, value) {
                 hourCPUTimes.push(value.Milliseconds / 1000);
                 //var deltaDiff = value.
-                totalCPUms += value.Milliseconds;
+                totalCPUms += value.Milliseconds
+                var endTimeStr = value.TimeRange.EndTime;
+                var endDate = eval ("new " + ("\\" + endTimeStr + "/").replace( /[\\/]/g, ""));
+                var startTimeStr = value.TimeRange.StartTime;
+                var startDate = eval ("new " + ("\\" + startTimeStr + "/").replace( /[\\/]/g, ""));
+                var totalMilliseconds = endDate - startDate;
+                totalRealworldms += totalMilliseconds;
+                hourRealWorldtimes.push(totalMilliseconds / 1000.0);
             });
             $.each(usageSummary.SummaryMonitoringItem.NetworkUsages.CollectionContent, function(index, value) {
                 networkBytes.push(value.AmountOfBytes / 1024.0);
@@ -64,25 +76,27 @@
                     {
                         fillColor : "rgba(151,187,205,0.5)",
                         strokeColor : "rgba(151,187,205,1)",
-                        data : []
+                        data : hourRealWorldtimes
                     }
                 ]
             }
             //options = {};
             new Chart(ctx).Bar(data);
             var totalDayMs = 86400000;
-            var remainingMs = totalDayMs - totalCPUms;
+            var remainingMs = totalDayMs - totalRealworldms;
             var pieData = [
                 {
                     value: remainingMs,
                     color:"#F38630"
                 },
                 {
-                    value : totalCPUms,
+                    value : totalRealworldms,
                     color : "#E0E4CC"
                 }
             ];
             new Chart(pieCtx).Pie(pieData);
+            $("#myChart2Details").html("Usage: " + Math.round(totalRealworldms * 10000 / totalDayMs) / 100 + "%");
+            //new Chart(pieCtx).PolarArea(pieData);
 
             var networkData = {
                 labels : ["0:00","1:00","2:00","3:00","4:00","5:00","6:00",
