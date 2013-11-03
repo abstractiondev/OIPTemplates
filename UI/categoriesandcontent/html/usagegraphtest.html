@@ -8,19 +8,21 @@
 <body>
 <canvas id="myChart" width="600" height="400"></canvas>
 <canvas id="myChart2" width="600" height="400"></canvas>
+<canvas id="myChart3" width="600" height="400"></canvas>
 </body>
 
 <script type="text/javascript">
     //Get context with jQuery - using jQuery's .get() method.
     var ctx = $("#myChart").get(0).getContext("2d");
     var pieCtx = $("#myChart2").get(0).getContext("2d");
+    var networkBar = $("#myChart3").get(0).getContext("2d");
     //This will get the first returned node in the jQuery collection.
     //var myNewChart = new Chart(ctx);
 
     $(function () {
         var fetchDatas = [
-            "../../TheBall.CORE/UsageSummary/20131102_Hourly.json",
-            "../../TheBall.CORE/UsageSummary/20131102_Detailed.json",
+            "../../TheBall.CORE/UsageSummary/20131103_Hourly.json",
+            "../../TheBall.CORE/UsageSummary/20131103_Detailed.json",
             //"../../AaltoGlobalImpact.OIP/AddressAndLocationCollection/MasterCollection.json",
             //"../../AaltoGlobalImpact.OIP/GroupContainer/default.json"
         ];
@@ -35,15 +37,17 @@
             //CurrLocations = arguments[1][0];
             //CurrGroupContainer = arguments[2][0];
             hourCPUTimes = [];
+            hourRealWorldtimes = [];
             networkBytes = [];
             var totalCPUms = 0;
             var totalNetworkBytes = 0;
             $.each(usageSummary.SummaryMonitoringItem.ProcessorUsages.CollectionContent, function(index, value) {
                 hourCPUTimes.push(value.Milliseconds / 1000);
+                //var deltaDiff = value.
                 totalCPUms += value.Milliseconds;
             });
             $.each(usageSummary.SummaryMonitoringItem.NetworkUsages.CollectionContent, function(index, value) {
-                networkBytes.push(value.AmountOfBytes);
+                networkBytes.push(value.AmountOfBytes / 1024.0);
                 totalNetworkBytes += value.AmountOfBytes;
             });
             var data = {
@@ -80,6 +84,20 @@
             ];
             new Chart(pieCtx).Pie(pieData);
 
+            var networkData = {
+                labels : ["0:00","1:00","2:00","3:00","4:00","5:00","6:00",
+                    "7:00","8:00","9:00","10:00","11:00","12:00",
+                    "13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00",
+                    "21:00","22:00","23:00"],
+                datasets : [
+                    {
+                        fillColor : "rgba(220,220,220,0.5)",
+                        strokeColor : "rgba(220,220,220,1)",
+                        data : networkBytes
+                    }
+                ]
+            };
+            new Chart(networkBar).Bar(networkData);
         });
 
     });
