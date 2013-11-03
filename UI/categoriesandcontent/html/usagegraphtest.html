@@ -16,9 +16,10 @@
     -->
 </span>
 <span>Net MB</span>
-<canvas id="myChart3" width="300" height="300"></canvas>
+<canvas id="myChart3" width="600" height="300"></canvas>
 <div id="MonthlySummaries"><h2>Monthly Summary</h2>
     <p>Pricing instance sizes as following: XS = $0.02, S = $0.08 </p>
+    <p>Network pricing is based as $0.12/GB</p>
 </div>
 
 <table border="1" style="padding: 2">
@@ -32,30 +33,30 @@
     </thead>
     <tbody>
     <tr>
-        <td>Total network outbound GB</td>
+        <td>Network Outbound GB</td>
         <td><span class="TotalNetworkOutboundGB"></span></td>
         <td><span class="TotalNetworkOutboundGB"></span></td>
         <td><span class="TotalNetworkOutboundGB"></span></td>
     </tr>
     <tr>
-        <td>Price based on $0.12/GB</td>
+        <td>Network Price</td>
         <td><span class="TotalNetworkPriceMonth"></span></td>
         <td><span class="TotalNetworkPriceMonth"></span></td>
         <td><span class="TotalNetworkPriceMonth"></span></td>
     </tr>
     <tr>
-        <td>Total Processing Hours</td>
+        <td>Computing Hours</td>
         <td><span class="BallTotalCPUHoursMonth"></span></td>
         <td><span class="TradSingleTotalCPUHoursMonth"></span></td>
         <td><span class="TradRedundantTotalCPUHoursMonth"></span></td>
     </tr>
     <tr>
-        <td>Price based on Size</td>
+        <td>Computing Hours Price</td>
         <td><span class="SmallBallTotalCPUPriceMonth"></span></td>
         <td><span class="SmallTradSingleTotalCPUPriceMonth"></span></td>
         <td><span class="SmallTradRedundantTotalCPUPriceMonth"></span></td>
     </tr>
-    <tr>
+    <tr style="font-weight: bolder">
         <td>Total Price</td>
         <td><span class="SmallTotalBallPrice"></span></td>
         <td><span class="SmallTotalSinglePrice"></span></td>
@@ -87,30 +88,30 @@
     </thead>
     <tbody>
     <tr>
-        <td>Total network outbound GB</td>
+        <td>Network Outbound GB</td>
         <td><span class="TotalNetworkOutboundGB"></span></td>
         <td><span class="TotalNetworkOutboundGB"></span></td>
         <td><span class="TotalNetworkOutboundGB"></span></td>
     </tr>
     <tr>
-        <td>Price based on $0.12/GB</td>
+        <td>Network Price</td>
         <td><span class="TotalNetworkPriceMonth"></span></td>
         <td><span class="TotalNetworkPriceMonth"></span></td>
         <td><span class="TotalNetworkPriceMonth"></span></td>
     </tr>
     <tr>
-        <td>Total Processing Hours</td>
+        <td>Computing Hours</td>
         <td><span class="BallTotalCPUHoursMonth"></span></td>
         <td><span class="TradSingleTotalCPUHoursMonth"></span></td>
         <td><span class="TradRedundantTotalCPUHoursMonth"></span></td>
     </tr>
     <tr>
-        <td>Price based on Size</td>
+        <td>Computing Hours Price</td>
         <td><span class="BallTotalCPUPriceMonth"></span></td>
         <td><span class="TradSingleTotalCPUPriceMonth"></span></td>
         <td><span class="TradRedundantTotalCPUPriceMonth"></span></td>
     </tr>
-    <tr>
+    <tr style="font-weight: bolder">
         <td>Total Price</td>
         <td><span class="TotalXSBallPrice"></span></td>
         <td><span class="TotalXSSinglePrice"></span></td>
@@ -158,6 +159,8 @@
 
     $(function () {
         var today = new Date();
+        // To test yesterday, uncomment below
+        //today.setDate(today.getDate() - 1);
         var todayStr = today.yyyymmdd();
         var fetchDatas = [
             "../../TheBall.CORE/UsageSummary/" + todayStr +"_Hourly.json",
@@ -271,27 +274,27 @@
             var tradReduntantCPUHoursMonth = 1500;
 
             $(".TotalNetworkOutboundGB").html(networkGBOut);
-            $(".TotalNetworkPriceMonth").html(networkPrice);
+            $(".TotalNetworkPriceMonth").html("$" + networkPrice);
             $(".BallTotalCPUHoursMonth").html(totalCPUHoursMonth);
 
             var xsPrice = 0.02;
             var totalCPUPriceMonth = Math.round(totalCPUHoursMonth * xsPrice * 100) / 100;
-            $(".BallTotalCPUPriceMonth").html(totalCPUPriceMonth);
+            $(".BallTotalCPUPriceMonth").html("$" + totalCPUPriceMonth);
             $(".TradSingleTotalCPUHoursMonth").html(tradSingleCPUHoursMonth);
             var tradSingleCPUPriceMonth = Math.round(tradSingleCPUHoursMonth * xsPrice * 100) / 100;
-            $(".TradSingleTotalCPUPriceMonth").html(tradSingleCPUPriceMonth);
+            $(".TradSingleTotalCPUPriceMonth").html("$" + tradSingleCPUPriceMonth);
 
             $(".TradRedundantTotalCPUHoursMonth").html(tradReduntantCPUHoursMonth);
             var tradRedundantCPUPriceMonth = Math.round(tradReduntantCPUHoursMonth * xsPrice * 100) / 100;
-            $(".TradRedundantTotalCPUPriceMonth").html(tradRedundantCPUPriceMonth);
+            $(".TradRedundantTotalCPUPriceMonth").html("$" + tradRedundantCPUPriceMonth);
 
             var ballXSTotalPrice = networkPrice + totalCPUPriceMonth;
             ballXSTotalPrice = Math.round(ballXSTotalPrice * 100) / 100;
-            $(".TotalXSBallPrice").html(ballXSTotalPrice);
+            $(".TotalXSBallPrice").html("$" + ballXSTotalPrice);
             var tradSingleTotalPrice = networkPrice + tradSingleCPUPriceMonth;
-            $(".TotalXSSinglePrice").html(tradSingleTotalPrice);
+            $(".TotalXSSinglePrice").html("$" + tradSingleTotalPrice);
             var tradRedundantTotalPrice = networkPrice + tradRedundantCPUPriceMonth;
-            $(".TotalXSRedundantPrice").html(tradRedundantTotalPrice);
+            $(".TotalXSRedundantPrice").html("$" + tradRedundantTotalPrice);
 
             var ballPriceRelativeToXSRedundant = ballXSTotalPrice / tradRedundantTotalPrice;
             var tradSinglePriceRelativeToXSReduntant = tradSingleTotalPrice / tradRedundantTotalPrice;
@@ -305,20 +308,20 @@
 
             var smallPrice = 0.08;
             var smallTotalCPUPriceMonth = Math.round(totalCPUHoursMonth * smallPrice * 100) / 100;
-            $(".SmallBallTotalCPUPriceMonth").html(smallTotalCPUPriceMonth);
+            $(".SmallBallTotalCPUPriceMonth").html("$" + smallTotalCPUPriceMonth);
             var smallTradSingleCPUPriceMonth = Math.round(tradSingleCPUHoursMonth * smallPrice * 100) / 100;
-            $(".SmallTradSingleTotalCPUPriceMonth").html(smallTradSingleCPUPriceMonth);
+            $(".SmallTradSingleTotalCPUPriceMonth").html("$" + smallTradSingleCPUPriceMonth);
 
             var smallTradRedundantCPUPriceMonth = Math.round(tradReduntantCPUHoursMonth * smallPrice * 100) / 100;
-            $(".SmallTradRedundantTotalCPUPriceMonth").html(smallTradRedundantCPUPriceMonth);
+            $(".SmallTradRedundantTotalCPUPriceMonth").html("$" + smallTradRedundantCPUPriceMonth);
 
             var smallBallTotalPrice = networkPrice + smallTotalCPUPriceMonth;
             smallBallTotalPrice = Math.round(smallBallTotalPrice * 100) / 100;
-            $(".SmallTotalBallPrice").html(smallBallTotalPrice);
+            $(".SmallTotalBallPrice").html("$" + smallBallTotalPrice);
             var smallTradSingleTotalPrice = networkPrice + smallTradSingleCPUPriceMonth;
-            $(".SmallTotalSinglePrice").html(smallTradSingleTotalPrice);
+            $(".SmallTotalSinglePrice").html("$" + smallTradSingleTotalPrice);
             var smallTradRedundantTotalPrice = networkPrice + smallTradRedundantCPUPriceMonth;
-            $(".SmallTotalRedundantPrice").html(smallTradRedundantTotalPrice);
+            $(".SmallTotalRedundantPrice").html("$" + smallTradRedundantTotalPrice);
 
             var smallBallPriceRelativeToSmallRedundant = smallBallTotalPrice / smallTradRedundantTotalPrice;
             var smallTradSinglePriceRelativeToSmallReduntant = smallTradSingleTotalPrice / smallTradRedundantTotalPrice;
