@@ -18,6 +18,7 @@
 <span>Net MB</span>
 <canvas id="myChart3" width="600" height="300"></canvas>
 <div id="MonthlySummaries"><h2>Monthly Summary</h2>
+    <p>Total Computing Seconds: <span class="TotalComputingSeconds"></span> Total Network Bytes: <span class="TotalNetworkBytes"></span></p>
     <p>Pricing instance sizes as following: XS = $0.02, S = $0.08 </p>
     <p>Network pricing is based as $0.12/GB</p>
 </div>
@@ -272,6 +273,9 @@
             var totalCPUHoursMonth = Math.round(totalRealworldSecondsMonth * 1000 / 3600) / 1000;
             var tradSingleCPUHoursMonth = 750;
             var tradReduntantCPUHoursMonth = 1500;
+
+            $(".TotalNetworkBytes").html(totalNetworkBytesMonth);
+            $(".TotalComputingSeconds").html(totalRealworldSecondsMonth);
 
             $(".TotalNetworkOutboundGB").html(networkGBOut);
             $(".TotalNetworkPriceMonth").html("$" + networkPrice);
