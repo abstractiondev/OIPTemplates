@@ -112,7 +112,7 @@
                     }
                     if (index + 1 === data.files.length) {
                         data.context.find('button')
-                                .text('Upload')
+                                .text('Uploading...')
                                 .prop('disabled', !!data.files.error);
                     }
                 }).on('fileuploadprogressall', function (e, data) {
@@ -139,6 +139,9 @@
                         if(nextButton)
                         {
                             nextButton.click();
+                        } else
+                        {
+                            location.reload(true);
                         }
                     });
                 }).on('fileuploadfail', function (e, data) {
