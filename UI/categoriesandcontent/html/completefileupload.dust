@@ -9,23 +9,44 @@
     <br>
     <br>
     <!-- The global progress bar -->
-    {!
     <div id="progress" class="progress">
         <div class="progress-bar progress-bar-success"></div>
     </div>
-!}
     <!-- The container for the uploaded files -->
     <div id="files" class="files"></div>
     <br>
 </div>
+
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="../assets/lib/jQuery-File-Upload/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+<script src="../assets/lib/jQuery-File-Upload/js/ext/load-image.min.js"></script>
+<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+<script src="../assets/lib/jQuery-File-Upload/js/ext/JavaScript-Canvas-to-Blob_js_canvas-to-blob.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload.js"></script>
+<!-- The File Upload processing plugin -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-process.js"></script>
+<!-- The File Upload image preview & resize plugin -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-image.js"></script>
+<!-- The File Upload audio preview plugin -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-audio.js"></script>
+<!-- The File Upload video preview plugin -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-video.js"></script>
+<!-- The File Upload validation plugin -->
+<script src="../assets/lib/jQuery-File-Upload/js/jquery.fileupload-validate.js"></script>
+
 
 <script>
     /*jslint unparam: true, regexp: true */
     /*global window, $ */
     $(function () {
         'use strict';
+        var urlValue = window.location.pathname.replace("/auth/", "/fileupload/");
         /* Change this to the location of your server-side upload handler:*/
-        var url ='/fileupload/grp/{#GroupContainerSource.GroupContainer.GroupProfile}{ID}{/GroupContainerSource.GroupContainer.GroupProfile}';
+        var url = urlValue;
         var uploadButton = $('<button/>')
                 .addClass('btn btn-primary uploadbtn')
                 .prop('disabled', true)
@@ -49,7 +70,7 @@
         $('#fileupload').fileupload({
             url: url,
             dataType: 'json',
-            autoUpload: true,
+            autoUpload: false,
             acceptFileTypes: /(\.|\/)(gif|jpe?g|png|bmp|pptx?|zip|pdf|docx?|xlsx?)$/i,
             maxFileSize: 10124000,
             /*
@@ -61,7 +82,7 @@
                     .test(window.navigator.userAgent),
             previewMaxWidth: 100,
             previewMaxHeight: 100,
-            previewCrop: false
+            previewCrop: true
         }).on('fileuploadadd', function (e, data) {
                     data.context = $('<span/>').appendTo('#files');
                     $.each(data.files, function (index, file) {
