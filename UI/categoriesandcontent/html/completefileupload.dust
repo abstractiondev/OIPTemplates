@@ -60,8 +60,7 @@
                             .on('click', function () {
                                 $this.remove();
                                 data.abort();
-                            })
-                            .removeClass('uploadbtn');
+                            });
 
                     data.submit().always(function () {
                         $this.remove();
@@ -95,7 +94,7 @@
                         }
                         node.appendTo(data.context);
                     });
-                    $(".uploadbtn").first().click();
+                    $(".uploadbtn").first().removeClass("uploadbtn").click();
                 }).on('fileuploadprocessalways', function (e, data) {
                     var index = data.index,
                             file = data.files[index],
@@ -135,14 +134,17 @@
                                     .append('<br>')
                                     .append(error);
                         }
-                        var nextButton = $(".uploadbtn").first();
+                        /*
+                        var nextButton = $(".uploadbtn").first().removeClass('uploadbtn');
                         if(nextButton)
                         {
+                            nextButton.removeClass('uploadbtn');
                             nextButton.click();
                         } else
                         {
-                            location.reload(true);
-                        }
+                            alert("Reloading...");
+                            window.location.reload(true);
+                        }*/
                     });
                 }).on('fileuploadfail', function (e, data) {
                     $.each(data.files, function (index, file) {
