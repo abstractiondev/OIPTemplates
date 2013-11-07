@@ -42,6 +42,7 @@
 <script>
     /*jslint unparam: true, regexp: true */
     /*global window, $ */
+    var concurrentUploads = 0;
     $(function () {
         'use strict';
         var urlValue = window.location.pathname.replace("/auth/", "/fileupload/");
@@ -62,6 +63,7 @@
                                 data.abort();
                             });
 
+                    concurrentUploads++;
                     data.submit().always(function () {
                         $this.remove();
                     });
@@ -146,6 +148,9 @@
                             window.location.reload(true);
                         }*/
                     });
+                    concurrentUploads--;
+                    if(concurrentUploads == 0)
+                        window.location.reload(true);
                 }).on('fileuploadfail', function (e, data) {
                     $.each(data.files, function (index, file) {
                         var error = $('<span class="text-danger"/>').text('File upload failed.');
