@@ -1,0 +1,29 @@
+﻿<TextContentCollection xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/AaltoGlobalImpact.OIP">
+  <CollectionContent>
+    <TextContent>
+      <Author>Me</Author>
+      <Body>My Body</Body>
+      <Categories i:nil="true" />
+      <Excerpt>My Excerpt</Excerpt>
+      <ID>4536af0f-8457-4d4a-9bdf-270e11fb27e6</ID>
+      <ImageData i:nil="true" />
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D09D43D68EDEAB"</MasterETag>
+      <Name>TextContent</Name>
+      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+      <RelativeLocation>grp/b470e3fb-6b58-41ec-9c89-131672ea8531/AaltoGlobalImpact.OIP/TextContent/4536af0f-8457-4d4a-9bdf-270e11fb27e6</RelativeLocation>
+      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+      <SortOrderNumber>0</SortOrderNumber>
+      <SubTitle>My Subtitle</SubTitle>
+      <Title>Test TextContent</Title>
+    </TextContent>
+  </CollectionContent>
+  <ID>e1cd0612-0083-4447-8108-c235269d170d</ID>
+  <IsCollectionFiltered>false</IsCollectionFiltered>
+  <MasterETag i:nil="true" />
+  <Name>TextContentCollection</Name>
+  <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
+  <RelativeLocation>grp/b470e3fb-6b58-41ec-9c89-131672ea8531/AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection</RelativeLocation>
+  <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
+</TextContentCollection>
