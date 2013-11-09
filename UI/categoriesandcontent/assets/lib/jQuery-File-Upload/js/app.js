@@ -19,7 +19,7 @@
         url = isOnGitHub ? '//jquery-file-upload.appspot.com/' : 'server/php/';
 
     angular.module('demo', [
-        'blueimp.fileupload'
+        'blueimp.fileuploader'
     ])
         .config([
             '$httpProvider', 'fileUploadProvider',

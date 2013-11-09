@@ -57,7 +57,7 @@
     // By default, files added via file input selection, paste, drag & drop or
     // "add" method are uploaded immediately, but it is possible to override
     // the "add" callback option to queue file uploads.
-    $.widget('blueimp.fileupload', {
+    $.widget('blueimp.fileuploader', {
 
         options: {
             // The drop target element(s), by the default the complete document.
@@ -178,7 +178,7 @@
                     return false;
                 }
                 if (data.autoUpload || (data.autoUpload !== false &&
-                        $(this).fileupload('option', 'autoUpload'))) {
+                        $(this).fileuploader('option', 'autoUpload'))) {
                     data.process().done(function () {
                         data.submit();
                     });

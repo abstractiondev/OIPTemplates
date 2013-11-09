@@ -4,7 +4,7 @@
         <i class="glyphicon glyphicon-plus"></i>
         <span>Add files...</span>
         <!-- The file input field used as target for the file upload widget -->
-        <input id="fileupload" type="file" name="files[]" multiple>
+        <input id="fileuploader" type="file" name="files[]" multiple>
     </span>
     <br>
     <br>
@@ -68,7 +68,7 @@
                         $this.remove();
                     });
                 });
-        $('#fileupload').fileupload({
+        $('#fileuploader').fileuploader({
             url: url,
             dataType: 'json',
             autoUpload: false,
@@ -84,7 +84,7 @@
             previewMaxWidth: 100,
             previewMaxHeight: 100,
             previewCrop: true
-        }).on('fileuploadadd', function (e, data) {
+        }).on('fileuploaderadd', function (e, data) {
                     data.context = $('<span/>').appendTo('#files');
                     $.each(data.files, function (index, file) {
                         var node = $('<span/>')
@@ -97,7 +97,7 @@
                         node.appendTo(data.context);
                     });
                     $(".uploadbtn").first().removeClass("uploadbtn").click();
-                }).on('fileuploadprocessalways', function (e, data) {
+                }).on('fileuploaderprocessalways', function (e, data) {
                     var index = data.index,
                             file = data.files[index],
                             node = $(data.context.children()[index]);
@@ -116,13 +116,13 @@
                                 .text('Uploading...')
                                 .prop('disabled', !!data.files.error);
                     }
-                }).on('fileuploadprogressall', function (e, data) {
+                }).on('fileuploaderprogressall', function (e, data) {
                     var progress = parseInt(data.loaded / data.total * 100, 10);
                     $('#progress .progress-bar').css(
                             'width',
                             progress + '%'
                     );
-                }).on('fileuploaddone', function (e, data) {
+                }).on('fileuploaderdone', function (e, data) {
                     $.each(data.files, function (index, file) {
                         if (file.url) {
                             var link = $('<a>')
@@ -151,7 +151,7 @@
                     concurrentUploads--;
                     if(concurrentUploads == 0)
                         window.location.reload(true);
-                }).on('fileuploadfail', function (e, data) {
+                }).on('fileuploaderfail', function (e, data) {
                     $.each(data.files, function (index, file) {
                         var error = $('<span class="text-danger"/>').text('File upload failed.');
                         $(data.context.children()[index])

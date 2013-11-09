@@ -29,11 +29,11 @@
 }(function ($) {
     'use strict';
 
-    var originalAdd = $.blueimp.fileupload.prototype.options.add;
+    var originalAdd = $.blueimp.fileuploader.prototype.options.add;
 
     // The File Upload Processing plugin extends the fileupload widget
     // with file processing functionality:
-    $.widget('blueimp.fileupload', $.blueimp.fileupload, {
+    $.widget('blueimp.fileuploader', $.blueimp.fileuploader, {
 
         options: {
             // The list of processing actions:
@@ -48,7 +48,7 @@
             add: function (e, data) {
                 var $this = $(this);
                 data.process(function () {
-                    return $this.fileupload('process', data);
+                    return $this.fileuploader('process', data);
                 });
                 originalAdd.call(this, e, data);
             }

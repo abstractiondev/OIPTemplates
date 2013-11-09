@@ -34,7 +34,7 @@
 }(function ($, tmpl, loadImage) {
     'use strict';
 
-    $.blueimp.fileupload.prototype._specialOptions.push(
+    $.blueimp.fileuploader.prototype._specialOptions.push(
         'filesContainer',
         'uploadTemplateId',
         'downloadTemplateId'
@@ -42,7 +42,7 @@
 
     // The UI version extends the file upload widget
     // and adds complete user interface interaction:
-    $.widget('blueimp.fileupload', $.blueimp.fileupload, {
+    $.widget('blueimp.fileuploader', $.blueimp.fileuploader, {
 
         options: {
             // By default, files added to the widget are uploaded as soon
@@ -85,12 +85,12 @@
                     return false;
                 }
                 var $this = $(this),
-                    that = $this.data('blueimp-fileupload') ||
-                        $this.data('fileupload'),
+                    that = $this.data('blueimp-fileuploader') ||
+                        $this.data('fileuploader'),
                     options = that.options,
                     files = data.files;
                 data.process(function () {
-                    return $this.fileupload('process', data);
+                    return $this.fileuploader('process', data);
                 }).always(function () {
                     data.context = that._renderUpload(files).data('data', data);
                     that._renderPreviews(data);
@@ -114,8 +114,8 @@
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
+                var that = $(this).data('blueimp-fileuploader') ||
+                        $(this).data('fileuploader');
                 if (data.context && data.dataType &&
                         data.dataType.substr(0, 6) === 'iframe') {
                     // Iframe Transport does not support progress events.
@@ -138,8 +138,8 @@
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload'),
+                var that = $(this).data('blueimp-fileuploader') ||
+                        $(this).data('fileuploader'),
                     getFilesFromResponse = data.getFilesFromResponse ||
                         that.options.getFilesFromResponse,
                     files = getFilesFromResponse(data),
@@ -188,8 +188,8 @@
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload'),
+                var that = $(this).data('blueimp-fileuploader') ||
+                        $(this).data('fileuploader'),
                     template,
                     deferred;
                 if (data.context) {
@@ -277,7 +277,7 @@
                         .find('.progress-extended');
                 if (extendedProgressNode.length) {
                     extendedProgressNode.html(
-                        ($this.data('blueimp-fileupload') || $this.data('fileupload'))
+                        ($this.data('blueimp-fileuploader') || $this.data('fileuploader'))
                             ._renderExtendedProgress(data)
                     );
                 }
@@ -294,8 +294,8 @@
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload');
+                var that = $(this).data('blueimp-fileuploader') ||
+                        $(this).data('fileuploader');
                 that._resetFinishedDeferreds();
                 that._transition($(this).find('.fileupload-progress')).done(
                     function () {
@@ -308,8 +308,8 @@
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload'),
+                var that = $(this).data('blueimp-fileuploader') ||
+                        $(this).data('fileuploader'),
                     deferred = that._addFinishedDeferreds();
                 $.when.apply($, that._getFinishedDeferreds())
                     .done(function () {
@@ -342,8 +342,8 @@
                 if (e.isDefaultPrevented()) {
                     return false;
                 }
-                var that = $(this).data('blueimp-fileupload') ||
-                        $(this).data('fileupload'),
+                var that = $(this).data('blueimp-fileuploader') ||
+                        $(this).data('fileuploader'),
                     removeNode = function () {
                         that._transition(data.context).done(
                             function () {

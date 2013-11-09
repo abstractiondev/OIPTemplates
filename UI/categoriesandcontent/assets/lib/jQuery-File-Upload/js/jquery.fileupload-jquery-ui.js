@@ -24,7 +24,7 @@
 }(function ($) {
     'use strict';
 
-    $.widget('blueimp.fileupload', $.blueimp.fileupload, {
+    $.widget('blueimp.fileuploader', $.blueimp.fileuploader, {
 
         options: {
             progress: function (e, data) {
@@ -46,8 +46,8 @@
                     ).end()
                     .find('.progress-extended').each(function () {
                         $(this).html(
-                            ($this.data('blueimp-fileupload') ||
-                                    $this.data('fileupload'))
+                            ($this.data('blueimp-fileuploader') ||
+                                    $this.data('fileuploader'))
                                 ._renderExtendedProgress(data)
                         );
                     });
