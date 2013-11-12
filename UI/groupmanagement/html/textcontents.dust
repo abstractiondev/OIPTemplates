@@ -5,7 +5,7 @@
     <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
             {?ImageData}
                 <div style="max-width: 220px">
-                    <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_256x256_crop{ImageData.FileExt}" />
+                    <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_256x256_crop{ImageData.AdditionalFormatFileExt}" />
                 </div>
             {/ImageData}
                 <div class="clearfix"></div>
