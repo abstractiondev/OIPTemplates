@@ -22,6 +22,7 @@
             if(imageid != null)
             {
                 fileuploadClass = "fileupload-exists";
+                /* TODO: Retrieive FileExt to have existing image properly set from input format */
                 $("#TextContentEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop.jpg");
             } else {
                 fileuploadClass = "fileupload-new";

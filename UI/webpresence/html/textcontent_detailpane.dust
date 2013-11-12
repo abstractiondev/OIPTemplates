@@ -3,7 +3,7 @@
         {Title}
         <br>
         {?ImageData}
-            <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_320x240_crop.jpg" />
+            <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_320x240_crop{ImageData.FileExt}" />
         {/ImageData}
         {?SubTitle}
             <small>

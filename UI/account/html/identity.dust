@@ -15,7 +15,7 @@
                                 {#ProfileImage}
                                 {?ImageData.ID}
                                     {>"fileupload.dust" initial_class_mode="fileupload-exists" container_id="{ID}" field_name="ImageData" content_id="{ImageData.ID}"
-                                        imagesuffix="256x256_crop.jpg" /}
+                                        imagesuffix="256x256_crop{ImageData.FileExt}" /}
                                 {:else}
                                     {>"fileupload.dust" initial_class_mode="fileupload-new" container_id="{ID}" field_name="ImageData" /}
                                 {/ImageData.ID}

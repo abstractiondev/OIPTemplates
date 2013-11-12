@@ -5,7 +5,7 @@
     <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
             {?ImageData}
                 <div style="max-width: 220px">
-                    <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_256x256_crop.jpg" />
+                    <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_256x256_crop{ImageData.FileExt}" />
                 </div>
             {/ImageData}
                 <div class="clearfix"></div>
@@ -66,6 +66,7 @@
             if(imageid != null)
             {
                 fileuploadClass = "fileupload-exists";
+                /* TODO: Retrieive FileExt to have existing image properly set from input format */
                 $("#TextContentEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop.jpg");
             } else {
                 fileuploadClass = "fileupload-new";
