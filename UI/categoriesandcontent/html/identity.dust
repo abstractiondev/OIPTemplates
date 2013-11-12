@@ -57,6 +57,8 @@
                         <textarea id="{ID}_OrganizationsAndGroupsLinkedToUs" name="{ID}_OrganizationsAndGroupsLinkedToUs" rows="6">{OrganizationsAndGroupsLinkedToUs}</textarea>
                     </div>
                 </div>
+                {>"textinput_singleline.dust" field_id="{ID}_WwwSiteToPublishTo" field_label="Www site name to publish content" field_name="{ID}_WwwSiteToPublishTo"
+                    field_value="{WwwSiteToPublishTo}" /}
                 <footer>
                     <div class="control-group controls pull-right">
                         <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
@@ -69,4 +71,3 @@
         {/GroupProfile}
     </form>
 {/GroupContainerSource.GroupContainer}
-
