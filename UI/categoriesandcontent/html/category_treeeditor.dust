@@ -2,7 +2,8 @@
     <button class="btn" onclick="javascript:SaveCategoryHierarchy();">Save Category Hierarchy</button>
 </p>
 <p>Edit categories by dragging the items below up/down (= order) and sideways (= hierarchy). Save changes by clicking button above.</p>
-<p>
+<p>{>"button_addcategory.dust" /}
+
 <div id="nesttest" class="dd">
     <ol class="dd-list">
 {#NodeSummarySource.CategoriesWithChildren}

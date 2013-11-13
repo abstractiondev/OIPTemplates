@@ -9,6 +9,7 @@
 
             var id = me.data("id");
             var imageid = me.data("imageid");
+            var imageext = me.data("imageext");
             var imageAddVisibility;
             var imageChangeAndRemoveVisibility;
             /*
@@ -26,8 +27,7 @@
             if(imageid != null)
             {
                 fileuploadClass = "fileupload-exists";
-                /* TODO: Retrieive FileExt to have existing image properly set from input format */
-                $("#CategoryEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop.jpg");
+                $("#CategoryEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop" + imageext);
             } else {
                 fileuploadClass = "fileupload-new";
             }

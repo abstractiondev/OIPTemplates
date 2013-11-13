@@ -16,7 +16,7 @@
                     <span class="pull-right">
                         <a data-toggle="modal" role="button" class="open-imagecontenteditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                            data-id="{ID}"
-                            {?ImageData}data-imageid="{ImageData.ID}" {/ImageData}
+                            {?ImageData}data-imageid="{ImageData.ID}" data-imageext="{ImageData.AdditionalFormatFileExt}" {/ImageData}
                             {?Title}data-title="{Title}" {/Title}
                             {?Caption}data-subtitle="{Caption}" {/Caption}
                            data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
