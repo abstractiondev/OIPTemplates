@@ -9,9 +9,15 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li><a tabindex="-1" target="_blank" href="../../wwwsite/html/index.html">{GroupName}'s web presence preview</a></li>
-                    <li><a tabindex="-1" href="resourceusagesummary.html"><i class="icon-bar-chart"></i>Resource Usage Summary</a></li>
+{?WwwSiteToPublishTo}
+                    <li>
+                        {>"executeoperation_button_begin.dust" form_name="PublishToWww" /}
+                        {>"executeoperation_button_end.dust" button_label="Publish To: {WwwSiteToPublishTo}" icon_class_name="icon-cloud-upload" /}
+                    </li>
+{/WwwSiteToPublishTo}
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
+                    <li><a tabindex="-1" href="resourceusagesummary.html"><i class="icon-bar-chart"></i>Resource Usage Summary</a></li>
                     <li>
                         {>"executeoperation_button_begin.dust" form_name="UpdateGroupUsage" /}
                         {>"executeoperation_button_end.dust" button_label="Update Group Usage Monitoring" icon_class_name="icon-bar-chart" /}
@@ -44,3 +50,10 @@ operation_name="ProcessAllResourceUsagesToOwnerCollections" /}
 header_title="Update Group Usage Monitoring"
 operation_name="UpdateUsageMonitoringItems" /}
 {>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Perform Update!" /}
+
+{#GroupContainerSource.GroupContainer.GroupProfile}
+{>"modal_executeoperation_begin.dust" form_name="PublishToWww"
+header_title="Publish Group to {WwwSiteToPublishTo}"
+operation_name="PublishGroupToWww" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Publish!" /}
+{/GroupContainerSource.GroupContainer.GroupProfile}
