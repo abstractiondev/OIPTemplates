@@ -18,6 +18,7 @@
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
                     <li><a tabindex="-1" href="resourceusagesummary.html"><i class="icon-bar-chart"></i>Resource Usage Summary</a></li>
+{!
                     <li>
                         {>"executeoperation_button_begin.dust" form_name="UpdateGroupUsage" /}
                         {>"executeoperation_button_end.dust" button_label="Update Group Usage Monitoring" icon_class_name="icon-bar-chart" /}
@@ -26,6 +27,7 @@
                         {>"executeoperation_button_begin.dust" form_name="UpdateAllGroupsRawUsage" /}
                         {>"executeoperation_button_end.dust" button_label="Update All Groups Raw Usage" icon_class_name="icon-bar-chart" /}
                     </li>
+!}
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
 {/GroupContainerSource.GroupContainer.GroupProfile}
