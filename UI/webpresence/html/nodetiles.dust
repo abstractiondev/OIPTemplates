@@ -24,11 +24,11 @@
             {?ImageBaseUrl}
             {?IsCategoryFilteringNode}
                 <a class="hover filter" href="#" data-filter-value="{#CategoryFilters.CollectionContent}.{Content}{/CategoryFilters.CollectionContent}">
-                    <img src="{ImageBaseUrl}_320x240_crop.jpg" alt="" /><span class="plus"></span>
+                    <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
                 </a>
             {:else}
             <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
-                <img src="{ImageBaseUrl}_320x240_crop.jpg" alt="" /><span class="plus"></span>
+                <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
             </a>
             {/IsCategoryFilteringNode}
             {/ImageBaseUrl}

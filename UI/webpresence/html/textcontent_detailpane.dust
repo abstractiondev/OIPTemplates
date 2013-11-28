@@ -3,7 +3,7 @@
         {Title}
         <br>
         {?ImageData}
-            <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_320x240_crop{ImageData.FileExt}" />
+            <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_320x240_crop{ImageData.AdditionalFormatFileExt}" />
         {/ImageData}
         {?SubTitle}
             <small>
@@ -55,7 +55,12 @@
     <p>
         <i class="icon-user"></i>  <a href="#">{?Author}{Author}{/Author}</a>
         | <i class="icon-calendar"></i>
-        | <i class="icon-bookmark"></i> <input class="text input-xxlarge " name="share_url" value="https://schools.caloom.com/html/index.html?type=textcontent&id={ID}">
+        | <i class="icon-bookmark"></i> <input class="text input-xxlarge" id="DirectLink_{ID}" name="share_url" value="">
     </p>
 </div>
 
+
+<script>
+    var urlTarget = "http://" + window.location.hostname + "/html/index.html?type=textcontent&id={ID}";
+    $("#DirectLink_{ID}").val(urlTarget);
+</script>
