@@ -24,7 +24,7 @@
         <ol class="dd-list">
     {/UI_ChildrenCategories}
     {#UI_ChildrenCategories}
-        {>"category_treeitem.dust" no_visible_note="Tile is missing image! Will not appear!" /}
+        {>"category_treeitem.dust" no_visible_note="Image missing!" /}
     {/UI_ChildrenCategories}
     {?UI_ChildrenCategories}
         </ol>
