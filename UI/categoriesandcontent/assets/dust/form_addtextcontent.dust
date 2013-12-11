@@ -6,6 +6,8 @@ field_name="Title" field_label="Title {form_name}" /}
 field_name="SubTitle" field_label="SubTitle" /}
 {>"textinput_singleline.dust" field_id="AddTextContent_Author"
 field_name="Author" field_label="Author" /}
+{>"textinput_datetime.dust" field_id="AddTextContent_Published"
+field_name="Published" field_label="Published at" /}
 {>"textinput_multiline_markdown.dust" field_id="AddTextContent_Excerpt"
 field_name="Excerpt" field_label="Excerpt" /}
 {>"textinput_multiline_markdown.dust" field_id="AddTextContent_Body"
@@ -22,6 +24,7 @@ field_label="Locations" field_name="Object_Locations" /}
     $(function() {
         $(".open-addtextcontent").on("click", function() {
             InitializeModalClasses();
+            $("#AddTextContent_Published").val(new Date().toISOString());
             $('#add-textcontent').modal('show');
         });
     });

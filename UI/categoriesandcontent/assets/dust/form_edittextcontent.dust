@@ -6,6 +6,7 @@
             ConnectInputField(me, "title", "TextContentEditor", "Title", "");
             ConnectInputField(me, "subtitle", "TextContentEditor", "SubTitle", "");
             ConnectInputField(me, "author", "TextContentEditor", "Author", "");
+            ConnectInputField(me, "published", "TextContentEditor", "Published", "");
             ConnectInputField(me, "excerpt", "TextContentEditor", "Excerpt", "");
             ConnectInputField(me, "body", "TextContentEditor", "Body", "");
             ConnectInputField(me, "categories", "TextContentEditor", "Categories", "", false, "Object_", true);
@@ -68,6 +69,7 @@
                 {>"textinput_singleline.dust" field_id="TextContentEditor_Title" field_label="Title" /}
                 {>"textinput_singleline.dust" field_id="TextContentEditor_SubTitle" field_label="SubTitle" /}
                 {>"textinput_singleline.dust" field_id="TextContentEditor_Author" field_label="Author" /}
+                {>"textinput_datetime.dust" field_id="TextContentEditor_Published" field_label="Published" /}
                 {>"textinput_multiline_markdown.dust" field_id="TextContentEditor_Excerpt" field_label="Excerpt" /}
                 {>"textinput_multiline_markdown.dust" field_id="TextContentEditor_Body" field_label="Body" /}
                 {>"dropdown_select.dust" field_id="TextContentEditor_Categories" is_multiple="true"

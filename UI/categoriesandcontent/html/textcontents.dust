@@ -20,6 +20,7 @@
                             {?Title}data-title="{Title}" {/Title}
                             {?SubTitle}data-subtitle="{SubTitle}" {/SubTitle}
                             {?Author}data-author="{Author}" {/Author}
+                            {?Published}data-published="{@formatDate value="{Published}" /}" {/Published}
                             {?Excerpt}data-excerpt="{Excerpt}" {/Excerpt}
                             {?Body}data-body="{Body}" {/Body}
                             data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"

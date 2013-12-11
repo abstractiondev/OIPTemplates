@@ -58,6 +58,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
     <script src="../assets/js/site.js" type="text/javascript"></script>
     <link href="../assets/css/bootstrap-fileupload.css" rel="stylesheet">
     <link href="../assets/css/isotope.css" rel="stylesheet">
@@ -69,6 +70,7 @@
     <script src="../assets/lib/jquery.isotope.min.js"></script>
     <script src="../assets/lib/jquery-nestable/jquery.nestable.js"></script>
     <script src="../assets/js/bootstrap-fileupload.js" type="text/javascript"></script>
+
 
     <!-- MarkdownDeep Editor -->
     <link rel="stylesheet" href="../assets/lib/markdowndeep/mdd_styles.css">
@@ -176,6 +178,7 @@
 
     <!-- Dust + xml -->
     <script src="../assets/js/dust-core-1.2.3.min.js"></script>
+    <script src="../assets/js/dust-helpers-1.1.2.js"></script>
     <script src="../assets/js/xml2json.js"></script>
 
 
@@ -270,6 +273,22 @@
         //alert(json);
         var jsonResult = jQuery.parseJSON(json);
         return jsonResult;
+    };
+    dust.helpers.formatDate = function (chunk, context, bodies, params) {
+        var value = dust.helpers.tap(params.value, chunk, context),
+                timestamp,
+                month,
+                date,
+                year;
+        timestamp = new Date(value);
+        if(isNaN(timestamp))
+            timestamp = new Date(parseInt(value.substr(6)));
+//        month = timestamp.getMonth() + 1;
+//        date = timestamp.getDate();
+//        year = timestamp.getFullYear();
+
+//        return chunk.write(date + '.' + month + '.' + year);
+        return chunk.write(timestamp.toISOString());
     };
     var renderDustFromResponse = function(placeholderID, dusttemplatename, templateContent, dataObject) {
         //var templateID = placeholderID.replace("_placeholder", "");
@@ -418,6 +437,7 @@
 <script src="../assets/dust/executeoperation_button_end_dust.js"></script>
 <script src="../assets/dust/fileupload_dust.js"></script>
 <script src="../assets/dust/textinput_singleline_dust.js"></script>
+<script src="../assets/dust/textinput_datetime_dust.js"></script>
 <script src="../assets/dust/hiddeninput_dust.js"></script>
 <script src="../assets/dust/textinput_multiline_dust.js"></script>
 <script src="../assets/dust/textinput_multiline_markdown_dust.js"></script>
@@ -491,5 +511,6 @@
         $("#common_modals_ph").html(out);
     });
 </script>
+
 </body>
 </html>

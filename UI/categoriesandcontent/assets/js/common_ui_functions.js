@@ -5,10 +5,10 @@ var ConnectInputField = function(me, dataName, fieldIDPrefix, fieldName, default
     var id = me.data("id");
     var inputField = $("#" + fieldID);
 
-    if(fieldTypePrefix == undefined)
+    if(!fieldTypePrefix)
         fieldTypePrefix = "";
 
-    if(suppressNameChange == undefined || suppressNameChange == false) {
+    if(!suppressNameChange) {
         inputField.attr("name", fieldTypePrefix + id + "_" + fieldName);
     }
     if(isArray != undefined && isArray == true)
