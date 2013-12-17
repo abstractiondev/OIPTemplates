@@ -39,24 +39,11 @@
                     </div>
                 </div>
                 <!-- end group profile image and group icon image -->
-                <div class="control-group">
-                    <label class="control-label" for="{ID}_GroupName">Group name</label>
-                    <div class="controls">
-                        <input name="{ID}_GroupName"  id="{ID}_GroupName" type="text" value="{GroupName}">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="{ID}_Description">Description</label>
-                    <div class="controls">
-                        <textarea id="{ID}_Description" name="{ID}_Description" rows="6">{Description}</textarea>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label" for="{ID}_OrganizationsAndGroupsLinkedToUs">Organisations and groups linked to us</label>
-                    <div class="controls">
-                        <textarea id="{ID}_OrganizationsAndGroupsLinkedToUs" name="{ID}_OrganizationsAndGroupsLinkedToUs" rows="6">{OrganizationsAndGroupsLinkedToUs}</textarea>
-                    </div>
-                </div>
+
+                {>"textinput_singleline.dust" field_id="{ID}_GroupName" field_name="{ID}_GroupName" field_value="{GroupName}" field_label="Group name" /}
+                {>"textinput_multiline.dust" field_id="{ID}_Description" field_name="{ID}_Description" field_value="{Description}" field_label="Description" rows="6" /}
+                {>"textinput_multiline.dust" field_id="{ID}_OrganizationsAndGroupsLinkedToUs" field_name="{ID}_OrganizationsAndGroupsLinkedToUs"
+                    field_value="{OrganizationsAndGroupsLinkedToUs}" field_label="Organisations and groups linked to us" rows="6" /}
                 {>"textinput_singleline.dust" field_id="{ID}_WwwSiteToPublishTo" field_label="Www site name to publish content" field_name="{ID}_WwwSiteToPublishTo"
                     field_value="{WwwSiteToPublishTo}" /}
                 <footer>
