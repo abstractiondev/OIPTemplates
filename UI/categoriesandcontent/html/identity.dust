@@ -46,6 +46,29 @@
                     field_value="{OrganizationsAndGroupsLinkedToUs}" field_label="Organisations and groups linked to us" rows="6" /}
                 {>"textinput_singleline.dust" field_id="{ID}_WwwSiteToPublishTo" field_label="Www site name to publish content" field_name="{ID}_WwwSiteToPublishTo"
                     field_value="{WwwSiteToPublishTo}" /}
+                {?CustomUICollection.CollectionContent}
+                <div class="control-group">
+                    <label class="control-label" for="CustomUIList">Custom UIs</label>
+                        <div class="controls" id="CustomUIList">
+                {#CustomUICollection.CollectionContent}
+                    <div>
+                        <span>{Content}</span>
+                        <span>
+                            {>"executeoperation_button_begin.dust" form_name="IdentityDeleteCustomUI" /}
+                            data-customuiname="{Content}"
+                            {>"executeoperation_button_end.dust" icon_class_name="icon-remove-sign" /}
+                        </span>
+                        <span>
+                            {>"executeoperation_button_begin.dust" form_name="IdentityCreateOrUpdateCustomUI" /}
+                                data-customuiname="{Content}"
+                            {>"executeoperation_button_end.dust" icon_class_name="icon-upload-alt" /}
+                        </span>
+                    </div>
+                {/CustomUICollection.CollectionContent}
+                        </div>
+                </div>
+                {/CustomUICollection.CollectionContent}
+                {>"executeoperation_button.dust" form_name="IdentityCreateOrUpdateCustomUI" button_label="Add Custom UI" icon_class_name="icon-plus-sign" /}
                 <footer>
                     <div class="control-group controls pull-right">
                         <div class="form-actions" style="padding:0;margin:0;border-top:0;background-color: transparent">
@@ -58,3 +81,14 @@
         {/GroupProfile}
     </form>
 {/GroupContainerSource.GroupContainer}
+
+{>"modal_executeoperation_begin.dust" form_name="IdentityDeleteCustomUI"
+    map_data_values="CustomUIName" header_title="Delete Custom UI" operation_name="DeleteCustomUI" /}
+{>"hiddeninput.dust" field_name="CustomUIName" /}
+{>"modal_executeoperation_end.dust" accept_button_label="Delete!" /}
+
+{>"modal_executeoperation_begin.dust" form_name="IdentityCreateOrUpdateCustomUI" operation_name="CreateOrUpdateCustomUI"
+    map_data_values="CustomUIName"/}
+{>"textinput_singleline.dust" field_id="IdentityCreateCustomUI_CustomUIName" field_name="CustomUIName" field_label="Custom UI name" /}
+<input type="file" name="CustomUIContents" />
+{>"modal_executeoperation_end.dust" accept_button_label="Upload Custom UI!" /}
