@@ -295,8 +295,14 @@
         //var templateCompiled = dust.compile(templateContent, templateID);
         //dust.loadSource(templateCompiled);
         dust.loadSource(templateContent);
-        dust.render(dusttemplatename, dataObject, function(err, out) {
-            $("#" + placeholderID).html(out);
+        renderDust(placeholderID, dusttemplatename, dataObject);
+    };
+
+    var renderDust = function(containerID, templateName, dataObject)
+    {
+        dust.render(templateName, dataObject, function(err, out)
+        {
+            $("#" + containerID).html(out);
         });
     };
 
@@ -405,6 +411,7 @@
 <script src="categories_dust.js"></script>
 <script src="category_treeeditor_dust.js"></script>
 <script src="category_treeitem_dust.js"></script>
+<script src="contentranking_editor_dust.js"></script>
 <script src="textcontents_dust.js"></script>
 <script src="imagecontent_dust.js"></script>
 <script src="binaryfilecontent_dust.js"></script>
@@ -445,6 +452,7 @@
 <script src="../assets/dust/dropdown_select_dust.js"></script>
 <script src="../assets/dust/option_display_category_dust.js"></script>
 <script src="../assets/dust/option_display_location_dust.js"></script>
+<script src="../assets/dust/ordereditor_dust.js"></script>
 
 <script>
     function getData( val ){

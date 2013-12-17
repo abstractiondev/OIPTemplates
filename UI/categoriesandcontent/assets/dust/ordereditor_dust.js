@@ -1,0 +1,1 @@
+(function(){dust.register("ordereditor.dust",body_0);function body_0(chk,ctx){return chk.write("<p>Be gin</p>").section(ctx.get("item_collection"),ctx,{"block":body_1},null).write("<p>e e e eND</p>");}function body_1(chk,ctx){return chk.write("<div>").reference(ctx.get("Text"),ctx,"h").write("</div>");}return body_0;})();

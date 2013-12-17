@@ -1,0 +1,5 @@
+<p>Be gin</p>
+{#item_collection}
+    <div>{Text}</div>
+{/item_collection}
+<p>e e e eND</p>

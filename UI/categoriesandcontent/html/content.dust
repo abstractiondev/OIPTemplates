@@ -57,6 +57,10 @@
 {>"form_addcategory.dust" /}
 {>"form_addcategories.dust" /}
 {>"form_editcategory.dust" /}
+<div class="tab-pane fade" id="tab-contentranking">
+    <h3>Note! Category hierarchy requires to be Saved always after any changes to categories!</h3>
+    {>"contentranking_editor.dust" /}
+</div>
 <div class="tab-pane fade" id="tab-collaborators">
     {>"collaborators.dust"/}
 </div>
