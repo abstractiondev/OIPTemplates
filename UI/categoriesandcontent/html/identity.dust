@@ -52,7 +52,7 @@
                         <div class="controls" id="CustomUIList">
                 {#CustomUICollection.CollectionContent}
                     <div>
-                        <span>{Content}</span>
+                        <span><a href="../../customui_{Content}/">{Content}</a></span>
                         <span>
                             {>"executeoperation_button_begin.dust" form_name="IdentityDeleteCustomUI" /}
                             data-customuiname="{Content}"

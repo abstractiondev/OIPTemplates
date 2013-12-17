@@ -22,7 +22,7 @@
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
 {#CustomUICollection.CollectionContent}
-                    <li><a tabindex="-1" target="_blank" href="../../customui/{Content}/index.html">Custom UI: {Content}</a></li>
+                    <li><a tabindex="-1" target="_blank" href="../../customui_{Content}/">Custom UI: {Content}</a></li>
 {/CustomUICollection.CollectionContent}
 
 {/CustomUICollection.CollectionContent}
