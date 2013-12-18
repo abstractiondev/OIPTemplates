@@ -1,9 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Chart Test (Chrome)" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
-    <JSRemoteDebuggerConfigurationSettings>
-      <option name="engineId" value="chrome" />
-      <option name="fileUrl" value="http://localhost:63342/OIPTemplates/UI/categoriesandcontent/html/usagegraphtest.html" />
-    </JSRemoteDebuggerConfigurationSettings>
+  <configuration default="false" name="Chart Test (Chrome)" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" uri="http://localhost:63342/OIPTemplates/UI/categoriesandcontent/html/usagegraphtest.html">
     <RunnerSettings RunnerId="JavascriptDebugRunner" />
     <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
     <method />
