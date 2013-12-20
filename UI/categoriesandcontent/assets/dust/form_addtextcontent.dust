@@ -12,6 +12,8 @@ field_name="Published" field_label="Published at" /}
 field_name="Excerpt" field_label="Excerpt" /}
 {>"textinput_multiline_markdown.dust" field_id="AddTextContent_Body"
 field_name="Body" field_label="Body" /}
+{>"textinput_multiline.dust" field_id="AddTextContent_IFrameSources"
+field_name="IFrameSources" field_label="IFrame Sources (just leave out leading '<iframe>' and closing </iframe> tags)" /}
 {>"dropdown_select.dust" field_id="AddTextContent_Categories" is_multiple="true"
 item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
 field_label="Categories" field_name="Object_Categories" /}

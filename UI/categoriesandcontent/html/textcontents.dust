@@ -23,6 +23,7 @@
                             {?Published}data-published="{@formatDate value="{Published}" /}" {/Published}
                             {?Excerpt}data-excerpt="{Excerpt}" {/Excerpt}
                             {?Body}data-body="{Body}" {/Body}
+                            {?IFrameSources}data-iframesources="{IFrameSources}" {/IFrameSources}
                             data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
                             data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
                             ><i class="icon-edit"></i></a></span>

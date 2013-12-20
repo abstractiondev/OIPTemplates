@@ -332,6 +332,19 @@
                 $("#paneclosebutton").click(OipCloseDetailPane);
             });
         };
+
+
+        dust.helpers.iFrameLines = function (chunk, context, bodies, params) {
+            var value = context.current()[params.contextField];
+            var valueList = value.split("\n");
+            var writeValue = "";
+            for(var i = 0; i < valueList.length; i++)
+            {
+                writeValue += "<iframe " + valueList[i] + "></iframe>";
+            }
+            return chunk.write(writeValue);
+        };
+
 	});
 
     var CurrNodeSummary;

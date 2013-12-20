@@ -8,6 +8,7 @@
             ConnectInputField(me, "author", "TextContentEditor", "Author", "");
             ConnectInputField(me, "published", "TextContentEditor", "Published", "");
             ConnectInputField(me, "excerpt", "TextContentEditor", "Excerpt", "");
+            ConnectInputField(me, "iframesources", "TextContentEditor", "IFrameSources", "");
             ConnectInputField(me, "body", "TextContentEditor", "Body", "");
             ConnectInputField(me, "categories", "TextContentEditor", "Categories", "", false, "Object_", true);
             ConnectInputField(me, "locations", "TextContentEditor", "Locations", "", false, "Object_", true);
@@ -72,6 +73,7 @@
                 {>"textinput_datetime.dust" field_id="TextContentEditor_Published" field_label="Published" /}
                 {>"textinput_multiline_markdown.dust" field_id="TextContentEditor_Excerpt" field_label="Excerpt" /}
                 {>"textinput_multiline_markdown.dust" field_id="TextContentEditor_Body" field_label="Body" /}
+                {>"textinput_multiline.dust" field_id="TextContentEditor_IFrameSources" field_label="IFrameSources" /}
                 {>"dropdown_select.dust" field_id="TextContentEditor_Categories" is_multiple="true"
                 item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
                 field_label="Categories" field_name="Categories" /}

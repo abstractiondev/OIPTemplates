@@ -24,32 +24,10 @@
         {BodyRendered|s}
     </div>
 </div>
-<div class="dusttest">
-    {?Categories}
-        {#Categories.CollectionContent}
-            {@eq key=CategoryName value="catTuleOppimaan"}
-                <a id="ShowOrderFormButton" data-toggle="modal" role="button" href="javascript:ShowOrderForm();" class="btn btn-primary">Tule mukaan oppimaan!</a>
-            {/eq}
-        {/Categories.CollectionContent}
-    {/Categories}
-</div>
 
-<div id="OrderForm" style="display: none">
-    <h3>Ilmoittaudu mukaan!</h3>
-    <label for="OrderEmailAddress">Sähköpostiosoitteesi</label>
-    <input id="OrderEmailAddress" type="text">
-    <a data-toggle="modal" role="button" href="#" class="btn btn-primary">Lähetä tilaus!</a>
-</div>
-
-<script>
-    var ShowOrderForm = function() {
-        $("#ShowOrderFormButton").hide();
-        $("#OrderForm").show();
-    }
-</script>
-
-
-
+{?IFrameSources}
+    {@iFrameLines contextField="IFrameSources" /}
+{/IFrameSources}
 <div class="reading-pane-footer">
     <p></p>
     <p>
