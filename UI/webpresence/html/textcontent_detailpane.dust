@@ -26,8 +26,11 @@
 </div>
 
 {?IFrameSources}
+<div class="content">
     {@iFrameLines contextField="IFrameSources" /}
+</div>
 {/IFrameSources}
+
 <div class="reading-pane-footer">
     <p></p>
     <p>
