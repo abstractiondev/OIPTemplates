@@ -14,16 +14,15 @@
                         {>"objectdeleteicon.dust" object_delete_title="{Title}" /}
                     </span>
                     <span class="pull-right">
-                        <a data-toggle="modal" role="button" class="open-imagecontenteditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
+                        <a data-toggle="modal" role="button" class="open-imageeditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
                            data-id="{ID}"
                             {?ImageData}data-imageid="{ImageData.ID}" data-imageext="{ImageData.AdditionalFormatFileExt}" {/ImageData}
                             {?Title}data-title="{Title}" {/Title}
                             {?Caption}data-subtitle="{Caption}" {/Caption}
-                           data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
-                           data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
                                 ><i class="icon-edit"></i></a></span>
                         <span class="title">{Title}</span>
                         {?Caption}<span class="title">{Caption}</span>{/Caption}
+                        {?ImageData}<span class="title">Url: ../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}{ImageData.AdditionalFormatFileExt}</span>{/ImageData}
                     </div>
                 </div>
                 <div class="clearfix"></div>
