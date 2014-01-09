@@ -1,0 +1,1 @@
+(function(){dust.register("button_addlinktocontent.dust",body_0);function body_0(chk,ctx){return chk.write("<a data-toggle=\"modal\" role=\"button\" href=\"#\" class=\"open-addlinktocontent\"><i class=\"icon-plus-sign\"></i>Add New Link To Content</a>");}return body_0;})();

@@ -236,6 +236,7 @@
             TextContentsSource: ["../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json", null, "TextContentCollection"],
             ImageContentsSource: ["../../AaltoGlobalImpact.OIP/ImageCollection/MasterCollection.json", null, "ImageCollection"],
             BinaryFileContentsSource: ["../../AaltoGlobalImpact.OIP/BinaryFileCollection/MasterCollection.json", null, "BinaryFileCollection"],
+            LinkToContentsSource: ["../../AaltoGlobalImpact.OIP/LinkToContentCollection/MasterCollection.json", null, "LinkToContentCollection"],
 
             NodeSummarySource: ["../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", null, "NodeSummaryContainer"],
             /* NOTE! The direct TheBall.CORE sources are here for demonstration/trustable deployment purposes only.
@@ -348,9 +349,10 @@
                     if(isJSON)
                     {
                         jsonObj = { };
+                        var markdown;
                         if(response.Name == "CategoryCollection" || response.Name == "TextContentCollection")
                         {
-                            var markdown = new MarkdownDeep.Markdown();
+                            markdown = new MarkdownDeep.Markdown();
                             markdown.SafeMode = true;
                             for(var markdownRenderIx = 0; markdownRenderIx < response.CollectionContent.length; markdownRenderIx++)
                             {
@@ -359,6 +361,19 @@
                                     category.Excerpt = "";
                                 var rendered = markdown.Transform(category.Excerpt.replaceAll("javascript:", ""));
                                 category.ExcerptRendered = rendered;
+                            }
+                        }
+                        if(response.Name == "LinkToContentCollection")
+                        {
+                            markdown = new MarkdownDeep.Markdown();
+                            markdown.SafeMode = true;
+                            for(var markdownRenderIx = 0; markdownRenderIx < response.CollectionContent.length; markdownRenderIx++)
+                            {
+                                var linkToContent = response.CollectionContent[markdownRenderIx];
+                                if(linkToContent.Description == undefined)
+                                    linkToContent.Description = "";
+                                var rendered = markdown.Transform(linkToContent.Description.replaceAll("javascript:", ""));
+                                linkToContent.DescriptionRendered = rendered;
                             }
                         }
                         if(response.Name == "NodeSummaryContainer")
@@ -413,6 +428,7 @@
 <script src="category_treeitem_dust.js"></script>
 <script src="contentranking_editor_dust.js"></script>
 <script src="textcontents_dust.js"></script>
+<script src="linktocontents_dust.js"></script>
 <script src="imagecontent_dust.js"></script>
 <script src="binaryfilecontent_dust.js"></script>
 <script src="collaborators_dust.js"></script>
@@ -431,6 +447,9 @@
 <script src="../assets/dust/form_addcategories_dust.js"></script>
 <script src="../assets/dust/button_addcategories_dust.js"></script>
 <script src="../assets/dust/form_editimage_dust.js"></script>
+<script src="../assets/dust/form_editlinktocontent_dust.js"></script>
+<script src="../assets/dust/form_addlinktocontent_dust.js"></script>
+<script src="../assets/dust/button_addlinktocontent_dust.js"></script>
 <script src="../assets/dust/form_edittextcontent_dust.js"></script>
 <script src="../assets/dust/form_addtextcontent_dust.js"></script>
 <script src="../assets/dust/button_addtextcontent_dust.js"></script>

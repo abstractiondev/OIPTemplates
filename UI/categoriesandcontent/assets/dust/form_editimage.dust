@@ -8,7 +8,7 @@
             /*ConnectInputField(me, "imageid", "ImageEditor", "ImageID", "");*/
             var imageid = me.data("imageid");
             var imageext = me.data("imageext");
-            var imageurl = "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + imageext;
+            var imageurl = "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop" + imageext;
             $("#ImageEditor_ImageID").html(imageurl);
             $("#ImageEditor_ImagePreview").attr("src", imageurl);
             InitializeModalClasses();

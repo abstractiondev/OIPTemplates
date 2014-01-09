@@ -33,14 +33,18 @@
     </ul>
     <div id="content-tiles" class="gallery" style="clear: both;">
         {>"textcontents.dust" /}
+        {>"linktocontents.dust" /}
         {>"binaryfilecontent.dust" /}
         {>"imagecontent.dust" /}
     </div>
     {>"button_addtextcontent.dust" /}
+    {>"button_addlinktocontent.dust" /}
     {>"completefileupload.dust" /}
 </div>
 {>"form_addtextcontent.dust" /}
 {>"form_edittextcontent.dust" /}
+{>"form_addlinktocontent.dust" /}
+{>"form_editlinktocontent.dust" /}
 {>"form_editimage.dust" /}
 
 <div class="tab-pane fade" id="tab-categories">

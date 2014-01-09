@@ -1,0 +1,25 @@
+{>"modal_addobject_begin.dust" form_name="linktocontent" header_title="Add Link To Content" object_domain="AaltoGlobalImpact.OIP" object_type="LinkToContent" /}
+{>"fileupload.dust" initial_class_mode="fileupload-new" field_name="ImageData" /}
+{>"textinput_singleline.dust" field_id="AddLinkToContent_URL"
+field_name="URL" field_label="URL" /}
+{>"textinput_singleline.dust" field_id="AddLinkToContent_Title"
+field_name="Title" field_label="Title (leave blank to autofill)" /}
+{>"textinput_multiline_markdown.dust" field_id="AddLinkToContent_Description"
+field_name="Description" field_label="Description" /}
+{>"dropdown_select.dust" field_id="AddLinkToContent_Categories" is_multiple="true"
+item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
+field_label="Categories" field_name="Object_Categories" /}
+{>"dropdown_select.dust" field_id="AddLinkToContent_Locations" is_multiple="true"
+item_collection=Locations.AddressAndLocationCollection.CollectionContent item_type="location"
+field_label="Locations" field_name="Object_Locations" /}
+{>"modal_addobject_end.dust" /}
+
+<script type="text/javascript">
+    $(function() {
+        $(".open-addlinktocontent").on("click", function() {
+            InitializeModalClasses();
+            $('#add-linktocontent').modal('show');
+        });
+    });
+</script>
+
