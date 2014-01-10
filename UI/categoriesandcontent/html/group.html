@@ -237,6 +237,7 @@
             ImageContentsSource: ["../../AaltoGlobalImpact.OIP/ImageCollection/MasterCollection.json", null, "ImageCollection"],
             BinaryFileContentsSource: ["../../AaltoGlobalImpact.OIP/BinaryFileCollection/MasterCollection.json", null, "BinaryFileCollection"],
             LinkToContentsSource: ["../../AaltoGlobalImpact.OIP/LinkToContentCollection/MasterCollection.json", null, "LinkToContentCollection"],
+            EmbeddedContentsSource: ["../../AaltoGlobalImpact.OIP/EmbeddedContentCollection/MasterCollection.json", null, "EmbeddedContentCollection"],
 
             NodeSummarySource: ["../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", null, "NodeSummaryContainer"],
             /* NOTE! The direct TheBall.CORE sources are here for demonstration/trustable deployment purposes only.
@@ -363,7 +364,7 @@
                                 category.ExcerptRendered = rendered;
                             }
                         }
-                        if(response.Name == "LinkToContentCollection")
+                        if(response.Name == "LinkToContentCollection" || response.Name == "EmbeddedContentCollection")
                         {
                             markdown = new MarkdownDeep.Markdown();
                             markdown.SafeMode = true;
@@ -429,6 +430,7 @@
 <script src="contentranking_editor_dust.js"></script>
 <script src="textcontents_dust.js"></script>
 <script src="linktocontents_dust.js"></script>
+<script src="embeddedcontents_dust.js"></script>
 <script src="imagecontent_dust.js"></script>
 <script src="binaryfilecontent_dust.js"></script>
 <script src="collaborators_dust.js"></script>
@@ -450,6 +452,9 @@
 <script src="../assets/dust/form_editlinktocontent_dust.js"></script>
 <script src="../assets/dust/form_addlinktocontent_dust.js"></script>
 <script src="../assets/dust/button_addlinktocontent_dust.js"></script>
+<script src="../assets/dust/form_editembeddedcontent_dust.js"></script>
+<script src="../assets/dust/form_addembeddedcontent_dust.js"></script>
+<script src="../assets/dust/button_addembeddedcontent_dust.js"></script>
 <script src="../assets/dust/form_edittextcontent_dust.js"></script>
 <script src="../assets/dust/form_addtextcontent_dust.js"></script>
 <script src="../assets/dust/button_addtextcontent_dust.js"></script>

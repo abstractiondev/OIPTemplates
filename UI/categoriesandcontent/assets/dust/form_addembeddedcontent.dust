@@ -1,0 +1,24 @@
+{>"modal_addobject_begin.dust" form_name="embeddedcontent" header_title="Add Embedded Content" object_domain="AaltoGlobalImpact.OIP" object_type="EmbeddedContent" /}
+{>"textinput_singleline.dust" field_id="AddEmbeddedContent_IFrameTagContents"
+field_name="IFrameTagContents" field_label="IFrame Tag Contents" /}
+{>"textinput_singleline.dust" field_id="AddEmbeddedContent_Title"
+field_name="Title" field_label="Title" /}
+{>"textinput_multiline_markdown.dust" field_id="AddLinkToContent_Description"
+field_name="Description" field_label="Description" /}
+{>"dropdown_select.dust" field_id="AddLinkToContent_Categories" is_multiple="true"
+item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
+field_label="Categories" field_name="Object_Categories" /}
+{>"dropdown_select.dust" field_id="AddLinkToContent_Locations" is_multiple="true"
+item_collection=Locations.AddressAndLocationCollection.CollectionContent item_type="location"
+field_label="Locations" field_name="Object_Locations" /}
+{>"modal_addobject_end.dust" /}
+
+<script type="text/javascript">
+    $(function() {
+        $(".open-addembeddedcontent").on("click", function() {
+            InitializeModalClasses();
+            $('#add-embeddedcontent').modal('show');
+        });
+    });
+</script>
+

@@ -1,0 +1,1 @@
+(function(){dust.register("button_addembeddedcontent.dust",body_0);function body_0(chk,ctx){return chk.write("<a data-toggle=\"modal\" role=\"button\" href=\"#\" class=\"open-addembeddedcontent\"><i class=\"icon-plus-sign\"></i>Add New Embedded Content</a>");}return body_0;})();

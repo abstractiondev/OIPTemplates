@@ -37,6 +37,10 @@
                     </a>
                 {/eq}
             {/IsCategoryFilteringNode}
+            {:else}
+                {@eq key=TechnicalSource value="EMBEDDEDCONTENT"}
+                    <iframe {ActualContentUrl|s}></iframe>
+                {/eq}
             {/ImageBaseUrl}
             <div class="entry-summary">
                 <h4>
