@@ -27,9 +27,15 @@
                     <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
                 </a>
             {:else}
-            <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
-                <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
-            </a>
+                {@eq key=TechnicalSource value="LINKTOCONTENT"}
+                    <a class="hover" href="{ActualContentUrl}">
+                        <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
+                    </a>
+                {:else}
+                    <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
+                        <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
+                    </a>
+                {/eq}
             {/IsCategoryFilteringNode}
             {/ImageBaseUrl}
             <div class="entry-summary">
@@ -41,7 +47,11 @@
                     {/CategoryFilters.CollectionContent}
                    data-filter-value="{#CategoryFilters.CollectionContent}.{Content}{/CategoryFilters.CollectionContent}">{Title}</a>
             {:else}
+                {@eq key=TechnicalSource value="LINKTOCONTENT"}
+                    <a href="{ActualContentUrl}">{Title}</a>
+                {:else}
                     <a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">{Title}</a>
+                {/eq}
             {/IsCategoryFilteringNode}
                 </h4>
                 <div>{ExcerptRendered|s}</div>

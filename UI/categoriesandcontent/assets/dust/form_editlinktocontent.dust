@@ -62,7 +62,7 @@
             <input id="LinkToContentEditor_ContentSourceInfo" name="ContentSourceInfo" type="hidden" />
             <fieldset>
                 <div class="control-group">
-                    <label class="control-label">Category Image</label>
+                    <label class="control-label">Link Preview Image</label>
                     <div class="controls">
                         <div id="LinkToContentEdit_FileUpload" class="fileupload fileupload-exists" data-provides="fileupload" data-name="myimage">
                             <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
