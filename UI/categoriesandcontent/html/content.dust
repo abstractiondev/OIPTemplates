@@ -27,7 +27,8 @@
         <li style="line-height: 18px;font-size: 12px;padding-top:8px;padding-bottom:8px;margin-right: 8px">Show: </li>
         <li class="active"><a href="#all" data-filter=".cards">All</a></li>
         <li><a href="#texts" data-filter=".texts">Texts</a></li>
-        <li><a href="#activities" data-filter=".activities">Activities</a></li>
+        <li><a href="#linkto" data-filter=".linkto">Link To</a></li>
+        <li><a href="#embedded" data-filter=".embedded">Embedded</a></li>
         <li><a href="#images" data-filter=".images">Images</a></li>
         <li><a href="#files" data-filter=".files">Files</a></li>
     </ul>

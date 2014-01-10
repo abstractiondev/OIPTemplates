@@ -20,9 +20,9 @@
                             {?Title}data-title="{Title}" {/Title}
                             {?Caption}data-subtitle="{Caption}" {/Caption}
                                 ><i class="icon-edit"></i></a></span>
-                        <span class="title">{Title}</span>
-                        {?Caption}<span class="title">{Caption}</span>{/Caption}
-                        {?ImageData}<span class="title">Url: ../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}{ImageData.AdditionalFormatFileExt}</span>{/ImageData}
+                        <div class="title">{Title}</div>
+                        {?Caption}<div class="title">{Caption}</div>{/Caption}
+                        {?ImageData}<div class="title" style="word-break: break-all">Url: ../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}{ImageData.AdditionalFormatFileExt}</div>{/ImageData}
                     </div>
                 </div>
                 <div class="clearfix"></div>

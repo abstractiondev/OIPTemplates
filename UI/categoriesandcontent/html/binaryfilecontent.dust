@@ -14,7 +14,7 @@
                             data-originalfilename="{OriginalFileName}"
                            data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
                                 ><i class="icon-edit"></i></a></span>
-                        <span class="title">{OriginalFileName}</span>
+                        <div class="title" style="word-break: break-all">{OriginalFileName}</div>
                     </div>
                 </div>
                 <div class="clearfix"></div>

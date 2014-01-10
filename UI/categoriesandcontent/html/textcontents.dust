@@ -27,9 +27,9 @@
                             data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
                             data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
                             ><i class="icon-edit"></i></a></span>
-                    <span class="title">{Title}</span>
-                    {?SubTitle}<span class="title">{SubTitle}</span>{/SubTitle}
-                    {?ExcerptRendered}<span class="title">{ExcerptRendered|s}</span>{/ExcerptRendered}
+                    <div class="title">{Title}</div>
+                    {?SubTitle}<div class="title">{SubTitle}</div>{/SubTitle}
+                    {?ExcerptRendered}<div class="title">{ExcerptRendered|s}</div>{/ExcerptRendered}
                 </div>
             </div>
             <div class="clearfix"></div>

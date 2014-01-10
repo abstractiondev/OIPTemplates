@@ -1,5 +1,5 @@
 {#LinkToContentsSource.LinkToContentCollection.CollectionContent}
-    <div class="cards cards-profile pull-left texts">
+    <div class="cards cards-profile pull-left linkto">
     <fieldset>
         <div class="gallery" style="clear: both;">
     <div class="element thumbnail pull-left sampleFilterOnefalse sampleFilterTwofalse">
@@ -23,9 +23,9 @@
                             data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
                             data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
                             ><i class="icon-edit"></i></a></span>
-                    <span class="title">{URL}</span>
-                    <span class="title">{Title}</span>
-                    {?DescriptionRendered}<span class="title">{DescriptionRendered|s}</span>{/DescriptionRendered}
+                    <div class="title" style="word-break: break-all">{URL}</div>
+                    <div class="title">{Title}</div>
+                    {?DescriptionRendered}<div class="title">{DescriptionRendered|s}</div>{/DescriptionRendered}
                 </div>
             </div>
             <div class="clearfix"></div>
