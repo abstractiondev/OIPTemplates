@@ -39,7 +39,7 @@
             {/IsCategoryFilteringNode}
             {:else}
                 {@eq key=TechnicalSource value="EMBEDDEDCONTENT"}
-                    <iframe {ActualContentUrl|s}></iframe>
+                    <iframe style="width: 100%;height: 100%" {ActualContentUrl|s}></iframe>
                 {/eq}
             {/ImageBaseUrl}
             <div class="entry-summary">
