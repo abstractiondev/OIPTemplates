@@ -422,6 +422,23 @@
 
         $(".dustph").each(replaceDatasourceUrlsWithAjaxPromises).each(dustifyph);
     });
+    var ReplaceIFrameTagsWithMarkup = function(inputString) {
+        /*
+         * Regex: <iframe (.*)>.*</iframe>
+         * Replace: [:iframe $1]
+         *
+         * or back
+         *
+         * Regex: \[:iframe (.*)\]
+         * <iframe $1><iframe>
+         *
+          * */
+        return inputString.replace(new RegExp("<iframe (.*)>.*</iframe>", "g"), "[:iframe $1]");
+     };
+
+    var ReplaceIFrameMarkupWithTags = function(inputString) {
+        return inputString.replace(new RegExp("\[:iframe (.*)\]", "g"), "<iframe $1><iframe>");
+    };
 </script>
 
 <script src="categories_dust.js"></script>

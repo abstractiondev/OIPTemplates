@@ -8,12 +8,14 @@
                     <i class="icon-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a tabindex="-1" target="_blank" href="../../wwwsite/html/index.html">{GroupName}'s web presence preview</a></li>
 {?WwwSiteToPublishTo}
+                    <li><a tabindex="-1" target="_blank" href="../../wwwsite/html/index.html">{WwwSiteToPublishTo} Unpublished Preview</a></li>
                     <li>
                         {>"executeoperation_button_begin.dust" form_name="PublishToWww" /}
                         {>"executeoperation_button_end.dust" button_label="Publish To: {WwwSiteToPublishTo}" icon_class_name="icon-cloud-upload" /}
                     </li>
+{:else}
+                    <li><a tabindex="-1" target="_blank" href="../../webview/html/index.html">{GroupName}'s Private Web Content View</a></li>
 {/WwwSiteToPublishTo}
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
