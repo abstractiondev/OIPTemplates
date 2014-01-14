@@ -5,7 +5,9 @@
             ConnectInputField(me, "contentinfo", "ImageEditor", "ContentSourceInfo", "", true);
             ConnectInputField(me, "title", "ImageEditor", "Title", "");
             ConnectInputField(me, "caption", "ImageEditor", "Caption", "");
-            /*ConnectInputField(me, "imageid", "ImageEditor", "ImageID", "");*/
+            ConnectInputField(me, "description", "ImageEditor", "Description", "");
+            ConnectInputField(me, "categories", "ImageEditor", "Categories", "", false, "Object_", true);
+            ConnectInputField(me, "locations", "ImageEditor", "Locations", "", false, "Object_", true);
             var imageid = me.data("imageid");
             var imageext = me.data("imageext");
             var imageurl = "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop" + imageext;
@@ -35,6 +37,13 @@
                 </div>
                 {>"textinput_singleline.dust" field_id="ImageEditor_Title" field_label="Title" /}
                 {>"textinput_singleline.dust" field_id="ImageEditor_Caption" field_label="Caption" /}
+                {>"textinput_multiline_markdown.dust" field_id="ImageEditor_Description" field_label="Description" /}
+                {>"dropdown_select.dust" field_id="ImageEditor_Categories" is_multiple="true"
+                item_collection=CategoriesSource.CategoryCollection.CollectionContent item_type="category"
+                field_label="Categories" field_name="Categories" /}
+                {>"dropdown_select.dust" field_id="ImageEditor_Locations" is_multiple="true"
+                item_collection=Locations.AddressAndLocationCollection.CollectionContent item_type="location"
+                field_label="Locations" field_name="Locations" /}
                 <div>Image Url: <div id="ImageEditor_ImageID"></div></div>
             </fieldset>
         </div>

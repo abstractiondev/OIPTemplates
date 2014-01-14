@@ -18,10 +18,14 @@
                            data-id="{ID}"
                             {?ImageData}data-imageid="{ImageData.ID}" data-imageext="{ImageData.AdditionalFormatFileExt}" {/ImageData}
                             {?Title}data-title="{Title}" {/Title}
-                            {?Caption}data-subtitle="{Caption}" {/Caption}
+                            {?Caption}data-caption="{Caption}" {/Caption}
+                            {?Description}data-description="{Description}" {/Description}
+                            data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
+                            data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
                                 ><i class="icon-edit"></i></a></span>
                         <div class="title">{Title}</div>
                         {?Caption}<div class="title">{Caption}</div>{/Caption}
+                        {?Description}<div class="title">{Description}</div>{/Description}
                         {?ImageData}<div class="title" style="word-break: break-all">Url: ../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}{ImageData.AdditionalFormatFileExt}</div>{/ImageData}
                     </div>
                 </div>

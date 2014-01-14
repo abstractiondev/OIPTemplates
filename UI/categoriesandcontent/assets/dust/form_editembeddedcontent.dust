@@ -25,7 +25,8 @@
         <div class="modal-body">
             <input id="EmbeddedContentEditor_ContentSourceInfo" name="ContentSourceInfo" type="hidden" />
             <fieldset>
-                {>"textinput_singleline.dust" field_id="EmbeddedContentEditor_IFrameTagContents" field_label="IFrame Tag Contents" /}
+                {>"textinput_multiline.dust" field_id="EmbeddedContentEditor_IFrameTagContents"
+                    rows="3" field_label="IFrame Tag Contents" preprocess_function="RemoveIFrameTags" /}
                 {>"textinput_singleline.dust" field_id="EmbeddedContentEditor_Title" field_label="Title" /}
                 {>"textinput_multiline_markdown.dust" field_id="EmbeddedContentEditor_Description" field_label="Description" /}
                 {>"dropdown_select.dust" field_id="EmbeddedContentEditor_Categories" is_multiple="true"

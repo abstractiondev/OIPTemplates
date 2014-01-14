@@ -32,9 +32,13 @@
                         <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
                     </a>
                 {:else}
-                    <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
+                    {@eq key=TechnicalSource value="IMAGE"}
                         <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
-                    </a>
+                    {:else}
+                        <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
+                            <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
+                        </a>
+                    {/eq}
                 {/eq}
             {/IsCategoryFilteringNode}
             {:else}
@@ -54,7 +58,11 @@
                 {@eq key=TechnicalSource value="LINKTOCONTENT"}
                     <a href="{ActualContentUrl}">{Title}</a>
                 {:else}
-                    <a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">{Title}</a>
+                    {@eq key=TechnicalSource value="IMAGE"}
+                        <div>{Title}</div>
+                    {:else}
+                        <a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">{Title}</a>
+                    {/eq}
                 {/eq}
             {/IsCategoryFilteringNode}
                 </h4>
