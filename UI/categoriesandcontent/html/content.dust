@@ -135,5 +135,20 @@
 
     })
 </script>
-
 {>"common_modals.dust" /}
+<script>
+    $(document).ready(function() {
+        var currLocation = location.hash.replace("activetab-", "");
+        if (currLocation.hash !== '')
+        {
+            var currTab = $('a[href="' + currLocation + '"]');
+            currTab.tab('show');
+            currTab.addClass('active');
+        }
+
+        $('a[data-toggle="tab"]').on('shown', function(e) {
+            return location.hash = "activetab-" + $(e.target).attr('href').substr(1);
+        });
+
+    });
+</script>
