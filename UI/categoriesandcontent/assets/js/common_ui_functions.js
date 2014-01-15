@@ -42,6 +42,9 @@ var SetElementVisibility = function(id, isVisible)
 
 var ConvertCategoriesFromParentToChildren = function(categoryArray){
     var map = {};
+    map["-"] = {
+        UI_ChildrenCategories: []
+    };
     for(var i = 0; i < categoryArray.length; i++)
     {
         var obj = categoryArray[i];
