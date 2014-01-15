@@ -138,6 +138,7 @@
 {>"common_modals.dust" /}
 <script>
     $(document).ready(function() {
+        return;
         var currLocation = location.hash.replace("activetab-", "");
         if (currLocation.hash !== '')
         {
@@ -147,7 +148,9 @@
         }
 
         $('a[data-toggle="tab"]').on('shown', function(e) {
-            return location.hash = "activetab-" + $(e.target).attr('href').substr(1);
+            /*var currHistory = history.state;*/
+            location.hash = "activetab-" + $(e.target).attr('href').substr(1);
+            /*history.replaceState(currHistory);*/
         });
 
     });
