@@ -2,77 +2,46 @@
   <CollectionContent>
     <Image>
       <Caption i:nil="true" />
-      <ID>378bd61e-0708-4dd1-b208-da636a0d6814</ID>
+      <Categories i:nil="true" />
+      <Description i:nil="true" />
+      <ID>6a2f52a4-d153-4c94-ab91-14d26f24fb13</ID>
       <ImageData>
-        <ContentLength>57687</ContentLength>
-        <FileExt i:nil="true" />
-        <ID>dacb8f9e-8550-4898-988b-30620ebe5777</ID>
+        <AdditionalFormatFileExt>.png</AdditionalFormatFileExt>
+        <ContentLength>5542</ContentLength>
+        <FileExt>.png</FileExt>
+        <ID>c14b7e25-a4aa-40eb-80c5-604dca1d986a</ID>
         <MasterETag i:nil="true" />
         <Name>MediaContent</Name>
-        <OriginalFileName>choose-the-tool-spoon_fork-thm.jpg</OriginalFileName>
+        <OriginalFileName i:nil="true" />
         <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-        <RelativeLocation>AaltoGlobalImpact.OIP/MediaContent/dacb8f9e-8550-4898-988b-30620ebe5777</RelativeLocation>
+        <RelativeLocation>grp/90eb1c69-169c-491c-a75f-ce883b840a9b/AaltoGlobalImpact.OIP/MediaContent/c14b7e25-a4aa-40eb-80c5-604dca1d986a.png</RelativeLocation>
         <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
       </ImageData>
-      <MasterETag>"0x8D0A9FC106B170F"</MasterETag>
+      <Locations i:nil="true" />
+      <MasterETag>"0x8D0ADA9D7C4B466"</MasterETag>
       <Name>Image</Name>
       <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-      <ReferenceToInformation i:nil="true" />
-      <RelativeLocation>grp/b470e3fb-6b58-41ec-9c89-131672ea8531/AaltoGlobalImpact.OIP/Image/378bd61e-0708-4dd1-b208-da636a0d6814</RelativeLocation>
-      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-      <Title>choose-the-tool-spoon_fork-thm.jpg</Title>
-    </Image>
-    <Image>
-      <Caption i:nil="true" />
-      <ID>3ce95c80-9c86-43f7-a4d2-69317900f863</ID>
-      <ImageData>
-        <ContentLength>92668</ContentLength>
-        <FileExt i:nil="true" />
-        <ID>311ef5a4-a85f-4785-9ce9-2e3178665b39</ID>
+      <ReferenceToInformation>
+        <ID>c0b54645-452c-4d09-846f-fa4b4f01eb32</ID>
         <MasterETag i:nil="true" />
-        <Name>MediaContent</Name>
-        <OriginalFileName>HackathonTeam.jpg</OriginalFileName>
+        <Name>ReferenceToInformation</Name>
         <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-        <RelativeLocation>AaltoGlobalImpact.OIP/MediaContent/311ef5a4-a85f-4785-9ce9-2e3178665b39</RelativeLocation>
+        <RelativeLocation>AaltoGlobalImpact.OIP/ReferenceToInformation/c0b54645-452c-4d09-846f-fa4b4f01eb32</RelativeLocation>
         <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-      </ImageData>
-      <MasterETag>"0x8D0A9FC107FD817"</MasterETag>
-      <Name>Image</Name>
-      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-      <ReferenceToInformation i:nil="true" />
-      <RelativeLocation>grp/b470e3fb-6b58-41ec-9c89-131672ea8531/AaltoGlobalImpact.OIP/Image/3ce95c80-9c86-43f7-a4d2-69317900f863</RelativeLocation>
+        <Title i:nil="true" />
+        <URL>AaltoGlobalImpact.OIP.Image_6a2f52a4-d153-4c94-ab91-14d26f24fb13_DefaultView.phtml</URL>
+      </ReferenceToInformation>
+      <RelativeLocation>grp/90eb1c69-169c-491c-a75f-ce883b840a9b/AaltoGlobalImpact.OIP/Image/6a2f52a4-d153-4c94-ab91-14d26f24fb13</RelativeLocation>
       <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-      <Title>HackathonTeam.jpg</Title>
-    </Image>
-    <Image>
-      <Caption i:nil="true" />
-      <ID>cdc201e6-52f7-4557-810a-ec3afc526446</ID>
-      <ImageData>
-        <ContentLength>24999</ContentLength>
-        <FileExt i:nil="true" />
-        <ID>483dc076-8ad6-42cc-8ea0-67a17fc600c5</ID>
-        <MasterETag i:nil="true" />
-        <Name>MediaContent</Name>
-        <OriginalFileName>distributed_connected_ball_network.jpg</OriginalFileName>
-        <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-        <RelativeLocation>AaltoGlobalImpact.OIP/MediaContent/483dc076-8ad6-42cc-8ea0-67a17fc600c5</RelativeLocation>
-        <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-      </ImageData>
-      <MasterETag>"0x8D0A9FC106B170F"</MasterETag>
-      <Name>Image</Name>
-      <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-      <ReferenceToInformation i:nil="true" />
-      <RelativeLocation>grp/b470e3fb-6b58-41ec-9c89-131672ea8531/AaltoGlobalImpact.OIP/Image/cdc201e6-52f7-4557-810a-ec3afc526446</RelativeLocation>
-      <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
-      <Title>distributed_connected_ball_network.jpg</Title>
+      <Title i:nil="true" />
     </Image>
   </CollectionContent>
-  <ID>488c2fd6-5cca-4f33-8a74-aef67e8b6f31</ID>
+  <ID>239638e9-09e3-4f99-82af-37f0ca8a89f1</ID>
   <IsCollectionFiltered>false</IsCollectionFiltered>
   <MasterETag i:nil="true" />
   <Name>ImageCollection</Name>
   <OrderFilterIDList xmlns:d2p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <OwnerID>00000000-0000-0000-0000-000000000000</OwnerID>
-  <RelativeLocation>grp/b470e3fb-6b58-41ec-9c89-131672ea8531/AaltoGlobalImpact.OIP/ImageCollection/MasterCollection</RelativeLocation>
+  <RelativeLocation>grp/90eb1c69-169c-491c-a75f-ce883b840a9b/AaltoGlobalImpact.OIP/ImageCollection/MasterCollection</RelativeLocation>
   <SemanticDomainName>AaltoGlobalImpact.OIP</SemanticDomainName>
 </ImageCollection>
