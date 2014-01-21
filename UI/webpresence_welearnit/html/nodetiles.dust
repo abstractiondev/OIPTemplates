@@ -17,6 +17,10 @@
         </ul>
     </div>
 <style type="text/css">
+    html {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
     .nodetile {
         width: 200px;
         margin: 9px;
@@ -27,9 +31,14 @@
         color: #333;
         line-height: 1.4285;
     }
+    .tileimagecontainer {
+    }
     .tileimage {
         width: 100%;
-        height: 176;
+    }
+    .embedimage {
+        width: 100%;
+        height:176px;
     }
 </style>
     <div id="container">
@@ -38,6 +47,7 @@
         {#CollectionContent}
         <div class="nodetile {#Categories}{CategoryName} {/Categories}">
             {?ImageBaseUrl}
+            <div class="tileimagecontainer">
             {?IsCategoryFilteringNode}
                 <a class="hover filter" href="#" data-filter-value="{#CategoryFilters.CollectionContent}.{Content}{/CategoryFilters.CollectionContent}">
                     <img class="tileimage" src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
@@ -57,11 +67,12 @@
                     {/eq}
                 {/eq}
             {/IsCategoryFilteringNode}
+            </div>
             {:else}
                 {@eq key=TechnicalSource value="EMBEDDEDCONTENT"}
                     <script type="text/javascript" src="http://mmp.streamuk.com/p/2000147/sp/200014700/embedIframeJs/uiconf_id/11170182/partner_id/2000147"></script>
                     <object id="kaltura_player_1389787001{ID}" name="kaltura_player_1389787001{ID}" type="application/x-shockwave-flash" allowFullScreen="true"
-                            allowNetworking="all" allowScriptAccess="always" class="tileimage" bgcolor="#000000"
+                            allowNetworking="all" allowScriptAccess="always" class="embedimage" bgcolor="#000000"
                             resource="http://mmp.streamuk.com/index.php/kwidget/cache_st/1389787001{ID}/wid/_2000147/uiconf_id/11170182/entry_id/{ActualContentUrl}"
                             data="http://mmp.streamuk.com/index.php/kwidget/cache_st/1389787001{ID}/wid/_2000147/uiconf_id/11170182/entry_id/{ActualContentUrl}">
                         <param name="allowFullScreen" value="true" />
@@ -133,17 +144,23 @@
 <script src='../assets/js/jquery.isotope.min.js'></script><!--filter and masonry script-->
 <script src='../assets/js/jquery.isotope.init.js'></script><!--custom settings-->
 <script>
-
     $(function(){
         var $container = $('#container'),
-                filters = {};
+        filters = {};
+
+        var loaded = 0;
+        var numImages = $("img").length;
+        $("img").load(function() {
+            ++loaded;
+            if (loaded === numImages) {
+                $container.isotope('reLayout');
+            }
+        });
 
         $container.isotope({
-            itemSelector : '.nodetile',
-            masonry: {
-                columnWidth: 80
-            },
+            itemSelector : '.nodetile'
         });
+
         /* filter buttons */
         $('a.filter').click(function(){
             var $this = $(this);
