@@ -148,6 +148,10 @@
         var $container = $('#container'),
         filters = {};
 
+        $container.isotope({
+            itemSelector : '.nodetile'
+        });
+
         var loaded = 0;
         var numImages = $("img").length;
         $("img").load(function() {
@@ -155,10 +159,6 @@
             if (loaded === numImages) {
                 $container.isotope('reLayout');
             }
-        });
-
-        $container.isotope({
-            itemSelector : '.nodetile'
         });
 
         /* filter buttons */
