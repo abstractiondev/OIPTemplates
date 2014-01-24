@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Chart Test (Chrome)" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" uri="http://localhost:63342/OIPTemplates/UI/categoriesandcontent/html/usagegraphtest.html">
+  <configuration default="false" name="Chart Test (Chrome)" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" engineId="firefox" uri="http://localhost:63342/OIPTemplates/UI/categoriesandcontent/html/usagegraphtest.html">
     <RunnerSettings RunnerId="JavascriptDebugRunner" />
     <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
     <method />
