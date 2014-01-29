@@ -17,6 +17,7 @@ var TheBall;
                 }
                 return TrackingExtension;
             })();
+            UI.TrackingExtension = TrackingExtension;
             var TrackedObject = (function () {
                 function TrackedObject() {
                 }
@@ -25,9 +26,11 @@ var TheBall;
                     return me.RelativeLocation;
                 };
                 TrackedObject.prototype.UpdateObject = function (triggeredTick) {
+                    // TODO: Relative location fetch and firing the display change renderings
                 };
                 return TrackedObject;
             })();
+            UI.TrackedObject = TrackedObject;
 
             var TrackedObjectStorage = {};
 
@@ -58,6 +61,25 @@ var TheBall;
                     $.ajax({
                         url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
                         success: this.ProcessStatusData
+                    });
+                };
+
+                DataConnectionManager.prototype.ProcessFetchedData = function (jsonData) {
+                    if (jsonData.RelativeLocation) {
+                        var currTracked = TrackedObjectStorage[jsonData.ID];
+                        if (currTracked) {
+                            var currExtension = currTracked.UIExtension;
+                            TrackedObjectStorage[jsonData.ID] = jsonData;
+                            currTracked = jsonData;
+                            jsonData.UIExtension = currExtension;
+                        }
+                    }
+                };
+
+                DataConnectionManager.prototype.FetchAndProcessJSONData = function (dataUrl) {
+                    $.ajax({
+                        url: dataUrl, cache: false,
+                        success: this.ProcessFetchedData
                     });
                 };
                 return DataConnectionManager;

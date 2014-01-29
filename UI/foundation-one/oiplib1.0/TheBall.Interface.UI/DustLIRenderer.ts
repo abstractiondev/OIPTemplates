@@ -3,15 +3,19 @@
  */
 
 /// <reference path="dustjs-linkedin.d.ts" />
-
-import htmlRenderer = require("HTMLRenderer");
-import dust = require("dustjs-linkedin");
-
+/// <reference path="HTMLRenderer.ts" />
 
 module TheBall.Interface.UI {
-    class DustLIRenderer implements htmlRenderer.TheBall.Interface.UI.HTMLRenderer {
-        RenderToHtml(templateName: string, rootObject: any, callback:(error:any, output:string) => any) {
-            dust.render(templateName, rootObject, callback);
+
+    export function RenderDustToHtml(templateName: string, rootObject: any, callback:(error: any, output: string) => any) {
+        dust.render(templateName, rootObject, callback);
+    }
+
+    export class DustLIRenderer /*implements TheBall.Interface.UI.HTMLRenderer */ {
+        RenderToHtml(templateName: string, rootObject: any, callback: (error: any, output: string) => any) {
+            RenderDustToHtml(templateName, rootObject, callback);
         }
     }
+
+
 }

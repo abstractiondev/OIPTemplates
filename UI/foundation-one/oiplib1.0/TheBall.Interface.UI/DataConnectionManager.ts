@@ -10,17 +10,20 @@ module TheBall.Interface.UI {
         ChangeItemTrackingList: string[];
     }
 
-    class TrackingExtension {
+    export class TrackingExtension {
         LastUpdatedTick: string;
+        FetchedUrl: string;
     }
-    class TrackedObject {
+    export class TrackedObject {
         ID: string;
+        RelativeLocation;
         UIExtension: TrackingExtension;
         GetRelativeUrl(): string {
             var me: any = this;
             return me.RelativeLocation;
         }
-        UpdateObject(triggeredTick:string) {
+        UpdateObject(triggeredTick: string) {
+            // TODO: Relative location fetch and firing the display change renderings
         }
     }
 
@@ -54,5 +57,25 @@ module TheBall.Interface.UI {
                 success: this.ProcessStatusData
             });
         }
+
+        ProcessFetchedData(jsonData: TrackedObject) {
+            if (jsonData.RelativeLocation) {
+                var currTracked = TrackedObjectStorage[jsonData.ID];
+                if (currTracked) {
+                    var currExtension = currTracked.UIExtension;
+                    TrackedObjectStorage[jsonData.ID] = jsonData;
+                    currTracked = jsonData;
+                    jsonData.UIExtension = currExtension;
+                }
+            }
+        }
+
+        FetchAndProcessJSONData(dataUrl: string) {
+            $.ajax({
+                url: dataUrl, cache: false,
+                success: this.ProcessFetchedData
+            });
+        }
+
     }
 }

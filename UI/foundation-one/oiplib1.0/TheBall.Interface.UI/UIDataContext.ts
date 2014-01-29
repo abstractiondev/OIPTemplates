@@ -3,8 +3,14 @@
  */
 
 
+/// <reference path="jquery.d.ts" />
+/// <reference path="dustjs-linkedin.d.ts" />
+
+
 module TheBall.Interface.UI {
     class UIDataContext {
+        myTest() {
+        }
     }
 
 }
