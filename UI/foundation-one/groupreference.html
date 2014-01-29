@@ -14,21 +14,45 @@
   </head>
   <body>
 
-  <div class="dustpluginexample">
-      <h1>TÖÖT TÖÖT</h1>
-  </div>
   <script>
       var tMgr = new TheBall.Interface.UI.TemplateModuleManager();
       var tUI = TheBall.Interface.UI;
+      var templateHooks = [
+        new tUI.TemplateHook("mytest.dust", ".dustpluginexample", [
+                tUI.InitiateTemplateDataSource("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json")
+        ], function() {
+            return { MyProperty: "Piituu"};
+        }),
+          new tUI.TemplateHook("mytest.dust", ".dustpluginexample2", [
+              tUI.InitiateTemplateDataSource("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json")
+          ], function() {
+              return { MyProperty: "Piituu2"};
+          })
+      ];
+
       $(function() {
-          tMgr.ActivateTemplate("mytest.dust",
-                  [   tUI.InitiateTemplateDataSource("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json")],
-                  function() {
-                      return { MyProperty: "Töötti!" };
-                  },
-                  ".dustpluginexample");
+          templateHooks.forEach(function(tHook) {
+              tMgr.ActivateTemplate(tHook.templateName,
+                      tHook.dataSources,
+                      tHook.preRenderingDataProcessor,
+                      tHook.jQuerySelector);
+          });
       });
+
   </script>
+
+  <div class="dustpluginexample">
+      <h1>TÖÖT TÖÖT</h1>
+  </div>
+  <div class="dustpluginexample">
+      <h1>TÖÖT TÖÖT2</h1>
+  </div>
+  <div class="dustpluginexample2">
+      <h1>TÖÖT TÖÖT3</h1>
+  </div>
+  <div class="dustpluginexample2">
+      <h1>TÖÖT TÖÖT4</h1>
+  </div>
      <div class="row">
     <div class="large-12 columns">
  

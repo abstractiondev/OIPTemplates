@@ -9,6 +9,16 @@ var TheBall;
         /// <reference path="dustjs-linkedin.d.ts" />
         /// <reference path="DustLIRenderer.ts" />
         (function (UI) {
+            var TemplateHook = (function () {
+                function TemplateHook(templateName, jQuerySelector, dataSources, preRenderingDataProcessor) {
+                    this.templateName = templateName;
+                    this.jQuerySelector = jQuerySelector;
+                    this.dataSources = dataSources;
+                    this.preRenderingDataProcessor = preRenderingDataProcessor;
+                }
+                return TemplateHook;
+            })();
+            UI.TemplateHook = TemplateHook;
             var TemplateDataSource = (function () {
                 function TemplateDataSource() {
                 }

@@ -12,6 +12,18 @@ module TheBall.Interface.UI {
     export interface DataPreparerCallback {
         (jsonContents: TemplateDataSource[]): any;
     }
+
+    export class TemplateHook {
+        constructor(public templateName:string,
+            public jQuerySelector:string,
+            public dataSources:TemplateDataSource[],
+            public preRenderingDataProcessor:DataPreparerCallback) {
+        }
+        //JQuerySelector:string;
+        //DataSourceDeclaration:TemplateDataSource[]
+        //datasourceprocessor
+        //templatename
+    }
     export class TemplateDataSource {
         RelativeUrl: string;
         ObjectID: string;
