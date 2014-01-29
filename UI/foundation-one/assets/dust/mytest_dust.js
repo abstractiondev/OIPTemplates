@@ -1,1 +1,1 @@
-(function(){dust.register("mytest.dust",body_0);function body_0(chk,ctx){return chk.write("<div><p>Dusting: ").reference(ctx.get("MyProperty"),ctx,"h").write("</p></div>");}return body_0;})();
+(function(){dust.register("mytest.dust",body_0);function body_0(chk,ctx){return chk.write("<div><p>Dusting: ").section(ctx.get("MyProperty"),ctx,{"block":body_1},null).write("</p></div>");}function body_1(chk,ctx){return chk.reference(ctx.get("RelativeLocation"),ctx,"h");}return body_0;})();

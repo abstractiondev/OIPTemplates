@@ -11,6 +11,7 @@ var TheBall;
                 }
                 return StatusData;
             })();
+            UI.StatusData = StatusData;
 
             var TrackingExtension = (function () {
                 function TrackingExtension() {
@@ -32,10 +33,9 @@ var TheBall;
             })();
             UI.TrackedObject = TrackedObject;
 
-            var TrackedObjectStorage = {};
-
             var DataConnectionManager = (function () {
                 function DataConnectionManager() {
+                    this.TrackedObjectStorage = {};
                     this.LastProcessedTick = "";
                 }
                 DataConnectionManager.prototype.ProcessStatusData = function (statusData) {
@@ -51,7 +51,7 @@ var TheBall;
                         }
                         var currID = currItem.substr(2);
                         var currModification = currItem.substr(0, 1);
-                        var currTracked = TrackedObjectStorage[currID];
+                        var currTracked = this.TrackedObjectStorage[currID];
                         if (currTracked && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
                             currTracked.UpdateObject(currTimestamp);
                         }
@@ -66,10 +66,10 @@ var TheBall;
 
                 DataConnectionManager.prototype.ProcessFetchedData = function (jsonData) {
                     if (jsonData.RelativeLocation) {
-                        var currTracked = TrackedObjectStorage[jsonData.ID];
+                        var currTracked = this.TrackedObjectStorage[jsonData.ID];
                         if (currTracked) {
                             var currExtension = currTracked.UIExtension;
-                            TrackedObjectStorage[jsonData.ID] = jsonData;
+                            this.TrackedObjectStorage[jsonData.ID] = jsonData;
                             currTracked = jsonData;
                             jsonData.UIExtension = currExtension;
                         }
@@ -84,6 +84,7 @@ var TheBall;
                 };
                 return DataConnectionManager;
             })();
+            UI.DataConnectionManager = DataConnectionManager;
         })(Interface.UI || (Interface.UI = {}));
         var UI = Interface.UI;
     })(TheBall.Interface || (TheBall.Interface = {}));

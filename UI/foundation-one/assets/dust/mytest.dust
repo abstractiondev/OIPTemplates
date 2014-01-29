@@ -1,1 +1,1 @@
-<div><p>Dusting: {MyProperty}</p></div>
+<div><p>Dusting: {#MyProperty}{RelativeLocation}{/MyProperty}</p></div>

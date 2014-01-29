@@ -10,13 +10,21 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
     <script src="oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
+    <script src="oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
     <script src="assets/dust/mytest_dust.js"></script>
   </head>
   <body>
 
   <script>
-      var tMgr = new TheBall.Interface.UI.TemplateModuleManager();
       var tUI = TheBall.Interface.UI;
+      var tMgr = new tUI.TemplateModuleManager();
+      tMgr.RegisterTemplate("mytest.dust", ".dustpluginexample",
+              [ "../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json" ],
+      function(jsonArray) {
+          var json = jsonArray[0];
+          return { MyProperty: json.GetObjectContent()};
+      });
+      /*
       var templateHooks = [
         new tUI.TemplateHook("mytest.dust", ".dustpluginexample", [
                 tUI.InitiateTemplateDataSource("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json")
@@ -29,14 +37,16 @@
               return { MyProperty: "Piituu2"};
           })
       ];
-
+        */
       $(function() {
+          /*
           templateHooks.forEach(function(tHook) {
               tMgr.ActivateTemplate(tHook.templateName,
                       tHook.dataSources,
                       tHook.preRenderingDataProcessor,
                       tHook.jQuerySelector);
-          });
+          });*/
+          tMgr.ActivateAllTemplates();
       });
 
   </script>

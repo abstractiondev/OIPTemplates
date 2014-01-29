@@ -19,36 +19,54 @@ var TheBall;
                 return TemplateHook;
             })();
             UI.TemplateHook = TemplateHook;
+
             var TemplateDataSource = (function () {
                 function TemplateDataSource() {
                 }
+                TemplateDataSource.prototype.GetObjectContent = function () {
+                    return this.DCM.TrackedObjectStorage[this.ObjectID];
+                };
                 return TemplateDataSource;
             })();
             UI.TemplateDataSource = TemplateDataSource;
 
-            function InitiateTemplateDataSource(relativeUrl) {
-                var existingTemplate = DataSourceFetchStorage[relativeUrl];
-                if (!existingTemplate) {
-                    existingTemplate = new TemplateDataSource();
-                    existingTemplate.RelativeUrl = relativeUrl;
-                    DataSourceFetchStorage[relativeUrl] = existingTemplate;
-                    existingTemplate.FetchPromise = $.ajax({
-                        url: relativeUrl, cache: false,
-                        success: function (jsonData) {
-                            existingTemplate.ObjectID = jsonData.ID;
-                        }
-                    });
-                }
-                return existingTemplate;
-            }
-            UI.InitiateTemplateDataSource = InitiateTemplateDataSource;
-
-            var DataSourceFetchStorage = {};
-
             var TemplateModuleManager = (function () {
                 function TemplateModuleManager() {
+                    this.DataSourceFetchStorage = {};
+                    this.TemplateHookStorage = [];
+                    this.DCM = new TheBall.Interface.UI.DataConnectionManager();
                 }
+                TemplateModuleManager.prototype.InitiateTemplateDataSource = function (relativeUrl) {
+                    var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
+                    var me = this;
+                    if (!existingTemplate) {
+                        existingTemplate = new TemplateDataSource();
+                        existingTemplate.RelativeUrl = relativeUrl;
+                        this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
+                        existingTemplate.FetchPromise = $.ajax({
+                            url: relativeUrl, cache: false,
+                            success: function (jsonData) {
+                                if (jsonData.ID) {
+                                    var id = jsonData.ID;
+                                    me.DCM.TrackedObjectStorage[id] = jsonData;
+                                }
+                                existingTemplate.DCM = me.DCM;
+                                existingTemplate.ObjectID = jsonData.ID;
+                            }
+                        });
+                    }
+                    return existingTemplate;
+                };
+
+                TemplateModuleManager.prototype.RegisterTemplate = function (templateName, jQuerySelector, dataSourceUrls, preRenderingDataProcessor) {
+                    var _this = this;
+                    this.TemplateHookStorage.push(new TemplateHook(templateName, jQuerySelector, dataSourceUrls.map(function (url) {
+                        return _this.InitiateTemplateDataSource(url);
+                    }), preRenderingDataProcessor));
+                };
+
                 TemplateModuleManager.prototype.ActivateTemplate = function (templateName, dataSources, contextPreparer, selectorString) {
+                    var me = this;
                     var promises;
                     console.log("Promise iteration");
                     promises = dataSources.map(function (obj) {
@@ -83,6 +101,13 @@ var TheBall;
                         }
                         });
                         });*/
+                    });
+                };
+
+                TemplateModuleManager.prototype.ActivateAllTemplates = function () {
+                    var me = this;
+                    this.TemplateHookStorage.forEach(function (tHook) {
+                        me.ActivateTemplate(tHook.templateName, tHook.dataSources, tHook.preRenderingDataProcessor, tHook.jQuerySelector);
                     });
                 };
                 return TemplateModuleManager;

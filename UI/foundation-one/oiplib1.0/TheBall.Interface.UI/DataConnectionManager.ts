@@ -6,7 +6,7 @@
 
 
 module TheBall.Interface.UI {
-    class StatusData {
+    export class StatusData {
         ChangeItemTrackingList: string[];
     }
 
@@ -27,11 +27,10 @@ module TheBall.Interface.UI {
         }
     }
 
-    var TrackedObjectStorage: { [ID: string]: TrackedObject } = {};
-
-    class DataConnectionManager {
-
+    export class DataConnectionManager {
+        TrackedObjectStorage: { [ID: string]: TrackedObject } = {};
         LastProcessedTick: string = "";
+
         ProcessStatusData(statusData: StatusData) {
             var idList = statusData.ChangeItemTrackingList;
             var currTimestamp;
@@ -45,7 +44,7 @@ module TheBall.Interface.UI {
                 }
                 var currID = currItem.substr(2);
                 var currModification = currItem.substr(0, 1);
-                var currTracked = TrackedObjectStorage[currID];
+                var currTracked = this.TrackedObjectStorage[currID];
                 if (currTracked && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
                     currTracked.UpdateObject(currTimestamp);
                 }
@@ -60,10 +59,10 @@ module TheBall.Interface.UI {
 
         ProcessFetchedData(jsonData: TrackedObject) {
             if (jsonData.RelativeLocation) {
-                var currTracked = TrackedObjectStorage[jsonData.ID];
+                var currTracked = this.TrackedObjectStorage[jsonData.ID];
                 if (currTracked) {
                     var currExtension = currTracked.UIExtension;
-                    TrackedObjectStorage[jsonData.ID] = jsonData;
+                    this.TrackedObjectStorage[jsonData.ID] = jsonData;
                     currTracked = jsonData;
                     jsonData.UIExtension = currExtension;
                 }

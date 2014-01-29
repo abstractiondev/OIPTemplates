@@ -9,6 +9,7 @@
 /// <reference path="DustLIRenderer.ts" />
 
 module TheBall.Interface.UI {
+
     export interface DataPreparerCallback {
         (jsonContents: TemplateDataSource[]): any;
     }
@@ -19,37 +20,58 @@ module TheBall.Interface.UI {
             public dataSources:TemplateDataSource[],
             public preRenderingDataProcessor:DataPreparerCallback) {
         }
-        //JQuerySelector:string;
-        //DataSourceDeclaration:TemplateDataSource[]
-        //datasourceprocessor
-        //templatename
     }
+
     export class TemplateDataSource {
         RelativeUrl: string;
         ObjectID: string;
         FetchPromise: any;
-    }
-
-    export function InitiateTemplateDataSource(relativeUrl: string): TemplateDataSource {
-        var existingTemplate = DataSourceFetchStorage[relativeUrl];
-        if (!existingTemplate) {
-            existingTemplate = new TemplateDataSource();
-            existingTemplate.RelativeUrl = relativeUrl;
-            DataSourceFetchStorage[relativeUrl] = existingTemplate;
-            existingTemplate.FetchPromise = $.ajax({
-                url: relativeUrl, cache: false,
-                success: function (jsonData: TrackedObject) {
-                    existingTemplate.ObjectID = jsonData.ID;
-                }
-            });
+        DCM: DataConnectionManager;
+        GetObjectContent() : TrackedObject {
+            return this.DCM.TrackedObjectStorage[this.ObjectID];
         }
-        return existingTemplate;
     }
-
-    var DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
 
     export class TemplateModuleManager {
+        DCM : DataConnectionManager;
+        constructor() {
+            this.DCM = new TheBall.Interface.UI.DataConnectionManager();
+        }
+
+        DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
+        private TemplateHookStorage: TemplateHook[] = [];
+
+        InitiateTemplateDataSource(relativeUrl: string): TemplateDataSource {
+            var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
+            var me = this;
+            if (!existingTemplate) {
+                existingTemplate = new TemplateDataSource();
+                existingTemplate.RelativeUrl = relativeUrl;
+                this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
+                existingTemplate.FetchPromise = $.ajax({
+                    url: relativeUrl, cache: false,
+                    success: function (jsonData: TrackedObject) {
+                        if(jsonData.ID) {
+                            var id = jsonData.ID;
+                            me.DCM.TrackedObjectStorage[id] = jsonData;
+                        }
+                        existingTemplate.DCM = me.DCM;
+                        existingTemplate.ObjectID = jsonData.ID;
+                    }
+                });
+            }
+            return existingTemplate;
+        }
+
+        RegisterTemplate(templateName:string, jQuerySelector:string, dataSourceUrls:string[], preRenderingDataProcessor:DataPreparerCallback) {
+            this.TemplateHookStorage.push(new TemplateHook(templateName,
+                jQuerySelector,
+                dataSourceUrls.map(url => this.InitiateTemplateDataSource(url)),
+                preRenderingDataProcessor));
+        }
+
         ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, selectorString: string) {
+            var me = this;
             var promises: any[];
             console.log("Promise iteration");
             promises = dataSources.map(obj => obj.FetchPromise);
@@ -83,6 +105,16 @@ module TheBall.Interface.UI {
                         }
                     });
                 });*/
+            });
+        }
+
+        ActivateAllTemplates() {
+            var me = this;
+            this.TemplateHookStorage.forEach(function(tHook) {
+                me.ActivateTemplate(tHook.templateName,
+                    tHook.dataSources,
+                    tHook.preRenderingDataProcessor,
+                    tHook.jQuerySelector);
             });
         }
     }
