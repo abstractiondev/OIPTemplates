@@ -96,7 +96,8 @@ var TheBall;
                             console.log(output);
                             $(selectorString).each(function () {
                                 var item = $(this);
-                                console.log("Replacing: " + item.html());
+
+                                //console.log("Replacing: " + item.html())
                                 item.html(output);
                             });
                             console.log("Done jQuerying...");

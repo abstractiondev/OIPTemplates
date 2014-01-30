@@ -1,3 +1,4 @@
 <div><p>Dusting: {#MyProperty}{RelativeLocation} - {ID}{/MyProperty}</p>
 <p>Updated: {MyTimestamp}</p>
+<p>Rendercount: {RenderCount}</p>
 </div>
