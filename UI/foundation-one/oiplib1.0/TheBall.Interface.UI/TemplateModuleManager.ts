@@ -33,6 +33,7 @@ module TheBall.Interface.UI {
             return this.DCM.TrackedObjectStorage[this.ObjectID];
         }
         RefreshObjectChange(trackedObject:TrackedObject) {
+            console.log("Refreshing object: " + trackedObject.ID + " used in: " + this.UsedInTemplates.join());
             this.TMM.ActivateNamedTemplates(this.UsedInTemplates);
         }
     }
@@ -57,12 +58,19 @@ module TheBall.Interface.UI {
                 this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
                 existingTemplate.FetchPromise = $.ajax({
                     url: relativeUrl, cache: false,
-                    success: function (jsonData: TrackedObject) {
-                        if(jsonData.ID) {
-                            var id = jsonData.ID;
-                            me.DCM.TrackedObjectStorage[id] = jsonData;
+                    success: function (trackedObject: TrackedObject) {
+                        if(trackedObject.ID) {
+                            var id = trackedObject.ID;
+                            trackedObject.UIExtension = new TheBall.Interface.UI.TrackingExtension();
+                            trackedObject.UIExtension.FetchedUrl = existingTemplate.RelativeUrl;
+                            trackedObject.UIExtension.ChangeListeners.push(
+                                (refreshedObject:TrackedObject) => {
+                                existingTemplate.RefreshObjectChange(refreshedObject);
+                                });
+                            trackedObject.UIExtension.LastUpdatedTick = "";
+                            me.DCM.TrackedObjectStorage[id] = trackedObject;
                         }
-                        existingTemplate.ObjectID = jsonData.ID;
+                        existingTemplate.ObjectID = trackedObject.ID;
                     }
                 });
             }
@@ -119,7 +127,8 @@ module TheBall.Interface.UI {
 
         ActivateNamedTemplates(templateNames:string[]) {
             var me = this;
-            for(var index in templateNames) {
+            for(var i = 0; i < templateNames.length; i++) {
+                var index = templateNames[i];
                 var tHook = this.TemplateHookStorage[index];
                 me.ActivateTemplate(tHook.templateName,
                     tHook.dataSources,

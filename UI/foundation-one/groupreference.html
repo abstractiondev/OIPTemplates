@@ -22,7 +22,7 @@
               [ "../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json" ],
       function(jsonArray) {
           var json = jsonArray[0];
-          return { MyProperty: json.GetObjectContent()};
+          return { MyProperty: json.GetObjectContent(), MyTimestamp: new Date().toString("yyyy-MM-dd HH:mm:ss")};
       });
       $(function() {
           tMgr.ActivateAllTemplates();

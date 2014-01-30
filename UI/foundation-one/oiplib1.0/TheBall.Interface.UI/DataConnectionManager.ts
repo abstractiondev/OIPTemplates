@@ -23,16 +23,19 @@ module TheBall.Interface.UI {
         ID: string;
         RelativeLocation;
         UIExtension: TrackingExtension;
-        GetRelativeUrl(): string {
-            var me: any = this;
-            return me.RelativeLocation;
+        static GetRelativeUrl(currObject:TrackedObject): string {
+            return currObject.RelativeLocation;
         }
-        UpdateObject(triggeredTick: string, dcm:DataConnectionManager) {
-            // TODO: Relative location fetch and firing the display change renderings
-            $.ajax( { url : this.GetRelativeUrl(), cache: false,
+        static UpdateObject(currObject:TrackedObject, triggeredTick: string, dcm:DataConnectionManager) {
+            //var fetchUrl = TrackedObject.GetRelativeUrl(currObject);
+            var fetchUrl = currObject.UIExtension.FetchedUrl;
+            console.log("Fetching from url: " + fetchUrl);
+            $.ajax( { url : fetchUrl, cache: false,
                 success: function(updatedObject:TrackedObject) {
                     dcm.TrackedObjectStorage[updatedObject.ID] = updatedObject;
-                    this.UIExtension.ChangeListeners.forEach(func => func(updatedObject));
+                    updatedObject.UIExtension = currObject.UIExtension;
+                    updatedObject.UIExtension.LastUpdatedTick = triggeredTick;
+                    updatedObject.UIExtension.ChangeListeners.forEach(func => func(updatedObject));
                 }
             });
         }
@@ -45,6 +48,7 @@ module TheBall.Interface.UI {
         ProcessStatusData(statusData: StatusData) {
             var idList = statusData.ChangeItemTrackingList;
             var currTimestamp;
+            var currProcessedTick;
             for (var i = 0; i < idList.length; i++) {
                 var currItem = idList[i];
                 if (currItem.charAt(0) == "T") {
@@ -53,24 +57,34 @@ module TheBall.Interface.UI {
                         break;
                     continue;
                 }
+                // If curr processed is undefined, we set it from here, thus it will be last
+                if(!currProcessedTick)
+                    currProcessedTick = currTimestamp;
                 var currID = currItem.substr(2);
                 var currModification = currItem.substr(0, 1);
                 var currTracked = this.TrackedObjectStorage[currID];
-                console.log("Checking for update basis");
+                if(currTracked) {
+                    console.log("Checking for update basis: " + currTracked.ID + " " +
+                        currTracked.UIExtension.LastUpdatedTick + " vs " + currTimestamp);
+                } else {
+                    console.log("Not tracked update for id: " + currID);
+                }
                 if (currTracked && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
                     console.log("Updating...");
-                    currTracked.UpdateObject(currTimestamp, this);
+                    TrackedObject.UpdateObject(currTracked, currTimestamp, this);
                 }
+            }
+            if(currProcessedTick) {
+                console.log("Processed up to tick: " + currProcessedTick)
+                this.LastProcessedTick = currProcessedTick;
             }
         }
         PerformAsyncPoll() {
             var priv = this;
-            console.log(priv.TrackedObjectStorage);
             $.ajax({
                 url: "../TheBall.Interface/StatusSummary/default.json", cache: false,
                 success: function(data:StatusData) {
-                    console.log("Ajax done...");
-                    console.log(priv.TrackedObjectStorage);
+                    console.log("Polled status...");
                     priv.ProcessStatusData(data);
                 }
             });

@@ -1,1 +1,3 @@
-<div><p>Dusting: {#MyProperty}{RelativeLocation} - {ID}{/MyProperty}</p></div>
+<div><p>Dusting: {#MyProperty}{RelativeLocation} - {ID}{/MyProperty}</p>
+<p>Updated: {MyTimestamp}</p>
+</div>
