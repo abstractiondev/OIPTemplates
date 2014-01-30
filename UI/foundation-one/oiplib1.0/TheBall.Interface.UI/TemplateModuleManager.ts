@@ -27,8 +27,13 @@ module TheBall.Interface.UI {
         ObjectID: string;
         FetchPromise: any;
         DCM: DataConnectionManager;
+        TMM: TemplateModuleManager;
+        UsedInTemplates: string[] = [];
         GetObjectContent() : TrackedObject {
             return this.DCM.TrackedObjectStorage[this.ObjectID];
+        }
+        RefreshObjectChange(trackedObject:TrackedObject) {
+            this.TMM.ActivateNamedTemplates(this.UsedInTemplates);
         }
     }
 
@@ -39,13 +44,15 @@ module TheBall.Interface.UI {
         }
 
         DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
-        private TemplateHookStorage: TemplateHook[] = [];
+        private TemplateHookStorage: { [TemplateName: string]: TemplateHook } = {};
 
-        InitiateTemplateDataSource(relativeUrl: string): TemplateDataSource {
+        InitiateTemplateDataSource(relativeUrl: string, templateName:string): TemplateDataSource {
             var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
             var me = this;
             if (!existingTemplate) {
                 existingTemplate = new TemplateDataSource();
+                existingTemplate.DCM = me.DCM;
+                existingTemplate.TMM = me;
                 existingTemplate.RelativeUrl = relativeUrl;
                 this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
                 existingTemplate.FetchPromise = $.ajax({
@@ -55,19 +62,21 @@ module TheBall.Interface.UI {
                             var id = jsonData.ID;
                             me.DCM.TrackedObjectStorage[id] = jsonData;
                         }
-                        existingTemplate.DCM = me.DCM;
                         existingTemplate.ObjectID = jsonData.ID;
                     }
                 });
             }
+            existingTemplate.UsedInTemplates.push(templateName);
             return existingTemplate;
         }
 
         RegisterTemplate(templateName:string, jQuerySelector:string, dataSourceUrls:string[], preRenderingDataProcessor:DataPreparerCallback) {
-            this.TemplateHookStorage.push(new TemplateHook(templateName,
+            if(this.TemplateHookStorage[templateName])
+                throw "Template name already registered: " + templateName;
+            this.TemplateHookStorage[templateName] = new TemplateHook(templateName,
                 jQuerySelector,
-                dataSourceUrls.map(url => this.InitiateTemplateDataSource(url)),
-                preRenderingDataProcessor));
+                dataSourceUrls.map(url => this.InitiateTemplateDataSource(url, templateName)),
+                preRenderingDataProcessor);
         }
 
         ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, selectorString: string) {
@@ -108,14 +117,27 @@ module TheBall.Interface.UI {
             });
         }
 
-        ActivateAllTemplates() {
+        ActivateNamedTemplates(templateNames:string[]) {
             var me = this;
-            this.TemplateHookStorage.forEach(function(tHook) {
+            for(var index in templateNames) {
+                var tHook = this.TemplateHookStorage[index];
                 me.ActivateTemplate(tHook.templateName,
                     tHook.dataSources,
                     tHook.preRenderingDataProcessor,
                     tHook.jQuerySelector);
-            });
+            }
+        }
+
+        ActivateAllTemplates() {
+            var me = this;
+            for(var index in this.TemplateHookStorage) {
+                var tHook = this.TemplateHookStorage[index];
+                me.ActivateTemplate(tHook.templateName,
+                    tHook.dataSources,
+                    tHook.preRenderingDataProcessor,
+                    tHook.jQuerySelector);
+
+            }
         }
     }
 

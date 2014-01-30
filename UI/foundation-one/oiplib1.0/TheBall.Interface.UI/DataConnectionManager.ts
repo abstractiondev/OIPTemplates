@@ -6,6 +6,10 @@
 
 
 module TheBall.Interface.UI {
+    export interface TrackerEvent {
+        (trackedObject: TrackedObject): void;
+    }
+
     export class StatusData {
         ChangeItemTrackingList: string[];
     }
@@ -13,6 +17,7 @@ module TheBall.Interface.UI {
     export class TrackingExtension {
         LastUpdatedTick: string;
         FetchedUrl: string;
+        ChangeListeners : TrackerEvent[] = [];
     }
     export class TrackedObject {
         ID: string;
@@ -22,8 +27,14 @@ module TheBall.Interface.UI {
             var me: any = this;
             return me.RelativeLocation;
         }
-        UpdateObject(triggeredTick: string) {
+        UpdateObject(triggeredTick: string, dcm:DataConnectionManager) {
             // TODO: Relative location fetch and firing the display change renderings
+            $.ajax( { url : this.GetRelativeUrl(), cache: false,
+                success: function(updatedObject:TrackedObject) {
+                    dcm.TrackedObjectStorage[updatedObject.ID] = updatedObject;
+                    this.UIExtension.ChangeListeners.forEach(func => func(updatedObject));
+                }
+            });
         }
     }
 
@@ -45,15 +56,23 @@ module TheBall.Interface.UI {
                 var currID = currItem.substr(2);
                 var currModification = currItem.substr(0, 1);
                 var currTracked = this.TrackedObjectStorage[currID];
+                console.log("Checking for update basis");
                 if (currTracked && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
-                    currTracked.UpdateObject(currTimestamp);
+                    console.log("Updating...");
+                    currTracked.UpdateObject(currTimestamp, this);
                 }
             }
         }
         PerformAsyncPoll() {
+            var priv = this;
+            console.log(priv.TrackedObjectStorage);
             $.ajax({
-                url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
-                success: this.ProcessStatusData
+                url: "../TheBall.Interface/StatusSummary/default.json", cache: false,
+                success: function(data:StatusData) {
+                    console.log("Ajax done...");
+                    console.log(priv.TrackedObjectStorage);
+                    priv.ProcessStatusData(data);
+                }
             });
         }
 

@@ -22,9 +22,13 @@ var TheBall;
 
             var TemplateDataSource = (function () {
                 function TemplateDataSource() {
+                    this.UsedInTemplates = [];
                 }
                 TemplateDataSource.prototype.GetObjectContent = function () {
                     return this.DCM.TrackedObjectStorage[this.ObjectID];
+                };
+                TemplateDataSource.prototype.RefreshObjectChange = function (trackedObject) {
+                    this.TMM.ActivateNamedTemplates(this.UsedInTemplates);
                 };
                 return TemplateDataSource;
             })();
@@ -33,14 +37,16 @@ var TheBall;
             var TemplateModuleManager = (function () {
                 function TemplateModuleManager() {
                     this.DataSourceFetchStorage = {};
-                    this.TemplateHookStorage = [];
+                    this.TemplateHookStorage = {};
                     this.DCM = new TheBall.Interface.UI.DataConnectionManager();
                 }
-                TemplateModuleManager.prototype.InitiateTemplateDataSource = function (relativeUrl) {
+                TemplateModuleManager.prototype.InitiateTemplateDataSource = function (relativeUrl, templateName) {
                     var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
                     var me = this;
                     if (!existingTemplate) {
                         existingTemplate = new TemplateDataSource();
+                        existingTemplate.DCM = me.DCM;
+                        existingTemplate.TMM = me;
                         existingTemplate.RelativeUrl = relativeUrl;
                         this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
                         existingTemplate.FetchPromise = $.ajax({
@@ -50,19 +56,21 @@ var TheBall;
                                     var id = jsonData.ID;
                                     me.DCM.TrackedObjectStorage[id] = jsonData;
                                 }
-                                existingTemplate.DCM = me.DCM;
                                 existingTemplate.ObjectID = jsonData.ID;
                             }
                         });
                     }
+                    existingTemplate.UsedInTemplates.push(templateName);
                     return existingTemplate;
                 };
 
                 TemplateModuleManager.prototype.RegisterTemplate = function (templateName, jQuerySelector, dataSourceUrls, preRenderingDataProcessor) {
                     var _this = this;
-                    this.TemplateHookStorage.push(new TemplateHook(templateName, jQuerySelector, dataSourceUrls.map(function (url) {
-                        return _this.InitiateTemplateDataSource(url);
-                    }), preRenderingDataProcessor));
+                    if (this.TemplateHookStorage[templateName])
+                        throw "Template name already registered: " + templateName;
+                    this.TemplateHookStorage[templateName] = new TemplateHook(templateName, jQuerySelector, dataSourceUrls.map(function (url) {
+                        return _this.InitiateTemplateDataSource(url, templateName);
+                    }), preRenderingDataProcessor);
                 };
 
                 TemplateModuleManager.prototype.ActivateTemplate = function (templateName, dataSources, contextPreparer, selectorString) {
@@ -104,11 +112,20 @@ var TheBall;
                     });
                 };
 
+                TemplateModuleManager.prototype.ActivateNamedTemplates = function (templateNames) {
+                    var me = this;
+                    for (var index in templateNames) {
+                        var tHook = this.TemplateHookStorage[index];
+                        me.ActivateTemplate(tHook.templateName, tHook.dataSources, tHook.preRenderingDataProcessor, tHook.jQuerySelector);
+                    }
+                };
+
                 TemplateModuleManager.prototype.ActivateAllTemplates = function () {
                     var me = this;
-                    this.TemplateHookStorage.forEach(function (tHook) {
+                    for (var index in this.TemplateHookStorage) {
+                        var tHook = this.TemplateHookStorage[index];
                         me.ActivateTemplate(tHook.templateName, tHook.dataSources, tHook.preRenderingDataProcessor, tHook.jQuerySelector);
-                    });
+                    }
                 };
                 return TemplateModuleManager;
             })();

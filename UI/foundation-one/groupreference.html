@@ -24,29 +24,16 @@
           var json = jsonArray[0];
           return { MyProperty: json.GetObjectContent()};
       });
-      /*
-      var templateHooks = [
-        new tUI.TemplateHook("mytest.dust", ".dustpluginexample", [
-                tUI.InitiateTemplateDataSource("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json")
-        ], function() {
-            return { MyProperty: "Piituu"};
-        }),
-          new tUI.TemplateHook("mytest.dust", ".dustpluginexample2", [
-              tUI.InitiateTemplateDataSource("../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json")
-          ], function() {
-              return { MyProperty: "Piituu2"};
-          })
-      ];
-        */
       $(function() {
-          /*
-          templateHooks.forEach(function(tHook) {
-              tMgr.ActivateTemplate(tHook.templateName,
-                      tHook.dataSources,
-                      tHook.preRenderingDataProcessor,
-                      tHook.jQuerySelector);
-          });*/
           tMgr.ActivateAllTemplates();
+
+          (function poll(){
+              setTimeout(function(){
+                  tMgr.DCM.PerformAsyncPoll();
+                  poll();
+              }, 3000);
+          })();
+
       });
 
   </script>

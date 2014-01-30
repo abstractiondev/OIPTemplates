@@ -15,6 +15,7 @@ var TheBall;
 
             var TrackingExtension = (function () {
                 function TrackingExtension() {
+                    this.ChangeListeners = [];
                 }
                 return TrackingExtension;
             })();
@@ -26,8 +27,17 @@ var TheBall;
                     var me = this;
                     return me.RelativeLocation;
                 };
-                TrackedObject.prototype.UpdateObject = function (triggeredTick) {
+                TrackedObject.prototype.UpdateObject = function (triggeredTick, dcm) {
                     // TODO: Relative location fetch and firing the display change renderings
+                    $.ajax({
+                        url: this.GetRelativeUrl(), cache: false,
+                        success: function (updatedObject) {
+                            dcm.TrackedObjectStorage[updatedObject.ID] = updatedObject;
+                            this.UIExtension.ChangeListeners.forEach(function (func) {
+                                return func(updatedObject);
+                            });
+                        }
+                    });
                 };
                 return TrackedObject;
             })();
@@ -52,15 +62,23 @@ var TheBall;
                         var currID = currItem.substr(2);
                         var currModification = currItem.substr(0, 1);
                         var currTracked = this.TrackedObjectStorage[currID];
+                        console.log("Checking for update basis");
                         if (currTracked && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
-                            currTracked.UpdateObject(currTimestamp);
+                            console.log("Updating...");
+                            currTracked.UpdateObject(currTimestamp, this);
                         }
                     }
                 };
                 DataConnectionManager.prototype.PerformAsyncPoll = function () {
+                    var priv = this;
+                    console.log(priv.TrackedObjectStorage);
                     $.ajax({
-                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
-                        success: this.ProcessStatusData
+                        url: "../TheBall.Interface/StatusSummary/default.json", cache: false,
+                        success: function (data) {
+                            console.log("Ajax done...");
+                            console.log(priv.TrackedObjectStorage);
+                            priv.ProcessStatusData(data);
+                        }
                     });
                 };
 
