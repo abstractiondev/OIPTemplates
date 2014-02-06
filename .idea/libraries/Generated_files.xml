@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/HTMLRenderer.js" />
+        <item url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/UIDataContext.js" />
+        <item url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js" />
+        <item url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/DustLIRenderer.js" />
+        <item url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/test.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/test.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/UpdateRenderer.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/StatusUpdater.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/HTMLRenderer.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/UIDataContext.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js" />
+      <root url="file://$PROJECT_DIR$/UI/foundation-one/oiplib1.0/TheBall.Interface.UI/DustLIRenderer.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

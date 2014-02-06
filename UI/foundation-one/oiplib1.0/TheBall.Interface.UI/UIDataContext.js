@@ -4,10 +4,14 @@
 var TheBall;
 (function (TheBall) {
     (function (Interface) {
+        /// <reference path="jquery.d.ts" />
+        /// <reference path="dustjs-linkedin.d.ts" />
         (function (UI) {
             var UIDataContext = (function () {
                 function UIDataContext() {
                 }
+                UIDataContext.prototype.myTest = function () {
+                };
                 return UIDataContext;
             })();
         })(Interface.UI || (Interface.UI = {}));
