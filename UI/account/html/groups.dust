@@ -22,7 +22,7 @@
     {>"textinput_singleline.dust" field_id="CreateGroup_GroupName"
     field_name="GroupName" field_label="Group Name" /}
     {>"hiddeninput_namevalue.dust" input_name="RedirectUrlAfterCreation" input_value="categoriesandcontent/html/group.html" /}
-    {>"hiddeninput_namevalue.dust" input_name="TemplateNameList" input_value="categoriesandcontent,wwwsite" /}
+    {>"hiddeninput_namevalue.dust" input_name="TemplateNameList" input_value="categoriesandcontent,webview" /}
     {>"modal_executeoperation_end.dust" /}
 {:else}
     <h1 style="color:green">Please register at least one email :-)!</h1>
