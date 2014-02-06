@@ -8,9 +8,256 @@
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/foundation.min.css" />
     <link rel="stylesheet" href="../assets/fnd/css/style.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
+    <script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
+    <script src="../assets/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
+    <script src="../assets/fnd/dust/portfolioContainer_dust.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+
   </head>
   <body>
-    
+  <script>
+  //------begins: triggers the event if the "EDIT" button in the content card is pressed... on ANY of them
+  var bindEdit = function() {
+      $("[id*='editContentButton-dataID']").click(function (editEvent) {
+          var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
+          $.getJSON('site_settings.json', function(contentData) {
+              var queryValue="";
+              for (var i in contentData.content) {
+                  if (contentData.content[i].id === clickedEditID)
+                  {
+                      queryValue=clickedEditID;
+                      $('#editContentModal-id').val(queryValue);
+                      queryValue=$("#editContentModal-id").val();
+                      $("#placeholder-panel4a").text(queryValue);
+
+                      queryValue=contentData.content[i].title;
+                      $('#editContentModal-title').val(queryValue);
+
+                      queryValue=contentData.content[i].excerpt;
+                      $('#editContentModal-excerpt').val(queryValue);
+
+                      queryValue=contentData.content[i].content_type;
+                      $('#editContentModal-categories').val(queryValue);
+
+                      queryValue=contentData.content[i].article_text;
+                      $('#editContentModal-content').val(queryValue);
+
+                      queryValue=contentData.content[i].image;
+                      $('#editContentModal-imagePath').val(queryValue);
+                      queryValue=$("#editContentModal-imagePath").val();
+                      $("#placeholder-panel4a").text(queryValue);
+
+                      //send the correspondent image to the placeholder, but clean its containing div first
+                      $("#editContentModal-image").empty(); //clean the image Placeholder in the form
+                      queryValue = "<img src='"+contentData.content[i].image+"' style='width:320px;height:auto;max-height:350px;margin-left:auto;margin-right:auto;'>";
+                      $("#editContentModal-image").append(queryValue);
+                  } //ends If
+              }//ends for loop
+          }) //ends getJson
+          $('#editContentModal').foundation('reveal', 'open');
+      });//----------ends: triggers the event if the "EDIT" button in the content card is presed... on ANY of them
+  }
+
+  //------begins: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
+  var bindView = function() {
+      $("[id*='viewContentButton-dataID']").click(function (editEvent) {
+          var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
+          $.getJSON('site_settings.json', function(contentData) {
+              var queryValue="";
+              for (var i in contentData.content) {
+                  if (contentData.content[i].id === clickedEditID)
+                  {
+                      queryValue=contentData.content[i].title;
+                      $("#viewContentModal-title").empty();
+                      $('#viewContentModal-title').append(queryValue);
+
+                      queryValue="<p>"+contentData.content[i].excerpt+"</p>";
+                      $("#viewContentModal-excerpt").empty();
+                      $('#viewContentModal-excerpt').append(queryValue);
+
+                      queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+contentData.content[i].content_type+"</p>";
+                      $("#viewContentModal-categories").empty();
+                      $('#viewContentModal-categories').append(queryValue);
+
+                      queryValue=contentData.content[i].article_text;
+                      $("#viewContentModal-content").empty();
+                      $('#viewContentModal-content').append(queryValue);
+
+                      //send the correspondent image to the placeholder, but clean its containing div first
+                      $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+                      queryValue = "<img src='"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+                      $("#viewContentModal-image").append(queryValue);
+                  } //ends If
+              }//ends for loop
+          }) //ends getJson
+          $('#viewContentModal').foundation('reveal', 'open');
+      });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
+  }
+
+  var activateIsotope = function() {
+      var $container = $('.portfolioContainer');
+      $container.isotope({
+          filter: '*',
+          animationOptions: {
+              duration: 750,
+              easing: 'linear',
+              queue: false
+          }
+      });
+      $('.portfolioFilter a').click(function(){
+          $('.portfolioFilter .current').removeClass('current');
+          $(this).addClass('current');
+
+          var selector = $(this).attr('data-filter');
+          $container.isotope({
+              filter: selector,
+              animationOptions: {
+                  duration: 750,
+                  easing: 'linear',
+                  queue: false
+              }
+          });
+          return false;
+      });
+
+  };
+
+  var tUI = TheBall.Interface.UI;
+      var tMgr = new tUI.TemplateModuleManager();
+      var renderCount = 0;
+      tMgr.RegisterTemplate("portfolioContainer.dust", ".portfolioContainer",
+              [ "site_settings.json" ],
+
+              function(jsonArray) {
+                  var json = jsonArray[0];
+                  //var content = json.GetObjectContent();
+                  //return content;
+                  //return json;
+                return {"users": [
+                    {
+                        "firstName": "Ray",
+                        "lastName": "Villalobos",
+                        "joined": {
+                            "month": "January",
+                            "day": 12,
+                            "year": 2012
+                        }
+                    },
+                    {
+                        "firstName": "John",
+                        "lastName": "Jones",
+                        "joined": {
+                            "month": "April",
+                            "day": 28,
+                            "year": 2010
+                        }
+                    }
+                ], "content": [
+                    {
+                        "id": "0001",
+                        "title": "Edward Scissorhands",
+                        "excerpt": "An illustration by DudeX",
+                        "image": "images\/illustration1.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "illustrations"
+                    },
+                    {
+                        "id": "0002",
+                        "title": "Painting one",
+                        "excerpt": "A Painting by DudeX",
+                        "image": "images\/painting1.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p><p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "paintings"
+                    },
+                    {
+                        "id": "0003",
+                        "title": "Portrait nice",
+                        "excerpt": "A portrait by DudeX",
+                        "image": "images\/portrait1.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p><p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "portraits"
+                    },
+                    {
+                        "id": "0004",
+                        "title": "Movie Criterion",
+                        "excerpt": "A cult classic directed by DudeX",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "image": "images\/movie1.jpg",
+                        "content_type": "movies"
+                    },
+                    {
+                        "id": "0005",
+                        "title": "Nice illustration",
+                        "excerpt": "An illustration by DudeII",
+                        "image": "images\/illustration2.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "illustrations"
+                    },
+                    {
+                        "id": "0006",
+                        "title": "Deux Pintoresque",
+                        "excerpt": "A Painting by DudeII",
+                        "image": "images\/painting2.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "paintings"
+                    },
+                    {
+                        "id": "0007",
+                        "title": "Yes, it's nice",
+                        "excerpt": "A portrait by DudeII",
+                        "image": "images\/portrait2.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "portraits"
+                    },
+                    {
+                        "id": "0008",
+                        "title": "Cult Classic Dos",
+                        "excerpt": "A cult classic directed by DudeII",
+                        "image": "images\/movie2.jpg",
+                        "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                        "content_type": "movies"
+                    }
+                ], "sites": [
+                    {
+                        "name": "yhteismaa",
+                        "url": "http:\/\/www.yhteismaa.fi\/"
+                    },
+                    {
+                        "name": "cinemaissi",
+                        "url": "http:\/\/www.cinemaissi.org\/"
+                    },
+                    {
+                        "name": "Street Fighters",
+                        "url": "http:\/\/www.streetfighters.com"
+                    },
+                    {
+                        "name": "Arctic Monkeys",
+                        "url": "http:\/\/www.arctic.com"
+                    }
+                ]};
+              },
+              function(jsonArray) {
+                  activateIsotope();
+                bindView();
+                  bindEdit();
+              });
+      $(function() {
+          tMgr.ActivateAllTemplates();
+
+          (function poll(){
+              setTimeout(function(){
+                  tMgr.DCM.PerformAsyncPoll();
+                  poll();
+              }, 3000);
+          })();
+
+      });
+
+  </script>
+
      <div class="row">
     <div class="large-12 columns">
  
@@ -286,10 +533,6 @@
  
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/foundation.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
-
     <script>
       $(document).foundation(
            {
@@ -331,6 +574,7 @@
 
             //--begins: Function get_content
             function get_content (){
+                return;
                 $.getJSON('site_settings.json', function(contentData) {
                     var user_content="";
                     for (var i in contentData.content) {
@@ -419,84 +663,6 @@
 
             $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
             $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
-
-        //------begins: triggers the event if the "EDIT" button in the content card is pressed... on ANY of them
-        var bindEdit = function() {
-            $("[id*='editContentButton-dataID']").click(function (editEvent) {
-                var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
-                $.getJSON('site_settings.json', function(contentData) {
-                    var queryValue="";
-                    for (var i in contentData.content) {
-                        if (contentData.content[i].id === clickedEditID)
-                        {
-                            queryValue=clickedEditID;
-                            $('#editContentModal-id').val(queryValue);
-                            queryValue=$("#editContentModal-id").val();
-                            $("#placeholder-panel4a").text(queryValue);
-
-                            queryValue=contentData.content[i].title;
-                            $('#editContentModal-title').val(queryValue);
-
-                            queryValue=contentData.content[i].excerpt;
-                            $('#editContentModal-excerpt').val(queryValue);
-
-                            queryValue=contentData.content[i].content_type;
-                            $('#editContentModal-categories').val(queryValue);
-
-                            queryValue=contentData.content[i].article_text;
-                            $('#editContentModal-content').val(queryValue);
-
-                            queryValue=contentData.content[i].image;
-                            $('#editContentModal-imagePath').val(queryValue);
-                            queryValue=$("#editContentModal-imagePath").val();
-                            $("#placeholder-panel4a").text(queryValue);
-
-                            //send the correspondent image to the placeholder, but clean its containing div first
-                            $("#editContentModal-image").empty(); //clean the image Placeholder in the form
-                            queryValue = "<img src='"+contentData.content[i].image+"' style='width:320px;height:auto;max-height:350px;margin-left:auto;margin-right:auto;'>";
-                            $("#editContentModal-image").append(queryValue);
-                        } //ends If
-                    }//ends for loop
-                }) //ends getJson
-                $('#editContentModal').foundation('reveal', 'open');
-            });//----------ends: triggers the event if the "EDIT" button in the content card is presed... on ANY of them
-        }
-
-        //------begins: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
-        var bindView = function() {
-            $("[id*='viewContentButton-dataID']").click(function (editEvent) {
-                var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
-                $.getJSON('site_settings.json', function(contentData) {
-                    var queryValue="";
-                    for (var i in contentData.content) {
-                        if (contentData.content[i].id === clickedEditID)
-                        {
-                            queryValue=contentData.content[i].title;
-                            $("#viewContentModal-title").empty();
-                            $('#viewContentModal-title').append(queryValue);
-
-                            queryValue="<p>"+contentData.content[i].excerpt+"</p>";
-                            $("#viewContentModal-excerpt").empty();
-                            $('#viewContentModal-excerpt').append(queryValue);
-
-                            queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+contentData.content[i].content_type+"</p>";
-                            $("#viewContentModal-categories").empty();
-                            $('#viewContentModal-categories').append(queryValue);
-
-                            queryValue=contentData.content[i].article_text;
-                            $("#viewContentModal-content").empty();
-                            $('#viewContentModal-content').append(queryValue);
-
-                            //send the correspondent image to the placeholder, but clean its containing div first
-                            $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
-                            queryValue = "<img src='"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
-                            $("#viewContentModal-image").append(queryValue);
-                        } //ends If
-                    }//ends for loop
-                }) //ends getJson
-                $('#viewContentModal').foundation('reveal', 'open');
-            });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
-        }
 
             //----------begins: handler for Submit on content Edit
             $("#editContentModal-submit").click(function () {

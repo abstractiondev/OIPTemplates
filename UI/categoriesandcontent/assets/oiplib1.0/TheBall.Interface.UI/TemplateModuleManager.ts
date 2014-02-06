@@ -1,0 +1,159 @@
+/**
+ * Created by kalle on 29.1.2014.
+ */
+
+
+/// <reference path="jquery.d.ts" />
+/// <reference path="DataConnectionManager.ts" />
+/// <reference path="dustjs-linkedin.d.ts" />
+/// <reference path="DustLIRenderer.ts" />
+
+module TheBall.Interface.UI {
+
+    export interface DataPreparerCallback {
+        (jsonContents: TemplateDataSource[]): any;
+    }
+
+    export class TemplateHook {
+        constructor(public templateName:string,
+            public jQuerySelector:string,
+            public dataSources:TemplateDataSource[],
+            public preRenderingDataProcessor:DataPreparerCallback,
+            public postRenderingDataProcessor:DataPreparerCallback) {
+        }
+    }
+
+    export class TemplateDataSource {
+        RelativeUrl: string;
+        ObjectID: string;
+        FetchPromise: any;
+        DCM: DataConnectionManager;
+        TMM: TemplateModuleManager;
+        UsedInTemplates: string[] = [];
+        GetObjectContent() : TrackedObject {
+            return this.DCM.TrackedObjectStorage[this.ObjectID];
+        }
+        RefreshObjectChange(trackedObject:TrackedObject) {
+            console.log("Refreshing object: " + trackedObject.ID + " used in: " + this.UsedInTemplates.join());
+            this.TMM.ActivateNamedTemplates(this.UsedInTemplates);
+        }
+    }
+
+    export class TemplateModuleManager {
+        DCM : DataConnectionManager;
+        constructor() {
+            this.DCM = new TheBall.Interface.UI.DataConnectionManager();
+        }
+
+        DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
+        private TemplateHookStorage: { [TemplateName: string]: TemplateHook } = {};
+
+        InitiateTemplateDataSource(relativeUrl: string, templateName:string): TemplateDataSource {
+            var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
+            var me = this;
+            if (!existingTemplate) {
+                existingTemplate = new TemplateDataSource();
+                existingTemplate.DCM = me.DCM;
+                existingTemplate.TMM = me;
+                existingTemplate.RelativeUrl = relativeUrl;
+                this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
+                existingTemplate.FetchPromise = $.ajax({
+                    url: relativeUrl, cache: false,
+                    success: function (trackedObject: TrackedObject) {
+                        if(trackedObject.ID) {
+                            var id = trackedObject.ID;
+                            trackedObject.UIExtension = new TheBall.Interface.UI.TrackingExtension();
+                            trackedObject.UIExtension.FetchedUrl = existingTemplate.RelativeUrl;
+                            trackedObject.UIExtension.ChangeListeners.push(
+                                (refreshedObject:TrackedObject) => {
+                                existingTemplate.RefreshObjectChange(refreshedObject);
+                                });
+                            trackedObject.UIExtension.LastUpdatedTick = "";
+                            me.DCM.TrackedObjectStorage[id] = trackedObject;
+                        }
+                        existingTemplate.ObjectID = trackedObject.ID;
+                    }
+                });
+            }
+            existingTemplate.UsedInTemplates.push(templateName);
+            return existingTemplate;
+        }
+
+        RegisterTemplate(templateName:string, jQuerySelector:string, dataSourceUrls:string[], preRenderingDataProcessor:DataPreparerCallback,
+                         postRenderingDataProcessor:DataPreparerCallback) {
+            if(this.TemplateHookStorage[templateName])
+                throw "Template name already registered: " + templateName;
+            this.TemplateHookStorage[templateName] = new TemplateHook(templateName,
+                jQuerySelector,
+                dataSourceUrls.map(url => this.InitiateTemplateDataSource(url, templateName)),
+                preRenderingDataProcessor, postRenderingDataProcessor);
+        }
+
+        ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:DataPreparerCallback, selectorString: string) {
+            var me = this;
+            var promises: any[];
+            console.log("Promise iteration");
+            promises = dataSources.map(obj => obj.FetchPromise);
+            $.when.apply($, promises).then(() => {
+                console.log("Root object fetch");
+                var dustRootObject = contextPreparer(dataSources);
+                console.log("Rendering dust: " + templateName);
+                dust.render(templateName, dustRootObject,(error, output) => {
+                    console.log("Done rendering");
+                    console.log(output);
+                    $(selectorString).each(function() {
+                        var item = $(this);
+                        //console.log("Replacing: " + item.html())
+                        item.html(output);
+                    });
+                    if(postRenderingDataProcessor)
+                        postRenderingDataProcessor(dataSources);
+                    console.log("Done jQuerying...");
+                });
+
+                /*
+                $(selectorString).each(() => {
+                    console.log("Rendering dust: " + templateName);
+                    dust.render(templateName, dustRootObject,(error, output) => {
+                        console.log("Done rendering");
+                        console.log(output);
+                        var item = $(this);
+                        if(item) {
+                            console.log("Replacing: " + item.html())
+                            item.html(output);
+                        } else {
+                            console.log("No item!");
+                        }
+                    });
+                });*/
+            });
+        }
+
+        ActivateNamedTemplates(templateNames:string[]) {
+            var me = this;
+            for(var i = 0; i < templateNames.length; i++) {
+                var index = templateNames[i];
+                var tHook = this.TemplateHookStorage[index];
+                me.ActivateTemplate(tHook.templateName,
+                    tHook.dataSources,
+                    tHook.preRenderingDataProcessor,
+                    tHook.postRenderingDataProcessor,
+                    tHook.jQuerySelector);
+            }
+        }
+
+        ActivateAllTemplates() {
+            var me = this;
+            for(var index in this.TemplateHookStorage) {
+                var tHook = this.TemplateHookStorage[index];
+                me.ActivateTemplate(tHook.templateName,
+                    tHook.dataSources,
+                    tHook.preRenderingDataProcessor,
+                    tHook.postRenderingDataProcessor,
+                    tHook.jQuerySelector);
+
+            }
+        }
+    }
+
+}
