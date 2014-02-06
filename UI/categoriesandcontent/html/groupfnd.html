@@ -1,0 +1,553 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Panel | Welcome</title>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/normalize.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/foundation.min.css" />
+    <link rel="stylesheet" href="../assets/fnd/css/style.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+  </head>
+  <body>
+    
+     <div class="row">
+    <div class="large-12 columns">
+ 
+    <!-- Navigation -->
+ 
+      <div class="row">
+        <div class="contain-to-grid fixed">
+          <nav class="top-bar" data-topbar> 
+            <ul class="title-area">
+              <li class="name">
+              </li><!-- Closes li class "name" -->
+   
+              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> 
+            </ul> 
+            <section class="top-bar-section"> 
+            
+            <!-- Right Nav Section --> 
+            <ul class="right">
+
+                  <li><a href="#" style="color:gray;">Mode:</a></li>
+
+                  <li class="has-dropdown"><a href="#">Tiles</a> 
+                  <ul class="dropdown"> 
+                  <li><a href="#">Timeline</a></li>
+                  <li><a href="#">Map</a></li> 
+                  </ul> </li>
+              <!--<li class="active"><a href="#">Right Button Active</a></li>-->
+              <!--<li class="has-dropdown"><a href="#">Right Button with Dropdown</a> 
+                <ul class="dropdown"> 
+                  <li><a href="#">First link in dropdown</a></li> 
+                </ul> </li>   -->
+            </ul><!-- Ends the list of elements of the Right Top Navigation Bar-->  
+
+                <!-- Left Nav Section --> 
+                <ul class="left"> 
+                <!--BEGINS All elements of the Top Navigation, Left, go here.... they use a "li" element -->  
+                  <li class="has-dropdown"><a href="#" style="font-weight:bold;font-size:120%">New Global</a>
+                    <ul class="dropdown" id="site-dropdown-list">
+                    </ul><!-- Closes the dropdown elements in the Ul-->
+                  </li><!-- Closes the dropdown elements section New Global -->
+                  
+                  <li><a href="#" style="color:gray;">Showing:</a></li>
+
+                  <li class="has-dropdown"><a href="#">Workspace</a> 
+                  <ul class="dropdown"> 
+                  <li><a href="#">Text</a></li>
+                  <li><a href="#">Pictures</a></li>
+                  <li><a href="#">Links</a></li> 
+                  <li><a href="#">Documents</a></li>   
+                  </ul> </li>
+                  <!--Hugo Filter list...<li>
+                    <dl class="sub-nav">
+                    <dt>Filter:</dt>
+                    <dd class="active"><a href="#">All</a></dd>
+                    <dd><a href="#">Workspace</a></dd>
+                    <dd><a href="#">Text</a></dd>
+                    <dd><a href="#">Pictures</a></dd>
+                    </dl>
+                  </li> ... Hugo Filter List ends--> 
+
+
+                  <!-- Regular ORIGINAL element in the left navigation... <li><a href="#">Left Nav Button</a></li>...a button-->
+                  
+                  <!--ENDS All elements of the Top Navigation, Left, go here.... they use a "li" element -->  
+                </ul><!-- Closes the Ul class "left" section -->  
+              </section> 
+            </nav>
+          <!-- End Top Bar -->
+        </div>
+      </div>
+ 
+    <!-- End Navigation -->
+    <div class="row"> <!-- Hugo: Begins...Created a row to separate topNav Bar with the rest-->
+        <div class="large-12 small-12 columns">
+            <hr>
+        </div>
+
+
+        <!-- Side Bar -->
+        <div class="large-12 small-12 columns">
+            <dl class="tabs vertical" data-tab>
+                <dd class="active"><a href="#panel1a">Content</a></dd>
+                <dd><a href="#groups-panel">Groups</a></dd>
+                <dd><a href="#panel3a">Panels</a></dd>
+                <dd><a href="#panel4a">JSON Server</a></dd>
+            </dl>
+
+            <div class="tabs-content vertical">
+
+           <!-- Starts content for panel1a-->
+                <div class="content active" id="panel1a">
+                    <!-- +++Isotope content starts +++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div class="portfolioFilter">
+
+                        <a href="#" data-filter="*" class="current">All Categories</a>
+                        <a href="#" data-filter=".illustrations">Illustrations</a>
+                        <a href="#" data-filter=".movies">Movies</a>
+                        <a href="#" data-filter=".paintings">Paintings</a>
+                        <a href="#" data-filter=".portraits">Portraits</a>
+
+                    </div>
+                    <div class="portfolioContainer" id="contentDivContainer">
+                    </div>
+                    <!-- +++Isotope content ends +++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div id="alert-contentUpdate-successful" class="reveal-modal" data-reveal>
+                        <h3>The content was updated successfully.
+                        </h3>
+                        <p id="alert-contentUpdate-successful-variables" style="font-size: 85%;"></p>
+                        <a id="close-alert-contentUpdate-successful" class="close-reveal-modal">&#215;</a>
+                    </div>
+                    <div id="editContentModal" class="reveal-modal" data-reveal>
+                        <h2>Editing content</h2>
+                        <form id="form-editContentModal">
+                            <div class="row">
+                                <div class="large-6 columns left" id="editContentModal-image"></div>
+                                <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-id"/></div>
+                                <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-imagePath"/></div>
+                                <div class="large-6 columns right"><label>Title</label> <input type="text" id="editContentModal-title"/></div>
+                                <div class="large-6 columns right"><label>Excerpt</label> <input type="text" id="editContentModal-excerpt"/></div>
+                                <div class="large-6 columns right"><label>Categories</label> <input type="text" id="editContentModal-categories"/></div>
+                                <div class="large-6 columns right"><label>Content</label> <textarea id="editContentModal-content"></textarea></div>
+                                <div class="large-6 columns right">
+                                    <a class="button" id="editContentModal-submit">Submit Changes</a>
+                                    <a class="button" id="cancelEditContentModal">Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                    <div id="viewContentModal" class="reveal-modal" data-reveal>
+                        <!--Begins contents of  div for the viewContentModal-->
+
+                        <div class="row">
+                            <div class="large-6 columns left" id="viewContentModal-image"></div>
+                            <div class="large-6 columns right" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 150%;"></span></strong><br></div>
+                            <div class="large-6 columns right" style="padding-left: 0px !important;"><h3 class="subheader" id="viewContentModal-excerpt" style="font-style:italic !important; "></h3></div>
+                            <div id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
+                            <div class="subheader" id="viewContentModal-categories" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
+                        </div>
+                        <div class="row">
+                            <div class="large-12">
+                                <br>
+                                <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
+                            </div>
+                        </div>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div> <!--closes div for the viewContentModal-->
+
+
+                </div>
+                <!--Ends content for panel1a -->
+
+                <!--Starts content for Tab "groups-panel" -->
+                <div class="content" id="groups-panel">
+                    <h2> Current Memberships: </h2>
+                    <table id="groups-table">
+                        <tr>
+                            <th>Group</th>
+                            <th>Site</th>
+                        </tr>
+                    </table>
+
+                    <div id="create-group-modal" class="reveal-modal" data-reveal>
+                        <h2>Creating a new group</h2>
+                        <p class="lead">Just a couple of fields away</p>
+
+                        <form>
+                            <div class="row">
+                                        <div class="large-12 columns"><label>Group name</label> <input type="text"
+                                                                                                placeholder="e.g. Aalto Bowling Association" id="form_new_group_name"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="large-12 columns"><label>URL</label> <input type="text"
+                                                                                               placeholder="e.g. www.aaltobowling.fi" id="form_new_group_url"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="large-12 columns"><label>Notes</label> <textarea
+                                        placeholder="Tell us a little something about the group"></textarea></div>
+                            </div>
+                            <a href="#" class="button" id="create-group-submit">Create</a>
+                        </form>
+
+                        <a id="close-create-group-modal-button" class="close-reveal-modal">&#215;</a>
+                    </div>
+                    <div id="alert-groupadded-successful" class="reveal-modal" data-reveal>
+                        <h3>The new group was added successfully.
+                        </h3>
+                        <a id="close-alert-groupadded-successful" class="close-reveal-modal">&#215;</a>
+
+                    </div>
+
+                    <a href="#" class="button" id="create-group-button">Add New</a>
+                </div>
+                <!--Ends content for groups-panel -->
+
+                <!-- Starts content for panel3a -->
+                <div class="content" id="panel3a">
+                    <!--<h2> Not using an external file: </h2>
+                    <table id="mytable">
+                        <tr>
+                            <th>User_Name</th>
+                            <th>score</th>
+                            <th>team</th>
+                        </tr>
+                    </table>-->
+                </div>
+                <!-- Ends content for panel3a -->
+
+                <!-- Starts content for panel4a -->
+                <div class="content" id="panel4a">
+                    <div class="panel">
+                        <h2>Output 2 : </h2>
+
+                        <div id="placeholder-panel4a"></div>
+                    </div>
+
+                    <table id="mytable2">
+                        <tr>
+                            <th>Name</th>
+                            <th>LastName</th>
+                            <th>Joined</th>
+                        </tr>
+                    </table>
+
+                </div>
+                <!-- Ends content for panel4a -->
+
+            </div>
+            <!--Ends div class for the side bar, large 12 columns, small 12 columns-->
+            <!-- End Side Bar -->
+
+
+            <!-- Thumbnails -->
+            <!-- End Thumbnails -->
+
+
+            <!-- Managed By -->
+            <!-- End Managed By -->
+
+        </div>
+    </div>
+    </div>
+ 
+ 
+    <!-- Footer -->
+ 
+      <footer class="row">
+        <div class="large-12 columns"><hr />
+          <div class="row">
+ 
+            <div class="large-6 columns">
+              <p>© Copyright Huge JL!.</p>
+            </div>
+ 
+            <div class="large-6 columns">
+              <ul class="inline-list right">
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+              </ul>
+            </div>
+ 
+          </div>
+        </div>
+      </footer>
+ 
+    <!-- End Footer -->
+ 
+    </div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+
+    <script>
+      $(document).foundation(
+           {
+               reveal : {
+                   animation: 'fadeAndPop',
+                   animation_speed: 250,
+                   close_on_background_click: false
+               }
+
+            }
+        );
+    </script>
+
+<!-- +++Document Ready functions begins++++++++++++++++++++++++++++++++++++++++++++-->
+    <script>
+        $(document).ready(function () {
+
+            get_content();
+            populate_groups_table();
+
+            function populate_groups_table (){
+                // first we initialize (clear) the table:
+                $("#groups-table td").remove();
+                //--begins: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
+                $.getJSON('site_settings.json', function(data) {
+                    var output="";
+                    var output2="";
+                    for (var i in data.sites) {
+                        //noinspection JSUnfilteredForInLoop
+                        output+="<li><a href='" + data.sites[i].url + "' target='_blank' style='text-transform:capitalize !important;'>" +
+                                data.sites[i].name + "</a></li>";
+                        output2+="<tr><td style='text-transform:capitalize !important;'>" + data.sites[i].name + "</td>" +
+                                "<td style='text-transform:lowercase !important;'>" + data.sites[i].url+"</td></tr>";
+                    }//ends for loop
+                    $("#groups-table").append(output2);
+                    $("#site-dropdown-list").append(output);
+                })
+            }//--ends: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
+
+            //--begins: Function get_content
+            function get_content (){
+                $.getJSON('site_settings.json', function(contentData) {
+                    var user_content="";
+                    for (var i in contentData.content) {
+                        //noinspection JSUnfilteredForInLoop
+                        user_content+="<div class='"+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
+                        user_content+="<div class='content-card' style='width: 210px;'><img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'>";
+                        user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
+                        user_content+="<div class='content-card-options'><a id='editContentButton-dataID-"+contentData.content[i].id+"'>Edit&nbsp;</a><a id='viewContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' href='#' id='toggle-visibility-content-button-'"+i+">EYE</a></div>";
+                        user_content+="<div class='content-card-line'><hr></div>";
+                        user_content+="<div class='content-card-options'><a href='#'>PEN&nbsp;</a><a href='#' id='content-add-comment-button-'"+i+">&nbsp;Comment&nbsp;</a><a class='content-card-options-right' href='#' id='content-number-of-comments-'"+i+">#</a></div>";
+                        user_content+="</div>";
+                        user_content+="</div>";
+                    }//ends for loop
+                    $("#contentDivContainer").append(user_content);
+                    var $container = $('.portfolioContainer');
+                    $container.isotope({
+                        filter: '*',
+                        animationOptions: {
+                            duration: 750,
+                            easing: 'linear',
+                            queue: false
+                        }
+                    });
+                    $('.portfolioFilter a').click(function(){
+                        $('.portfolioFilter .current').removeClass('current');
+                        $(this).addClass('current');
+
+                        var selector = $(this).attr('data-filter');
+                        $container.isotope({
+                            filter: selector,
+                            animationOptions: {
+                                duration: 750,
+                                easing: 'linear',
+                                queue: false
+                            }
+                        });
+                        return false;
+                    });
+                    bindEdit();
+                    bindView();
+                })
+            }//--ends function get_content();
+
+        //begins: Get the JSON data from the server to populate panel4a (json server panel)
+            //noinspection GjsLint,GjsLint,GjsLint,GjsLint
+        var output2="";
+        var jsonData = $.ajax({
+        url: "http://www.yhteismaa.fi/agsz5/foundation-one/getData.php",
+        dataType:"json",
+        async: false
+        }).responseText; //responseText gets a String. You have to parse it to be able to work with the array: Json.Parse
+        jsonData = JSON.parse(jsonData);
+        for (var i in jsonData.users) {
+            output2+="<tr><td>" + jsonData.users[i].firstName + "</td>" + "<td>" + jsonData.users[i].lastName + "</td>" + "<td>" + jsonData.users[i].joined.month+"</td></tr>";}//ends for loop
+        $("#mytable2").append(output2);
+        //ends: Get the JSON data from the server to populate panel4a (json server panel)
+
+
+            $("#create-group-submit").click(function () {
+                var new_group_name = $("#form_new_group_name").val();
+                var new_group_url = $("#form_new_group_url").val();
+                $.ajax({
+                    global: false,
+                    type: "POST",
+                    //async: false,
+                    dataType: "json",
+                    data: ({
+                        name: new_group_name,
+                        site: new_group_url
+                    }),
+                    url: 'read-write.php'
+                });
+                //populate_groups_table();
+                var new_site="<li><a href='" + new_group_url + "' target='_blank' style='text-transform:capitalize !important;'>" +
+                        new_group_name + "</a></li>";
+
+                $('#groups-table tr:last').after('<tr><td>'+new_group_name+'</td><td>'+new_group_url+'</td></tr>');
+                $("#site-dropdown-list").append(new_site);
+                $('#alert-groupadded-successful').foundation('reveal', 'open');
+            });
+
+            $("#close-alert-groupadded-successful").click(function () {
+            //location.reload();    ---->refreshes the page to the current URL
+            document.location.href='#groups-panel'; //can redirect to any URL you want
+        });
+
+            $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
+            $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
+
+        //------begins: triggers the event if the "EDIT" button in the content card is pressed... on ANY of them
+        var bindEdit = function() {
+            $("[id*='editContentButton-dataID']").click(function (editEvent) {
+                var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
+                $.getJSON('site_settings.json', function(contentData) {
+                    var queryValue="";
+                    for (var i in contentData.content) {
+                        if (contentData.content[i].id === clickedEditID)
+                        {
+                            queryValue=clickedEditID;
+                            $('#editContentModal-id').val(queryValue);
+                            queryValue=$("#editContentModal-id").val();
+                            $("#placeholder-panel4a").text(queryValue);
+
+                            queryValue=contentData.content[i].title;
+                            $('#editContentModal-title').val(queryValue);
+
+                            queryValue=contentData.content[i].excerpt;
+                            $('#editContentModal-excerpt').val(queryValue);
+
+                            queryValue=contentData.content[i].content_type;
+                            $('#editContentModal-categories').val(queryValue);
+
+                            queryValue=contentData.content[i].article_text;
+                            $('#editContentModal-content').val(queryValue);
+
+                            queryValue=contentData.content[i].image;
+                            $('#editContentModal-imagePath').val(queryValue);
+                            queryValue=$("#editContentModal-imagePath").val();
+                            $("#placeholder-panel4a").text(queryValue);
+
+                            //send the correspondent image to the placeholder, but clean its containing div first
+                            $("#editContentModal-image").empty(); //clean the image Placeholder in the form
+                            queryValue = "<img src='"+contentData.content[i].image+"' style='width:320px;height:auto;max-height:350px;margin-left:auto;margin-right:auto;'>";
+                            $("#editContentModal-image").append(queryValue);
+                        } //ends If
+                    }//ends for loop
+                }) //ends getJson
+                $('#editContentModal').foundation('reveal', 'open');
+            });//----------ends: triggers the event if the "EDIT" button in the content card is presed... on ANY of them
+        }
+
+        //------begins: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
+        var bindView = function() {
+            $("[id*='viewContentButton-dataID']").click(function (editEvent) {
+                var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
+                $.getJSON('site_settings.json', function(contentData) {
+                    var queryValue="";
+                    for (var i in contentData.content) {
+                        if (contentData.content[i].id === clickedEditID)
+                        {
+                            queryValue=contentData.content[i].title;
+                            $("#viewContentModal-title").empty();
+                            $('#viewContentModal-title').append(queryValue);
+
+                            queryValue="<p>"+contentData.content[i].excerpt+"</p>";
+                            $("#viewContentModal-excerpt").empty();
+                            $('#viewContentModal-excerpt').append(queryValue);
+
+                            queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+contentData.content[i].content_type+"</p>";
+                            $("#viewContentModal-categories").empty();
+                            $('#viewContentModal-categories').append(queryValue);
+
+                            queryValue=contentData.content[i].article_text;
+                            $("#viewContentModal-content").empty();
+                            $('#viewContentModal-content').append(queryValue);
+
+                            //send the correspondent image to the placeholder, but clean its containing div first
+                            $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+                            queryValue = "<img src='"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+                            $("#viewContentModal-image").append(queryValue);
+                        } //ends If
+                    }//ends for loop
+                }) //ends getJson
+                $('#viewContentModal').foundation('reveal', 'open');
+            });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
+        }
+
+            //----------begins: handler for Submit on content Edit
+            $("#editContentModal-submit").click(function () {
+                var edited_content_id = $("#editContentModal-id").val();
+                var edited_content_title = $("#editContentModal-title").val();
+                var edited_content_image = $("#editContentModal-imagePath").val();
+                var edited_content_excerpt = $("#editContentModal-excerpt").val();
+                var edited_content_categories = $("#editContentModal-categories").val();
+                var edited_content_content = $("#editContentModal-content").val();
+
+                $.ajax({
+                    global: false,
+                    type: "POST",
+                    //async: false,
+                    dataType: "json",
+                    data: ({
+                        id: edited_content_id,
+                        title: edited_content_title,
+                        excerpt: edited_content_excerpt,
+                        image: edited_content_image,
+                        content: edited_content_content,
+                        categories: edited_content_categories
+                    }),
+                    url: 'update_content.php'
+                });
+                $('#alert-contentUpdate-successful-variables').append("Record ID: "+edited_content_id+"<br>"+
+                                                                    "Title: "+edited_content_title+"<br>"+
+                                                                    "Excerpt: "+edited_content_excerpt+"<br>"+
+                                                                    "Image Path: "+edited_content_image+"<br>"+
+                                                                    "Categories: "+edited_content_categories);
+                $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+            });
+            //-----------------ends: handler for Submit on content Edit
+
+            $("#closeViewContentModal").click(function () {
+                $('#viewContentModal').foundation('reveal', 'close');
+            });
+
+
+
+
+        });</script>
+    <!-- +++Document Ready functions ends ++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+    <!-- +++Isotope script Starts++++++++++++++++++++++++++++++++++++++++++++-->
+        <script type="text/javascript"> 
+        $(window).load(function(){
+        });
+        </script> 
+    <!-- +++Isotope script ends ++++++++++++++++++++++++++++++++++-->
+    
+  </body>
+</html>
