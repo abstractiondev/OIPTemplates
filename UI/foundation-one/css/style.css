@@ -2,10 +2,49 @@ body {
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 
+.content-card td,th
+{
+    background-color:#ffffff !important;
+    height: 100% !important;
+    /*    padding-left: 5px !important;
+        padding-bottom: 0px !important;
+        padding-top: 0px !important;*/
+
+}
+
+.content-card {padding: 10px;}
+
+.content-card img
+{
+    width: 200px;
+    height: auto;
+}
+
+.content-card-options
+{
+    width: 100%;
+    float: left;
+    margin: 5px;
+}
+
+.content-card-title
+{
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding-top:5px;padding-bottom:5px;
+}
+
+.content-card-line {width:100%; float:left;padding: 0px;margin: 0px;line-height: 1px !important;font-size: 1px;height:auto;}
+.content-card-line hr {width:100%;padding: 0px;margin: 0px;line-height: 1px !important;}
+
+.content-card-options a {float: left;font-size: 70%;}
+a.content-card-options-right {float: right; font-size: 70%;}
+
 h1#myHeading{
     color: white;
     text-align: center;
-    margin: 0;
+    margin: 0px;
     padding: 20px;
     background: #0081E7;
     margin-bottom: 13px;
@@ -32,9 +71,10 @@ h1#myHeading{
 
 
 .portfolioContainer img {
-    margin:5px;
-    width: 150px;
+    width: 200px !important;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.portfolioContainer.isotope {
@@ -42,6 +82,7 @@ box-sizing:border-box;
 -moz-box-sizing:border-box; /* Firefox */
 width:100%;
 float:left;
+
 }
 
 div#panel1a.content.active {
@@ -53,6 +94,11 @@ float:left;
 
 .isotope-item {
     z-index: 2;
+    border:1px solid #d4d4d4;
+    margin: 10px;
+    -moz-box-shadow:    10px 10px 10px #dddddd;
+    -webkit-box-shadow: 10px 10px 10px #dddddd;
+    box-shadow:         10px 10px 10px #dddddd;
 }
 .isotope-hidden.isotope-item {
     pointer-events: none;
