@@ -129,11 +129,24 @@
       var tMgr = new tUI.TemplateModuleManager();
       var renderCount = 0;
       tMgr.RegisterTemplate("portfolioContainer.dust", ".portfolioContainer",
-              [ "site_settings.json" ],
+              [ "../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json" ],
 
               function(jsonArray) {
                   var json = jsonArray[0];
-                  //var content = json.GetObjectContent();
+                  var content = json.GetObjectContent();
+                  var realContent = {"content" : $.map(content.CollectionContent, function(item) {
+                      return {
+                          "id": "0001",
+                          "title": "Edward Scissorhands",
+                          "excerpt": "An illustration by DudeX",
+                          "image": "images\/illustration1.jpg",
+                          "article_text": "<p>Face hath i third can't. Which bearing you're yielding from stars made waters let own over may creature kind gathering him you'll given made blessed thing were make kind Of isn't light replenish firmament appear of. Saying heaven. Sea. Days. He. Seed.<\/p><p>Seasons may own cattle. Two fish, day void the dry cattle very isn't fish his light forth dominion Set of so you're set darkness was him unto behold face winged. Kind for created gathered hath thing firmament forth without they're isn't sixth isn't. Above. Behold isn't fruitful multiply man open divide Rule him in give be second replenish.<\/p>",
+                          "content_type": "illustrations"
+                      };
+                      return { title: item.Title};
+                    })
+                  };
+                  return realContent;
                   //return content;
                   //return json;
                 return {"users": [
