@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<div id="alert-contentUpdate-successful" class="reveal-modal" data-reveal>
+    <h3>The content was updated successfully.
+    </h3>
+    <a id="close-alert-contentUpdate-successful" class="close-reveal-modal">&#215;</a>
+</div>
+
+
+<script>
+    $("editContentModal-submit").click(function () {
+        var edited_content_id = $("#editContentModal-id").val();
+        var edited_content_title = $("#editContentModal-title").val();
+        var edited_content_image = $("#editContentModal-imagePath").val();
+        var edited_content_excerpt = $("#editContentModal-excerpt").val();
+        var edited_content_categories = $("#editContentModal-categories").val();
+        var edited_content_content = $("#editContentModal-content").val();
+
+        $.ajax({
+            global: false,
+            type: "POST",
+            //async: false,
+            dataType: "json",
+            data: ({
+                id: edited_content_id,
+                title: edited_content_title,
+                excerpt: edited_content_excerpt,
+                image: edited_content_image,
+                content: edited_content_content,
+                categories: edited_content_categories
+            }),
+            url: 'update_content.php'
+        });
+        $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+    });
+</script>
+
+</body>
+</html>
