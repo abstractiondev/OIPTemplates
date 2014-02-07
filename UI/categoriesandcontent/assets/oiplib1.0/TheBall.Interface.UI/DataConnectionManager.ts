@@ -82,7 +82,7 @@ module TheBall.Interface.UI {
         PerformAsyncPoll() {
             var priv = this;
             $.ajax({
-                url: "../TheBall.Interface/StatusSummary/default.json", cache: false,
+                url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
                 success: function(data:StatusData) {
                     console.log("Polled status...");
                     priv.ProcessStatusData(data);

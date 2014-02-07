@@ -107,8 +107,18 @@
       });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
   }
 
+  /*
+  $.Isotope.prototype.flush = function() {
+      this.$allAtoms = $();
+      this.$filteredAtoms = $();
+      this.element.children().remove();
+      this.reLayout();
+  };*/
+
+
   var activateIsotope = function() {
       var $container = $('.portfolioContainer');
+      $container.isotope('reloadItems');
       $container.isotope({
           filter: '*',
           animationOptions: {

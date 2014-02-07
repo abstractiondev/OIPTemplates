@@ -88,7 +88,7 @@ var TheBall;
                 DataConnectionManager.prototype.PerformAsyncPoll = function () {
                     var priv = this;
                     $.ajax({
-                        url: "../TheBall.Interface/StatusSummary/default.json", cache: false,
+                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
                         success: function (data) {
                             console.log("Polled status...");
                             priv.ProcessStatusData(data);
