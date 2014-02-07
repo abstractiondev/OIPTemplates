@@ -13,13 +13,16 @@ module TheBall.Interface.UI {
     export interface DataPreparerCallback {
         (jsonContents: TemplateDataSource[]): any;
     }
+    export interface PostRenderingCallback {
+        (jsonContents: TemplateDataSource[]): any;
+    }
 
     export class TemplateHook {
         constructor(public templateName:string,
             public jQuerySelector:string,
             public dataSources:TemplateDataSource[],
             public preRenderingDataProcessor:DataPreparerCallback,
-            public postRenderingDataProcessor:DataPreparerCallback) {
+            public postRenderingDataProcessor:PostRenderingCallback) {
         }
     }
 
@@ -89,7 +92,7 @@ module TheBall.Interface.UI {
                 preRenderingDataProcessor, postRenderingDataProcessor);
         }
 
-        ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:DataPreparerCallback, selectorString: string) {
+        ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:PostRenderingCallback, selectorString: string) {
             var me = this;
             var promises: any[];
             console.log("Promise iteration");
