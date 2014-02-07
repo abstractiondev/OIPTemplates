@@ -62,37 +62,47 @@
   }
 
   //------begins: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
+    var getCardContentFromTextContent = function(item, imageSizeString) {
+      var imageUrl = item.ImageData
+              ? "../../AaltoGlobalImpact.OIP/MediaContent/" + item.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageData.AdditionalFormatFileExt
+              : null;
+      return { "id": item.ID, "title": item.Title, "excerpt": item.Excerpt,
+          "article_text" : item.Body,
+          "image": imageUrl
+      };
+
+    };
   var bindView = function() {
       $("[id*='viewContentButton-dataID']").click(function (editEvent) {
           var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
-          $.getJSON('site_settings.json', function(contentData) {
+          var textContentUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
+          $.ajax({ url: textContentUrl, cache: false,
+              success: function(textContentData) {
+              var content = getCardContentFromTextContent(textContentData, "256");
               var queryValue="";
-              for (var i in contentData.content) {
-                  if (contentData.content[i].id === clickedEditID)
-                  {
-                      queryValue=contentData.content[i].title;
-                      $("#viewContentModal-title").empty();
-                      $('#viewContentModal-title').append(queryValue);
 
-                      queryValue="<p>"+contentData.content[i].excerpt+"</p>";
-                      $("#viewContentModal-excerpt").empty();
-                      $('#viewContentModal-excerpt').append(queryValue);
+              queryValue=content.title;
+              $("#viewContentModal-title").empty();
+              $('#viewContentModal-title').append(queryValue);
 
-                      queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+contentData.content[i].content_type+"</p>";
-                      $("#viewContentModal-categories").empty();
-                      $('#viewContentModal-categories').append(queryValue);
+              queryValue="<p>"+content.excerpt+"</p>";
+              $("#viewContentModal-excerpt").empty();
+              $('#viewContentModal-excerpt').append(queryValue);
 
-                      queryValue=contentData.content[i].article_text;
-                      $("#viewContentModal-content").empty();
-                      $('#viewContentModal-content').append(queryValue);
+              queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+content.content_type+"</p>";
+              $("#viewContentModal-categories").empty();
+              $('#viewContentModal-categories').append(queryValue);
 
-                      //send the correspondent image to the placeholder, but clean its containing div first
-                      $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
-                      queryValue = "<img src='"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
-                      $("#viewContentModal-image").append(queryValue);
-                  } //ends If
-              }//ends for loop
-          }) //ends getJson
+              queryValue=content.article_text;
+              $("#viewContentModal-content").empty();
+              $('#viewContentModal-content').append(queryValue);
+
+              //send the correspondent image to the placeholder, but clean its containing div first
+              $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+              queryValue = "<img src='"+content.image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+              $("#viewContentModal-image").append(queryValue);
+          }
+                  }) //ends getJson
           $('#viewContentModal').foundation('reveal', 'open');
       });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
   }
@@ -135,13 +145,7 @@
                   var json = jsonArray[0];
                   var content = json.GetObjectContent();
                   var realContent = {"content" : $.map(content.CollectionContent, function(item) {
-                      var imageUrl = item.ImageData
-                                ? "../../AaltoGlobalImpact.OIP/MediaContent/" + item.ImageData.ID + "_64x64_crop" + item.ImageData.AdditionalFormatFileExt
-                                : null;
-                      return { "id": item.ID, "title": item.Title, "excerpt": item.Excerpt,
-                          "article_text" : item.Body,
-                          "image": imageUrl
-                      };
+                      return getCardContentFromTextContent(item, "64");
                     })
                   };
                   return realContent;
@@ -478,52 +482,6 @@
                     $("#site-dropdown-list").append(output);
                 })
             }//--ends: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
-
-            //--begins: Function get_content
-            function get_content (){
-                return;
-                $.getJSON('site_settings.json', function(contentData) {
-                    var user_content="";
-                    for (var i in contentData.content) {
-                        //noinspection JSUnfilteredForInLoop
-                        user_content+="<div class='"+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
-                        user_content+="<div class='content-card' style='width: 210px;'><img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'>";
-                        user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
-                        user_content+="<div class='content-card-options'><a id='editContentButton-dataID-"+contentData.content[i].id+"'>Edit&nbsp;</a><a id='viewContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' href='#' id='toggle-visibility-content-button-'"+i+">EYE</a></div>";
-                        user_content+="<div class='content-card-line'><hr></div>";
-                        user_content+="<div class='content-card-options'><a href='#'>PEN&nbsp;</a><a href='#' id='content-add-comment-button-'"+i+">&nbsp;Comment&nbsp;</a><a class='content-card-options-right' href='#' id='content-number-of-comments-'"+i+">#</a></div>";
-                        user_content+="</div>";
-                        user_content+="</div>";
-                    }//ends for loop
-                    $("#contentDivContainer").append(user_content);
-                    var $container = $('.portfolioContainer');
-                    $container.isotope({
-                        filter: '*',
-                        animationOptions: {
-                            duration: 750,
-                            easing: 'linear',
-                            queue: false
-                        }
-                    });
-                    $('.portfolioFilter a').click(function(){
-                        $('.portfolioFilter .current').removeClass('current');
-                        $(this).addClass('current');
-
-                        var selector = $(this).attr('data-filter');
-                        $container.isotope({
-                            filter: selector,
-                            animationOptions: {
-                                duration: 750,
-                                easing: 'linear',
-                                queue: false
-                            }
-                        });
-                        return false;
-                    });
-                    bindEdit();
-                    bindView();
-                })
-            }//--ends function get_content();
 
         //begins: Get the JSON data from the server to populate panel4a (json server panel)
             //noinspection GjsLint,GjsLint,GjsLint,GjsLint
