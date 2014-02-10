@@ -21,7 +21,10 @@ module TheBall.Interface.UI {
     }
     export class TrackedObject {
         ID: string;
-        RelativeLocation;
+        RelativeLocation:string;
+        Name:string;
+        SemanticDomainName:string;
+        MasterETag:string;
         UIExtension: TrackingExtension;
         static GetRelativeUrl(currObject:TrackedObject): string {
             return currObject.RelativeLocation;
@@ -32,8 +35,7 @@ module TheBall.Interface.UI {
             console.log("Fetching from url: " + fetchUrl);
             $.ajax( { url : fetchUrl, cache: false,
                 success: function(updatedObject:TrackedObject) {
-                    dcm.TrackedObjectStorage[updatedObject.ID] = updatedObject;
-                    updatedObject.UIExtension = currObject.UIExtension;
+                    dcm.SetObjectInStorage(updatedObject);
                     updatedObject.UIExtension.LastUpdatedTick = triggeredTick;
                     updatedObject.UIExtension.ChangeListeners.forEach(func => func(updatedObject));
                 }
@@ -44,6 +46,34 @@ module TheBall.Interface.UI {
     export class DataConnectionManager {
         TrackedObjectStorage: { [ID: string]: TrackedObject } = {};
         LastProcessedTick: string = "";
+
+        SetObjectInStorage(obj:TrackedObject) {
+            var currObject = this.TrackedObjectStorage[obj.ID];
+            this.TrackedObjectStorage[obj.ID] = obj;
+            if(currObject) {
+                obj.UIExtension = currObject.UIExtension;
+            }
+            this.setInnerObjectsInStorage(obj);
+        }
+
+        setInnerObjectsInStorage(obj:TrackedObject) {
+            var dcm = this;
+            if(typeof obj == "object") {
+                $.each(obj, function(indexOrKey, innerObj) {
+                    if(innerObj) {
+                        if(innerObj.MasterETag) {
+                            console.log("Added inner object: " + innerObj.RelativeLocation);
+                            var currObject = dcm.TrackedObjectStorage[innerObj.ID];
+                            if(currObject) {
+                                innerObj.UIExtension = currObject.UIExtension;
+                            }
+                            dcm.TrackedObjectStorage[innerObj.ID] = innerObj;
+                        }
+                        dcm.setInnerObjectsInStorage(innerObj);
+                    }
+                });
+            }
+        }
 
         ProcessStatusData(statusData: StatusData) {
             var idList = statusData.ChangeItemTrackingList;

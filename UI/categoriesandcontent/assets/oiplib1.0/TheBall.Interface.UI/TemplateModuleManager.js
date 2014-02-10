@@ -7,7 +7,6 @@ var TheBall;
         /// <reference path="jquery.d.ts" />
         /// <reference path="DataConnectionManager.ts" />
         /// <reference path="dustjs-linkedin.d.ts" />
-        /// <reference path="DustLIRenderer.ts" />
         (function (UI) {
             var TemplateHook = (function () {
                 function TemplateHook(templateName, jQuerySelector, dataSources, preRenderingDataProcessor, postRenderingDataProcessor) {
@@ -37,10 +36,12 @@ var TheBall;
             UI.TemplateDataSource = TemplateDataSource;
 
             var TemplateModuleManager = (function () {
-                function TemplateModuleManager() {
+                function TemplateModuleManager(dcm) {
                     this.DataSourceFetchStorage = {};
                     this.TemplateHookStorage = {};
-                    this.DCM = new TheBall.Interface.UI.DataConnectionManager();
+                    if (!dcm)
+                        dcm = new TheBall.Interface.UI.DataConnectionManager();
+                    this.DCM = dcm;
                 }
                 TemplateModuleManager.prototype.InitiateTemplateDataSource = function (relativeUrl, templateName) {
                     var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
@@ -61,8 +62,8 @@ var TheBall;
                                     trackedObject.UIExtension.ChangeListeners.push(function (refreshedObject) {
                                         existingTemplate.RefreshObjectChange(refreshedObject);
                                     });
-                                    trackedObject.UIExtension.LastUpdatedTick = "";
-                                    me.DCM.TrackedObjectStorage[id] = trackedObject;
+                                    trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
+                                    me.DCM.SetObjectInStorage(trackedObject);
                                 }
                                 existingTemplate.ObjectID = trackedObject.ID;
                             }

@@ -6,7 +6,6 @@
 /// <reference path="jquery.d.ts" />
 /// <reference path="DataConnectionManager.ts" />
 /// <reference path="dustjs-linkedin.d.ts" />
-/// <reference path="DustLIRenderer.ts" />
 
 module TheBall.Interface.UI {
 
@@ -44,8 +43,10 @@ module TheBall.Interface.UI {
 
     export class TemplateModuleManager {
         DCM : DataConnectionManager;
-        constructor() {
-            this.DCM = new TheBall.Interface.UI.DataConnectionManager();
+        constructor(dcm:DataConnectionManager) {
+            if(!dcm)
+                dcm = new TheBall.Interface.UI.DataConnectionManager();
+            this.DCM = dcm;
         }
 
         DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
@@ -71,8 +72,8 @@ module TheBall.Interface.UI {
                                 (refreshedObject:TrackedObject) => {
                                 existingTemplate.RefreshObjectChange(refreshedObject);
                                 });
-                            trackedObject.UIExtension.LastUpdatedTick = "";
-                            me.DCM.TrackedObjectStorage[id] = trackedObject;
+                            trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
+                            me.DCM.SetObjectInStorage(trackedObject);
                         }
                         existingTemplate.ObjectID = trackedObject.ID;
                     }
