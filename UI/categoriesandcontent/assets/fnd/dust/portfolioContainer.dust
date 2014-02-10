@@ -4,9 +4,19 @@
         <div class='content-card-title' id='contentCardTitle-dataID-{id}'>
             <span style='font-size: 120%;'><strong>{title}</strong></span>
         </div>
-        <div class='content-card-options'><a id='editContentButton-dataID-{id}'>Edit&nbsp;</a><a id='viewContentButton-dataID-{id}'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-{id}'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' href='#' id='toggle-visibility-content-button-{$idx}'>EYE</a></div>
+        <div class='content-card-options'><a id='editContentButton-dataID-{id}'>Edit&nbsp;</a><a id='viewContentButton-dataID-{id}'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-{id}'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' href='#' id='toggle-visibility-content-button-{$idx}'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>
         <div class='content-card-line'><hr></div>
-        <div class='content-card-options'><a href='#'>PEN&nbsp;</a><a href='#' id='content-add-comment-button-{$idx}'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' href='#' id='content-number-of-comments-{$idx}'>#</a></div>
+        <div class='content-card-options'><a href='#'><i class='icon-pencil'></i>&nbsp;</a><a id='content-add-comment-button-{$idx}'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-{id}'><i class='icon-commentround'></i></a></div>
     </div>
 </div>
 {/content}
+
+{!
+user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
+    user_content+="<img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
+    user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
+    user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+contentData.content[i].id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+contentData.content[i].id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+    user_content+="<div class='content-card-line'><hr></div>";
+    user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+contentData.content[i].id+"'><i class='icon-commentround'></i></a></div>";
+    user_content+="</div>";
+!}
