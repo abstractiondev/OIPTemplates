@@ -2463,7 +2463,9 @@ div.switch {
       .tabs dd > a:hover {
         background: #e1e1e1; }
     .tabs dd.active a {
-      background: white; }
+      background: white;
+      font-weight:bold;
+      }
   .tabs.radius dd:first-child a {
     -moz-border-radius-bottomleft: 3px;
     -moz-border-radius-topleft: 3px;
