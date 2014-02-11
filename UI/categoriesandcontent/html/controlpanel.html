@@ -23,10 +23,13 @@
   <body>
   <script>
 
+
+    /*
       var testCreateObject = function() {
           tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
                   {Title: "Test title!", Excerpt: "Many\nThanks\n", Body:"Many\nThanks!!\n"});
       };
+    */
       //------begins: triggers the event if the "EDIT" button in the content card is pressed... on ANY of them
       var bindEdit = function() {
           $("[id*='editContentButton-dataID']").click(function (editEvent) {
@@ -184,8 +187,6 @@
               }, 3000);
           })();
       });
-      var tOP = new tUI.OperationManager();
-
   </script>
 
 
@@ -691,12 +692,16 @@
 
 
 
-        });</script>
+        });
+
+
+        // OP manager at the bottom, as it creates dynamic elements that belong on bottom of the body
+        var tOP = new tUI.OperationManager();
+
+
+    </script>
     <!-- +++Document Ready functions ends ++++++++++++++++++++++++++++++++++++++++++++-->
 
 
-    <!-- +++Isotope script Starts++++++++++++++++++++++++++++++++++++++++++++-->
-    <!-- +++Isotope script ends ++++++++++++++++++++++++++++++++++-->
-    
   </body>
 </html>

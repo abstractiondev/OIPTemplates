@@ -15,9 +15,9 @@ module TheBall.Interface.UI {
                 dcm = new TheBall.Interface.UI.DataConnectionManager();
             this.DCM = dcm;
             var $body = $("body");
-            var formHtml = "<form enctype='multipart/form-data' id='OperationManager_DynamicIFrameForm' " +
+            var formHtml = "<form style='margin:0px;width:0px;height:0px;background-color: transparent;border: 0px none transparent;padding: 0px;overflow: hidden;visibility:hidden'  enctype='multipart/form-data' id='OperationManager_DynamicIFrameForm' " +
                 "method='post' target='OperationManager_IFrame'></form> ";
-            var iFrameHtml = "<iframe name='OperationManager_IFrame' src='about:blank'></iframe>";
+            var iFrameHtml = "<iframe style='margin:0px;width:0px;height:0px;background-color: transparent;border: 0px none transparent;padding: 0px;overflow: hidden;visibility: hidden' name='OperationManager_IFrame' src='about:blank'></iframe>";
             $body.append(formHtml);
             $body.append(iFrameHtml);
             this.$submitForm = $("#OperationManager_DynamicIFrameForm");
