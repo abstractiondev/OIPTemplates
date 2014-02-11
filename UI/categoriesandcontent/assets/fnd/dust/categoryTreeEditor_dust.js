@@ -1,0 +1,1 @@
+(function(){dust.register("categoryTreeEditor.dust",body_0);function body_0(chk,ctx){return chk.write("<div id=\"nesttest\" class=\"dd\"><ol class=\"dd-list\">").section(ctx.get("CategoriesWithChildren"),ctx,{"block":body_1},null).write("</ol></div>");}function body_1(chk,ctx){return chk.partial("category_treeitem.dust",ctx,null);}return body_0;})();

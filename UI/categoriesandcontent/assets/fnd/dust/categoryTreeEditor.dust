@@ -1,0 +1,7 @@
+<div id="nesttest" class="dd">
+    <ol class="dd-list">
+        {#CategoriesWithChildren}
+            {>"category_treeitem.dust" /}
+        {/CategoriesWithChildren}
+    </ol>
+</div>

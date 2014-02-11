@@ -97,12 +97,12 @@ var TheBall;
                         var currID = currItem.substr(2);
                         var currModification = currItem.substr(0, 1);
                         var currTracked = this.TrackedObjectStorage[currID];
-                        if (currTracked) {
+                        if (currTracked && currTracked.UIExtension && currTracked.UIExtension.LastUpdatedTick) {
                             console.log("Checking for update basis: " + currTracked.ID + " " + currTracked.UIExtension.LastUpdatedTick + " vs " + currTimestamp);
                         } else {
                             console.log("Not tracked update for id: " + currID);
                         }
-                        if (currTracked && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
+                        if (currTracked && currTracked.UIExtension && currTracked.UIExtension.LastUpdatedTick < currTimestamp) {
                             console.log("Updating...");
                             TrackedObject.UpdateObject(currTracked, currTimestamp, this);
                         }
