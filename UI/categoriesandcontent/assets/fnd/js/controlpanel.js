@@ -227,6 +227,18 @@ tMgr.RegisterTemplate("categoryTreeEditor.dust", ".categoryTreeEditor",
     }
 );
 
+tMgr.RegisterTemplate("groupsettings.dust", ".groupsettings",
+    ["../../AaltoGlobalImpact.OIP/GroupContainer/default.json"],
+    function(jsonArray) {
+        var json = jsonArray[0];
+        var content = json.GetObjectContent();
+        return { "GroupContainer": content };
+    },
+    function(jsonArray) {
+        // Editor refresh (if any)
+    }
+);
+
 $(function () {
     tMgr.ActivateAllTemplates();
 

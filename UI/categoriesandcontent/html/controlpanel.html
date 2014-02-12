@@ -10,19 +10,32 @@
     <link rel="stylesheet" type="text/css" media="all" href="../assets/fnd/css/whhg.css"/>
     <link href="../assets/fnd/lib/jquery-nestable/jquery-nestable.css" rel="stylesheet">
 
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
-    <script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
-    <script src="../assets/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
-    <script src="../assets/oiplib1.0/TheBall.Interface.UI/OperationManager.js"></script>
-    <script src="../assets/fnd/dust/portfolioContainer_dust.js"></script>
-    <script src="../assets/fnd/dust/categoryTreeEditor_dust.js"></script>
-    <script src="../assets/fnd/dust/category_treeitem_dust.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
     <script src="../assets/fnd/lib/jquery-nestable/jquery.nestable.js"></script>
+
+    <!-- OIP Data & template management libraries -->
+    <script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
+    <script src="../assets/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
+    <script src="../assets/oiplib1.0/TheBall.Interface.UI/OperationManager.js"></script>
+
+    <!-- Dust forms -->
+    <script src="../assets/fnd/dust/portfolioContainer_dust.js"></script>
+    <script src="../assets/fnd/dust/categoryTreeEditor_dust.js"></script>
+    <script src="../assets/fnd/dust/category_treeitem_dust.js"></script>
+    <script src="../assets/fnd/dust/groupsettings_dust.js"></script>
+    <!-- Dust components  -->
+    <script src="../assets/fnd/dust/components/textinput_multiline_dust.js"></script>
+    <script src="../assets/fnd/dust/components/textinput_multiline_markdown_dust.js"></script>
+    <script src="../assets/fnd/dust/components/textinput_singleline_dust.js"></script>
+
+    <!-- Page's own scripts -->
     <script src="../assets/fnd/js/controlpanel.js"></script>
+
 </head>
 <body>
 
@@ -215,52 +228,8 @@
             <!--Ends content for categories-panel -->
 
             <!-- Starts content for groupSettingsPanel -->
-            <div class="content" id="groupSettingsPanel">
-                <h2> Current Memberships: </h2>
-                <table id="groups-table">
-                    <tr>
-                        <th>Group</th>
-                        <th>Site</th>
-                    </tr>
-                </table>
-
-                <div id="create-group-modal" class="reveal-modal" data-reveal>
-                    <h2>Creating a new group</h2>
-
-                    <p class="lead">Just a couple of fields away</p>
-
-                    <form>
-                        <div class="row">
-                            <div class="large-12 columns"><label>Group name</label> <input type="text"
-                                                                                           placeholder="e.g. Aalto Bowling Association"
-                                                                                           id="form_new_group_name"/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-12 columns"><label>URL</label> <input type="text"
-                                                                                    placeholder="e.g. www.aaltobowling.fi"
-                                                                                    id="form_new_group_url"/>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="large-12 columns"><label>Notes</label> <textarea
-                                    placeholder="Tell us a little something about the group"></textarea></div>
-                        </div>
-                        <a href="#" class="button" id="create-group-submit">Create</a>
-                    </form>
-
-                    <a id="close-create-group-modal-button" class="close-reveal-modal">&#215;</a>
-                </div>
-                <div id="alert-groupadded-successful" class="reveal-modal" data-reveal>
-                    <h3>The new group was added successfully.
-                    </h3>
-                    <a id="close-alert-groupadded-successful" class="close-reveal-modal">&#215;</a>
-
-                </div>
-
-                <a href="#" class="button" id="create-group-button">Add New</a>
+            <div class="content" id="groupSettingsPanel" class=".groupsettings">
+                flop to replace
             </div>
             <!-- Ends content for groupSettingsPanel -->
 
