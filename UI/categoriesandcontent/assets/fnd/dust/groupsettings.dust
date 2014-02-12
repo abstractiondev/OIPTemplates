@@ -1,4 +1,3 @@
-flip
 {#GroupContainer}
     <form method="post" target="OperationManager_IFrame" enctype="multipart/form-data">
             <input name="ContentSourceInfo" value="{RelativeLocation}:{MasterETag}" type="hidden" />
