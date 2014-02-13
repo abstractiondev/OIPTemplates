@@ -67,9 +67,8 @@ var TheBall;
                         dcm = new TheBall.Interface.UI.DataConnectionManager();
                     this.DCM = dcm;
                 }
-                TemplateModuleManager.prototype.CreateAndExecuteTimestampedFetchWithZeroTimestamp = function (fetchUrl, fetchCallBack) {
+                TemplateModuleManager.prototype.CreateTimestampedFetchWithZeroTimestamp = function (fetchUrl, fetchCallBack) {
                     var tsFetch = new TimestampedFetch("", fetchUrl, fetchCallBack);
-                    tsFetch.ExecuteAjaxToPromise();
                     return tsFetch;
                 };
 
@@ -110,7 +109,7 @@ var TheBall;
                         existingDataSource.TMM = me;
                         existingDataSource.RelativeUrl = relativeUrl;
                         this.DataSourceFetchStorage[relativeUrl] = existingDataSource;
-                        existingDataSource.FetchInfo = this.CreateAndExecuteTimestampedFetchWithZeroTimestamp(relativeUrl, function (trackedObject) {
+                        existingDataSource.FetchInfo = this.CreateTimestampedFetchWithZeroTimestamp(relativeUrl, function (trackedObject) {
                             me.InitialObjectFetchCB(trackedObject, existingDataSource);
                         });
                     }
@@ -141,15 +140,12 @@ var TheBall;
                     if ($hiddenElements.length > 0) {
                         var $hiddenElementsToUpdate = $hiddenElements.not('[data-oiptimestamp="' + currTimestamp + '"][data-oipvisible="false"]');
                         if ($hiddenElementsToUpdate.length > 0) {
-                            console.log("Hiid: " + templateName);
                             hiddenElementRendering(dataSources, $hiddenElementsToUpdate);
-                            console.log("Attributes to set...");
                             $hiddenElementsToUpdate.each(function () {
                                 var $item = $(this);
                                 $item.attr('data-oiptimestamp', currTimestamp);
                                 $item.attr('data-oipvisible', 'false');
                             });
-                            console.log("Attributes done");
                         }
                     }
 
@@ -183,7 +179,7 @@ var TheBall;
                         console.log("Rendering dust: " + templateName);
                         dust.render(templateName, dustRootObject, function (error, output) {
                             console.log("Done rendering");
-                            console.log(output);
+                            console.log(output.substr(0, 20));
                             $visibleToUpdate.each(function () {
                                 var $item = $(this);
                                 $item.html(output);
@@ -220,11 +216,16 @@ var TheBall;
                     }
                 };
 
-                TemplateModuleManager.prototype.RefreshAllTemplates = function (currTimestamp) {
+                TemplateModuleManager.prototype.RefreshAllTemplateVisibility = function () {
                     var me = this;
                     for (var index in me.TemplateHookStorage) {
                         var tHook = me.TemplateHookStorage[index];
-                        me.RefreshTemplate(currTimestamp, tHook.templateName, tHook.dataSources, tHook.preRenderingDataProcessor, tHook.postRenderingDataProcessor, tHook.hiddenElementRendering, tHook.jQuerySelector);
+                        var lastTimestamp = "";
+                        tHook.dataSources.forEach(function (ds) {
+                            if (lastTimestamp < ds.FetchInfo.Timestamp)
+                                lastTimestamp = ds.FetchInfo.Timestamp;
+                        });
+                        me.RefreshTemplate(lastTimestamp, tHook.templateName, tHook.dataSources, tHook.preRenderingDataProcessor, tHook.postRenderingDataProcessor, tHook.hiddenElementRendering, tHook.jQuerySelector);
                     }
                 };
                 return TemplateModuleManager;

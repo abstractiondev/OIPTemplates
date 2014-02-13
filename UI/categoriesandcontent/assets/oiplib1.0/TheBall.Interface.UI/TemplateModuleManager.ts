@@ -73,9 +73,8 @@ module TheBall.Interface.UI {
         DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
         private TemplateHookStorage: { [TemplateName: string]: TemplateHook } = {};
 
-        CreateAndExecuteTimestampedFetchWithZeroTimestamp(fetchUrl: string, fetchCallBack : (trackedObject: TrackedObject) => void) :TimestampedFetch {
+        CreateTimestampedFetchWithZeroTimestamp(fetchUrl: string, fetchCallBack : (trackedObject: TrackedObject) => void) :TimestampedFetch {
             var tsFetch:TimestampedFetch = new TimestampedFetch("", fetchUrl, fetchCallBack);
-            tsFetch.ExecuteAjaxToPromise();
             return tsFetch;
         }
 
@@ -117,7 +116,7 @@ module TheBall.Interface.UI {
                 existingDataSource.TMM = me;
                 existingDataSource.RelativeUrl = relativeUrl;
                 this.DataSourceFetchStorage[relativeUrl] = existingDataSource;
-                existingDataSource.FetchInfo = this.CreateAndExecuteTimestampedFetchWithZeroTimestamp(relativeUrl,
+                existingDataSource.FetchInfo = this.CreateTimestampedFetchWithZeroTimestamp(relativeUrl,
                     function (trackedObject: TrackedObject) {
                         me.InitialObjectFetchCB(trackedObject, existingDataSource);
                     });
@@ -151,15 +150,12 @@ module TheBall.Interface.UI {
                 var $hiddenElementsToUpdate = $hiddenElements
                     .not('[data-oiptimestamp="' + currTimestamp + '"][data-oipvisible="false"]');
                 if($hiddenElementsToUpdate.length > 0) {
-                    console.log("Hiid: " + templateName);
                     hiddenElementRendering(dataSources, $hiddenElementsToUpdate);
-                    console.log("Attributes to set...")
                     $hiddenElementsToUpdate.each(function() {
                         var $item = $(this);
                         $item.attr('data-oiptimestamp', currTimestamp);
                         $item.attr('data-oipvisible', 'false');
                     });
-                    console.log("Attributes done")
                 }
             }
             // If no visible, don't do anything
@@ -191,7 +187,7 @@ module TheBall.Interface.UI {
                 console.log("Rendering dust: " + templateName);
                 dust.render(templateName, dustRootObject,(error, output) => {
                     console.log("Done rendering");
-                    console.log(output);
+                    console.log(output.substr(0, 20));
                     $visibleToUpdate.each(function() {
                         var $item = $(this);
                         $item.html(output);
@@ -245,11 +241,16 @@ module TheBall.Interface.UI {
             }
         }
 
-        RefreshAllTemplates(currTimestamp:string) {
+        RefreshAllTemplateVisibility() {
             var me = this;
             for(var index in me.TemplateHookStorage) {
                 var tHook = me.TemplateHookStorage[index];
-                me.RefreshTemplate(currTimestamp,
+                var lastTimestamp = "";
+                tHook.dataSources.forEach((ds:TemplateDataSource) => {
+                    if(lastTimestamp < ds.FetchInfo.Timestamp)
+                        lastTimestamp = ds.FetchInfo.Timestamp;
+                });
+                me.RefreshTemplate(lastTimestamp,
                     tHook.templateName,
                     tHook.dataSources,
                     tHook.preRenderingDataProcessor,

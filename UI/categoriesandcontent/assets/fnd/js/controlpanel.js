@@ -258,11 +258,18 @@ tMgr.RegisterTemplate("groupsettings.dust", ".groupsettings",
 $(function () {
     tMgr.ActivateAllTemplates();
 
+    // Data update polling
     (function poll() {
         setTimeout(function () {
             tMgr.DCM.PerformAsyncPoll();
-            tMgr.RefreshAllTemplates(tMgr.DCM.LastProcessedTick);
             poll();
-        }, 3000);
+        }, 5000);
+    })();
+    // UI visibility update polling
+    (function poll() {
+        setTimeout(function() {
+            tMgr.RefreshAllTemplateVisibility();
+            poll();
+        }, 500);
     })();
 });
