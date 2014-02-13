@@ -79,7 +79,7 @@ module TheBall.Interface.UI {
                 trackedObject.UIExtension.FetchedUrl = existingDataSource.RelativeUrl;
                 trackedObject.UIExtension.ChangeListeners.push(
                     (refreshedObject:TrackedObject, currTimestamp:string) => {
-                        existingDataSource.FetchPromise = me.CreateVoidFetchPromise(refreshedObject.RelativeLocation);
+                        existingDataSource.FetchPromise = me.CreateVoidFetchPromise(refreshedObject.UIExtension.FetchedUrl);
                         existingDataSource.RefreshTemplates(currTimestamp);
                     });
                 trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
@@ -117,7 +117,7 @@ module TheBall.Interface.UI {
         }
 
         ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback, selectorString: string) {
-            this.RefreshTemplate("", templateName, dataSources, contextPreparer, postRenderingDataProcessor, hiddenElementRendering, selectorString);
+            this.RefreshTemplate("T:", templateName, dataSources, contextPreparer, postRenderingDataProcessor, hiddenElementRendering, selectorString);
         }
 
         RefreshTemplate(currTimestamp:string, templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback, selectorString: string) {
@@ -129,20 +129,25 @@ module TheBall.Interface.UI {
 
             if($hiddenElements.length > 0) {
                 var $hiddenElementsToUpdate = $hiddenElements
-                    .not("[data-oiptimestamp=='" + currTimestamp + "'][data-oipvisible=='false']");
-                hiddenElementRendering(dataSources, $hiddenElementsToUpdate);
-                $hiddenElementsToUpdate.each(function() {
-                    var $item = $(this);
-                    $item.attr('data-oiptimestamp', currTimestamp);
-                    $item.attr('data-oipvisible', 'false');
-                });
+                    .not('[data-oiptimestamp="' + currTimestamp + '"][data-oipvisible="false"]');
+                if($hiddenElementsToUpdate.length > 0) {
+                    console.log("Hiid: " + templateName);
+                    hiddenElementRendering(dataSources, $hiddenElementsToUpdate);
+                    console.log("Attributes to set...")
+                    $hiddenElementsToUpdate.each(function() {
+                        var $item = $(this);
+                        $item.attr('data-oiptimestamp', currTimestamp);
+                        $item.attr('data-oipvisible', 'false');
+                    });
+                    console.log("Attributes done")
+                }
             }
             // If no visible, don't do anything
             if($visibleElements.length == 0)
                 return;
 
             var $visibleToUpdate = $visibleElements
-                .not("[data-oiptimestamp=='" + currTimestamp + "'][data-oipvisible=='true']");
+                .not('[data-oiptimestamp="' + currTimestamp + '"][data-oipvisible="true"]');
             if($visibleToUpdate.length == 0)
                 return;
 

@@ -193,7 +193,7 @@ var activateIsotope = function () {
 var tUI = TheBall.Interface.UI;
 var tMgr = new tUI.TemplateModuleManager();
 var renderCount = 0;
-tMgr.RegisterTemplate("portfolioContainer.dust", ".portfolioContainer",
+tMgr.RegisterTemplate("content.dust", ".portfolioContainer",
     [ "../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json" ],
 
     function (jsonArray) {
@@ -211,6 +211,11 @@ tMgr.RegisterTemplate("portfolioContainer.dust", ".portfolioContainer",
         activateIsotope();
         bindView();
         bindEdit();
+    },
+    function(jsonArray, $hiddenElements) {
+        $hiddenElements.each(function() {
+            $(this).html("Invisible...");
+        });
     }
 );
 tMgr.RegisterTemplate("categoryTreeEditor.dust", ".categoryTreeEditor",
@@ -224,6 +229,11 @@ tMgr.RegisterTemplate("categoryTreeEditor.dust", ".categoryTreeEditor",
     function (jsonArray) {
         // TODO: Editor refresh
         $('.dd').nestable({ });
+    },
+    function(jsonArray, $hiddenElements) {
+        $hiddenElements.each(function() {
+            $(this).html("Invisible...");
+        });
     }
 );
 
@@ -236,7 +246,13 @@ tMgr.RegisterTemplate("groupsettings.dust", ".groupsettings",
     },
     function(jsonArray) {
         // Editor refresh (if any)
+    },
+    function(jsonArray, $hiddenElements) {
+        $hiddenElements.each(function() {
+            $(this).html("Invisible...");
+        });
     }
+
 );
 
 $(function () {
@@ -245,6 +261,7 @@ $(function () {
     (function poll() {
         setTimeout(function () {
             tMgr.DCM.PerformAsyncPoll();
+            tMgr.RefreshAllTemplates(tMgr.DCM.LastProcessedTick);
             poll();
         }, 3000);
     })();
