@@ -129,17 +129,30 @@ var TheBall;
                     }
 
                     // If no visible, don't do anything
-                    if ($visibleElements.length == 0)
+                    if ($visibleElements.length == 0) {
+                        console.log("Nothing visible on template: " + templateName);
                         return;
+                    }
+
+                    console.log("Checking visibility updates: " + templateName);
 
                     var $visibleToUpdate = $visibleElements.not('[data-oiptimestamp="' + currTimestamp + '"][data-oipvisible="true"]');
-                    if ($visibleToUpdate.length == 0)
+                    if ($visibleToUpdate.length == 0) {
+                        console.log("Nothing to update: " + templateName);
                         return;
+                    }
 
-                    console.log("Promise iteration");
+                    $visibleToUpdate.each(function () {
+                        var $item = $(this);
+                        $item.attr('data-oiptimestamp', currTimestamp);
+                        $item.attr('data-oipvisible', 'true');
+                    });
+
+                    console.log("Promise execution: " + templateName);
                     promises = dataSources.map(function (obj) {
                         return obj.FetchPromise;
                     });
+                    alert("Going to realize promise(s): " + templateName);
                     $.when.apply($, promises).then(function () {
                         console.log("Root object fetch");
                         var dustRootObject = contextPreparer(dataSources);
@@ -150,8 +163,6 @@ var TheBall;
                             $visibleToUpdate.each(function () {
                                 var $item = $(this);
                                 $item.html(output);
-                                $item.attr('data-oiptimestamp', currTimestamp);
-                                $item.attr('data-oipvisible', 'true');
                             });
                             if (postRenderingDataProcessor)
                                 postRenderingDataProcessor(dataSources, $visibleToUpdate);
