@@ -13,7 +13,10 @@ module TheBall.Interface.UI {
         (jsonContents: TemplateDataSource[]): any;
     }
     export interface PostRenderingCallback {
-        (jsonContents: TemplateDataSource[]): any;
+        (jsonContents: TemplateDataSource[], renderedOnElements:JQuery) : any;
+    }
+    export interface HiddenElementRenderingCallback {
+        (jsonContents: TemplateDataSource[], hiddenElements:JQuery) : any;
     }
 
     export class TemplateHook {
@@ -21,7 +24,8 @@ module TheBall.Interface.UI {
             public jQuerySelector:string,
             public dataSources:TemplateDataSource[],
             public preRenderingDataProcessor:DataPreparerCallback,
-            public postRenderingDataProcessor:PostRenderingCallback) {
+            public postRenderingDataProcessor:PostRenderingCallback,
+            public hiddenElementRendering:HiddenElementRenderingCallback) {
         }
     }
 
@@ -35,9 +39,13 @@ module TheBall.Interface.UI {
         GetObjectContent() : TrackedObject {
             return this.DCM.TrackedObjectStorage[this.ObjectID];
         }
-        RefreshObjectChange(trackedObject:TrackedObject) {
+        /*
+        RefreshObjectChange(trackedObject:TrackedObject, currTimestamp:string) {
             console.log("Refreshing object: " + trackedObject.ID + " used in: " + this.UsedInTemplates.join());
-            this.TMM.ActivateNamedTemplates(this.UsedInTemplates);
+            this.TMM.RefreshNamedTemplates(currTimestamp, this.UsedInTemplates);
+        }*/
+        RefreshTemplates(currTimestamp:string) {
+            this.TMM.RefreshNamedTemplates(currTimestamp, this.UsedInTemplates);
         }
     }
 
@@ -52,50 +60,92 @@ module TheBall.Interface.UI {
         DataSourceFetchStorage: { [RelativeUrl: string]: TemplateDataSource } = {};
         private TemplateHookStorage: { [TemplateName: string]: TemplateHook } = {};
 
-        InitiateTemplateDataSource(relativeUrl: string, templateName:string): TemplateDataSource {
-            var existingTemplate = this.DataSourceFetchStorage[relativeUrl];
+        CreateFetchPromise(fetchUrl: string, fetchCallBack : (trackedObject: TrackedObject) => void) :any {
+            return $.ajax({
+                url: fetchUrl, cache:false,
+                success: fetchCallBack
+            });
+        }
+
+        CreateVoidFetchPromise(fetchUrl:string) {
+            return this.CreateFetchPromise(fetchUrl, null);
+        }
+
+        InitialObjectFetchCB(trackedObject:TrackedObject, existingDataSource:TemplateDataSource) {
             var me = this;
-            if (!existingTemplate) {
-                existingTemplate = new TemplateDataSource();
-                existingTemplate.DCM = me.DCM;
-                existingTemplate.TMM = me;
-                existingTemplate.RelativeUrl = relativeUrl;
-                this.DataSourceFetchStorage[relativeUrl] = existingTemplate;
-                existingTemplate.FetchPromise = $.ajax({
-                    url: relativeUrl, cache: false,
-                    success: function (trackedObject: TrackedObject) {
-                        if(trackedObject.ID) {
-                            var id = trackedObject.ID;
-                            trackedObject.UIExtension = new TheBall.Interface.UI.TrackingExtension();
-                            trackedObject.UIExtension.FetchedUrl = existingTemplate.RelativeUrl;
-                            trackedObject.UIExtension.ChangeListeners.push(
-                                (refreshedObject:TrackedObject) => {
-                                existingTemplate.RefreshObjectChange(refreshedObject);
-                                });
-                            trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
-                            me.DCM.SetObjectInStorage(trackedObject);
-                        }
-                        existingTemplate.ObjectID = trackedObject.ID;
-                    }
-                });
+            if(trackedObject.ID) {
+                var id = trackedObject.ID;
+                trackedObject.UIExtension = new TheBall.Interface.UI.TrackingExtension();
+                trackedObject.UIExtension.FetchedUrl = existingDataSource.RelativeUrl;
+                trackedObject.UIExtension.ChangeListeners.push(
+                    (refreshedObject:TrackedObject, currTimestamp:string) => {
+                        existingDataSource.FetchPromise = me.CreateVoidFetchPromise(refreshedObject.RelativeLocation);
+                        existingDataSource.RefreshTemplates(currTimestamp);
+                    });
+                trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
+                this.DCM.SetObjectInStorage(trackedObject);
             }
-            existingTemplate.UsedInTemplates.push(templateName);
-            return existingTemplate;
+            existingDataSource.ObjectID = trackedObject.ID;
+        }
+
+        InitiateTemplateDataSource(relativeUrl: string, templateName:string): TemplateDataSource {
+            var existingDataSource = this.DataSourceFetchStorage[relativeUrl];
+            var me = this;
+            if (!existingDataSource) {
+                existingDataSource = new TemplateDataSource();
+                existingDataSource.DCM = me.DCM;
+                existingDataSource.TMM = me;
+                existingDataSource.RelativeUrl = relativeUrl;
+                this.DataSourceFetchStorage[relativeUrl] = existingDataSource;
+                existingDataSource.FetchPromise = this.CreateFetchPromise(relativeUrl,
+                    function (trackedObject: TrackedObject) {
+                        me.InitialObjectFetchCB(trackedObject, existingDataSource);
+                    });
+            }
+            existingDataSource.UsedInTemplates.push(templateName);
+            return existingDataSource;
         }
 
         RegisterTemplate(templateName:string, jQuerySelector:string, dataSourceUrls:string[], preRenderingDataProcessor:DataPreparerCallback,
-                         postRenderingDataProcessor:DataPreparerCallback) {
+                         postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback) {
             if(this.TemplateHookStorage[templateName])
                 throw "Template name already registered: " + templateName;
             this.TemplateHookStorage[templateName] = new TemplateHook(templateName,
                 jQuerySelector,
                 dataSourceUrls.map(url => this.InitiateTemplateDataSource(url, templateName)),
-                preRenderingDataProcessor, postRenderingDataProcessor);
+                preRenderingDataProcessor, postRenderingDataProcessor, hiddenElementRendering);
         }
 
-        ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:PostRenderingCallback, selectorString: string) {
+        ActivateTemplate(templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback, selectorString: string) {
+            this.RefreshTemplate("", templateName, dataSources, contextPreparer, postRenderingDataProcessor, hiddenElementRendering, selectorString);
+        }
+
+        RefreshTemplate(currTimestamp:string, templateName: string, dataSources: TemplateDataSource[], contextPreparer: DataPreparerCallback, postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback, selectorString: string) {
             var me = this;
             var promises: any[];
+            var $matchedElements = $(selectorString);
+            var $visibleElements = $matchedElements.filter(":visible");
+            var $hiddenElements = $matchedElements.filter(":hidden");
+
+            if($hiddenElements.length > 0) {
+                var $hiddenElementsToUpdate = $hiddenElements
+                    .not("[data-oiptimestamp=='" + currTimestamp + "'][data-oipvisible=='false']");
+                hiddenElementRendering(dataSources, $hiddenElementsToUpdate);
+                $hiddenElementsToUpdate.each(function() {
+                    var $item = $(this);
+                    $item.attr('data-oiptimestamp', currTimestamp);
+                    $item.attr('data-oipvisible', 'false');
+                });
+            }
+            // If no visible, don't do anything
+            if($visibleElements.length == 0)
+                return;
+
+            var $visibleToUpdate = $visibleElements
+                .not("[data-oiptimestamp=='" + currTimestamp + "'][data-oipvisible=='true']");
+            if($visibleToUpdate.length == 0)
+                return;
+
             console.log("Promise iteration");
             promises = dataSources.map(obj => obj.FetchPromise);
             $.when.apply($, promises).then(() => {
@@ -105,31 +155,15 @@ module TheBall.Interface.UI {
                 dust.render(templateName, dustRootObject,(error, output) => {
                     console.log("Done rendering");
                     console.log(output);
-                    $(selectorString).each(function() {
-                        var item = $(this);
-                        //console.log("Replacing: " + item.html())
-                        item.html(output);
+                    $visibleToUpdate.each(function() {
+                        var $item = $(this);
+                        $item.html(output);
+                        $item.attr('data-oiptimestamp', currTimestamp);
+                        $item.attr('data-oipvisible', 'true');
                     });
                     if(postRenderingDataProcessor)
-                        postRenderingDataProcessor(dataSources);
-                    console.log("Done jQuerying...");
+                        postRenderingDataProcessor(dataSources, $visibleToUpdate);
                 });
-
-                /*
-                $(selectorString).each(() => {
-                    console.log("Rendering dust: " + templateName);
-                    dust.render(templateName, dustRootObject,(error, output) => {
-                        console.log("Done rendering");
-                        console.log(output);
-                        var item = $(this);
-                        if(item) {
-                            console.log("Replacing: " + item.html())
-                            item.html(output);
-                        } else {
-                            console.log("No item!");
-                        }
-                    });
-                });*/
             });
         }
 
@@ -142,6 +176,22 @@ module TheBall.Interface.UI {
                     tHook.dataSources,
                     tHook.preRenderingDataProcessor,
                     tHook.postRenderingDataProcessor,
+                    tHook.hiddenElementRendering,
+                    tHook.jQuerySelector);
+            }
+        }
+
+        RefreshNamedTemplates(currTimestamp:string, templateNames:string[]) {
+            var me = this;
+            for(var i = 0; i < templateNames.length; i++) {
+                var index = templateNames[i];
+                var tHook = this.TemplateHookStorage[index];
+                me.RefreshTemplate(currTimestamp,
+                    tHook.templateName,
+                    tHook.dataSources,
+                    tHook.preRenderingDataProcessor,
+                    tHook.postRenderingDataProcessor,
+                    tHook.hiddenElementRendering,
                     tHook.jQuerySelector);
             }
         }
@@ -154,8 +204,23 @@ module TheBall.Interface.UI {
                     tHook.dataSources,
                     tHook.preRenderingDataProcessor,
                     tHook.postRenderingDataProcessor,
+                    tHook.hiddenElementRendering,
                     tHook.jQuerySelector);
 
+            }
+        }
+
+        RefreshAllTemplates(currTimestamp:string) {
+            var me = this;
+            for(var index in me.TemplateHookStorage) {
+                var tHook = me.TemplateHookStorage[index];
+                me.RefreshTemplate(currTimestamp,
+                    tHook.templateName,
+                    tHook.dataSources,
+                    tHook.preRenderingDataProcessor,
+                    tHook.postRenderingDataProcessor,
+                    tHook.hiddenElementRendering,
+                    tHook.jQuerySelector);
             }
         }
     }

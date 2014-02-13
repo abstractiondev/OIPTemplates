@@ -7,7 +7,7 @@
 
 module TheBall.Interface.UI {
     export interface TrackerEvent {
-        (trackedObject: TrackedObject): void;
+        (trackedObject: TrackedObject, triggeredTick:string): void;
     }
 
     export class StatusData {
@@ -30,8 +30,11 @@ module TheBall.Interface.UI {
             return currObject.RelativeLocation;
         }
         static UpdateObject(currObject:TrackedObject, triggeredTick: string, dcm:DataConnectionManager) {
+            currObject.UIExtension.ChangeListeners.forEach(func => func(currObject, triggeredTick));
             //var fetchUrl = TrackedObject.GetRelativeUrl(currObject);
-            var fetchUrl = currObject.UIExtension.FetchedUrl;
+            //var templateDataSource =
+            /*
+             var fetchUrl = currObject.UIExtension.FetchedUrl;
             console.log("Fetching from url: " + fetchUrl);
             $.ajax( { url : fetchUrl, cache: false,
                 success: function(updatedObject:TrackedObject) {
@@ -39,7 +42,7 @@ module TheBall.Interface.UI {
                     updatedObject.UIExtension.LastUpdatedTick = triggeredTick;
                     updatedObject.UIExtension.ChangeListeners.forEach(func => func(updatedObject));
                 }
-            });
+            });*/
         }
     }
 
