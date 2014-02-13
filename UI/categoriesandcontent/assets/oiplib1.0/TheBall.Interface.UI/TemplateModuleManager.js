@@ -21,6 +21,24 @@ var TheBall;
             })();
             UI.TemplateHook = TemplateHook;
 
+            var TimestampedFetch = (function () {
+                function TimestampedFetch(Timestamp, FetchUrl, FetchCallBack) {
+                    this.Timestamp = Timestamp;
+                    this.FetchUrl = FetchUrl;
+                    this.FetchCallBack = FetchCallBack;
+                }
+                TimestampedFetch.prototype.ExecuteAjaxToPromise = function () {
+                    if (!this.ajaxPromise) {
+                        this.ajaxPromise = this.ajaxPromise = $.ajax({
+                            url: this.FetchUrl, cache: false,
+                            success: this.FetchCallBack });
+                    }
+                    return this.ajaxPromise;
+                };
+                return TimestampedFetch;
+            })();
+            UI.TimestampedFetch = TimestampedFetch;
+
             var TemplateDataSource = (function () {
                 function TemplateDataSource() {
                     this.UsedInTemplates = [];
@@ -49,15 +67,20 @@ var TheBall;
                         dcm = new TheBall.Interface.UI.DataConnectionManager();
                     this.DCM = dcm;
                 }
-                TemplateModuleManager.prototype.CreateFetchPromise = function (fetchUrl, fetchCallBack) {
-                    return $.ajax({
-                        url: fetchUrl, cache: false,
-                        success: fetchCallBack
-                    });
+                TemplateModuleManager.prototype.CreateAndExecuteTimestampedFetchWithZeroTimestamp = function (fetchUrl, fetchCallBack) {
+                    var tsFetch = new TimestampedFetch("", fetchUrl, fetchCallBack);
+                    tsFetch.ExecuteAjaxToPromise();
+                    return tsFetch;
                 };
 
-                TemplateModuleManager.prototype.CreateVoidFetchPromise = function (fetchUrl) {
-                    return this.CreateFetchPromise(fetchUrl, null);
+                TemplateModuleManager.prototype.CreateObjectUpdateFetchPromise = function (timestamp, objectToUpdate) {
+                    var me = this;
+                    var tsFetch = new TimestampedFetch(timestamp, objectToUpdate.UIExtension.FetchedUrl, function (fetchedObject) {
+                        fetchedObject.UIExtension = objectToUpdate.UIExtension;
+                        fetchedObject.UIExtension.LastUpdatedTick = timestamp;
+                        me.DCM.SetObjectInStorage(fetchedObject);
+                    });
+                    return tsFetch;
                 };
 
                 TemplateModuleManager.prototype.InitialObjectFetchCB = function (trackedObject, existingDataSource) {
@@ -67,8 +90,10 @@ var TheBall;
                         trackedObject.UIExtension = new TheBall.Interface.UI.TrackingExtension();
                         trackedObject.UIExtension.FetchedUrl = existingDataSource.RelativeUrl;
                         trackedObject.UIExtension.ChangeListeners.push(function (refreshedObject, currTimestamp) {
-                            existingDataSource.FetchPromise = me.CreateVoidFetchPromise(refreshedObject.UIExtension.FetchedUrl);
-                            existingDataSource.RefreshTemplates(currTimestamp);
+                            if (existingDataSource.FetchInfo.Timestamp != currTimestamp) {
+                                existingDataSource.FetchInfo = me.CreateObjectUpdateFetchPromise(currTimestamp, refreshedObject);
+                                existingDataSource.RefreshTemplates(currTimestamp);
+                            }
                         });
                         trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
                         this.DCM.SetObjectInStorage(trackedObject);
@@ -85,7 +110,7 @@ var TheBall;
                         existingDataSource.TMM = me;
                         existingDataSource.RelativeUrl = relativeUrl;
                         this.DataSourceFetchStorage[relativeUrl] = existingDataSource;
-                        existingDataSource.FetchPromise = this.CreateFetchPromise(relativeUrl, function (trackedObject) {
+                        existingDataSource.FetchInfo = this.CreateAndExecuteTimestampedFetchWithZeroTimestamp(relativeUrl, function (trackedObject) {
                             me.InitialObjectFetchCB(trackedObject, existingDataSource);
                         });
                     }
@@ -150,9 +175,8 @@ var TheBall;
 
                     console.log("Promise execution: " + templateName);
                     promises = dataSources.map(function (obj) {
-                        return obj.FetchPromise;
+                        return obj.FetchInfo.ExecuteAjaxToPromise();
                     });
-                    alert("Going to realize promise(s): " + templateName);
                     $.when.apply($, promises).then(function () {
                         console.log("Root object fetch");
                         var dustRootObject = contextPreparer(dataSources);
