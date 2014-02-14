@@ -2,6 +2,19 @@
  * Created by kalle on 12.2.2014.
  */
 
+var PerformQuery = function(queryExpression) {
+    var promise = $.ajax({
+        url: "?operation=TheBall.Index.PerformUserQuery",
+        contentType: "application/json",
+        data: '{ "QueryString": "Piiptööt!"}',
+        type: "POST"
+    });
+    $.when(promise).then(function(jsonData) {
+        alert(jsonData.ID);
+    });
+};
+
+
 var SaveCategoryHierarchy = function () {
     var e = $("#nesttest");
     var list = e.length ? e : $(e.target);
