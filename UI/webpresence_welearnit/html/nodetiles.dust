@@ -154,9 +154,8 @@
             animationOptions: {
                 duration: 750,
                 easing: 'linear',
-                queue: true
+                queue: false
             },
-            layoutMode: 'masonry',
         });
 
         var loaded = 0;
