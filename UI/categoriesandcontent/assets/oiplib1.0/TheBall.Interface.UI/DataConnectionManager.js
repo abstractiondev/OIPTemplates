@@ -51,6 +51,19 @@ var TheBall;
                 function DataConnectionManager() {
                     this.TrackedObjectStorage = {};
                     this.LastProcessedTick = "";
+                    this.InitialTick = "";
+                    var initialStatusFetch = $.ajax({
+                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
+                        async: false
+                    });
+                    $.when(initialStatusFetch).then(function (data) {
+                        var initialTimestamp;
+                        if (data.ChangeItemTrackingList.length > 0)
+                            initialTimestamp = data.ChangeItemTrackingList[0];
+                        else
+                            initialTimestamp = "T:";
+                        this.InitialTick = initialTimestamp;
+                    });
                 }
                 DataConnectionManager.prototype.SetObjectInStorage = function (obj) {
                     var currObject = this.TrackedObjectStorage[obj.ID];
@@ -114,6 +127,7 @@ var TheBall;
                         this.LastProcessedTick = currProcessedTick;
                     }
                 };
+
                 DataConnectionManager.prototype.PerformAsyncPoll = function () {
                     var priv = this;
                     $.ajax({

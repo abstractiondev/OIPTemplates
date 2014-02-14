@@ -101,7 +101,7 @@ module TheBall.Interface.UI {
                             existingDataSource.RefreshTemplates(currTimestamp);
                         }
                     });
-                trackedObject.UIExtension.LastUpdatedTick = ""; //me.DCM.LastProcessedTick;
+                trackedObject.UIExtension.LastUpdatedTick = me.DCM.InitialTick; //me.DCM.LastProcessedTick;
                 this.DCM.SetObjectInStorage(trackedObject);
             }
             existingDataSource.ObjectID = trackedObject.ID;

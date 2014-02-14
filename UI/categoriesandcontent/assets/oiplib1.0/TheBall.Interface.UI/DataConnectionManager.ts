@@ -49,6 +49,7 @@ module TheBall.Interface.UI {
     export class DataConnectionManager {
         TrackedObjectStorage: { [ID: string]: TrackedObject } = {};
         LastProcessedTick: string = "";
+        InitialTick: string = "";
 
         SetObjectInStorage(obj:TrackedObject) {
             var currObject = this.TrackedObjectStorage[obj.ID];
@@ -112,6 +113,22 @@ module TheBall.Interface.UI {
                 this.LastProcessedTick = currProcessedTick;
             }
         }
+
+        constructor() {
+            var initialStatusFetch = $.ajax({
+                url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
+                async: false
+            });
+            $.when(initialStatusFetch).then(function(data:StatusData) {
+                var initialTimestamp;
+                if(data.ChangeItemTrackingList.length > 0)
+                    initialTimestamp = data.ChangeItemTrackingList[0];
+                else
+                    initialTimestamp = "T:";
+                this.InitialTick = initialTimestamp;
+            });
+        }
+
         PerformAsyncPoll() {
             var priv = this;
             $.ajax({
