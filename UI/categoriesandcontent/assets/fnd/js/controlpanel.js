@@ -2,6 +2,11 @@
  * Created by kalle on 12.2.2014.
  */
 
+String.prototype.replaceAll = function(strReplace, strWith) {
+    var reg = new RegExp(strReplace, 'ig');
+    return this.replace(reg, strWith);
+};
+
 var PerformQuery = function(queryExpression) {
     var promise = $.ajax({
         url: "?operation=TheBall.Index.PerformUserQuery",
@@ -95,8 +100,8 @@ var getCardContentFromTextContent = function (item, imageSizeString) {
     var imageUrl = item.ImageData
         ? "../../AaltoGlobalImpact.OIP/MediaContent/" + item.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageData.AdditionalFormatFileExt
         : null;
-    return { "id": item.ID, "title": item.Title, "excerpt": item.Excerpt,
-        "article_text": item.Body,
+    return { "id": item.ID, "title": item.Title, "excerpt": item.ExcerptRendered,
+        "article_text": item.BodyRendered,
         "image": imageUrl,
         "itemUrl": "../../AaltoGlobalImpact.OIP/TextContent/" + item.ID + ".json"
     };
@@ -136,6 +141,13 @@ var bindView = function () {
         var textContentUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
         $.ajax({ url: textContentUrl, cache: false,
             success: function (textContentData) {
+                markdown = new MarkdownDeep.Markdown();
+                markdown.SafeMode = true;
+                var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
+                textContentData.ExcerptRendered = excerptRendered;
+                var bodyRendered = markdown.Transform(textContentData.Body.replaceAll("javascript:", ""));
+                textContentData.BodyRendered = bodyRendered;
+
                 var content = getCardContentFromTextContent(textContentData, "256");
                 var queryValue = "";
 
@@ -212,9 +224,13 @@ tMgr.RegisterTemplate("content.dust", ".portfolioContainer",
     function (jsonArray) {
         var json = jsonArray[0];
         var content = json.GetObjectContent();
+        markdown = new MarkdownDeep.Markdown();
+        markdown.SafeMode = true;
         var realContent =
         {
             "content": $.map(content.CollectionContent, function (item) {
+                var rendered = markdown.Transform(item.Excerpt.replaceAll("javascript:", ""));
+                item.ExcerptRendered = rendered;
                 return getCardContentFromTextContent(item, "64");
             })
         };
