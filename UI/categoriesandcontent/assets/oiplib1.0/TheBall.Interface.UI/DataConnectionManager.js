@@ -133,7 +133,7 @@ var TheBall;
                     $.ajax({
                         url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
                         success: function (data) {
-                            console.log("Polled status...");
+                            //console.log("Polled status...");
                             priv.ProcessStatusData(data);
                         }
                     });

@@ -28,6 +28,7 @@
     <script src="../assets/fnd/dust/categoryTreeEditor_dust.js"></script>
     <script src="../assets/fnd/dust/category_treeitem_dust.js"></script>
     <script src="../assets/fnd/dust/groupsettings_dust.js"></script>
+    <script src="../assets/fnd/dust/searchresultsTest_dust.js"></script>
     <!-- Dust components  -->
     <script src="../assets/fnd/dust/components/textinput_multiline_dust.js"></script>
     <script src="../assets/fnd/dust/components/textinput_multiline_markdown_dust.js"></script>
@@ -43,8 +44,11 @@
 </head>
 <body>
 
+<input id="queryInputPhrase" type="text">
 <button onclick="PerformQuery('kauranen');">Query test</button>
-
+<div class="searchresultsContainer">
+    Search results here...
+</div>
 <div class="row">
 <div class="large-12 columns">
 

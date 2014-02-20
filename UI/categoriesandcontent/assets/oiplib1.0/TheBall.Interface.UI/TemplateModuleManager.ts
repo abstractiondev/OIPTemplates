@@ -125,6 +125,17 @@ module TheBall.Interface.UI {
             return existingDataSource;
         }
 
+        RegisterAndReplaceTemplate(templateName:string, jQuerySelector:string, dataSourceUrls:string[], preRenderingDataProcessor:DataPreparerCallback,
+                         postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback) {
+            if(this.TemplateHookStorage[templateName])
+            {
+                // TODO: Remove the old dataurl/object association
+                this.TemplateHookStorage[templateName] = null;
+            }
+            this.RegisterTemplate(templateName, jQuerySelector, dataSourceUrls, preRenderingDataProcessor,
+                postRenderingDataProcessor, hiddenElementRendering);
+        }
+
         RegisterTemplate(templateName:string, jQuerySelector:string, dataSourceUrls:string[], preRenderingDataProcessor:DataPreparerCallback,
                          postRenderingDataProcessor:PostRenderingCallback, hiddenElementRendering:HiddenElementRenderingCallback) {
             if(this.TemplateHookStorage[templateName])
@@ -160,16 +171,16 @@ module TheBall.Interface.UI {
             }
             // If no visible, don't do anything
             if($visibleElements.length == 0) {
-                console.log("Nothing visible on template: " + templateName);
+                //console.log("Nothing visible on template: " + templateName);
                 return;
             }
 
-            console.log("Checking visibility updates: " + templateName);
+            //console.log("Checking visibility updates: " + templateName);
 
             var $visibleToUpdate = $visibleElements
                 .not('[data-oiptimestamp="' + currTimestamp + '"][data-oipvisible="true"]');
             if($visibleToUpdate.length == 0) {
-                console.log("Nothing to update: " + templateName);
+                //console.log("Nothing to update: " + templateName);
                 return;
             }
 

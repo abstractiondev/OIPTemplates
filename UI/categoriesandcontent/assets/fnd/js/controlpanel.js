@@ -8,14 +8,36 @@ String.prototype.replaceAll = function(strReplace, strWith) {
 };
 
 var PerformQuery = function(queryExpression) {
+    var queryInputPhrase = $("#queryInputPhrase").val();
     var promise = $.ajax({
         url: "?operation=TheBall.Index.PerformUserQuery",
         contentType: "application/json",
-        data: '{ "QueryString": "Piiptööt!"}',
+        data: '{ "QueryString": "' + queryInputPhrase + '", "DefaultFieldName": "Body"}',
         type: "POST"
     });
     $.when(promise).then(function(jsonData) {
-        alert(jsonData.ID);
+        var templateName = "searchresultsTest.dust";
+        var url = "../../" + jsonData.QueryRequestObjectDomainName + "/" + jsonData.QueryRequestObjectName + "/" + jsonData.QueryRequestObjectID + ".json";
+        tMgr.RegisterAndReplaceTemplate(templateName, ".searchresultsContainer",
+            [ url ],
+
+            function (jsonArray) {
+                var json = jsonArray[0];
+                var content = json.GetObjectContent();
+                return content;
+            },
+            function (jsonArray) {
+                //activateIsotope();
+                ///bindView();
+                //bindEdit();
+            },
+            function(jsonArray, $hiddenElements) {
+                $hiddenElements.each(function() {
+                    $(this).html("Invisible...");
+                });
+            }
+        );
+        tMgr.ActivateNamedTemplates([ templateName]);
     });
 };
 

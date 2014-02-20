@@ -1,0 +1,13 @@
+<div>Query string: {QueryString}</div>
+<div>Index name: {IndexName}</div>
+<div>Last request time: {LastRequestTime}</div>
+<div>Last completion time: {LastCompletionTime}</div>
+<div>Last query duration: {LastCompletionDurationMs} ms</div>
+<div>Is completed (according to last request): {IsQueryCompleted}</div>
+<div>Results:</div>
+<div>
+{#QueryResultObjects}
+    {ObjectDomainName}/{ObjectName}/{ObjectID} : {Rank}
+<br>
+{/QueryResultObjects}
+</div>

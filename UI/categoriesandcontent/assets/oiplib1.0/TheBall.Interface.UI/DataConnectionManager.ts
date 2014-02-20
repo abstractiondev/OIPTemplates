@@ -134,7 +134,7 @@ module TheBall.Interface.UI {
             $.ajax({
                 url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
                 success: function(data:StatusData) {
-                    console.log("Polled status...");
+                    //console.log("Polled status...");
                     priv.ProcessStatusData(data);
                 }
             });
