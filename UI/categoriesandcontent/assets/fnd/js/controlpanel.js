@@ -7,7 +7,7 @@ String.prototype.replaceAll = function(strReplace, strWith) {
     return this.replace(reg, strWith);
 };
 
-var PerformQuery = function(queryExpression) {
+var PerformQuery = function() {
     var queryInputPhrase = $("#queryInputPhrase").val();
     var promise = $.ajax({
         url: "?operation=TheBall.Index.PerformUserQuery",
@@ -304,6 +304,21 @@ tMgr.RegisterTemplate("groupsettings.dust", ".groupsettings",
         });
     }
 
+);
+
+tMgr.RegisterTemplate("searchWithResults.dust", ".searchWithResults",
+    [],
+    function(jsonArray) {
+        return {};
+    },
+    function(jsonArray) {
+
+    },
+    function(jsonArray, $hiddenElements) {
+        $hiddenElements.each(function() {
+            $(this).html("Invisible...");
+        });
+    }
 );
 
 $(function () {

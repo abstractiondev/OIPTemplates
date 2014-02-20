@@ -29,6 +29,7 @@
     <script src="../assets/fnd/dust/category_treeitem_dust.js"></script>
     <script src="../assets/fnd/dust/groupsettings_dust.js"></script>
     <script src="../assets/fnd/dust/searchresultsTest_dust.js"></script>
+    <script src="../assets/fnd/dust/searchWithResults_dust.js"></script>
     <!-- Dust components  -->
     <script src="../assets/fnd/dust/components/textinput_multiline_dust.js"></script>
     <script src="../assets/fnd/dust/components/textinput_multiline_markdown_dust.js"></script>
@@ -44,11 +45,6 @@
 </head>
 <body>
 
-<input id="queryInputPhrase" type="text">
-<button onclick="PerformQuery('kauranen');">Query test</button>
-<div class="searchresultsContainer">
-    Search results here...
-</div>
 <div class="row">
 <div class="large-12 columns">
 
@@ -143,6 +139,9 @@
             </dd>
             <dd><a href="#groupSettingsPanel"><i class="icon-settingstwo-gearalt"
                                                  style="font-size: 70%; font-weight: normal;"></i>&nbsp;Group
+                Settings</a></dd>
+            <dd><a href="#searchWithResultsPanel"><i class="icon-settingstwo-gearalt"
+                                                 style="font-size: 70%; font-weight: normal;"></i>&nbsp;Search
                 Settings</a></dd>
             <!--<dd><a href="#panel4a">JSON Server</a></dd>-->
         </dl>
@@ -242,6 +241,13 @@
                 </div>
             </div>
             <!-- Ends content for groupSettingsPanel -->
+
+            <!-- Starts content for Search with results panel -->
+            <div class="content" id="searchWithResultsPanel">
+                <div class="searchWithResults">
+                </div>
+            </div>
+            <!-- Ends content for Search-->
 
             <!-- Starts content for panel4a -->
             <!--<div class="content" id="panel4a">-->

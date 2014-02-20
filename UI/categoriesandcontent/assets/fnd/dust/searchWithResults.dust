@@ -1,0 +1,5 @@
+<input id="queryInputPhrase" type="text">
+<button onclick="PerformQuery();">Query test</button>
+<div class="searchresultsContainer">
+    Search results here...
+</div>
