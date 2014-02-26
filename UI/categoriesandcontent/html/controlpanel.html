@@ -8,15 +8,21 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/foundation.min.css"/>
     <link rel="stylesheet" href="../assets/fnd/css/style.css">
     <link rel="stylesheet" type="text/css" media="all" href="../assets/fnd/css/whhg.css"/>
-    <link href="../assets/fnd/lib/jquery-nestable/jquery-nestable.css" rel="stylesheet">
-
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/1.5.25/jquery.isotope.min.js"></script>
+
+    <!-- Tree controls -->
+    <link href="../assets/fnd/lib/jquery-nestable/jquery-nestable.css" rel="stylesheet">
     <script src="../assets/fnd/lib/jquery-nestable/jquery.nestable.js"></script>
+    <link href="../assets/fnd/lib/jquery.dynatree/skin/ui.dynatree.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/jquery.dynatree/1.2.4/jquery.dynatree.min.js"></script>
+
 
     <!-- OIP Data & template management libraries -->
     <script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
@@ -30,6 +36,7 @@
     <script src="../assets/fnd/dust/groupsettings_dust.js"></script>
     <script src="../assets/fnd/dust/searchresultsTest_dust.js"></script>
     <script src="../assets/fnd/dust/searchWithResults_dust.js"></script>
+    <script src="../assets/fnd/dust/connections_dust.js"></script>
     <!-- Dust components  -->
     <script src="../assets/fnd/dust/components/textinput_multiline_dust.js"></script>
     <script src="../assets/fnd/dust/components/textinput_multiline_markdown_dust.js"></script>
@@ -229,7 +236,20 @@
 
             <!--Starts content for Tab "categories-panel" -->
             <div class="content" id="categoriesPanel">
-                <div class="categoryTreeEditor">
+                <dl class="accordion" data-accordion>
+                    <dd>
+                        <a href="#categoryTreeEditorPanel">Category Tree</a>
+                        <div id="categoryTreeEditorPanel" class="content categoryTreeEditor">
+                        </div>
+                    </dd>
+                    <dd>
+                        <a href="#categoryConnectionPanel">Category Connections</a>
+                        <div id="categoryConnectionPanel" class="content categoryConnections">
+                        </div>
+                    </dd>
+                </dl>
+                <div id="mytree">
+
                 </div>
             </div>
 
@@ -555,6 +575,30 @@ $(document).ready(function () {
 
 // OP manager at the bottom, as it creates dynamic elements that belong on bottom of the body
 var tOP = new tUI.OperationManager();
+
+
+$(function(){
+    // Attach the dynatree widget to an existing <div id="tree"> element
+    // and pass the tree options as an argument to the dynatree() function:
+    $("#mytree").dynatree({
+        onActivate: function(node) {
+            // A DynaTreeNode object is passed to the activation handler
+            // Note: we also get this event, if persistence is on, and the page is reloaded.
+            alert("You activated " + node.data.title);
+        },
+        persist: false,
+        children: [ // Pass an array of nodes.
+            {title: "Item 1"},
+            {title: "Folder 2", isFolder: true,
+                children: [
+                    {title: "Sub-item 2.1"},
+                    {title: "Sub-item 2.2"}
+                ]
+            },
+            {title: "Item 3"}
+        ]
+    });
+});
 
 
 </script>

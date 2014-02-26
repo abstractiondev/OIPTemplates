@@ -321,6 +321,22 @@ tMgr.RegisterTemplate("searchWithResults.dust", ".searchWithResults",
     }
 );
 
+tMgr.RegisterTemplate("connections.dust", ".categoryConnections",
+    ["../../TheBall.Interface/ConnectionCollection/MasterCollection.json"],
+    function(jsonArray) {
+        var json = jsonArray[0];
+        var content = json.GetObjectContent();
+        var alertStr = JSON.stringify(content);
+        return { "Connections": content };
+    },
+    function(jsonArray) {
+
+    },
+    function(jsonArray, $hiddenElements) {
+
+    }
+);
+
 $(function () {
     tMgr.ActivateAllTemplates();
 
