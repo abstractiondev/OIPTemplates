@@ -77,6 +77,17 @@ module TheBall.Interface.UI {
             $form.submit();
             $form.empty();
         }
+        ExecuteOperation(operationName:string, operationParameters:any) {
+            var $form = this.$submitForm;
+            $form.empty();
+            $form.append(this.getHiddenInput("ExecuteOperation", operationName));
+            for(var key in operationParameters) {
+                var $hiddenInput = this.getHiddenInput(key, operationParameters[key]);
+                $form.append($hiddenInput);
+            }
+            $form.submit();
+            $form.empty();
+        }
         /*
          <input id="ObjectDelete_ExecuteOperation" name="ExecuteOperation"
          value="DeleteSpecifiedInformationObject" type="hidden" />

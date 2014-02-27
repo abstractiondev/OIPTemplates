@@ -37,10 +37,21 @@
     <script src="../assets/fnd/dust/searchresultsTest_dust.js"></script>
     <script src="../assets/fnd/dust/searchWithResults_dust.js"></script>
     <script src="../assets/fnd/dust/connections_dust.js"></script>
+
+    <!-- Common Dust forms -->
+    <script src="../assets/fnd/dust/forms/OPInitiateIntegrationConnection_dust.js"></script>
+
+    <!-- Common Dust Packages -->
+    <script src="../assets/fnd/dust/packages/modalforms_dust.js"></script>
+
     <!-- Dust components  -->
     <script src="../assets/fnd/dust/components/textinput_multiline_dust.js"></script>
     <script src="../assets/fnd/dust/components/textinput_multiline_markdown_dust.js"></script>
     <script src="../assets/fnd/dust/components/textinput_singleline_dust.js"></script>
+    <script src="../assets/fnd/dust/components/form_begin_dust.js"></script>
+    <script src="../assets/fnd/dust/components/form_end_dust.js"></script>
+    <script src="../assets/fnd/dust/components/modalform_begin_dust.js"></script>
+    <script src="../assets/fnd/dust/components/modalform_end_dust.js"></script>
 
     <!-- MarkdownDeep Editor -->
     <link rel="stylesheet" href="../assets/fnd/lib/markdowndeep/mdd_styles.css">
@@ -310,6 +321,16 @@
 <!-- End Footer -->
 
 </div>
+
+<div id="DustPackageContents">
+
+</div>
+
+<script>
+    dust.render("modalforms.dust", {},function(error, output) {
+        $("#DustPackageContents").html(output);
+    });
+</script>
 
 <script>
     $(document).foundation(

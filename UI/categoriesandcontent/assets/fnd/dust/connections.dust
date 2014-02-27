@@ -1,2 +1,18 @@
+{#Connections}
+    {#CollectionContent}
+        <button onclick="FixConnection('{ID}')">Fix {Description}</button>
+        {#ThisSideCategories}
+            {IdentifyingCategoryName}
+        {/ThisSideCategories}
+    {/CollectionContent}
+{/Connections}
+<button onclick="OpenAddConnectionForm()">Add Connection</button>
 
-<button>Add Connection</button>
+<script type="text/javascript">
+    var FixConnection = function(connectionID) {
+        tOP.ExecuteOperation("UpdateConnectionThisSideCategories", { "ConnectionID": connectionID});
+    };
+    var OpenAddConnectionForm = function() {
+        $("#OPInitiateIntegrationConnectionModal").foundation('reveal', 'open');
+    };
+</script>

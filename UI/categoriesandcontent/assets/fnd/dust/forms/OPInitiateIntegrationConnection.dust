@@ -1,0 +1,18 @@
+<script>
+    var DoTestMe = function() {
+        $("#OPInitiateIntegrationConnectionModal").foundation('reveal', 'close');
+    }
+</script>
+
+{>"modalform_begin.dust" form_id="OPInitiateIntegrationConnection"
+    modal_header="Initiate Integration Connection"
+    operation_name="InitiateIntegrationConnection"
+/}
+{>"textinput_singleline.dust" field_label="Description" field_name="Description" /}
+{>"textinput_singleline.dust" field_label="Target Ball Host Name" field_name="TargetBallHostName" /}
+{>"textinput_singleline.dust" field_label="Target Group ID" field_name="TargetGroupID" /}
+{>"modalform_end.dust" cancel_onclick="DoTestMe()" /}
+
+<script>
+    initFormOPInitiateIntegrationConnection();
+</script>

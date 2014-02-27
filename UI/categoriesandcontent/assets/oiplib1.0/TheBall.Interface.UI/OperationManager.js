@@ -72,6 +72,17 @@ var TheBall;
                     $form.submit();
                     $form.empty();
                 };
+                OperationManager.prototype.ExecuteOperation = function (operationName, operationParameters) {
+                    var $form = this.$submitForm;
+                    $form.empty();
+                    $form.append(this.getHiddenInput("ExecuteOperation", operationName));
+                    for (var key in operationParameters) {
+                        var $hiddenInput = this.getHiddenInput(key, operationParameters[key]);
+                        $form.append($hiddenInput);
+                    }
+                    $form.submit();
+                    $form.empty();
+                };
                 return OperationManager;
             })();
             UI.OperationManager = OperationManager;

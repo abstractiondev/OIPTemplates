@@ -1,0 +1,12 @@
+    </fieldset>
+    <footer>
+        <div>
+            <button type="button" name="btnCancel" {?cancel_onclick}onclick="{cancel_onclick}" {/cancel_onclick}>
+                {?cancel_button_label}{cancel_button_label}{:else}Cancel{/cancel_button_label}
+            </button>
+            <button type="submit" name="RootSourceAction" id="RootSourceAction" value="Save">
+                {?submit_button_label}{submit_button_label}{:else}Save Changes{/submit_button_label}
+            </button>
+        </div>
+    </footer>
+</form>
