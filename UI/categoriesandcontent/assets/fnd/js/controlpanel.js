@@ -156,6 +156,19 @@ var ConvertCategoriesFromParentToChildren = function (categoryArray) {
     return map["-"].UI_ChildrenCategories;
 };
 
+var FixTreeViewChildrenAndTitles = function(uiCategoryArray) {
+    if(!uiCategoryArray)
+        return;
+    for(var i = 0; i < uiCategoryArray.length; i++) {
+        var category = uiCategoryArray[i];
+        if(category) {
+            category.title = category.NativeCategoryTitle;
+            category.children = category.UI_ChildrenCategories;
+            FixTreeViewChildrenAndTitles(category.children);
+        }
+    }
+};
+
 
 var bindView = function () {
     $("[id*='viewContentButton-dataID']").click(function (editEvent) {
@@ -321,12 +334,40 @@ tMgr.RegisterTemplate("searchWithResults.dust", ".searchWithResults",
     }
 );
 
+var GLOCurrentConnections;
+
+var GetConnectionByID = function (connectionID) {
+    if(!GLOCurrentConnections)
+        return null;
+    for(var i = 0; i < GLOCurrentConnections.CollectionContent.length; i++)
+    {
+        var conn = GLOCurrentConnections.CollectionContent[i];
+        if(conn.ID === connectionID)
+            return conn;
+    }
+    return null;
+};
+
 tMgr.RegisterTemplate("connections.dust", ".categoryConnections",
     ["../../TheBall.Interface/ConnectionCollection/MasterCollection.json"],
     function(jsonArray) {
         var json = jsonArray[0];
         var content = json.GetObjectContent();
         var alertStr = JSON.stringify(content);
+        //alert(alertStr);
+        var i;
+        for(i = 0; i < content.CollectionContent.length; i++) {
+            var conn = content.CollectionContent[i];
+            var thisSideCategories = ConvertCategoriesFromParentToChildren(conn.ThisSideCategories);
+            FixTreeViewChildrenAndTitles(thisSideCategories);
+            //alert(JSON.stringify(thisSideCategories));
+            conn.UI_ThisSideCategories = thisSideCategories;
+            var otherSideCategories = ConvertCategoriesFromParentToChildren(conn.OtherSideCategories);
+            FixTreeViewChildrenAndTitles(otherSideCategories);
+            //alert(JSON.stringify(otherSideCategories));
+            conn.UI_OtherSideCategories = otherSideCategories;
+        }
+        GLOCurrentConnections = content;
         return { "Connections": content };
     },
     function(jsonArray) {

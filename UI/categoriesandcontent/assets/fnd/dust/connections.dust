@@ -2,16 +2,10 @@
     {#CollectionContent}
         <button onclick="UpdateConnectionThisSide('{ID}')">Update this side {Description}</button>
         <button onclick="UpdateConnectionOtherSide('{ID}')">Update other side {Description}</button>
-        This
-        {#ThisSideCategories}
-            {IdentifyingCategoryName}
-        {/ThisSideCategories}
-        Other
-        {#OtherSideCategories}
-            Nat: {NativeCategoryTitle}
-        {/OtherSideCategories}
+        <button onClick="PopulateTreeConnectors('{ID}')">Populate Tree Connectors</button>
     {/CollectionContent}
 {/Connections}
+<div id="LeftSideConnectionTree"></div><div id="RightSideConnectionTree"></div>
 <button onclick="OpenAddConnectionForm()">Add Connection</button>
 
 <script type="text/javascript">
@@ -24,4 +18,45 @@
     var OpenAddConnectionForm = function() {
         $("#OPInitiateIntegrationConnectionModal").foundation('reveal', 'open');
     };
+    var PopulateTreeConnectors = function(connectionID) {
+        var conn = GetConnectionByID(connectionID);
+        $("#LeftSideConnectionTree").dynatree({
+            onActivate: function(node) {
+            },
+            persist: false,
+            children: conn.UI_ThisSideCategories,
+            checkbox: true
+        });
+        $("#RightSideConnectionTree").dynatree({
+            onActivate: function(node) {
+            },
+            persist: false,
+            children: conn.UI_OtherSideCategories,
+            checkbox: true
+        });
+    };
 </script>
+
+{!
+
+    $("#mytree").dynatree({
+        onActivate: function(node) {
+            // A DynaTreeNode object is passed to the activation handler
+            // Note: we also get this event, if persistence is on, and the page is reloaded.
+            alert("You activated " + node.data.title);
+        },
+        persist: false,
+        children: [ // Pass an array of nodes.
+            {title: "Item 1"},
+            {title: "Folder 2", isFolder: true,
+                children: [
+                    {title: "Sub-item 2.1"},
+                    {title: "Sub-item 2.2"}
+                ]
+            },
+            {title: "Item 3"}
+        ]
+    });
+
+
+!}
