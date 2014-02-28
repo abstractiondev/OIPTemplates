@@ -1,16 +1,25 @@
 {#Connections}
     {#CollectionContent}
-        <button onclick="FixConnection('{ID}')">Fix {Description}</button>
+        <button onclick="UpdateConnectionThisSide('{ID}')">Update this side {Description}</button>
+        <button onclick="UpdateConnectionOtherSide('{ID}')">Update other side {Description}</button>
+        This
         {#ThisSideCategories}
             {IdentifyingCategoryName}
         {/ThisSideCategories}
+        Other
+        {#OtherSideCategories}
+            Nat: {NativeCategoryTitle}
+        {/OtherSideCategories}
     {/CollectionContent}
 {/Connections}
 <button onclick="OpenAddConnectionForm()">Add Connection</button>
 
 <script type="text/javascript">
-    var FixConnection = function(connectionID) {
+    var UpdateConnectionThisSide = function(connectionID) {
         tOP.ExecuteOperation("UpdateConnectionThisSideCategories", { "ConnectionID": connectionID});
+    };
+    var UpdateConnectionOtherSide = function(connectionID) {
+        tOP.ExecuteOperation("UpdateConnectionOtherSideCategories", { "ConnectionID": connectionID});
     };
     var OpenAddConnectionForm = function() {
         $("#OPInitiateIntegrationConnectionModal").foundation('reveal', 'open');
