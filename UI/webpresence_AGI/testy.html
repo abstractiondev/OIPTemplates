@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Control Panel | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
+    <script src="js/modernizr.js"></script>
+
+</head>
+<body>
+
+<div class="row">
+    <div id="ModalsHolderDiv-Content">
+        <div id="addNewContentModal" class="reveal-modal" data-reveal>
+            <h2>Adding a new update</h2>
+
+            <div class="row">
+                <div class="large-6 columns">
+                    <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
+                        <form id="form-addNewContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
+                            <div id="addNewContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
+                            <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update"><input type ='file' name='myfile'></span><p></div>
+                            <span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooptip-uploadphoto" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit" >Upload Photo</a></span>
+                        </form>
+                    </div>
+                </div>
+                <div class="large-6 columns">
+                    <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
+                        <form id="form-addNewContentModal" method='POST' enctype='multipart/form-data'>
+                            <label>Title</label> <input type="text" id="addNewContentModal-title"/>
+                            <label>Excerpt</label> <input type="text" id="addNewContentModal-excerpt"/>
+                            <label>Categories</label> <input type="text" id="addNewContentModal-categories"/>
+                            <label>ID</label><input type="text" class="hide" id="addNewContentModal-id"/>
+                            <label>Image Path</label>   <input type="text" class="hide" id="addNewContentModal-imagePath"/>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns right"><label>Content</label> <textarea id="addNewContentModal-content" style="height: 300px;"></textarea></div>
+            </div>
+
+            <div class="row">
+                <div class="large-12 columns">
+                    <a class="button" id="cancelAddNewContentModal" style="float: right;">Cancel</a><div style="width: 10px;float: right;">&nbsp;</div>
+                    <a class="button" id="addNewContentModal-submit" style="float: right;">Submit</a>
+                </div>
+            </div>
+
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+        <div id="alert-addNewContent-successful-modal" class="reveal-modal" data-reveal>
+            <h3>The new content was sent successfully.
+            </h3>
+            <p id="alert-addNewContent-successful-variables" style="font-size: 85%;"></p>
+            <a id="close-alert-addNewContent-successful" class="close-reveal-modal">&#215;</a>
+        </div>
+    </div>
+    <div class="large-12 columns" id="contentDivContainer" style="width:100%; height: 100%; margin: auto !important;">
+    </div>
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/jquery.isotope.js" type="text/javascript"></script>
+<script src="js/jquery.form.min.js"></script>
+<script>
+    $(document).foundation(
+            {
+                reveal : {
+                    animation: 'fadeAndPop',
+                    animation_speed: 250,
+                    close_on_background_click: false
+                }
+
+            }
+    );
+</script>
+<script>
+    $(document).ready(function(){
+        $.when(
+                get_content()
+                ).then(function(){
+                    start_isotope();
+                    var $container = $('#contentDivContainer');
+                    $container.isotope( 'reLayout');
+                    console.log( "Isotope fired after getting content, succeed" );
+                }).fail(function(){
+                    console.log( "something went wrong with getting the content" );
+                });
+
+        $("#contentDivContainer").delegate("#addNewContentDiv",{ click: reveal_addNewContentModal } );
+        $("input:file").change(function (){
+        triggerToolTipUploadPhoto();
+        });
+
+        $(document).on('close', '[data-reveal]', function () {
+            var $container = $('#contentDivContainer');
+            $container.isotope( 'reLayout');
+        })
+
+        //$("#contentDivContainer").delegate("#addNewContentModal-submit",{ click: submitNewContent } );
+
+        //--begins: Function get_content
+        function get_content(){
+            $("#contentDivContainer").empty();
+            return $.getJSON('json/site_settings.json', function(contentData) {
+                var user_content="";
+                user_content+="<div class='addNewContent' id='addNewContentDiv'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
+                user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
+                user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div>";
+                for (var i in contentData.content) {
+                    //noinspection JSUnfilteredForInLoop
+                    user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
+                    user_content+="<img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
+                    user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
+                    user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+contentData.content[i].id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+contentData.content[i].id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+                    user_content+="<div class='content-card-line'><hr></div>";
+                    user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+contentData.content[i].id+"'><i class='icon-commentround'></i></a></div>";
+                    user_content+="</div>";
+                    //user_content+="</div>";
+                }//ends for loop
+                $("#contentDivContainer").append(user_content);
+            })
+        }//--ends function get_content();
+
+        function start_isotope(){
+            //var $container = $('.portfolioContainer');
+            var $container = $("#contentDivContainer");
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+
+
+            $('.portfolioFilter a').click(function(){
+                $('.portfolioFilter .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+                return false;
+            });
+        }//closes function Start_isotope
+
+
+        function submitNewContent () {
+            //document.getElementById('form-addNewContentModal').submit();
+            $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+            //return false;
+        }
+
+        function triggerToolTipUploadPhoto(){
+            $("#tooptip-uploadphoto").trigger("mouseover");
+        }
+
+        //----------begins: handler for Submit on adding New Content
+        $("#addNewContentModal-submit").click(function () {
+            //var new_content_id = $("#addNewContentModal-id").val();
+            var new_content_id;
+            var new_content_title = $("#addNewContentModal-title").val();
+            var new_content_image = $("#addNewContentModal-imagePath").val();
+            var new_content_excerpt = $("#addNewContentModal-excerpt").val();
+            var new_content_categories = $("#addNewContentModal-categories").val();
+            var new_content_content = $("#addNewContentModal-content").val();
+
+            new_content_id = $.now();
+
+            $.ajax({
+                global: false,
+                type: "POST",
+                //async: false,
+                dataType: "json",
+                data: ({
+                    id: new_content_id,
+                    title: new_content_title,
+                    excerpt: new_content_excerpt,
+                    image_path: new_content_image,
+                    article_text: new_content_content,
+                    categories: new_content_categories
+                }),
+                url: 'new_content.php'
+            });
+            //more stuff to do after the ajax call
+            var new_Content="";
+
+            new_Content+="<div class='content-card "+new_content_categories+"' id='contentCardDataId-"+new_content_id+"'>";
+            new_Content+="<img src='"+new_content_image+"' alt='image' id='contentCardImage-dataID-"+new_content_id+"'/>";
+            new_Content+="<div class='content-card-title' id='contentCardTitle-dataID-"+new_content_id+"'><span style='font-size: 120%;'><strong>"+new_content_title+"</strong></span></div>";
+            new_Content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+new_content_id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+new_content_id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+new_content_id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+new_content_id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+            new_Content+="<div class='content-card-line'><hr></div>";
+            new_Content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+new_content_id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+new_content_id+"'><i class='icon-commentround'></i></a></div>";
+            new_Content+="</div>";
+            //$("#contentDivContainer").append(new_Content);
+            //$('#addNewContentModal').foundation('reveal', 'close');
+            //$.when(close_addNewContentModal()).then(function(){ $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');console.log( "New Content submitted and appended. Triggered the closure of the New Content Modal and opening of the addNewContent-successful modal. " ); }).fail(function(){ console.log( "Something went wrong with closing the New Content Modal." );});
+            $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+            //var previousContent = $("#contentDivContainer").html();
+            //new_Content=previousContent+new_Content;
+            var $container = $('#contentDivContainer');
+            var $newItems = $(new_Content);
+            $container.isotope( 'insert', $newItems );
+
+        });
+        //-----------------ends: handler for Submit on Adding New content
+
+        function reveal_addNewContentModal () {
+            $('#form-addNewContentModal-imageUpload').ajaxForm();
+            $('#addNewContentModal').foundation('reveal', 'open');
+        }
+
+        function close_addNewContentModal () {
+            return $('#addNewContentModal').foundation('reveal', 'close');
+        }
+
+        $("#cancelAddNewContentModal").click(function () {
+            $("#tooptip-uploadphoto").trigger("mouseout");
+            $('#addNewContentModal').foundation('reveal', 'close');});
+
+        $("#addNewContentModal-imageUpload-submit").click(function () {
+            var options = {
+                type: "POST",
+                url:'uploadphoto.php',
+                success:    function(phpresponse) {
+                    $("#addNewContentModal-image").empty();
+                    var imageTag ="<img src='"+phpresponse+"' style='height: 100%; width: auto;'>";
+                    $("#addNewContentModal-image").append(imageTag);
+                    //var time_id= $.now();
+                    $("#addNewContentModal-imagePath").val(phpresponse);
+                    //$("#addNewContentModal-id").val(time_id);
+                }
+            };
+            $('#form-addNewContentModal-imageUpload').ajaxSubmit(options);
+            $("#tooptip-uploadphoto").trigger("mouseout");
+            return false;
+            //$('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+        });
+
+
+        });
+</script>
+
+</body>
+</html>
