@@ -4,10 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AGI | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
-    <script src="js/modernizr.js"></script>
+    <link rel="stylesheet" href="../assets/css/foundation.css" />
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../assets/css/whhg.css" />
+    <script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 
@@ -48,19 +48,19 @@
 -->
 
 <div class="aaltoStickyBar contain-to-grid sticky">
-        <div class="row vAlignMiddle">
-            <div class="large-3 columns vAlignMiddle"><a href="#" id="stickyBarLogo"><div id="logo"><img src="images/logo.png"></div></a></div>
-            <div class="large-6 columns">
-                <div class="portfolioFilter" id="portfolioFilterDivContainer">
-                </div>
-            </div>
-            <div class="large-3 columns">
-                <ul class="inline-list right" style="line-height: 45px;padding:0;margin:0;">
-                    <li><a href="http://www.aalto.fi" target="_blank" class="small"><span class="discreetLinks">Aalto.fi</span></a></li>
-                    <li><a href="#" class="small"><span class="discreetLinks">Schools</span></a></li>
-                </ul>
+    <div class="row vAlignMiddle">
+        <div class="large-3 columns vAlignMiddle"><a href="#"><div id="logo"><img src="../assets/images/logo.png"></div></a></div>
+        <div class="large-6 columns">
+            <div class="portfolioFilter" id="portfolioFilterDivContainer">
             </div>
         </div>
+        <div class="large-3 columns">
+            <ul class="inline-list right" style="line-height: 45px;padding:0;margin:0;">
+                <li><a href="http://www.aalto.fi" target="_blank" class="small"><span class="discreetLinks">Aalto.fi</span></a></li>
+                <li><a href="#" class="small"><span class="discreetLinks">Schools</span></a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 <div class="row" style="height: 45px;"></div>
 <div class="row" id="isotope_content_row">
@@ -95,12 +95,12 @@
 </div>
 
 
-<script src="js/jquery.js"></script>
-<script src="js/foundation.min.js"></script>
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/foundation.min.js"></script>
 <!--<script src="js/foundation/foundation.js"></script>-->
-<script src="js/foundation/foundation.topbar.js"></script>
-<script src="js/jquery.isotope.js" type="text/javascript"></script>
-<script src="js/jquery.form.min.js"></script>
+<script src="../assets/js/foundation/foundation.topbar.js"></script>
+<script src="../assets/js/jquery.isotope.js" type="text/javascript"></script>
+<script src="../assets/js/jquery.form.min.js"></script>
 <script>
     $(document).foundation(
             {
@@ -146,23 +146,23 @@
             return $.getJSON('json/site_settings.json', function(contentData) {
                 var user_content="";
                 /*user_content+="<div class='addNewContent' id='addNewContentDiv'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
-                user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
-                user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div>";
+                 user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
+                 user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div>";
 
-                var videotest="";
-                videotest+="<div id='contentCardDataId-videotest1' class='content-card '>";
-                videotest+="<div class='flex-video'> <iframe width='200' src='//www.youtube.com/embed/aiBt44rrslw?theme=light&controls=2&modestbranding=1&showinfo=0&fs=0' frameborder='0' allowfullscreen></iframe></div>";
-                videotest+="<div id='contentCardTitle-dataID-videotest1' class='content-card-title'><span style='font-size: 120%;'><strong>Videotest</strong></span></div>";
-                videotest+="<div class='content-card-options'><a id='editContentButton-dataID-videotest1' class='editContentButton'>Edit</a>";
-                videotest+="<a id='viewContentButton-dataID-videotest1' class='viewContentButton'>View </a>";
-                videotest+="<a id='trashContentButton-dataID-videotest1'>Trash</a>";
-                videotest+="<a id='toggleVisibilityContentButton-dataID-videotest1' class='content-card-options-right'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
-                videotest+="<div class='content-card-line'></hr></div>";
-                videotest+="<div class='content-card-options'><a><i class='icon-pencil'></i></a><a id='contentAddCommentButton-dataID-videotest1'>Comment</a>";
-                videotest+="<a id='contentNumberOfComments-dataID-videotest1' class='content-card-options-right'><i class='icon-commentround'></i></a>";
-                videotest+="</div></div>";
+                 var videotest="";
+                 videotest+="<div id='contentCardDataId-videotest1' class='content-card '>";
+                 videotest+="<div class='flex-video'> <iframe width='200' src='//www.youtube.com/embed/aiBt44rrslw?theme=light&controls=2&modestbranding=1&showinfo=0&fs=0' frameborder='0' allowfullscreen></iframe></div>";
+                 videotest+="<div id='contentCardTitle-dataID-videotest1' class='content-card-title'><span style='font-size: 120%;'><strong>Videotest</strong></span></div>";
+                 videotest+="<div class='content-card-options'><a id='editContentButton-dataID-videotest1' class='editContentButton'>Edit</a>";
+                 videotest+="<a id='viewContentButton-dataID-videotest1' class='viewContentButton'>View </a>";
+                 videotest+="<a id='trashContentButton-dataID-videotest1'>Trash</a>";
+                 videotest+="<a id='toggleVisibilityContentButton-dataID-videotest1' class='content-card-options-right'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+                 videotest+="<div class='content-card-line'></hr></div>";
+                 videotest+="<div class='content-card-options'><a><i class='icon-pencil'></i></a><a id='contentAddCommentButton-dataID-videotest1'>Comment</a>";
+                 videotest+="<a id='contentNumberOfComments-dataID-videotest1' class='content-card-options-right'><i class='icon-commentround'></i></a>";
+                 videotest+="</div></div>";
 
-                user_content+=videotest;*/
+                 user_content+=videotest;*/
 
                 for (var i in contentData.content) {
                     //noinspection JSUnfilteredForInLoop
@@ -174,19 +174,19 @@
 
                     user_content+="<img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
                     user_content+="<div class='content-card-fancyTag'><span class='fancyTag'>"+contentData.content[i].content_type+"</span></div>";
-                    user_content+="<div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.content[i].id+"'>"+contentData.content[i].title+"</div>";
+                    user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size:95%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
                     user_content+="<div class='content-card-excerpt' id='contentCardExcerpt-dataID-"+contentData.content[i].id+"'><span class='content-card-spanExcerpt'>"+contentData.content[i].excerpt+"</span></div>";
                     user_content+="<div class='content-card-line'><hr></div>";
                     user_content+="<div class='content-card-excerpt' id='contentCardAuthor-dataID-"+contentData.content[i].id+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+contentData.content[i].author+"</span></div>";
-                        var regExp = /\(([^)]+)\)/;
-                        var recordedJsonDate = contentData.content[i].Published;
-                        var extractedDate = regExp.exec(recordedJsonDate);
-                        var cardDate = extractedDate[1].replace(/\+0000/g, '');
-                        extractedDate= new Date(1000*cardDate);
-                        //cardDate = extractedDate.toLocaleString();
-                        cardDate = extractedDate.getDate()+".";
-                        cardDate+= extractedDate.getMonth()+".";
-                        cardDate+= extractedDate.getFullYear();
+                    var regExp = /\(([^)]+)\)/;
+                    var recordedJsonDate = contentData.content[i].Published;
+                    var extractedDate = regExp.exec(recordedJsonDate);
+                    var cardDate = extractedDate[1].replace(/\+0000/g, '');
+                    extractedDate= new Date(1000*cardDate);
+                    //cardDate = extractedDate.toLocaleString();
+                    cardDate = extractedDate.getDate()+".";
+                    cardDate+= extractedDate.getMonth()+".";
+                    cardDate+= extractedDate.getFullYear();
 
                     user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+contentData.content[i].id+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
 
@@ -213,7 +213,6 @@
             });
 
             $('.portfolioFilter a').click(function(){
-                console.log ("Entered the Isotope Filter click event handler.")
                 $('.portfolioFilter .current').removeClass('current');
                 $(this).addClass('current');
 
