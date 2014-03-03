@@ -3,6 +3,14 @@
         <button onclick="UpdateConnectionThisSide('{ID}')">Update this side {Description}</button>
         <button onclick="UpdateConnectionOtherSide('{ID}')">Update other side {Description}</button>
         <button onClick="PopulateTreeConnectors('{ID}')">Populate Tree Connectors</button>
+        <button onclick="SetCategoryLinksFromTreeSelections('{ID}')">Set Category Links</button>
+        <table>
+            <tr><th>Linking Info</th></tr>
+            {#CategoryLinks}
+            <tr><td>{SourceCategoryID} - {TargetCategoryID} - {LinkingType}</td></tr>
+            {/CategoryLinks}
+
+        </table>
     {/CollectionContent}
 {/Connections}
 <div id="LeftSideConnectionTree"></div><div id="RightSideConnectionTree"></div>
@@ -10,13 +18,45 @@
 
 <script type="text/javascript">
     var UpdateConnectionThisSide = function(connectionID) {
-        tOP.ExecuteOperation("UpdateConnectionThisSideCategories", { "ConnectionID": connectionID});
+        tOP.ExecuteOperationWithForm("UpdateConnectionThisSideCategories", { "ConnectionID": connectionID});
     };
     var UpdateConnectionOtherSide = function(connectionID) {
-        tOP.ExecuteOperation("UpdateConnectionOtherSideCategories", { "ConnectionID": connectionID});
+        tOP.ExecuteOperationWithForm("UpdateConnectionOtherSideCategories", { "ConnectionID": connectionID});
     };
     var OpenAddConnectionForm = function() {
         $("#OPInitiateIntegrationConnectionModal").foundation('reveal', 'open');
+    };
+    var SetCategoryLinksFromTreeSelections = function(connectionID) {
+        var leftNodes = $("#LeftSideConnectionTree").dynatree('getSelectedNodes');
+        var leftIDs = $.map(leftNodes, function(node) {
+            return node.data.ID;
+        });
+        var rightNodes = $("#RightSideConnectionTree").dynatree('getSelectedNodes');
+        var rightIDs = $.map(rightNodes, function(node) {
+            return node.data.ID;
+        });
+        if(leftIDs.length == 0 || rightIDs.length == 0)
+            return;
+        var addLink = {
+            SourceCategoryID: leftIDs[0],
+            TargetCategoryID: rightIDs[0],
+            LinkingType: "ONE2ONE"
+        };
+
+        var conn = GetConnectionByID(connectionID);
+        var existingLinks = $.map(conn.CategoryLinks, function(catLink) {
+            return {
+                SourceCategoryID: catLink.SourceCategoryID,
+                TargetCategoryID: catLink.TargetCategoryID,
+                LinkingType: catLink.LinkingType
+            };
+        });
+        existingLinks.push(addLink);
+        var parameterObj = {
+            ConnectionID: connectionID,
+            LinkItems: existingLinks
+        };
+        tOP.ExecuteOperationWithAjax("TheBall.Interface.SetCategoryLinkingForConnection", parameterObj);
     };
     var PopulateTreeConnectors = function(connectionID) {
         var conn = GetConnectionByID(connectionID);
@@ -25,14 +65,16 @@
             },
             persist: false,
             children: conn.UI_ThisSideCategories,
-            checkbox: true
+            checkbox: true,
+            selectMode: 1
         });
         $("#RightSideConnectionTree").dynatree({
             onActivate: function(node) {
             },
             persist: false,
             children: conn.UI_OtherSideCategories,
-            checkbox: true
+            checkbox: true,
+            selectMode: 1
         });
     };
 </script>

@@ -77,7 +77,7 @@ module TheBall.Interface.UI {
             $form.submit();
             $form.empty();
         }
-        ExecuteOperation(operationName:string, operationParameters:any) {
+        ExecuteOperationWithForm(operationName:string, operationParameters:any) {
             var $form = this.$submitForm;
             $form.empty();
             $form.append(this.getHiddenInput("ExecuteOperation", operationName));
@@ -87,6 +87,21 @@ module TheBall.Interface.UI {
             }
             $form.submit();
             $form.empty();
+        }
+        ExecuteOperationWithAjax(operationFullName:string, contentObject:any) {
+            var jsonData = JSON.stringify(contentObject);
+            $.ajax(
+                { type: "POST",
+                    url: "?operation=" + operationFullName,
+                    dataType: "json",
+                    contentType: "application/json",
+                    data: jsonData,
+                    success: function() {
+                    },
+                    error: function(){
+                    }
+                }
+            );
         }
         /*
          <input id="ObjectDelete_ExecuteOperation" name="ExecuteOperation"

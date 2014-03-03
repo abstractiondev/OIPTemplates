@@ -72,7 +72,7 @@ var TheBall;
                     $form.submit();
                     $form.empty();
                 };
-                OperationManager.prototype.ExecuteOperation = function (operationName, operationParameters) {
+                OperationManager.prototype.ExecuteOperationWithForm = function (operationName, operationParameters) {
                     var $form = this.$submitForm;
                     $form.empty();
                     $form.append(this.getHiddenInput("ExecuteOperation", operationName));
@@ -82,6 +82,20 @@ var TheBall;
                     }
                     $form.submit();
                     $form.empty();
+                };
+                OperationManager.prototype.ExecuteOperationWithAjax = function (operationFullName, contentObject) {
+                    var jsonData = JSON.stringify(contentObject);
+                    $.ajax({
+                        type: "POST",
+                        url: "?operation=" + operationFullName,
+                        dataType: "json",
+                        contentType: "application/json",
+                        data: jsonData,
+                        success: function () {
+                        },
+                        error: function () {
+                        }
+                    });
                 };
                 return OperationManager;
             })();
