@@ -101,6 +101,8 @@
 <script src="../assets/js/foundation/foundation.topbar.js"></script>
 <script src="../assets/js/jquery.isotope.js" type="text/javascript"></script>
 <script src="../assets/js/jquery.form.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
+<script src="maincategories_dust.js"></script>
 <script>
     $(document).foundation(
             {
@@ -131,14 +133,16 @@
             //$("#testPanelGo").append(goMessage);
             console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
             var multihandlerResponse = $.ajax({
-                url: "multihandler.php",
-                type: "POST",
-                data: ({action: 'getMainCategories'}),
-                async: false
-            }).responseText;
-
-            $("#portfolioFilterDivContainer").empty();
-            $("#portfolioFilterDivContainer").append(multihandlerResponse);
+                url: "rootcategories.json",
+                //type: "POST",
+                //data: ({action: 'getMainCategories'}),
+                async: true,
+                success: function(responseContent) {
+                    dust.render("maincategories.dust", responseContent, function (err, out) {
+                        $("#portfolioFilterDivContainer").html(out);
+                    });
+                }
+            });
         }
 
         function get_content(){

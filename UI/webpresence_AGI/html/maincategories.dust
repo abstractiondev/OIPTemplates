@@ -1,0 +1,4 @@
+<a href='#' data-filter='*' class='current'>All</a>
+{#RootCategories}
+    <a href="#" data-filter-value=".{CategoryName}">{Title}</a>
+{/RootCategories}

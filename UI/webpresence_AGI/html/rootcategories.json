@@ -1,0 +1,8 @@
+{"RootCategories": [
+    { "CategoryName": "catNews", "Title": "News"},
+    { "CategoryName": "catProjects", "Title": "Projects"},
+    { "CategoryName": "catEvents", "Title": "Events"},
+    { "CategoryName": "catStories", "Title": "Stories"},
+    { "CategoryName": "catMaps", "Title": "Maps"},
+    { "CategoryName": "catAbout", "Title": "About"}
+]}
