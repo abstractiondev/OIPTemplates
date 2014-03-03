@@ -1,15 +1,19 @@
 {#content}
     <div class='{content_type}' id='contentCardDataId-{id}'>
-        <div class='content-card' style='width: 210px;'><img src='{image}' alt='image' id='contentCardImage-dataID-{id}'>
-            <div class='content-card-title' id='contentCardTitle-dataID-{id}'>
-                <span style='font-size: 120%;'><strong>{title}</strong></span>
-            </div>
+        <div class='content-card' style='width: 210px;'>
+            <a href='#' class='cardClickableWrapper'>
+                <img src='{image}' alt='image' id='contentCardImage-dataID-{id}'>
+                {#categories}
+                    <div class='content-card-fancyTag'><span class='fancyTag'>{Title}</span></div>
+                {/categories}
+            <div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-{id}'>{title}</div>
             <div class='content-card-excerpt'>
                 <span class='content-card-spanExcerpt'>{excerpt|s}</span>
             </div>
             <div class='content-card-line'><hr></div>
             <div class='content-card-excerpt' id='contentCardAuthor-dataID-{id}'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>{author}</span></div>
             <div class='content-card-excerpt' id='contentCardDate-dataID-{id}'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>{publishedDate}</span></div>
+            </a>
         </div>
     </div>
 {/content}
