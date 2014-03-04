@@ -128,7 +128,7 @@ body {
 }
 
 .vAlignMiddle{
-vertical-align: middle !important;
+    vertical-align: middle !important;
 }
 
 .content-card
@@ -175,7 +175,10 @@ vertical-align: middle !important;
 }
 
 .spaceFiller{
-    width: 10px;
+    padding-right: 10px;
+    paddint-left:0px;
+    width: 100%;
+    line-height: 45px;
 }
 .addNewContent
 {
@@ -231,15 +234,39 @@ vertical-align: middle !important;
 
 }
 
+.hugeTitleText, .hugeTitleText p {
+    font-size: 200%;
+    line-height: 100%;
+}
+
+.bigTitleText, .bigTitleText p {
+    font-size: 110%;
+    line-height: 120%;
+    font-weight: 200;
+}
+
+.lineHeight45{
+    line-height: 45px;
+}
+.lineHeight16{
+    line-height: 16px;
+}
 .discreetLinks{
-    color: #585757;
+    color: #7f7e7e;
     font-size: 80%;
 }
 
-.content-card-spanExcerpt{
-     color: #585757;
-     font-size: 80%;
- }
+.discreetTextColor{
+    color: #7f7e7e;
+}
+
+.fancyTextColor{
+    color: #c01ea1;
+}
+.content-card-spanExcerpt, .content-card-spanExcerpt p {
+    color: #585757;
+    font-size: 80%;
+}
 .content-card-spanAuthor {
     color: #4a4949;
     font-size: 70%;
@@ -250,6 +277,31 @@ vertical-align: middle !important;
     background-color: #c01ea1;
     color: #ffffff;
     text-transform: uppercase;
+}
+
+
+.boldieText{
+    font-weight:bold;
+}
+.fancyTagBig{
+    font-size: 80%;
+    font-weight: bold;
+    padding:5px;
+    background-color: #c01ea1;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin:0;
+}
+
+.fancyViewModalInline{
+    padding-right: 0;
+    margin-right: 0;
+    height:30px !important;
+}
+
+.articleText p {
+    font-size: 90%;
+    line-height: 130%;
 }
 
 .content-card-line {width:100%; float:left;padding-top:5px;padding-bottom:5px;margin: 0px;line-height: 1px !important;font-size: 1px;height:auto;}
@@ -276,10 +328,10 @@ h1#myHeading{
     /*margin-bottom: 10px;*/
 }
 
-.portfolioFilter a { 
-    margin-right: 10px; 
-	color:#666;
-	text-decoration:none;
+.portfolioFilter a {
+    margin-right: 10px;
+    color:#666;
+    text-decoration:none;
 }
 
 .portfolioFilter a.current {
@@ -297,17 +349,17 @@ h1#myHeading{
 }
 
 div.portfolioContainer.isotope {
-box-sizing:border-box;
--moz-box-sizing:border-box; /* Firefox */
-width:100%;
-float:left;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    width:100%;
+    float:left;
 }
 
 div#panel1a.content.active {
-box-sizing:border-box;
--moz-box-sizing:border-box; /* Firefox */
-width:100%;
-float:left;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    width:100%;
+    float:left;
 }
 
 div#contentPanel.content.active {
@@ -319,11 +371,11 @@ div#contentPanel.content.active {
 
 .isotope-item {
     z-index: 2;
-/*    border:1px solid #d4d4d4;
-    margin: 10px;
-    -moz-box-shadow:    10px 10px 10px #dddddd;
-    -webkit-box-shadow: 10px 10px 10px #dddddd;
-    box-shadow:         10px 10px 10px #dddddd;*/
+    /*    border:1px solid #d4d4d4;
+        margin: 10px;
+        -moz-box-shadow:    10px 10px 10px #dddddd;
+        -webkit-box-shadow: 10px 10px 10px #dddddd;
+        box-shadow:         10px 10px 10px #dddddd;*/
 }
 .isotope-hidden.isotope-item {
     pointer-events: none;
@@ -332,28 +384,28 @@ div#contentPanel.content.active {
 
 .isotope,
 .isotope .isotope-item {
-  /* change duration value to whatever you like */
-  -webkit-transition-duration: 0.8s;
-     -moz-transition-duration: 0.8s;
-      -ms-transition-duration: 0.8s;
-       -o-transition-duration: 0.8s;
-          transition-duration: 0.8s;
+    /* change duration value to whatever you like */
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;
 }
 
 .isotope {
-  -webkit-transition-property: height, width;
-     -moz-transition-property: height, width;
-      -ms-transition-property: height, width;
-       -o-transition-property: height, width;
-          transition-property: height, width;
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    -ms-transition-property: height, width;
+    -o-transition-property: height, width;
+    transition-property: height, width;
 }
 
 .isotope .isotope-item {
-  -webkit-transition-property: -webkit-transform, opacity;
-     -moz-transition-property:    -moz-transform, opacity;
-      -ms-transition-property:     -ms-transform, opacity;
-       -o-transition-property:      -o-transform, opacity;
-          transition-property:         transform, opacity;
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property:    -moz-transform, opacity;
+    -ms-transition-property:     -ms-transform, opacity;
+    -o-transition-property:      -o-transform, opacity;
+    transition-property:         transform, opacity;
 }
 
 /**** disabling Isotope CSS3 transitions ****/
@@ -361,9 +413,9 @@ div#contentPanel.content.active {
 .isotope.no-transition,
 .isotope.no-transition .isotope-item,
 .isotope .isotope-item.no-transition {
-  -webkit-transition-duration: 0s;
-     -moz-transition-duration: 0s;
-      -ms-transition-duration: 0s;
-       -o-transition-duration: 0s;
-          transition-duration: 0s;
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
 }
