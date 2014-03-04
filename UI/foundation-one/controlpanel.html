@@ -1,527 +1,677 @@
 <!doctype html>
 <html class="no-js" lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Control Panel | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
-      <script src="js/modernizr.js"></script>
-  </head>
-  <body>
-    
-     <div class="row">
-    <div class="large-12 columns">
- 
-    <!-- Navigation -->
-      <div class="row">
-        <div class="contain-to-grid fixed">
-          <nav class="top-bar" data-topbar> 
+    <script src="js/modernizr.js"></script>
+</head>
+<body>
+
+<div class="row">
+<div class="large-12 columns">
+
+<!-- Navigation -->
+<div class="row">
+    <div class="contain-to-grid fixed">
+        <nav class="top-bar" data-topbar>
             <ul class="title-area">
-              <li class="name">
-              </li><!-- Closes li class "name" -->
-   
-              <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li> 
-            </ul> 
-            <section class="top-bar-section"> 
-            
-            <!-- Right Nav Section --> 
-            <ul class="right">
+                <li class="name">
+                </li><!-- Closes li class "name" -->
 
-                  <li><a href="#" style="color:gray;">Mode:</a></li>
+                <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+            </ul>
+            <section class="top-bar-section">
 
-                  <li class="has-dropdown"><a href="#">Tiles</a> 
-                  <ul class="dropdown"> 
-                  <li><a href="#">Timeline</a></li>
-                  <li><a href="#">Map</a></li> 
-                  </ul> </li>
-              <!--<li class="active"><a href="#">Right Button Active</a></li>-->
-              <!--<li class="has-dropdown"><a href="#">Right Button with Dropdown</a> 
-                <ul class="dropdown"> 
-                  <li><a href="#">First link in dropdown</a></li> 
-                </ul> </li>   -->
-            </ul><!-- Ends the list of elements of the Right Top Navigation Bar-->  
+                <!-- Right Nav Section -->
+                <ul class="right">
 
-                <!-- Left Nav Section --> 
-                <ul class="left"> 
-                <!--BEGINS All elements of the Top Navigation, Left, go here.... they use a "li" element -->  
-                  <li class="has-dropdown"><a href="#" style="font-weight:bold;font-size:120%">New Global</a>
-                    <ul class="dropdown" id="site-dropdown-list">
-                    </ul><!-- Closes the dropdown elements in the Ul-->
-                  </li><!-- Closes the dropdown elements section New Global -->
-                  
-                  <li><a href="#" style="color:gray;">Showing:</a></li>
+                    <li><a href="#" style="color:gray;">Mode:</a></li>
 
-                  <li class="has-dropdown"><a href="#">All</a>
-                  <ul class="dropdown"> 
-                  <li><a href="#">Workspace</a></li>
-                  <li><a href="#">Pictures</a></li>
-                  <li><a href="#">Links</a></li> 
-                  <li><a href="#">Documents</a></li>   
-                  </ul> </li>
-                  <!--Hugo Filter list...<li>
-                    <dl class="sub-nav">
-                    <dt>Filter:</dt>
-                    <dd class="active"><a href="#">All</a></dd>
-                    <dd><a href="#">Workspace</a></dd>
-                    <dd><a href="#">Text</a></dd>
-                    <dd><a href="#">Pictures</a></dd>
-                    </dl>
-                  </li> ... Hugo Filter List ends--> 
+                    <li class="has-dropdown"><a href="#">Tiles</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Timeline</a></li>
+                            <li><a href="#">Map</a></li>
+                        </ul> </li>
+                    <!--<li class="active"><a href="#">Right Button Active</a></li>-->
+                    <!--<li class="has-dropdown"><a href="#">Right Button with Dropdown</a>
+                      <ul class="dropdown">
+                        <li><a href="#">First link in dropdown</a></li>
+                      </ul> </li>   -->
+                </ul><!-- Ends the list of elements of the Right Top Navigation Bar-->
 
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <!--BEGINS All elements of the Top Navigation, Left, go here.... they use a "li" element -->
+                    <li class="has-dropdown"><a href="#" style="font-weight:bold;font-size:120%">New Global</a>
+                        <ul class="dropdown" id="site-dropdown-list">
+                        </ul><!-- Closes the dropdown elements in the Ul-->
+                    </li><!-- Closes the dropdown elements section New Global -->
 
-                  <!-- Regular ORIGINAL element in the left navigation... <li><a href="#">Left Nav Button</a></li>...a button-->
-                  
-                  <!--ENDS All elements of the Top Navigation, Left, go here.... they use a "li" element -->  
-                </ul><!-- Closes the Ul class "left" section -->  
-              </section> 
-            </nav>
-          <!-- End Top Bar -->
-        </div>
-      </div>
- 
-    <!-- End Navigation -->
-    <div class="row"> <!-- Hugo: Begins...Created a row to separate topNav Bar with the rest-->
-        <div class="large-12 small-12 columns">
-            <hr>
-        </div>
+                    <li><a href="#" style="color:gray;">Showing:</a></li>
+
+                    <li class="has-dropdown"><a href="#">All</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Workspace</a></li>
+                            <li><a href="#">Pictures</a></li>
+                            <li><a href="#">Links</a></li>
+                            <li><a href="#">Documents</a></li>
+                        </ul> </li>
+                    <!--Hugo Filter list...<li>
+                      <dl class="sub-nav">
+                      <dt>Filter:</dt>
+                      <dd class="active"><a href="#">All</a></dd>
+                      <dd><a href="#">Workspace</a></dd>
+                      <dd><a href="#">Text</a></dd>
+                      <dd><a href="#">Pictures</a></dd>
+                      </dl>
+                    </li> ... Hugo Filter List ends-->
 
 
-        <!-- Side Bar -->
-        <div class="large-12 small-12 columns">
-            <dl class="tabs vertical" data-tab>
-                <dd class="active"><a href="#contentPanel"><i class="icon-mailinglists" style="font-size: 70%; font-weight: normal;"></i>&nbsp;Content</a></dd>
-                <dd><a href="#categoriesPanel"><i class="icon-menu" style="font-size: 70%; font-weight: normal;"></i>&nbsp;Categories</a></dd>
-                <dd><a href="#groupSettingsPanel"><i class="icon-settingstwo-gearalt" style="font-size: 70%; font-weight: normal;"></i>&nbsp;Group Settings</a></dd>
-                <!--<dd><a href="#panel4a">JSON Server</a></dd>-->
-            </dl>
+                    <!-- Regular ORIGINAL element in the left navigation... <li><a href="#">Left Nav Button</a></li>...a button-->
 
-            <div class="tabs-content vertical">
+                    <!--ENDS All elements of the Top Navigation, Left, go here.... they use a "li" element -->
+                </ul><!-- Closes the Ul class "left" section -->
+            </section>
+        </nav>
+        <!-- End Top Bar -->
+    </div>
+</div>
 
-           <!-- Starts content for contentPanel-->
-                <div class="content active" id="contentPanel">
-                    <!-- +++Isotope content starts +++++++++++++++++++++++++++++++++++++++++++++ -->
-                    <div class="portfolioFilter hide">
-                        <a href="#" data-filter="*" class="current">All Categories</a>
-                        <a href="#" data-filter=".illustrations">Illustrations</a>
-                        <a href="#" data-filter=".movies">Movies</a>
-                        <a href="#" data-filter=".paintings">Paintings</a>
-                        <a href="#" data-filter=".portraits">Portraits</a>
-                    </div>
-                    <div class="portfolioContainer" id="contentDivContainer">
-                    </div>
-                    <!-- +++Isotope content ends +++++++++++++++++++++++++++++++++++++++++++++ -->
-                    <div id="alert-contentUpdate-successful" class="reveal-modal" data-reveal>
-                        <h3>The content was updated successfully.
-                        </h3>
-                        <p id="alert-contentUpdate-successful-variables" style="font-size: 85%;"></p>
-                        <a id="close-alert-contentUpdate-successful" class="close-reveal-modal">&#215;</a>
-                    </div>
-                    <div id="editContentModal" class="reveal-modal" data-reveal>
-                        <h2>Editing content</h2>
-                        <form id="form-editContentModal">
-                            <div class="row">
-                                <div class="large-6 columns left" id="editContentModal-image"></div>
-                                <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-id"/></div>
-                                <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-imagePath"/></div>
-                                <div class="large-6 columns right"><label>Title</label> <input type="text" id="editContentModal-title"/></div>
-                                <div class="large-6 columns right"><label>Excerpt</label> <input type="text" id="editContentModal-excerpt"/></div>
-                                <div class="large-6 columns right"><label>Categories</label> <input type="text" id="editContentModal-categories"/></div>
-                                <div class="large-6 columns right"><label>Content</label> <textarea id="editContentModal-content"></textarea></div>
-                                <div class="large-6 columns right">
-                                    <a class="button" id="editContentModal-submit">Submit Changes</a>
-                                    <a class="button" id="cancelEditContentModal">Cancel</a>
-                                </div>
-                            </div>
-                        </form>
-                        <a class="close-reveal-modal">&#215;</a>
-                    </div>
-                    <div id="viewContentModal" class="reveal-modal" data-reveal>
-                        <!--Begins contents of  div for the viewContentModal-->
+<!-- End Navigation -->
+<div class="row"> <!-- Hugo: Begins...Created a row to separate topNav Bar with the rest-->
+    <div class="large-12 small-12 columns">
+        <hr>
+    </div>
 
+
+    <!-- Side Bar -->
+    <div class="large-12 small-12 columns">
+        <dl class="tabs vertical" data-tab>
+            <dd class="active"><a href="#contentPanel"><i class="icon-mailinglists" style="font-size: 70%; font-weight: normal;"></i>&nbsp;Content</a></dd>
+            <dd><a href="#categoriesPanel"><i class="icon-menu" style="font-size: 70%; font-weight: normal;"></i>&nbsp;Categories</a></dd>
+            <dd><a href="#groupSettingsPanel"><i class="icon-settingstwo-gearalt" style="font-size: 70%; font-weight: normal;"></i>&nbsp;Group Settings</a></dd>
+            <!--<dd><a href="#panel4a">JSON Server</a></dd>-->
+        </dl>
+
+        <div class="tabs-content vertical">
+
+            <!-- Starts content for contentPanel-->
+            <div class="content active" id="contentPanel">
+                <!-- +++Isotope content starts +++++++++++++++++++++++++++++++++++++++++++++ -->
+                <div class="portfolioFilter">
+                    <a href="#" data-filter="*" class="current">All Categories</a>
+                    <a href="#" data-filter=".illustrations">Illustrations</a>
+                    <a href="#" data-filter=".movies">Movies</a>
+                    <a href="#" data-filter=".paintings">Paintings</a>
+                    <a href="#" data-filter=".portraits">Portraits</a>
+                </div>
+                <div class="portfolioContainer" id="contentDivContainer">
+                </div>
+                <!-- +++Isotope content ends +++++++++++++++++++++++++++++++++++++++++++++ -->
+                <div id="editContentModal" class="reveal-modal" data-reveal>
+                    <h2>Editing content</h2>
+                    <form id="form-editContentModal">
                         <div class="row">
-                            <div class="large-6 columns left" id="viewContentModal-image"></div>
-                            <div class="large-6 columns right" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 150%;"></span></strong><br></div>
-                            <div class="large-6 columns right" style="padding-left: 0px !important;"><h3 class="subheader" id="viewContentModal-excerpt" style="font-style:italic !important; "></h3></div>
-                            <div id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
-                            <div class="subheader" id="viewContentModal-categories" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
-                        </div>
-                        <div class="row">
-                            <div class="large-12">
-                                <br>
-                                <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
+                            <div class="large-6 columns left" id="editContentModal-image"></div>
+                            <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-id"/></div>
+                            <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-imagePath"/></div>
+                            <div class="large-6 columns right"><label>Title</label> <input type="text" id="editContentModal-title"/></div>
+                            <div class="large-6 columns right"><label>Excerpt</label> <input type="text" id="editContentModal-excerpt"/></div>
+                            <div class="large-6 columns right"><label>Categories</label> <input type="text" id="editContentModal-categories"/></div>
+                            <div class="large-6 columns right"><label>Content</label> <textarea id="editContentModal-content"></textarea></div>
+                            <div class="large-6 columns right">
+                                <a class="button" id="editContentModal-submit">Submit Changes</a>
+                                <a class="button" id="cancelEditContentModal">Cancel</a>
                             </div>
                         </div>
-                        <a class="close-reveal-modal">&#215;</a>
-                    </div> <!--closes div for the viewContentModal-->
-
-
+                    </form>
+                    <a class="close-reveal-modal">&#215;</a>
                 </div>
-                <!--Ends content for contentPanel -->
+                <div id="viewContentModal" class="reveal-modal" data-reveal>
+                    <!--Begins contents of  div for the viewContentModal-->
 
-                <!--Starts content for Tab "categories-panel" -->
-                <div class="content" id="categoriesPanel">
-
-                </div>
-
-                <!--Ends content for categories-panel -->
-
-                <!-- Starts content for groupSettingsPanel -->
-                <div class="content" id="groupSettingsPanel">
-                    <h2> Current Memberships: </h2>
-                    <table id="groups-table">
-                        <tr>
-                            <th>Group</th>
-                            <th>Site</th>
-                        </tr>
-                    </table>
-
-                    <div id="create-group-modal" class="reveal-modal" data-reveal>
-                        <h2>Creating a new group</h2>
-                        <p class="lead">Just a couple of fields away</p>
-
-                        <form>
-                            <div class="row">
-                                <div class="large-12 columns"><label>Group name</label> <input type="text"
-                                                                                               placeholder="e.g. Aalto Bowling Association" id="form_new_group_name"/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="large-12 columns"><label>URL</label> <input type="text"
-                                                                                        placeholder="e.g. www.aaltobowling.fi" id="form_new_group_url"/>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="large-12 columns"><label>Notes</label> <textarea
-                                        placeholder="Tell us a little something about the group"></textarea></div>
-                            </div>
-                            <a href="#" class="button" id="create-group-submit">Create</a>
-                        </form>
-
-                        <a id="close-create-group-modal-button" class="close-reveal-modal">&#215;</a>
+                    <div class="row">
+                        <div class="large-6 columns left" id="viewContentModal-image"></div>
+                        <div class="large-6 columns right" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 150%;"></span></strong><br></div>
+                        <div class="large-6 columns right" style="padding-left: 0px !important;"><h3 class="subheader" id="viewContentModal-excerpt" style="font-style:italic !important; "></h3></div>
+                        <div id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
+                        <div class="subheader" id="viewContentModal-categories" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
                     </div>
-                    <div id="alert-groupadded-successful" class="reveal-modal" data-reveal>
-                        <h3>The new group was added successfully.
-                        </h3>
-                        <a id="close-alert-groupadded-successful" class="close-reveal-modal">&#215;</a>
+                    <div class="row">
+                        <div class="large-12">
+                            <br>
+                            <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
+                        </div>
+                    </div>
+                    <a class="close-reveal-modal">&#215;</a>
+                </div> <!--closes div for the viewContentModal-->
+                <div id="addNewContentModal" class="reveal-modal" data-reveal>
+                    <h2>Adding a new update</h2>
 
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
+                                <form id="form-addNewContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
+                                    <div id="addNewContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
+                                    <div class="large-6 columns"><input type ='file' name='myfile'><p></div>
+                                    <a class="button" id="addNewContentModal-imageUpload-submit" style="float: right;">Upload Photo</a>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="large-6 columns">
+                            <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
+                                <form id="form-addNewContentModal" method='POST' enctype='multipart/form-data'>
+                                    <label>Title</label> <input type="text" id="addNewContentModal-title"/>
+                                    <label>Excerpt</label> <input type="text" id="addNewContentModal-excerpt"/>
+                                    <label>Categories</label> <input type="text" id="addNewContentModal-categories"/>
+                                    <label>ID</label><input type="text" class="hide" id="addNewContentModal-id"/>
+                                    <label>Image Path</label>   <input type="text" class="hide" id="addNewContentModal-imagePath"/>
+                                </form>
+
+                            </div>
+                        </div>
                     </div>
 
-                    <a href="#" class="button" id="create-group-button">Add New</a>
-                </div>
-                <!-- Ends content for groupSettingsPanel -->
+                    <div class="row">
+                        <div class="large-12 columns right"><label>Content</label> <textarea id="addNewContentModal-content" style="height: 300px;"></textarea></div>
+                    </div>
 
-                <!-- Starts content for panel4a -->
-                <!--<div class="content" id="panel4a">-->
-                <!--</div>-->
-                <!-- Ends content for panel4a -->
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <a class="button" id="cancelAddNewContentModal" style="float: right;">Cancel</a><div style="width: 10px;float: right;">&nbsp;</div>
+                            <a class="button" id="addNewContentModal-submit" style="float: right;">Submit</a>
+                        </div>
+                    </div>
+
+                    <a class="close-reveal-modal">&#215;</a>
+                </div>
+                <div id="alert-contentUpdate-successful" class="reveal-modal" data-reveal>
+                    <h3>The content was updated successfully.
+                    </h3>
+                    <p id="alert-contentUpdate-successful-variables" style="font-size: 85%;"></p>
+                    <a id="close-alert-contentUpdate-successful" class="close-reveal-modal">&#215;</a>
+                </div>
+                <div id="alert-addNewContent-successful-modal" class="reveal-modal" data-reveal>
+                    <h3>The new content was sent successfully.
+                    </h3>
+                    <p id="alert-addNewContent-successful-variables" style="font-size: 85%;"></p>
+                    <a id="close-alert-addNewContent-successful" class="close-reveal-modal">&#215;</a>
+                </div>
 
             </div>
-            <!--Ends div class for the side bar, large 12 columns, small 12 columns-->
-            <!-- End Side Bar -->
+            <!--Ends content for contentPanel -->
+
+            <!--Starts content for Tab "categories-panel" -->
+            <div class="content" id="categoriesPanel">
+
+            </div>
+
+            <!--Ends content for categories-panel -->
+
+            <!-- Starts content for groupSettingsPanel -->
+            <div class="content" id="groupSettingsPanel">
+                <h2> Current Memberships: </h2>
+                <table id="groups-table">
+                    <tr>
+                        <th>Group</th>
+                        <th>Site</th>
+                    </tr>
+                </table>
+
+                <div id="create-group-modal" class="reveal-modal" data-reveal>
+                    <h2>Creating a new group</h2>
+                    <p class="lead">Just a couple of fields away</p>
+
+                    <form>
+                        <div class="row">
+                            <div class="large-12 columns"><label>Group name</label> <input type="text"
+                                                                                           placeholder="e.g. Aalto Bowling Association" id="form_new_group_name"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns"><label>URL</label> <input type="text"
+                                                                                    placeholder="e.g. www.aaltobowling.fi" id="form_new_group_url"/>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="large-12 columns"><label>Notes</label> <textarea
+                                    placeholder="Tell us a little something about the group"></textarea></div>
+                        </div>
+                        <a href="#" class="button" id="create-group-submit">Create</a>
+                    </form>
+
+                    <a id="close-create-group-modal-button" class="close-reveal-modal">&#215;</a>
+                </div>
+                <div id="alert-groupadded-successful" class="reveal-modal" data-reveal>
+                    <h3>The new group was added successfully.
+                    </h3>
+                    <a id="close-alert-groupadded-successful" class="close-reveal-modal">&#215;</a>
+
+                </div>
+
+                <a href="#" class="button" id="create-group-button">Add New</a>
+            </div>
+            <!-- Ends content for groupSettingsPanel -->
+
+            <!-- Starts content for panel4a -->
+            <!--<div class="content" id="panel4a">-->
+            <!--</div>-->
+            <!-- Ends content for panel4a -->
+
+        </div>
+        <!--Ends div class for the side bar, large 12 columns, small 12 columns-->
+        <!-- End Side Bar -->
+
+    </div>
+</div>
+</div>
+
+
+<!-- Footer -->
+
+<footer class="row">
+    <div class="large-12 columns"><hr />
+        <div class="row">
+
+            <div class="large-6 columns">
+                <p>© Copyright Aalto New Global.</p>
+            </div>
+
+            <div class="large-6 columns">
+                <ul class="inline-list right">
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                    <li><a href="#">Link 4</a></li>
+                </ul>
+            </div>
 
         </div>
     </div>
-    </div>
- 
- 
-    <!-- Footer -->
- 
-      <footer class="row">
-        <div class="large-12 columns"><hr />
-          <div class="row">
- 
-            <div class="large-6 columns">
-              <p>© Copyright Aalto New Global.</p>
-            </div>
- 
-            <div class="large-6 columns">
-              <ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-              </ul>
-            </div>
- 
-          </div>
-        </div>
-      </footer>
- 
-    <!-- End Footer -->
- 
-    </div>
+</footer>
 
-    <script src="js/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/jquery.isotope.js" type="text/javascript"></script>
+<!-- End Footer -->
+
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/jquery.isotope.js" type="text/javascript"></script>
+<script src="js/jquery.form.min.js"></script>
 
 
-    <script>
-      $(document).foundation(
-           {
-               reveal : {
-                   animation: 'fadeAndPop',
-                   animation_speed: 250,
-                   close_on_background_click: false
-               }
+<script>
+    $(document).foundation(
+            {
+                reveal : {
+                    animation: 'fadeAndPop',
+                    animation_speed: 250,
+                    close_on_background_click: false
+                }
 
             }
-        );
-    </script>
+    );
+</script>
 
 <!-- +++Document Ready functions begins++++++++++++++++++++++++++++++++++++++++++++-->
-    <script>
-        $(document).ready(function () {
-
-            $.when(
+<script>
+$(document).ready(function () {
+    //$.ajaxSetup({cache: false}});
+    $.when(
                     get_content()
-                    ).then(function(){
-                        start_isotope();
-                        console.log( "Isotope fired after getting content, succeed" );
-                    }).fail(function(){
-                        console.log( "something went wrong with getting the content" );
-                    });
-
-            populate_groups_table();
-            $("#contentDivContainer").delegate(".editContentButton",{ click: editContent} );
-            //$("#contentDivContainer").on("click",".editContentButton", editContent);
-            //$("#contentDivContainer").on("click",".viewContentButton", viewContent);
-            $("#contentDivContainer").delegate(".viewContentButton",{ click: viewContent } );
-            $(".portfolioFilter").delegate ("a",{
-                    click: function(){
-                                $('.portfolioFilter .current').removeClass('current');
-                                $(this).addClass('current');
-
-                                var selector = $(this).attr('data-filter');
-                                $container.isotope({
-                                    filter: selector,
-                                    animationOptions: {
-                                        duration: 750,
-                                        easing: 'linear',
-                                        queue: false
-                                    }
-                                });
-                                return false;
-                            }
+            ).then(function(){
+                start_isotope();
+                console.log( "Isotope fired after getting content, succeed" );
+            }).fail(function(){
+                console.log( "something went wrong with getting the content" );
             });
 
-            //--begins: Function get_content
-            function get_content(){
-                return $.getJSON('json/site_settings.json', function(contentData) {
-                    var user_content="";
-                    for (var i in contentData.content) {
-                        //noinspection JSUnfilteredForInLoop
-                        user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
-                        user_content+="<img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
-                        user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
-                        user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+contentData.content[i].id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+contentData.content[i].id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
-                        user_content+="<div class='content-card-line'><hr></div>";
-                        user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+contentData.content[i].id+"'><i class='icon-commentround'></i></a></div>";
-                        user_content+="</div>";
-                        //user_content+="</div>";
-                    }//ends for loop
-                    $("#contentDivContainer").append(user_content);
-                })
-            }//--ends function get_content();
+    populate_groups_table();
+    $("#contentDivContainer").delegate(".editContentButton",{ click: editContent} );
+    $("#contentDivContainer").delegate(".viewContentButton",{ click: viewContent } );
+    $("#contentDivContainer").delegate("#addNewContentDiv",{ click: reveal_addNewContentModal } );
 
-            function populate_groups_table (){
-                // first we initialize (clear) the table:
-                $("#groups-table td").remove();
-                //--begins: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
-                $.getJSON('json/site_settings.json', function(data) {
-                    var output="";
-                    var output2="";
-                    for (var i in data.sites) {
-                        //noinspection JSUnfilteredForInLoop
-                        output+="<li><a href='" + data.sites[i].url + "' target='_blank' style='text-transform:capitalize !important;'>" +
-                                data.sites[i].name + "</a></li>";
-                        output2+="<tr><td style='text-transform:capitalize !important;'>" + data.sites[i].name + "</td>" +
-                                "<td style='text-transform:lowercase !important;'>" + data.sites[i].url+"</td></tr>";
-                    }//ends for loop
-                    $("#groups-table").append(output2);
-                    $("#site-dropdown-list").append(output);
-                })
-            }//--ends: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
+    $(".portfolioFilter").delegate ("a",{
+        click: function(){
+            $('.portfolioFilter .current').removeClass('current');
+            $(this).addClass('current');
 
-            function editContent(editEvent) {
-                var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
-                $.getJSON('json/site_settings.json', function(contentData) {
-                    var queryValue="";
-                    for (var i in contentData.content) {
-                        if (contentData.content[i].id === clickedEditID)
-                        {
-                            queryValue=clickedEditID;
-                            $('#editContentModal-id').val(queryValue);
-                            queryValue=$("#editContentModal-id").val();
-                            $("#placeholder-panel4a").text(queryValue);
-
-                            queryValue=contentData.content[i].title;
-                            $('#editContentModal-title').val(queryValue);
-
-                            queryValue=contentData.content[i].excerpt;
-                            $('#editContentModal-excerpt').val(queryValue);
-
-                            queryValue=contentData.content[i].content_type;
-                            $('#editContentModal-categories').val(queryValue);
-
-                            queryValue=contentData.content[i].article_text;
-                            $('#editContentModal-content').val(queryValue);
-
-                            queryValue=contentData.content[i].image;
-                            $('#editContentModal-imagePath').val(queryValue);
-                            queryValue=$("#editContentModal-imagePath").val();
-                            $("#placeholder-panel4a").text(queryValue);
-
-                            //send the correspondent image to the placeholder, but clean its containing div first
-                            $("#editContentModal-image").empty(); //clean the image Placeholder in the form
-                            queryValue = "<img src='"+contentData.content[i].image+"' style='width:320px;height:auto;max-height:350px;margin-left:auto;margin-right:auto;'>";
-                            $("#editContentModal-image").append(queryValue);
-                        } //ends If
-                    }//ends for loop
-                }) //ends getJson
-                $('#editContentModal').foundation('reveal', 'open');
-            }//ends function editContent
-
-            function viewContent(editEvent) {
-                var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
-                $.getJSON('json/site_settings.json', function(contentData) {
-                    var queryValue="";
-                    for (var i in contentData.content) {
-                        if (contentData.content[i].id === clickedEditID)
-                        {
-                            queryValue=contentData.content[i].title;
-                            $("#viewContentModal-title").empty();
-                            $('#viewContentModal-title').append(queryValue);
-
-                            queryValue="<p>"+contentData.content[i].excerpt+"</p>";
-                            $("#viewContentModal-excerpt").empty();
-                            $('#viewContentModal-excerpt').append(queryValue);
-
-                            queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+contentData.content[i].content_type+"</p>";
-                            $("#viewContentModal-categories").empty();
-                            $('#viewContentModal-categories').append(queryValue);
-
-                            queryValue=contentData.content[i].article_text;
-                            $("#viewContentModal-content").empty();
-                            $('#viewContentModal-content').append(queryValue);
-
-                            //send the correspondent image to the placeholder, but clean its containing div first
-                            $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
-                            queryValue = "<img src='"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
-                            $("#viewContentModal-image").append(queryValue);
-                        } //ends If
-                    }//ends for loop
-                }) //ends getJson
-                $('#viewContentModal').foundation('reveal', 'open');
-            }//Ends Function ViewContent
-
-            function start_isotope(){
-                var $container = $('.portfolioContainer');
-                $container.isotope({
-                    filter: '*',
-                    animationOptions: {
-                        duration: 750,
-                        easing: 'linear',
-                        queue: false
-                    }
-                })
-            }
-
-                $("#create-group-submit").click(function () {
-                var new_group_name = $("#form_new_group_name").val();
-                var new_group_url = $("#form_new_group_url").val();
-                $.ajax({
-                    global: false,
-                    type: "POST",
-                    //async: false,
-                    dataType: "json",
-                    data: ({
-                        name: new_group_name,
-                        site: new_group_url
-                    }),
-                    url: 'read-write.php'
-                });
-                //populate_groups_table();
-                var new_site="<li><a href='" + new_group_url + "' target='_blank' style='text-transform:capitalize !important;'>" +
-                        new_group_name + "</a></li>";
-
-                $('#groups-table tr:last').after('<tr><td>'+new_group_name+'</td><td>'+new_group_url+'</td></tr>');
-                $("#site-dropdown-list").append(new_site);
-                $('#alert-groupadded-successful').foundation('reveal', 'open');
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
             });
-
-                            //----------begins: handler for Submit on content Edit
-                $("#editContentModal-submit").click(function () {
-                                var edited_content_id = $("#editContentModal-id").val();
-                                var edited_content_title = $("#editContentModal-title").val();
-                                var edited_content_image = $("#editContentModal-imagePath").val();
-                                var edited_content_excerpt = $("#editContentModal-excerpt").val();
-                                var edited_content_categories = $("#editContentModal-categories").val();
-                                var edited_content_content = $("#editContentModal-content").val();
-
-                                $.ajax({
-                                    global: false,
-                                    type: "POST",
-                                    //async: false,
-                                    dataType: "json",
-                                    data: ({
-                                        id: edited_content_id,
-                                        title: edited_content_title,
-                                        excerpt: edited_content_excerpt,
-                                        image: edited_content_image,
-                                        content: edited_content_content,
-                                        categories: edited_content_categories
-                                    }),
-                                    url: 'update_content.php'
-                                });
-                                $('#alert-contentUpdate-successful-variables').append("Record ID: "+edited_content_id+"<br>"+
-                                                                                    "Title: "+edited_content_title+"<br>"+
-                                                                                    "Excerpt: "+edited_content_excerpt+"<br>"+
-                                                                                    "Image Path: "+edited_content_image+"<br>"+
-                                                                                    "Categories: "+edited_content_categories);
-                                $('#alert-contentUpdate-successful').foundation('reveal', 'open');
-                            });
-                            //-----------------ends: handler for Submit on content Edit
-
-                $("#closeViewContentModal").click(function () {
-                    $('#viewContentModal').foundation('reveal', 'close');
-                });
-
-                $("#close-alert-groupadded-successful").click(function () {
-                    //location.reload();    ---->refreshes the page to the current URL
-                    document.location.href='#groups-panel'; //can redirect to any URL you want
-                });
-
-                $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
-                $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
+            return false;
+        }
+    });
 
 
-            //begins: Get the JSON data from the server to populate panel4a (json server panel)
-            //noinspection GjsLint,GjsLint,GjsLint,GjsLint
+    //--begins: Function get_content
+    function get_content(){
+        $("#contentDivContainer").empty();
+        return $.getJSON('json/site_settings.json', function(contentData) {
+            var user_content="";
+            user_content+="<a id='addNewContentDiv'><div class='addNewContent'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
+            user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
+            user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div></a>";
+            for (var i in contentData.content) {
+                //noinspection JSUnfilteredForInLoop
+                user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
+                user_content+="<img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
+                user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
+                user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+contentData.content[i].id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+contentData.content[i].id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+                user_content+="<div class='content-card-line'><hr></div>";
+                user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+contentData.content[i].id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+contentData.content[i].id+"'><i class='icon-commentround'></i></a></div>";
+                user_content+="</div>";
+                //user_content+="</div>";
+            }//ends for loop
+            $("#contentDivContainer").append(user_content);
+        })
+    }//--ends function get_content();
+
+    function populate_groups_table (){
+        // first we initialize (clear) the table:
+        $("#groups-table td").remove();
+        //--begins: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
+        $.getJSON('json/site_settings.json', function(data) {
+            var output="";
             var output2="";
-            var jsonData = $.ajax({
-                url: "http://www.yhteismaa.fi/agsz5/foundation-one/getData.php",
-                dataType:"json",
-                async: false
-            }).responseText; //responseText gets a String. You have to parse it to be able to work with the array: Json.Parse
-            jsonData = JSON.parse(jsonData);
-            for (var i in jsonData.users) {
-                output2+="<tr><td>" + jsonData.users[i].firstName + "</td>" + "<td>" + jsonData.users[i].lastName + "</td>" + "<td>" + jsonData.users[i].joined.month+"</td></tr>";}//ends for loop
-            $("#mytable2").append(output2);
-            //ends: Get the JSON data from the server to populate panel4a (json server panel)
+            for (var i in data.sites) {
+                //noinspection JSUnfilteredForInLoop
+                output+="<li><a href='" + data.sites[i].url + "' target='_blank' style='text-transform:capitalize !important;'>" +
+                        data.sites[i].name + "</a></li>";
+                output2+="<tr><td style='text-transform:capitalize !important;'>" + data.sites[i].name + "</td>" +
+                        "<td style='text-transform:lowercase !important;'>" + data.sites[i].url+"</td></tr>";
+            }//ends for loop
+            $("#groups-table").append(output2);
+            $("#site-dropdown-list").append(output);
+        })
+    }//--ends: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
+
+    function editContent(editEvent) {
+        var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
+        $.getJSON('json/site_settings.json', function(contentData) {
+            var queryValue="";
+            for (var i in contentData.content) {
+                if (contentData.content[i].id === clickedEditID)
+                {
+                    queryValue=clickedEditID;
+                    $('#editContentModal-id').val(queryValue);
+                    queryValue=$("#editContentModal-id").val();
+                    $("#placeholder-panel4a").text(queryValue);
+
+                    queryValue=contentData.content[i].title;
+                    $('#editContentModal-title').val(queryValue);
+
+                    queryValue=contentData.content[i].excerpt;
+                    $('#editContentModal-excerpt').val(queryValue);
+
+                    queryValue=contentData.content[i].content_type;
+                    $('#editContentModal-categories').val(queryValue);
+
+                    queryValue=contentData.content[i].article_text;
+                    $('#editContentModal-content').val(queryValue);
+
+                    queryValue=contentData.content[i].image;
+                    $('#editContentModal-imagePath').val(queryValue);
+                    queryValue=$("#editContentModal-imagePath").val();
+                    $("#placeholder-panel4a").text(queryValue);
+
+                    //send the correspondent image to the placeholder, but clean its containing div first
+                    $("#editContentModal-image").empty(); //clean the image Placeholder in the form
+                    queryValue = "<img src='"+contentData.content[i].image+"' style='width:320px;height:auto;max-height:350px;margin-left:auto;margin-right:auto;'>";
+                    $("#editContentModal-image").append(queryValue);
+                } //ends If
+            }//ends for loop
+        }) //ends getJson
+        $('#editContentModal').foundation('reveal', 'open');
+    }//ends function editContent
+
+    function viewContent(editEvent) {
+        var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
+        $.getJSON('json/site_settings.json', function(contentData) {
+            var queryValue="";
+            for (var i in contentData.content) {
+                if (contentData.content[i].id === clickedEditID)
+                {
+                    queryValue=contentData.content[i].title;
+                    $("#viewContentModal-title").empty();
+                    $('#viewContentModal-title').append(queryValue);
+
+                    queryValue="<p>"+contentData.content[i].excerpt+"</p>";
+                    $("#viewContentModal-excerpt").empty();
+                    $('#viewContentModal-excerpt').append(queryValue);
+
+                    queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+contentData.content[i].content_type+"</p>";
+                    $("#viewContentModal-categories").empty();
+                    $('#viewContentModal-categories').append(queryValue);
+
+                    queryValue=contentData.content[i].article_text;
+                    $("#viewContentModal-content").empty();
+                    $('#viewContentModal-content').append(queryValue);
+
+                    //send the correspondent image to the placeholder, but clean its containing div first
+                    $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+                    queryValue = "<img src='"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+                    $("#viewContentModal-image").append(queryValue);
+                } //ends If
+            }//ends for loop
+        }) //ends getJson
+        $('#viewContentModal').foundation('reveal', 'open');
+    }//Ends Function ViewContent
+
+    function start_isotope(){
+        var $container = $('.portfolioContainer');
+        $container.isotope({
+            filter: '*',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+        });
+
+        $('.portfolioFilter a').click(function(){
+            $('.portfolioFilter .current').removeClass('current');
+            $(this).addClass('current');
+
+            var selector = $(this).attr('data-filter');
+            $container.isotope({
+                filter: selector,
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+            return false;
+        });
+    }//closes function Start_isotope
+
+    function reveal_addNewContentModal () {
+        $('#form-addNewContentModal-imageUpload').ajaxForm();
+        $('#addNewContentModal').foundation('reveal', 'open');
+    }
+
+    //----------begins: handler for Submit on adding New Content   -------------------->
+    $("#addNewContentModal-submit").click(function () {
+        //var new_content_id = $("#addNewContentModal-id").val();
+        var new_content_id;
+        var new_content_title = $("#addNewContentModal-title").val();
+        var new_content_image = $("#addNewContentModal-imagePath").val();
+        var new_content_excerpt = $("#addNewContentModal-excerpt").val();
+        var new_content_categories = $("#addNewContentModal-categories").val();
+        var new_content_content = $("#addNewContentModal-content").val();
+
+        new_content_id = $.now();
+
+        $.ajax({
+            global: false,
+            type: "POST",
+            //async: false,
+            dataType: "json",
+            data: ({
+                id: new_content_id,
+                title: new_content_title,
+                excerpt: new_content_excerpt,
+                image_path: new_content_image,
+                article_text: new_content_content,
+                categories: new_content_categories
+            }),
+            url: 'new_content.php'
+        });
+        //more stuff to do after the ajax call
+        var new_Content="";
+
+        new_Content+="<div class='content-card "+new_content_categories+"' id='contentCardDataId-"+new_content_id+"'>";
+        new_Content+="<img src='"+new_content_image+"' alt='image' id='contentCardImage-dataID-"+new_content_id+"'/>";
+        new_Content+="<div class='content-card-title' id='contentCardTitle-dataID-"+new_content_id+"'><span style='font-size: 120%;'><strong>"+new_content_title+"</strong></span></div>";
+        new_Content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+new_content_id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+new_content_id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+new_content_id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+new_content_id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+        new_Content+="<div class='content-card-line'><hr></div>";
+        new_Content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+new_content_id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+new_content_id+"'><i class='icon-commentround'></i></a></div>";
+        new_Content+="</div>";
+        $("#contentDivContainer").append(new_Content);
+        window.scrollTo(0,0);
+        $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+    });
+    //-----------------ends: handler for Submit on Adding New content  ---------------->
+
+    //----------begins: handler for Submit on content Edit   -------------------------->
+    $("#editContentModal-submit").click(function () {
+        var edited_content_id = $("#editContentModal-id").val();
+        var edited_content_title = $("#editContentModal-title").val();
+        var edited_content_image = $("#editContentModal-imagePath").val();
+        var edited_content_excerpt = $("#editContentModal-excerpt").val();
+        var edited_content_categories = $("#editContentModal-categories").val();
+        var edited_content_content = $("#editContentModal-content").val();
+
+        $.ajax({
+            global: false,
+            type: "POST",
+            //async: false,
+            dataType: "json",
+            data: ({
+                id: edited_content_id,
+                title: edited_content_title,
+                excerpt: edited_content_excerpt,
+                image: edited_content_image,
+                content: edited_content_content,
+                categories: edited_content_categories
+            }),
+            url: 'update_content.php'
+        });
+        var replace_id="contentCardDataId-";
+        replace_id+=edited_content_id;
+        var new_EditedContent="";
+        $('#'+replace_id).empty();
+        //new_EditedContent+="<div class='content-card "+edited_content_categories+"' id='contentCardDataId-"+edited_content_id+"'>";
+        new_EditedContent+="<img src='"+edited_content_image+"' alt='image' id='contentCardImage-dataID-"+edited_content_id+"'/>";
+        new_EditedContent+="<div class='content-card-title' id='contentCardTitle-dataID-"+edited_content_id+"'><span style='font-size: 120%;'><strong>"+edited_content_title+"</strong></span></div>";
+        new_EditedContent+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+edited_content_id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+edited_content_id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+edited_content_id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+edited_content_id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+        new_EditedContent+="<div class='content-card-line'><hr></div>";
+        new_EditedContent+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+edited_content_id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+edited_content_id+"'><i class='icon-commentround'></i></a></div>";
+        //*new_EditedContent+="</div>";
+        $('#'+replace_id).append(new_EditedContent);
+        //get_content();
+        $('#alert-contentUpdate-successful-variables').empty();
+        $('#alert-contentUpdate-successful-variables').append("Record ID: "+edited_content_id+"<br>"+
+                "Title: "+edited_content_title+"<br>"+
+                "Excerpt: "+edited_content_excerpt+"<br>"+
+                "Image Path: "+edited_content_image+"<br>"+
+                "Categories: "+edited_content_categories);
+        $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+    });
+    //-----------------ends: handler for Submit on content Edit ----------------------->
+
+    $("#cancelAddNewContentModal").click(function () {$('#addNewContentModal').foundation('reveal', 'close');});
+
+    $("#addNewContentModal-imageUpload-submit").click(function () {
+        var options = {
+            type: "POST",
+            url:'uploadphoto.php',
+            success:    function(phpresponse) {
+                $("#addNewContentModal-image").empty();
+                var imageTag ="<img src='"+phpresponse+"' style='height: 100%; width: auto;'>";
+                $("#addNewContentModal-image").append(imageTag);
+                //var time_id= $.now();
+                $("#addNewContentModal-imagePath").val(phpresponse);
+                //$("#addNewContentModal-id").val(time_id);
+            }
+        };
+        $('#form-addNewContentModal-imageUpload').ajaxSubmit(options);
+        return false;
+        //$('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+    });
+
+    $("#create-group-submit").click(function () {
+        var new_group_name = $("#form_new_group_name").val();
+        var new_group_url = $("#form_new_group_url").val();
+        $.ajax({
+            global: false,
+            type: "POST",
+            //async: false,
+            dataType: "json",
+            data: ({
+                name: new_group_name,
+                site: new_group_url
+            }),
+            url: 'read-write.php'
+        });
+        //populate_groups_table();
+        var new_site="<li><a href='" + new_group_url + "' target='_blank' style='text-transform:capitalize !important;'>" +
+                new_group_name + "</a></li>";
+
+        $('#groups-table tr:last').after('<tr><td>'+new_group_name+'</td><td>'+new_group_url+'</td></tr>');
+        $("#site-dropdown-list").append(new_site);
+        $('#alert-groupadded-successful').foundation('reveal', 'open');
+    });
+
+    $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
+
+    $("#close-alert-groupadded-successful").click(function () {
+        //location.reload();    ---->refreshes the page to the current URL
+        document.location.href='#groups-panel'; //can redirect to any URL you want
+    });
+
+    $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
+    $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
+    $("#cancelAddNewContentModal").click(function () {$('#addNewContentModal').foundation('reveal', 'close');});
 
 
 
-        });</script>
-    <!-- +++Document Ready functions ends ++++++++++++++++++++++++++++++++++++++++++++-->
+    //begins: Get the JSON data from the server to populate panel4a (json server panel)
+    //noinspection GjsLint,GjsLint,GjsLint,GjsLint
+    var output2="";
+    var jsonData = $.ajax({
+        url: "http://www.yhteismaa.fi/agsz5/foundation-one/getData.php",
+        dataType:"json",
+        async: false
+    }).responseText; //responseText gets a String. You have to parse it to be able to work with the array: Json.Parse
+    jsonData = JSON.parse(jsonData);
+    for (var i in jsonData.users) {
+        output2+="<tr><td>" + jsonData.users[i].firstName + "</td>" + "<td>" + jsonData.users[i].lastName + "</td>" + "<td>" + jsonData.users[i].joined.month+"</td></tr>";}//ends for loop
+    $("#mytable2").append(output2);
+    //ends: Get the JSON data from the server to populate panel4a (json server panel)
 
 
-    <!-- +++Isotope script Starts++++++++++++++++++++++++++++++++++++++++++++-->
-    <!-- +++Isotope script ends ++++++++++++++++++++++++++++++++++-->
-    
-  </body>
+
+});</script>
+<!-- +++Document Ready functions ends ++++++++++++++++++++++++++++++++++++++++++++-->
+
+
+<!-- +++Isotope script Starts++++++++++++++++++++++++++++++++++++++++++++-->
+<!-- +++Isotope script ends ++++++++++++++++++++++++++++++++++-->
+
+</body>
 </html>

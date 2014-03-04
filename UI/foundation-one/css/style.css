@@ -21,6 +21,23 @@ body {
 
 }
 
+.addNewContent
+{
+    background-color:#911c82 !important;
+    border:none;
+    margin: 10px;
+    padding: 10px;
+    -moz-box-shadow:    10px 10px 10px #f0f0f0;
+    -webkit-box-shadow: 10px 10px 10px #f0f0f0;
+    box-shadow:         10px 10px 10px #f0f0f0;
+    width:210px;
+    float:left;
+    text-align: center;
+}
+
+.addNewContentTitle{color: #ffffff !important; font-weight:bold !important; }
+.addNewContentSubtitle{color: #ffffff !important; font-weight:normal !important; font-size: 70% !important; }
+
 .content-card img
 {
     width: 200px;
