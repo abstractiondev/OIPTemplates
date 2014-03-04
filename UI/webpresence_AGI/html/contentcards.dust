@@ -1,7 +1,7 @@
 {#content}
     <div class='{content_type}' id='contentCardDataId-{id}'>
         <div class='content-card' style='width: 210px;'>
-            <a href='#' class='cardClickableWrapper'>
+            <a href='#' class='cardClickableWrapper' data-itemurl="{itemUrl}">
                 <img src='{image}' alt='image' id='contentCardImage-dataID-{id}'>
                 {#categories}
                     <div class='content-card-fancyTag'><span class='fancyTag'>{Title}</span></div>

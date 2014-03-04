@@ -1,0 +1,46 @@
+<!--Begins contents of  div for the viewContentModal-->
+<div class="row">
+    <div class="large-3 columns" id="viewContentModal-image"><img src='{image}' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'></div>
+    <div class="large-9 columns"><span id="viewContentModal-categories" class="fancyTag"></span><span class="spaceFiller"></span><i class='icon-pencil contentCardAuthor'></i>&nbsp;<span id="viewContentModal-Author"></span><span class="spaceFiller"></span><i class='icon-calendaralt-cronjobs contentCardAuthor'></i>&nbsp;<span id="viewContentModal-Date"></span></div>
+    <div class="large-9 columns" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 100%;">{title}</span></strong><br></div>
+    <div class="large-9 columns" style="padding-left: 0px !important;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt"><p>{excerpt|s}</p></span></div>
+</div>
+<div class="row">
+    <div class="large-12 columns" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;">{article_text|s}</div>
+    <div class="subheader" id="viewContentModal-categories2" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
+</div>
+<div class="row">
+    <div class="large-12">
+        <br>
+        <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
+    </div>
+</div>
+<a class="close-reveal-modal">&#215;</a>
+
+{!
+
+                        var queryValue = "";
+
+                        queryValue = content.title;
+                        $("#viewContentModal-title").empty();
+                        $('#viewContentModal-title').append(queryValue);
+
+                        queryValue = "<p>" + content.excerpt + "</p>";
+                        $("#viewContentModal-excerpt").empty();
+                        $('#viewContentModal-excerpt').append(queryValue);
+
+                        queryValue = "<p style='font-size: 85%;float:right !important;'>Categorized as: " + content.content_type + "</p>";
+                        $("#viewContentModal-categories").empty();
+                        $('#viewContentModal-categories').append(queryValue);
+
+                        queryValue = content.article_text;
+                        $("#viewContentModal-content").empty();
+                        $('#viewContentModal-content').append(queryValue);
+
+                        //send the correspondent image to the placeholder, but clean its containing div first
+                        $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+                        queryValue = "<img src='" + content.image + "' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+                        $("#viewContentModal-image").append(queryValue);
+
+
+!}

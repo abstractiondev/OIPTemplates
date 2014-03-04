@@ -67,24 +67,6 @@
 
     <div id="ModalsHolderDiv-Content">
         <div id="viewContentModal" class="reveal-modal" data-reveal>
-            <!--Begins contents of  div for the viewContentModal-->
-            <div class="row">
-                <div class="large-3 columns" id="viewContentModal-image"></div>
-                <div class="large-9 columns"><span id="viewContentModal-categories" class="fancyTag"></span><span class="spaceFiller"></span><i class='icon-pencil contentCardAuthor'></i>&nbsp;<span id="viewContentModal-Author"></span><span class="spaceFiller"></span><i class='icon-calendaralt-cronjobs contentCardAuthor'></i>&nbsp;<span id="viewContentModal-Date"></span></div>
-                <div class="large-9 columns" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 100%;"></span></strong><br></div>
-                <div class="large-9 columns" style="padding-left: 0px !important;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt"></span></div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
-                <div class="subheader" id="viewContentModal-categories2" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
-            </div>
-            <div class="row">
-                <div class="large-12">
-                    <br>
-                    <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
-                </div>
-            </div>
-            <a class="close-reveal-modal">&#215;</a>
         </div> <!--closes div for the viewContentModal-->
     </div>
     <!-- +++Isotope content starts +++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -104,6 +86,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
 <script src="maincategories_dust.js"></script>
 <script src="contentcards_dust.js"></script>
+<script src="viewcontent_dust.js"></script>
 
 <!-- MarkdownDeep Rendering -->
 <link rel="stylesheet" href="../assets/lib/markdowndeep/mdd_styles.css">
@@ -136,9 +119,33 @@
         */
         get_content();
         $("#contentDivContainer").on('mouseover',reLayout_isotope);
+        /*
         $("#contentDivContainer").delegate(".cardClickableWrapper",{ click: viewContent } );
-        $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
+        */
 
+        var bindView = function () {
+            $(".cardClickableWrapper").click(function (editEvent) {
+                var itemUrl = $(this).data("itemurl");
+                var textContentUrl = itemUrl;
+                $.ajax({ url: textContentUrl, cache: false,
+                    success: function (textContentData) {
+                        markdown = new MarkdownDeep.Markdown();
+                        markdown.SafeMode = true;
+                        var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
+                        textContentData.ExcerptRendered = excerptRendered;
+                        var bodyRendered = markdown.Transform(textContentData.Body.replaceAll("javascript:", ""));
+                        textContentData.BodyRendered = bodyRendered;
+
+                        var content = getCardContentFromTextContent(textContentData, "256");
+                        dust.render("viewcontent.dust", content, function (err, out) {
+                            $("#viewContentModal").html(out);
+                            $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
+                            $('#viewContentModal').foundation('reveal', 'open');
+                        });
+                    }
+                }) //ends getJson
+            });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
+        }
 
 
         function getAndPopulate_Isotope_Filter_Categories ()
@@ -184,6 +191,7 @@
             var rootCategories = $.grep(orderedCategories, function(candidate) { return !candidate.ParentCategoryID; });
             return rootCategories;
         };
+
         var getCategoriesBasedByNamesOrIDs = function(categoryCollection, nameShortTextCollection, categoryIDList)
         {
             var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
@@ -208,7 +216,7 @@
                         });
             }
             return filteredCategories;
-        }
+        };
 
 
         var getCardContentFromNode = function (item, imageSizeString) {
@@ -227,11 +235,21 @@
             return { "id": item.ID, "title": item.Title, "excerpt": item.ExcerptRendered,
                 "article_text": item.BodyRendered,
                 "image": imageUrl,
-                "itemUrl": item.ActualContentUrl + ".json",
+                "itemUrl": "../" + item.ActualContentUrl + ".json",
                 "author": authorText,
                 "categories": categories
             };
+        };
 
+        var getCardContentFromTextContent = function (item, imageSizeString) {
+            var imageUrl = item.ImageData
+                    ? "../../AaltoGlobalImpact.OIP/MediaContent/" + item.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageData.AdditionalFormatFileExt
+                    : null;
+            return { "id": item.ID, "title": item.Title, "excerpt": item.ExcerptRendered,
+                "article_text": item.BodyRendered,
+                "image": imageUrl,
+                "itemUrl": "../../AaltoGlobalImpact.OIP/TextContent/" + item.ID + ".json"
+            };
         };
 
         String.prototype.replaceAll = function(strReplace, strWith) {
@@ -267,6 +285,7 @@
                 });
                 dust.render("contentcards.dust", contentData, function (err, out) {
                     $("#contentDivContainer").html(out);
+                    bindView();
                     start_isotope();
                     console.log( "Isotope fired after getting content, succeed" );
                 });
@@ -343,7 +362,7 @@
             $container.isotope( 'reLayout');
         }
 
-        function viewContent(editEvent) {
+        function viewContentOLDNOTUSED(editEvent) {
             console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
             editEvent.preventDefault();
             var currentId=editEvent.target.id;
