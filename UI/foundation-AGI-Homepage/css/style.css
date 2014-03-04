@@ -175,7 +175,10 @@ vertical-align: middle !important;
 }
 
 .spaceFiller{
-    width: 10px;
+    padding-right: 10px;
+    paddint-left:0px;
+    width: 100%;
+    line-height: 45px;
 }
 .addNewContent
 {
@@ -231,11 +234,35 @@ vertical-align: middle !important;
 
 }
 
+.hugeTitleText, .hugeTitleText p {
+    font-size: 200%;
+    line-height: 100%;
+}
+
+.bigTitleText, .bigTitleText p {
+    font-size: 110%;
+    line-height: 120%;
+    font-weight: 200;
+}
+
+.lineHeight45{
+    line-height: 45px;
+}
+.lineHeight16{
+    line-height: 16px;
+}
 .discreetLinks{
-    color: #585757;
+    color: #7f7e7e;
     font-size: 80%;
 }
 
+.discreetTextColor{
+    color: #7f7e7e;
+}
+
+.fancyTextColor{
+    color: #c01ea1;
+}
 .content-card-spanExcerpt{
      color: #585757;
      font-size: 80%;
@@ -250,6 +277,31 @@ vertical-align: middle !important;
     background-color: #c01ea1;
     color: #ffffff;
     text-transform: uppercase;
+}
+
+
+.boldieText{
+    font-weight:bold;
+}
+.fancyTagBig{
+    font-size: 80%;
+    font-weight: bold;
+    padding:5px;
+    background-color: #c01ea1;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin:0;
+}
+
+.fancyViewModalInline{
+    padding-right: 0;
+    margin-right: 0;
+    height:30px !important;
+}
+
+.articleText p {
+    font-size: 90%;
+    line-height: 130%;
 }
 
 .content-card-line {width:100%; float:left;padding-top:5px;padding-bottom:5px;margin: 0px;line-height: 1px !important;font-size: 1px;height:auto;}
