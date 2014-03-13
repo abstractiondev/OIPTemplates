@@ -55,9 +55,11 @@ var ConvertCategoriesFromParentToChildren = function(categoryArray){
         var obj = categoryArray[i];
         var parentID = obj.ParentCategoryID ? obj.ParentCategoryID : "-";
         if(!map[parentID]){
+            /*
             map[parentID] = {
                 UI_ChildrenCategories: []
-            };
+            };*/
+            parentID = "-";
         }
         map[parentID].UI_ChildrenCategories.push(obj);
     }
