@@ -129,12 +129,17 @@
                 var textContentUrl = itemUrl;
                 $.ajax({ url: textContentUrl, cache: false,
                     success: function (textContentData) {
-                        markdown = new MarkdownDeep.Markdown();
-                        markdown.SafeMode = true;
-                        var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
-                        textContentData.ExcerptRendered = excerptRendered;
-                        var bodyRendered = markdown.Transform(textContentData.Body.replaceAll("javascript:", ""));
-                        textContentData.BodyRendered = bodyRendered;
+                        if(textContentData.RawHtmlContent) {
+                            textContentData.ExcerptRendered = textContentData.Excerpt;
+                            textContentData.BodyRendered = textContentData.Body;
+                        } else {
+                            markdown = new MarkdownDeep.Markdown();
+                            markdown.SafeMode = true;
+                            var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
+                            textContentData.ExcerptRendered = excerptRendered;
+                            var bodyRendered = markdown.Transform(textContentData.Body.replaceAll("javascript:", ""));
+                            textContentData.BodyRendered = bodyRendered;
+                        }
 
                         var content = getCardContentFromTextContent(textContentData, "256");
                         dust.render("viewcontent.dust", content, function (err, out) {
