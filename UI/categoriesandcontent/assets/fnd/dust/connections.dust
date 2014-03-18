@@ -4,11 +4,11 @@
         <dd id="dd{ID}">
                 <a href="#" class="connectionAccordion">{Description}</a>
                 <div id="conAcc{ID}" class="content">
-
-                    <button onclick="FinalizeConnection('{ID}')">Finalize connection: {Description}</button>
-                    <button onclick="DeleteConnection('{ID}')">Delete connection: {Description}</button>
-                    <button onclick="UpdateConnectionThisSide('{ID}')">Update this side {Description}</button>
-                    <button onclick="SynchronizeConnectionCategories('{ID}')">Synchronize Categories {Description}</button>
+{^OtherSideConnectionID}
+                    <button onclick="FinalizeConnection('{ID}')">Finalize connection</button>
+{:else}
+                    <button onclick="SynchronizeConnectionCategories('{ID}')">Synchronize Categories</button>
+{?ThisSideCategories.length}
                     <button onClick="PopulateTreeConnectors('{ID}')">Populate Tree Connectors</button>
                     <button onclick="SetCategoryLinksFromTreeSelections('{ID}')">Set Category Links</button>
                     <table>
@@ -18,12 +18,15 @@
                         {/CategoryLinks}
 
                     </table>
+{/ThisSideCategories.length}
+{/OtherSideConnectionID}
+                    <div id="LeftSideConnectionTree{ID}"></div><div id="RightSideConnectionTree{ID}"></div>
+                    <button onclick="DeleteConnection('{ID}')">Delete connection</button>
                 </div>
         </dd>
         {/CollectionContent}
     </dl>
 {/Connections}
-<div id="LeftSideConnectionTree"></div><div id="RightSideConnectionTree"></div>
 <button onclick="OpenAddConnectionForm()">Add Connection</button>
 
 <script type="text/javascript">
@@ -37,7 +40,11 @@
         $currActive.toggleClass("active");
         $dd = $clickedObject.closest("dd");
         $div = $dd.find("div.content");
-        $div.toggleClass("active");
+        if($currActive.get(0) != $div.get(0))
+        {
+            /* Only toggle active back active, if the click was different */
+            $div.toggleClass("active");
+        }
     };
     var UpdateConnectionThisSide = function(connectionID) {
         tOP.ExecuteOperationWithForm("UpdateConnectionThisSideCategories", { "ConnectionID": connectionID});
@@ -55,11 +62,11 @@
         tOP.ExecuteOperationWithForm("FinalizeConnectionAfterGroupAuthorization", { "ConnectionID": connectionID });
     };
     var SetCategoryLinksFromTreeSelections = function(connectionID) {
-        var leftNodes = $("#LeftSideConnectionTree").dynatree('getSelectedNodes');
+        var leftNodes = $("#LeftSideConnectionTree" + connectionID).dynatree('getSelectedNodes');
         var leftIDs = $.map(leftNodes, function(node) {
             return node.data.ID;
         });
-        var rightNodes = $("#RightSideConnectionTree").dynatree('getSelectedNodes');
+        var rightNodes = $("#RightSideConnectionTree" + connectionID).dynatree('getSelectedNodes');
         var rightIDs = $.map(rightNodes, function(node) {
             return node.data.ID;
         });
@@ -88,7 +95,7 @@
     };
     var PopulateTreeConnectors = function(connectionID) {
         var conn = GetConnectionByID(connectionID);
-        $("#LeftSideConnectionTree").dynatree({
+        $("#LeftSideConnectionTree" + connectionID).dynatree({
             onActivate: function(node) {
             },
             persist: false,
@@ -96,7 +103,7 @@
             checkbox: true,
             selectMode: 1
         });
-        $("#RightSideConnectionTree").dynatree({
+        $("#RightSideConnectionTree" + connectionID).dynatree({
             onActivate: function(node) {
             },
             persist: false,
