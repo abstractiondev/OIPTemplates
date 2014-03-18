@@ -20,7 +20,7 @@
                     </table>
 {/ThisSideCategories.length}
 {/OtherSideConnectionID}
-                    <div id="LeftSideConnectionTree{ID}"></div><div id="RightSideConnectionTree{ID}"></div>
+                    <div id="LeftSideConnectionTree{ID}" style="width: 50%;display: inline-block"></div><div id="RightSideConnectionTree{ID}" style="width: 50%;display: inline-block"></div>
                     <button onclick="DeleteConnection('{ID}')">Delete connection</button>
                 </div>
         </dd>
