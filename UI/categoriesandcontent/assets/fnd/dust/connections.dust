@@ -1,7 +1,9 @@
 {#Connections}
     {#CollectionContent}
+        <button onclick="FinalizeConnection('{ID}')">Finalize connection: {Description}</button>
+        <button onclick="DeleteConnection('{ID}')">Delete connection: {Description}</button>
         <button onclick="UpdateConnectionThisSide('{ID}')">Update this side {Description}</button>
-        <button onclick="UpdateConnectionOtherSide('{ID}')">Update other side {Description}</button>
+        <button onclick="SynchronizeConnectionCategories('{ID}')">Synchronize Categories {Description}</button>
         <button onClick="PopulateTreeConnectors('{ID}')">Populate Tree Connectors</button>
         <button onclick="SetCategoryLinksFromTreeSelections('{ID}')">Set Category Links</button>
         <table>
@@ -20,11 +22,17 @@
     var UpdateConnectionThisSide = function(connectionID) {
         tOP.ExecuteOperationWithForm("UpdateConnectionThisSideCategories", { "ConnectionID": connectionID});
     };
-    var UpdateConnectionOtherSide = function(connectionID) {
-        tOP.ExecuteOperationWithForm("UpdateConnectionOtherSideCategories", { "ConnectionID": connectionID});
+    var SynchronizeConnectionCategories = function(connectionID) {
+        tOP.ExecuteOperationWithForm("SynchronizeConnectionCategories", { "ConnectionID": connectionID});
     };
     var OpenAddConnectionForm = function() {
         $("#OPInitiateIntegrationConnectionModal").foundation('reveal', 'open');
+    };
+    var DeleteConnection = function(connectionID) {
+        tOP.ExecuteOperationWithForm("DeleteConnection", { "ConnectionID": connectionID});
+    };
+    var FinalizeConnection = function(connectionID) {
+        tOP.ExecuteOperationWithForm("FinalizeConnectionAfterGroupAuthorization", { "ConnectionID": connectionID });
     };
     var SetCategoryLinksFromTreeSelections = function(connectionID) {
         var leftNodes = $("#LeftSideConnectionTree").dynatree('getSelectedNodes');
