@@ -1,39 +1,4 @@
-{#Connections}
-    <dl class="accordion" data-accordion>
-        {#CollectionContent}
-        <dd id="dd{ID}">
-                <a href="#" class="connectionAccordion">{Description}</a>
-                <div id="conAcc{ID}" class="content">
-{^OtherSideConnectionID}
-                    <button onclick="FinalizeConnection('{ID}')">Finalize connection</button>
-{:else}
-                    <button onclick="SynchronizeConnectionCategories('{ID}')">Synchronize Categories</button>
-{?ThisSideCategories.length}
-                    <button onClick="PopulateTreeConnectors('{ID}')">Populate Tree Connectors</button>
-                    <button onclick="SetCategoryLinksFromTreeSelections('{ID}')">Set Category Links</button>
-                    <table>
-                        <tr><th>Linking Info</th></tr>
-                        {#CategoryLinks}
-                            <tr><td>{SourceCategoryID} - {TargetCategoryID} - {LinkingType}</td></tr>
-                        {/CategoryLinks}
-
-                    </table>
-{/ThisSideCategories.length}
-{/OtherSideConnectionID}
-                    <div id="LeftSideConnectionTree{ID}" style="width: 50%;display: inline-block"></div><div id="RightSideConnectionTree{ID}" style="width: 50%;display: inline-block"></div>
-                    <button onclick="DeleteConnection('{ID}')">Delete connection</button>
-                </div>
-        </dd>
-        {/CollectionContent}
-    </dl>
-{/Connections}
-<button onclick="OpenAddConnectionForm()">Add Connection</button>
-
 <script type="text/javascript">
-    $(".connectionAccordion").click(function() {
-        ActivateAccordion($(this));
-        return false;
-    });
     var ActivateAccordion = function($clickedObject) {
         var $myAccordion = $clickedObject.closest(".accordion");
         var $currActive = $myAccordion.find("div.content.active");
@@ -112,6 +77,49 @@
             selectMode: 1
         });
     };
+</script>
+
+{#Connections}
+    <dl class="accordion" data-accordion>
+        {#CollectionContent}
+        <dd id="dd{ID}">
+                <a href="#" class="connectionAccordion">{Description}</a>
+                <div id="conAcc{ID}" class="content">
+{^OtherSideConnectionID}
+                    <button onclick="FinalizeConnection('{ID}')">Finalize connection</button>
+{:else}
+                    <button onclick="SynchronizeConnectionCategories('{ID}')">Synchronize Categories</button>
+{?ThisSideCategories.length}
+{!
+    <button onClick="PopulateTreeConnectors('{ID}')">Populate Tree Connectors</button>
+!}
+<script type="text/javascript">
+    PopulateTreeConnectors('{ID}');
+</script>
+                    <button onclick="SetCategoryLinksFromTreeSelections('{ID}')">Set Category Links</button>
+                    <table>
+                        <tr><th>Linking Info</th></tr>
+                        {#CategoryLinks}
+                            <tr><td>{SourceCategoryID} - {TargetCategoryID} - {LinkingType}</td></tr>
+                        {/CategoryLinks}
+
+                    </table>
+{/ThisSideCategories.length}
+{/OtherSideConnectionID}
+                    <div id="LeftSideConnectionTree{ID}" style="width: 50%;display: inline-block"></div><div id="RightSideConnectionTree{ID}" style="width: 50%;display: inline-block"></div>
+                    <button onclick="DeleteConnection('{ID}')">Delete connection</button>
+                </div>
+        </dd>
+        {/CollectionContent}
+    </dl>
+{/Connections}
+<button onclick="OpenAddConnectionForm()">Add Connection</button>
+
+<script type="text/javascript">
+    $(".connectionAccordion").click(function() {
+        ActivateAccordion($(this));
+        return false;
+    });
 </script>
 
 {!
