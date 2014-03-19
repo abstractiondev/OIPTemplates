@@ -251,7 +251,9 @@
     $("#navbar_placeholder").data({
         datasource: {
             GroupContainerSource: ["../../AaltoGlobalImpact.OIP/GroupContainer/default.json", null, "GroupContainer"],
-            AccountContainer: [fixContentUrl("/auth/account/AaltoGlobalImpact.OIP/AccountContainer/default"), null]
+            AccountContainer: [fixContentUrl("/auth/account/AaltoGlobalImpact.OIP/AccountContainer/default"), null],
+            ConnectionsSource: ["../../TheBall.Interface/ConnectionCollection/MasterCollection.json", null, "ConnectionCollection"]
+
         }
     });
 
@@ -332,7 +334,7 @@
         var dustcompiled = templateID + "_dust.js";
         var dusttemplatename = dustfilename;
         fetchContentPromises.push($.ajax({ url: dustcompiled,cache:false}));
-        $.when.apply($, fetchContentPromises).then(function() {
+        var dataFetched = function() {
             var dataObject = {};
             var dustTemplateContent;
             if(dataSourceKeys.length > 0) {
@@ -396,9 +398,8 @@
             } else
                 dustTemplateContent = arguments[0];
             renderDustFromResponse(placeholderID, dusttemplatename, dustTemplateContent, dataObject);
-
-        });
-        //var dataObject = null;
+        };
+        $.when.apply($, fetchContentPromises).then(dataFetched);
     };
     var DataPromiseCache = {};
     var replaceDatasourceUrlsWithAjaxPromises = function()

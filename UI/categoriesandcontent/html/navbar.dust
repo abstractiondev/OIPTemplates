@@ -19,6 +19,19 @@
 {/WwwSiteToPublishTo}
                     <li class="divider"></li>
                     <li class="divider visible-phone"></li>
+{/GroupContainerSource.GroupContainer.GroupProfile}
+{#ConnectionsSource.ConnectionCollection.CollectionContent}
+{?IsActiveParty}
+                    <li>
+                        {>"executeoperation_button_begin.dust" form_name="PublishToConnection" /}
+                        {>"executeoperation_button_end.dust" button_label="Publish To: {Description}" icon_class_name="icon-cloud-upload" /}
+                    </li>
+                    <li class="divider"></li>
+                    <li class="divider visible-phone"></li>
+{/IsActiveParty}
+{/ConnectionsSource.ConnectionCollection.CollectionContent}
+{#GroupContainerSource.GroupContainer.GroupProfile}
+                    <li class="divider visible-phone"></li>
                     <li><a tabindex="-1" href="resourceusagesummary.html"><i class="icon-bar-chart"></i>Resource Usage Summary</a></li>
 {?CustomUICollection.CollectionContent}
                     <li class="divider"></li>
