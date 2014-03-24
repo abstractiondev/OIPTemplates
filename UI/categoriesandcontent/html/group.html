@@ -30,7 +30,7 @@
                     contentType: "application/json",
                     data: jsonData,
                     success: function() {
-                        window.location.reload(true);
+                        window.location.reload(false);
                     },
                     error: function(){
                         alert("Error Occurred at Save");
@@ -333,7 +333,7 @@
         var dustfilename = templateID + ".dust";
         var dustcompiled = templateID + "_dust.js";
         var dusttemplatename = dustfilename;
-        fetchContentPromises.push($.ajax({ url: dustcompiled,cache:false}));
+        fetchContentPromises.push($.ajax({ url: dustcompiled,cache:true}));
         var dataFetched = function() {
             var dataObject = {};
             var dustTemplateContent;
@@ -413,7 +413,7 @@
             var urlPromise = DataPromiseCache[url];
             if(urlPromise == null)
             {
-                urlPromise = $.ajax({ url: url, cache:false});
+                urlPromise = $.ajax({ url: url, cache:true});
                 DataPromiseCache[url] = urlPromise;
             }
             dataSources[key][1] = urlPromise;

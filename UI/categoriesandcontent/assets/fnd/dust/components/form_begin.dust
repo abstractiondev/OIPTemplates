@@ -1,8 +1,10 @@
 <form id="{form_id}" method="post" target="OperationManager_IFrame" enctype="multipart/form-data">
     <fieldset>
+{^no_operation}
 {?operation_name}
         <input type="hidden" name="ExecuteOperation" value="{operation_name}" />
 {:else}
         <input type="hidden" name="ContentSourceInfo" value="" />
 {/operation_name}
+{/no_operation}
 
