@@ -30,7 +30,7 @@ var TheBall;
                 TimestampedFetch.prototype.ExecuteAjaxToPromise = function () {
                     if (!this.ajaxPromise) {
                         this.ajaxPromise = this.ajaxPromise = $.ajax({
-                            url: this.FetchUrl, cache: false,
+                            url: this.FetchUrl, cache: true,
                             success: this.FetchCallBack });
                     }
                     return this.ajaxPromise;

@@ -53,7 +53,7 @@ var TheBall;
                     this.LastProcessedTick = "";
                     this.InitialTick = "";
                     var initialStatusFetch = $.ajax({
-                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
+                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: true,
                         async: false
                     });
                     $.when(initialStatusFetch).then(function (data) {
@@ -131,7 +131,7 @@ var TheBall;
                 DataConnectionManager.prototype.PerformAsyncPoll = function () {
                     var priv = this;
                     $.ajax({
-                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
+                        url: "../../TheBall.Interface/StatusSummary/default.json", cache: true,
                         success: function (data) {
                             //console.log("Polled status...");
                             priv.ProcessStatusData(data);
@@ -153,7 +153,7 @@ var TheBall;
 
                 DataConnectionManager.prototype.FetchAndProcessJSONData = function (dataUrl) {
                     $.ajax({
-                        url: dataUrl, cache: false,
+                        url: dataUrl, cache: true,
                         success: this.ProcessFetchedData
                     });
                 };

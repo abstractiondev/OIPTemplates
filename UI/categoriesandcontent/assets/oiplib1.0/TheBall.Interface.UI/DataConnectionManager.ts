@@ -116,7 +116,7 @@ module TheBall.Interface.UI {
 
         constructor() {
             var initialStatusFetch = $.ajax({
-                url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
+                url: "../../TheBall.Interface/StatusSummary/default.json", cache: true,
                 async: false
             });
             $.when(initialStatusFetch).then(function(data:StatusData) {
@@ -132,7 +132,7 @@ module TheBall.Interface.UI {
         PerformAsyncPoll() {
             var priv = this;
             $.ajax({
-                url: "../../TheBall.Interface/StatusSummary/default.json", cache: false,
+                url: "../../TheBall.Interface/StatusSummary/default.json", cache: true,
                 success: function(data:StatusData) {
                     //console.log("Polled status...");
                     priv.ProcessStatusData(data);
@@ -154,7 +154,7 @@ module TheBall.Interface.UI {
 
         FetchAndProcessJSONData(dataUrl: string) {
             $.ajax({
-                url: dataUrl, cache: false,
+                url: dataUrl, cache: true,
                 success: this.ProcessFetchedData
             });
         }

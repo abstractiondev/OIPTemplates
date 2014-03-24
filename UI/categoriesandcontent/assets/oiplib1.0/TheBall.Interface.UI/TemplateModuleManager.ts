@@ -35,7 +35,7 @@ module TheBall.Interface.UI {
         }
         ExecuteAjaxToPromise(): any {
             if(!this.ajaxPromise) {
-                this.ajaxPromise = this.ajaxPromise = $.ajax({ url: this.FetchUrl, cache:false,
+                this.ajaxPromise = this.ajaxPromise = $.ajax({ url: this.FetchUrl, cache:true,
                     success: this.FetchCallBack});
             }
             return this.ajaxPromise;
