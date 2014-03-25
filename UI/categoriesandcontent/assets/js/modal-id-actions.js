@@ -38,7 +38,6 @@ $(document).on("click", ".open-IDAction_AssignGroupRole", function () {
     $('#IDAction_AssignGroupRole').modal('show');
 });
 
-
 $("#edittoggle").click(function () {
     // alert('Toggling page elements to/from edit mode...');
     var inEditMode = $(".editable");

@@ -10,7 +10,11 @@
                 <div class="clearfix"></div>
             </section>
             <footer>
-                <span class="pull-right"><a data-toggle="modal" role="button" href="#remove-collaborator" class="remove"><i class="icon-remove-sign"></i></a></span>
+                <span class="pull-right">
+                    {>"executeoperation_button_begin.dust" form_name="removecollaborator" /}
+                        data-accountid="{AccountID}"
+                    {>"executeoperation_button_end.dust" icon_class_name="icon-remove-sign" /}
+                </span>
                 <span class="pull-right"><a data-toggle="modal" role="button" href="#view-collaborator-profile"><i class="icon-eye-open"></i></a></span>
             </footer>
         </div>
@@ -26,3 +30,21 @@
 {>"textinput_singleline.dust" field_id="InviteMember_EmailAddress"
 field_name="EmailAddress" field_label="Member Email Address" /}
 {>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Send Invitation Email" /}
+
+{>"modal_executeoperation_begin.dust" form_name="removecollaborator" header_title="Remove Collaborator"
+    operation_name="RemoveCollaboratorFromGroup" map_data_values="AccountID" /}
+    {>"hiddeninput.dust" field_name="AccountID" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Remove!" /}
+
+
+{!
+
+$(document).on("click", ".open-RemoveCollaborator", function() {
+    var accountID = $(this).data("accountid");
+    if(!accountID)
+        return;
+    $(".modal-body #RemoveCollaboratAccountID").val(accountID);
+    $("#RemoveCollaboratorForm").modal("show");
+});
+
+!}
