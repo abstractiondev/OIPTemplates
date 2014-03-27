@@ -90,6 +90,7 @@
 <script src="../assets/js/jquery.isotope.js" type="text/javascript"></script>
 <script src="../assets/js/jquery.form.min.js"></script>
 <script src="../assets/js/jquery.htmlClean.min.js "></script>
+<script src="../assets/lib/markdowndeep/MarkdownDeepLib.min.js"></script>
 <script>
     $(document).foundation(
             {
@@ -104,7 +105,7 @@
 </script>
 <script>
 $(document).ready(function(){
-    $.ajaxSetup({cache: false});
+    $.ajaxSetup({cache: true});
 
     getAndPopulate_Isotope_Filter_Categories();
     $.when(get_content()).then(function(){start_isotope();setInterval(reLayout_isotope, 1500);console.log( "Isotope fired after getting content, succeed" );}).fail(function(){console.log( "something went wrong with getting the content" );});
@@ -240,6 +241,11 @@ $(document).ready(function(){
         $container.isotope( 'reLayout');
     }
 
+    String.prototype.replaceAll = function(strReplace, strWith) {
+        var reg = new RegExp(strReplace, 'ig');
+        return this.replace(reg, strWith);
+    };
+
     function viewContent(editEvent) {
         console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
         editEvent.preventDefault();
@@ -251,6 +257,8 @@ $(document).ready(function(){
         $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/' + clickedEditID + '.json', function(textContent) {
             var contentData = { "CollectionContent": [ textContent ] };
             var queryValue="";
+            markdown = new MarkdownDeep.Markdown();
+            markdown.SafeMode = true;
             for (var i in contentData.CollectionContent) {
                 if (contentData.CollectionContent[i].ID === clickedEditID)
                 {
@@ -284,6 +292,9 @@ $(document).ready(function(){
                     /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
                      rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
                      rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
+
+                    //var bodyRendered = markdown.Transform(rawbody.replaceAll("javascript:", ""));
+                    //rawbody = bodyRendered;
 
                     queryValue=$.htmlClean(rawbody, {format:true});
 
