@@ -3,9 +3,7 @@
         <div class='content-card' style='width: 210px;'>
             <a href='#' class='cardClickableWrapper' data-itemurl="{itemUrl}">
                 <img src='{image}' alt='image' id='contentCardImage-dataID-{id}'>
-                {#categories}
-                    <div class='content-card-fancyTag'><span class='fancyTag'>{Title}</span></div>
-                {/categories}
+                    <div class='content-card-fancyTag'><span class='fancyTag'>{mainCategory}</span></div>
             <div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-{id}'>{title}</div>
             <div class='content-card-excerpt'>
                 <span class='content-card-spanExcerpt'>{excerpt|s}</span>

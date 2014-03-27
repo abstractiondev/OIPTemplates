@@ -1,14 +1,38 @@
 <!--Begins contents of  div for the viewContentModal-->
 <div class="row">
-    <div class="large-3 columns" id="viewContentModal-image"><img src='{image}' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'></div>
+    <div class="large-4 columns" id="viewContentModal-image"><img src='{image}' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'></div>
+
+    <div class="large-8 columns">
+        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><span id="viewContentModal-categories" class="fancyTagBig">{mainCategory}</span></div>
+        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-pencil fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Author" class="discreetLinks">{author}</span></div>
+        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-calendaralt-cronjobs fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Date" class="discreetLinks">{formattedPublishedDate}</span></div>
+    </div>
+
+
+{!
     <div class="large-9 columns"><span id="viewContentModal-categories" class="fancyTag"></span><span class="spaceFiller"></span><i class='icon-pencil contentCardAuthor'></i>&nbsp;<span id="viewContentModal-Author"></span><span class="spaceFiller"></span><i class='icon-calendaralt-cronjobs contentCardAuthor'></i>&nbsp;<span id="viewContentModal-Date"></span></div>
+!}
+    <div class="large-8 columns" style="padding-right:0;padding-top: 0;padding-bottom:0;"><div class="content-card-line"><hr></div></div>
+    <div class="large-8 columns" style="padding-bottom: 12px;padding-right:10px;padding-top:10px;"><strong><span id="viewContentModal-title" class="hugeTitleText">{title}</span></strong><br></div>
+{!
     <div class="large-9 columns" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 100%;">{title}</span></strong><br></div>
-    <div class="large-9 columns" style="padding-left: 0px !important;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt"><p>{excerpt|s}</p></span></div>
+!}
+    <div class="large-8 columns" style="padding-right:15px;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt bigTitleText discreetTextColor">{excerpt}</span></div>
+
+{!
+    <div class="large-9 columns" style="padding-left: 0px !important;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt"><p>{excerpt}</p></span></div>
+!}
 </div>
 <div class="row">
-    <div class="large-12 columns" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;">{article_text|s}</div>
-    <div class="subheader" id="viewContentModal-categories2" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
+    <div class="large-12 columns" style="height:20px;"></div>
 </div>
+
+<div class="row">
+    <div class="large-12 columns articleText" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;">{article_text|s}</div>
+   {! <div class="large-12 columns" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;">{article_text|s}</div>
+    <div class="subheader" id="viewContentModal-categories2" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>!}
+</div>
+
 <div class="row">
     <div class="large-12">
         <br>

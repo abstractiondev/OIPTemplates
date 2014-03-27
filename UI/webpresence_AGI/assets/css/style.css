@@ -1,7 +1,18 @@
 body {
     font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
     background-color: #F7F7F7;
+
 }
+.topbar {overflow: visible !important;}
+
+div#ModalsHolderDiv-Content{
+    margin-top: 10px;
+}
+#schoolsLink {}
+
+.f-dropdown.open {overflow: visible !important;z-index: 999 !important;}
+
+ul#drop1.f-dropdown.open{overflow: visible !important;z-index: 1000!important;}
 
 #logo { width: 100%; overflow: hidden;padding:0;margin:0; }
 .issuuContentContainer{
@@ -106,7 +117,7 @@ body {
     padding-right: 0px !important;
     padding-top: 0px !important;
     vertical-align: middle !important;
-    visibility: visible !important;
+    /*visibility: visible !important;*/
     position: fixed !important;
     z-index: 20;
     -moz-border-bottom-colors: none !important;
@@ -126,7 +137,9 @@ body {
     line-height: 45px !important;
     color: #777777;
 }
-
+.itemWrapper-fixedWidth{
+    display:inline-block;
+}
 .vAlignMiddle{
     vertical-align: middle !important;
 }
@@ -203,6 +216,9 @@ body {
     height: auto;
 }
 
+.font80{
+    font-size: 80%;
+}
 .content-card-options
 {
     width: 100%;
@@ -225,12 +241,20 @@ body {
     margin: 0px;
     padding-top:0px;padding-bottom:5px;
 }
+
+.content-card-author
+{
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding-top:0px;padding-bottom:0px;
+}
 .content-card-fancyTag
 {
     width: 100%;
     float: left;
     margin: 0px;
-    padding-top:10px;padding-bottom:5px;
+    padding-top:10px;padding-bottom:2px;
 
 }
 
@@ -266,7 +290,11 @@ body {
 .content-card-spanExcerpt, .content-card-spanExcerpt p {
     color: #585757;
     font-size: 80%;
+    line-height: 130%;
+    padding-top:2px;
+    overflow: hidden;
 }
+
 .content-card-spanAuthor {
     color: #4a4949;
     font-size: 70%;
@@ -279,6 +307,14 @@ body {
     text-transform: uppercase;
 }
 
+.fancyTagDiv{
+    font-size: 60%;
+    padding:5px;
+    background-color: #c01ea1;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: inline-block;
+}
 
 .boldieText{
     font-weight:bold;
@@ -286,6 +322,7 @@ body {
 .fancyTagBig{
     font-size: 80%;
     font-weight: bold;
+    line-height: 200%;
     padding:5px;
     background-color: #c01ea1;
     color: #ffffff;
@@ -299,9 +336,13 @@ body {
     height:30px !important;
 }
 
-.articleText p {
-    font-size: 90%;
-    line-height: 130%;
+.articleText, .articleText p, body.articleText, body .articleText,
+div.articleText,
+.articleText ul,
+.articleText ol
+{
+    font-size: 90% !important;
+    line-height: 130% !important;
 }
 
 .content-card-line {width:100%; float:left;padding-top:5px;padding-bottom:5px;margin: 0px;line-height: 1px !important;font-size: 1px;height:auto;}
@@ -419,3 +460,19 @@ div#contentPanel.content.active {
     -o-transition-duration: 0s;
     transition-duration: 0s;
 }
+
+@media only screen and (max-width: 40em) {
+    div#ModalsHolderDiv-Content{
+        margin-top:60px;
+    }
+    #logoMainDivHolder {
+        padding-left: 20%;
+        padding-right:20%;
+    }
+}
+/*
+@media only screen and (min-width: 40.063em) {
+    div#ModalsHolderDiv-Content{
+        margin-top: 10px;
+    }
+}*/
