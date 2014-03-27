@@ -4,69 +4,69 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AGI | Welcome</title>
-    <link rel="stylesheet" href="../assets/css/foundation.css" />
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" type="text/css" media="all" href="../assets/css/whhg.css" />
-    <script src="../assets/js/modernizr.js"></script>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
+    <script src="js/modernizr.js"></script>
 </head>
 <body>
 
-<!-- FIRST ATTEMPT TO THE TOP BAR
-<div class="contain-to-grid sticky">
-    <nav class="top-bar" data-topbar>
-    <div class="row">
-        <div class="large-4 columns">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="#">Logo Goes Here</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-            </ul>
+
+
+<div class="aaltoStickyBar contain-to-grid sticky topbar">
+    <div class="row vAlignMiddle topbar">
+        <div class="small-12 medium-3 large-3 columns vAlignMiddle topbar" id="logoMainDivHolder"><a href="#" id="stickyBarLogo"><div id="logo"><img src="images/logo.png"></div></a></div>
+        <div class="small-12 medium-6 large-6 columns topbar">
+            <div class="portfolioFilter" id="portfolioFilterDivContainer">
+            </div>
         </div>
-        <div class="large-4 columns"></div>
-        <div class="large-4 columns">
-            <section class="top-bar-section">
-            &lt;!&ndash; Right Nav Section &ndash;&gt;
-            <ul class="right">
-                <li><a href="http://www.aalto.fi" target="_blank">Aalto.fi</a></li>
-                <li class="has-dropdown">
-                    <a href="#">Schools</a>
-                    <ul class="dropdown">
-                        <li><a href="#">School of arts, design and architecture</a></li>
+        <div class="small-3 medium-3 large-3 columns show-for-medium-up topbar">
+            <ul class="inline-list right topbar" style="line-height: 45px;padding:0;margin:0;">
+                <li><a href="http://www.aalto.fi" target="_blank" class="small"><span class="discreetLinks">Aalto.fi</span></a></li>
+                <li><a href="#" data-dropdown="drop1" id="schoolsLink" class="topbar small"><span class="topbar discreetLinks">Schools</span></a>
+                    <ul id="drop1" class="f-dropdown" data-dropdown-content style="overflow:visible !important;">
+                        <li><a class="discreetLinks" target="_blank" href="http://arts.aalto.fi/en/">School of Arts, Design and Architecture</a></li>
+                        <li><a class="discreetLinks" target="_blank" href="http://business.aalto.fi/en/">School of Business</a></li>
+                        <li><a class="discreetLinks" target="_blank" href="http://chem.aalto.fi/en/">School of Chemical Technology </a></li>
+                        <li><a class="discreetLinks" target="_blank" href="http://elec.aalto.fi/en/">School of Electrical Engineering</a></li>
+                        <li><a class="discreetLinks" target="_blank" href="http://eng.aalto.fi/en/">School of Engineering</a></li>
+                        <li><a class="discreetLinks" target="_blank" style="border: none;" href="http://sci.aalto.fi/en/">School of Science</a></li>
                     </ul>
-                </li>
+                    <!--<a href="#" class="small" id="schoolsButton"><span class="discreetLinks">Schools</span></a></li>-->
             </ul>
-                &lt;!&ndash; Left Nav Section &ndash;&gt;
-                <ul class="left">
-                    &lt;!&ndash;<li><a href="#">Something</a></li>&ndash;&gt;
-                </ul>
-            </section>
         </div>
     </div>
-    </nav>
-</div>
--->
-
-<div class="aaltoStickyBar contain-to-grid sticky">
-        <div class="row vAlignMiddle">
-            <div class="large-3 columns vAlignMiddle"><a href="#" id="stickyBarLogo"><div id="logo"><img src="../assets/images/logo.png"></div></a></div>
-            <div class="large-6 columns">
-                <div class="portfolioFilter" id="portfolioFilterDivContainer">
-                </div>
-            </div>
-            <div class="large-3 columns">
-                <ul class="inline-list right" style="line-height: 45px;padding:0;margin:0;">
-                    <li><a href="http://www.aalto.fi" target="_blank" class="small"><span class="discreetLinks">Aalto.fi</span></a></li>
-                    <li><a href="#" class="small"><span class="discreetLinks">Schools</span></a></li>
-                </ul>
-            </div>
-        </div>
 </div>
 <div class="row" style="height: 45px;"></div>
 <div class="row" id="isotope_content_row">
 
     <div id="ModalsHolderDiv-Content">
-        <div id="viewContentModal" class="reveal-modal" data-reveal>
+        <div id="viewContentModal" class="reveal-modal medium" data-reveal>
+            <!--Begins contents of  div for the viewContentModal-->
+            <div class="row">
+                <div class="large-4 columns" id="viewContentModal-image"></div>
+                <div class="large-8 columns">
+                    <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><span id="viewContentModal-categories" class="fancyTagBig"></span></div>
+                    <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-pencil fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Author" class="discreetLinks"></span></div>
+                    <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-calendaralt-cronjobs fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Date" class="discreetLinks"></span></div>
+                </div>
+                <div class="large-8 columns" style="padding-right:0;padding-top: 0;padding-bottom:0;"><div class="content-card-line"><hr></div></div>
+                <div class="large-8 columns" style="padding-bottom: 12px;padding-right:10px;padding-top:10px;"><strong><span id="viewContentModal-title" class="hugeTitleText"></span></strong><br></div>
+                <div class="large-8 columns" style="padding-right:15px;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt bigTitleText discreetTextColor"></span></div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns" style="height:20px;"></div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns articleText" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
+            </div>
+            <div class="row">
+                <div class="large-12">
+                    <br>
+                    <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
+                </div>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
         </div> <!--closes div for the viewContentModal-->
     </div>
     <!-- +++Isotope content starts +++++++++++++++++++++++++++++++++++++++++++++ -->
@@ -76,23 +76,20 @@
     <!-- +++Isotope content ends +++++++++++++++++++++++++++++++++++++++++++++ -->
 </div>
 
+<ol class="joyride-list" data-joyride>
+    <li data-id="schoolsButton" data-class="custom so-awesome" data-text="Next">
+        <h4>Schools</h4>
+        <p>Here's a list of schools.</p>
+    </li>
+</ol>
 
-<script src="../assets/js/jquery.js"></script>
-<script src="../assets/js/foundation.min.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
 <!--<script src="js/foundation/foundation.js"></script>-->
-<script src="../assets/js/foundation/foundation.topbar.js"></script>
-<script src="../assets/js/jquery.isotope.js" type="text/javascript"></script>
-<script src="../assets/js/jquery.form.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.0.0/dust-core.min.js"></script>
-<script src="maincategories_dust.js"></script>
-<script src="contentcards_dust.js"></script>
-<script src="viewcontent_dust.js"></script>
-
-<!-- MarkdownDeep Rendering -->
-<link rel="stylesheet" href="../assets/lib/markdowndeep/mdd_styles.css">
-<script type="text/javascript" src="../assets/lib/markdowndeep/MarkdownDeepLib.min.js"></script>
-
-
+<script src="js/foundation/foundation.topbar.js"></script>
+<script src="js/jquery.isotope.js" type="text/javascript"></script>
+<script src="js/jquery.form.min.js"></script>
+<script src="js/jquery.htmlClean.min.js "></script>
 <script>
     $(document).foundation(
             {
@@ -106,319 +103,241 @@
     );
 </script>
 <script>
-    var isotopeInitialization = function() {
+$(document).ready(function(){
+    $.ajaxSetup({cache: false});
 
-    };
-    $(document).ready(function(){
-        $.ajaxSetup({cache: false});
+    getAndPopulate_Isotope_Filter_Categories();
+    $.when(get_content()).then(function(){start_isotope();setInterval(reLayout_isotope, 1500);console.log( "Isotope fired after getting content, succeed" );}).fail(function(){console.log( "something went wrong with getting the content" );});
+    $("#contentDivContainer").on('mouseover',reLayout_isotope);
+    $("#contentDivContainer").delegate(".cardClickableWrapper",{ click: viewContent } );
+    $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
+    $("#schoolsButton").click(function () { $(document).foundation('joyride', 'start');});
 
-        getAndPopulate_Isotope_Filter_Categories();
-        /*
-        $.when(get_content()).then(function(){
-        }).fail(function(){console.log( "something went wrong with getting the content" );});
-        */
-        get_content();
-        $("#contentDivContainer").on('mouseover',reLayout_isotope);
-        /*
-        $("#contentDivContainer").delegate(".cardClickableWrapper",{ click: viewContent } );
-        */
+    function getAndPopulate_Isotope_Filter_Categories ()
+    {
+        var categories="<a href='#' data-filter='*' class='current'>All</a>";
+        categories+="<a href='#' data-filter='.News'>News</a>";
+        categories+="<a href='#' data-filter='.Projects'>Projects</a>";
+        categories+="<a href='#' data-filter='.Events'>Events</a>";
+        categories+="<a href='#' data-filter='.Stories'>Stories</a>";
+        categories+="<a href='#' data-filter='.About'>About</a>";
+        /*console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
+         var multihandlerResponse = $.ajax({
+         url: "multihandler.php",
+         type: "POST",
+         data: ({action: 'getMainCategories'}),
+         async: false
+         }).responseText;*/
 
-        var bindView = function () {
-            $(".cardClickableWrapper").click(function (editEvent) {
-                var itemUrl = $(this).data("itemurl");
-                var textContentUrl = itemUrl;
-                $.ajax({ url: textContentUrl, cache: false,
-                    success: function (textContentData) {
-                        if(textContentData.RawHtmlContent) {
-                            textContentData.ExcerptRendered = textContentData.Excerpt;
-                            textContentData.BodyRendered = textContentData.Body;
-                        } else {
-                            markdown = new MarkdownDeep.Markdown();
-                            markdown.SafeMode = true;
-                            var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
-                            textContentData.ExcerptRendered = excerptRendered;
-                            var bodyRendered = markdown.Transform(textContentData.Body.replaceAll("javascript:", ""));
-                            textContentData.BodyRendered = bodyRendered;
-                        }
+        $("#portfolioFilterDivContainer").empty();
+        $("#portfolioFilterDivContainer").append(categories);
+    }
 
-                        var content = getCardContentFromTextContent(textContentData, "256");
-                        dust.render("viewcontent.dust", content, function (err, out) {
-                            $("#viewContentModal").html(out);
-                            $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
-                            $('#viewContentModal').foundation('reveal', 'open');
-                        });
+    function get_content(){
+        $("#contentDivContainer").empty();
+        return $.getJSON('livedata/TextContentCollection/MasterCollection.json', function(contentData) {
+            var user_content="";
+
+            for (var i in contentData.CollectionContent) {
+                //noinspection JSUnfilteredForInLoop
+                //Check if title is empty... if it is then it is just a category definition so it must be ignored.
+                var currItem = contentData.CollectionContent[i];
+
+                if ((contentData.CollectionContent[i].Title===null)||(!contentData.CollectionContent[i].Title)||(currItem.Categories===null))
+                {}
+                else
+                {
+
+                    var currentMainCategory;
+                    /*currentMainCategory="NEWS";*/
+                    /*if ((contentData.CollectionContent[i].Categories.CollectionContent[0].Title===null)||(!contentData.CollectionContent[i].Categories.CollectionContent[0].Title))
+                     currentMainCategory="NEWS";
+                     else*/
+
+                    if(currItem.Categories == false || currItem.Categories.CollectionContent == false)
+                        currentMainCategory="NEWS";
+                    else
+                        currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+
+                    user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+contentData.CollectionContent[i].ID+"'>";
+
+                    if (contentData.CollectionContent[i].ImageData===null)
+                    {
+                        var currentImage= "images/preview.jpg";
                     }
-                }) //ends getJson
-            });//-------ends: triggers the event if the "VIEW" button in the content card is pressed... on ANY of them
-        }
 
+                    else
+                    {
+                        var imgID = contentData.CollectionContent[i].ImageData.ID;
+                        var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
+                        var currentImage= "livedata/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
+                    }
 
-        function getAndPopulate_Isotope_Filter_Categories ()
-        {
-            //var goMessage="One headlight";
-            //$("#testPanelGo").append(goMessage);
-            console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
-/*
-            var multihandlerResponse = $.ajax({
-                url: "rootcategories.json",
-                //type: "POST",
-                //data: ({action: 'getMainCategories'}),
-                async: true,
-                success: function(responseContent) {
-                    dust.render("maincategories.dust", responseContent, function (err, out) {
-                        $("#portfolioFilterDivContainer").html(out);
-                    });
-                }
-            });
-*/
-        }
-
-        var getCategoriesOrderedAndFiltered = function(categoryCollection)
-        {
-            var categories = categoryCollection.CollectionContent;
-            var orderFilterIDList = categoryCollection.OrderFilterIDList;
-            var orderedCategories = [];
-            for(i = 0; i < orderFilterIDList.length; i++)
-            {
-                var currID = orderFilterIDList[i];
-                var result = $.grep(categories, function(candidate) { return candidate.ID == currID });
-                if(result.length == 0)
-                    continue;
-                var cat = result[0];
-                orderedCategories.push(cat);
-            }
-            return orderedCategories;
-        };
-
-        var getRootCategories = function(categoryCollection)
-        {
-            var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
-            var rootCategories = $.grep(orderedCategories, function(candidate) { return !candidate.ParentCategoryID; });
-            return rootCategories;
-        };
-
-        var getCategoriesBasedByNamesOrIDs = function(categoryCollection, nameShortTextCollection, categoryIDList)
-        {
-            var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
-            var filteredCategories;
-            if(categoryIDList)
-            {
-                var categoryIDArray = categoryIDList.split(",");
-                filteredCategories = $.grep(orderedCategories,
-                        function(candidate) {
-                            var foundList = $.grep(categoryIDArray, function(idCandidate) {
-                                return idCandidate === candidate.ID;
-                            });
-                            return foundList.length > 0;
-                        });
-            } else {
-                filteredCategories = $.grep(orderedCategories,
-                        function(candidate) {
-                            var foundList = $.grep(nameShortTextCollection.CollectionContent, function(nameCandidate) {
-                                return nameCandidate.Content == candidate.CategoryName;
-                            });
-                            return foundList.length > 0;
-                        });
-            }
-            return filteredCategories;
-        };
-
-
-        var getCardContentFromNode = function (item, imageSizeString) {
-            var authors = item.Authors;
-            var authorText = "";
-            if(authors) {
-                var authorNames = $.map(authors.CollectionContent, function(authorContent) {
-                    return authorContent.Content;
-                });
-                authorText = authorNames.join(", ");
-            }
-            var categories = item.Categories;
-            var imageUrl = item.ImageBaseUrl
-                    ? item.ImageBaseUrl + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageExt
-                    : null;
-            return { "id": item.ID, "title": item.Title, "excerpt": item.ExcerptRendered,
-                "article_text": item.BodyRendered,
-                "image": imageUrl,
-                "itemUrl": "../" + item.ActualContentUrl + ".json",
-                "author": authorText,
-                "categories": categories
-            };
-        };
-
-        var getCardContentFromTextContent = function (item, imageSizeString) {
-            var imageUrl = item.ImageData
-                    ? "../../AaltoGlobalImpact.OIP/MediaContent/" + item.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageData.AdditionalFormatFileExt
-                    : null;
-            return { "id": item.ID, "title": item.Title, "excerpt": item.ExcerptRendered,
-                "article_text": item.BodyRendered,
-                "image": imageUrl,
-                "itemUrl": "../../AaltoGlobalImpact.OIP/TextContent/" + item.ID + ".json"
-            };
-        };
-
-        String.prototype.replaceAll = function(strReplace, strWith) {
-            var reg = new RegExp(strReplace, 'ig');
-            return this.replace(reg, strWith);
-        };
-
-        function get_content(){
-            $("#contentDivContainer").empty();
-            return $.getJSON('../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json', function(nodeSummaryContainer) {
-
-                nodeSummaryContainer.RootCategories = getRootCategories(nodeSummaryContainer.NodeSourceCategories);
-                for(var nodeIX = 0; nodeIX < nodeSummaryContainer.Nodes.CollectionContent.length; nodeIX++)
-                {
-                    var nodeObj = nodeSummaryContainer.Nodes.CollectionContent[nodeIX];
-                    nodeObj.Categories = getCategoriesBasedByNamesOrIDs(nodeSummaryContainer.NodeSourceCategories, nodeObj.CategoryNames, nodeObj.CategoryIDList);
-                }
-
-
-                var content = nodeSummaryContainer;
-                markdown = new MarkdownDeep.Markdown();
-                markdown.SafeMode = true;
-                var contentData =
-                {
-                    "content": $.map(content.Nodes.CollectionContent, function (item) {
-                        var rendered = markdown.Transform(item.Excerpt.replaceAll("javascript:", ""));
-                        item.ExcerptRendered = rendered;
-                        return getCardContentFromNode(item, "64");
-                    })
-                };
-                dust.render("maincategories.dust", nodeSummaryContainer, function (err, out) {
-                    $("#portfolioFilterDivContainer").html(out);
-                });
-                dust.render("contentcards.dust", contentData, function (err, out) {
-                    $("#contentDivContainer").html(out);
-                    bindView();
-                    start_isotope();
-                    console.log( "Isotope fired after getting content, succeed" );
-                });
-/*
-                for (var i in contentData.content) {
-                    //noinspection JSUnfilteredForInLoop
-
-                    user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
-
-                    user_content+="<a href='#' class='cardClickableWrapper'>";
-
-
-                    user_content+="<img src='../assets/"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
-                    user_content+="<div class='content-card-fancyTag'><span class='fancyTag'>"+contentData.content[i].content_type+"</span></div>";
-                    user_content+="<div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.content[i].id+"'>"+contentData.content[i].title+"</div>";
-                    user_content+="<div class='content-card-excerpt' id='contentCardExcerpt-dataID-"+contentData.content[i].id+"'><span class='content-card-spanExcerpt'>"+contentData.content[i].excerpt+"</span></div>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><img src='"+currentImage+"' alt='image' id='contentCardImage-dataID-"+contentData.CollectionContent[i].ID+"'/></a>";
+                    user_content+="<div class='content-card-fancyTag'><div class='fancyTagDiv'>"+currentMainCategory+"</div></div>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.CollectionContent[i].ID+"'>"+contentData.CollectionContent[i].Title+"</div></a>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-excerpt content-card-spanExcerpt' id='contentCardExcerpt-dataID-"+contentData.CollectionContent[i].ID+"'>"+contentData.CollectionContent[i].Excerpt+"</div></a>";
                     user_content+="<div class='content-card-line'><hr></div>";
-                    user_content+="<div class='content-card-excerpt' id='contentCardAuthor-dataID-"+contentData.content[i].id+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+contentData.content[i].author+"</span></div>";
-                        var regExp = /\(([^)]+)\)/;
-                        var recordedJsonDate = contentData.content[i].Published;
-                        var extractedDate = regExp.exec(recordedJsonDate);
-                        var cardDate = extractedDate[1].replace(/\+0000/g, '');
-                        extractedDate= new Date(1000*cardDate);
-                        //cardDate = extractedDate.toLocaleString();
-                        cardDate = extractedDate.getDate()+".";
-                        cardDate+= extractedDate.getMonth()+".";
-                        cardDate+= extractedDate.getFullYear();
+                    if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
+                        var currentAuthor="Aalto Global Impact";
+                    else
+                        var currentAuthor=contentData.CollectionContent[i].Author;
+                    user_content+="<div class='content-card-author' id='contentCardAuthor-dataID-"+contentData.CollectionContent[i].ID+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+currentAuthor+"</span></div>";
+                    var recordedJsonDate = contentData.CollectionContent[i].Published;
+                    var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                    recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                    var extractedDate= new Date(1000*recordedJsonDate);
+                    /*extractedDate = extractedDate.toLocaleString();*/
+                    var cardDate = extractedDate.getDate()+".";
+                    cardDate+= extractedDate.getMonth()+".";
+                    cardDate+= extractedDate.getFullYear();
 
-                    user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+contentData.content[i].id+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
+                    user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+contentData.CollectionContent[i].ID+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
 
-                    user_content+="</a>";
+                    /*user_content+="</a>";*/
 
                     user_content+="</div>";
 
+                }//closes ELSE (if title is not NULL
 
-                }//ends for loop
-                $("#contentDivContainer").append(user_content);
- */
-            })
-        }
+            }//ends for loop
+            $("#contentDivContainer").append(user_content);
+        })
+    }
 
-        function start_isotope(){
-            //var $container = $('.portfolioContainer');
-            var $container = $("#contentDivContainer");
+    function start_isotope(){
+        //var $container = $('.portfolioContainer');
+        var $container = $("#contentDivContainer");
+        $container.isotope({
+            filter: '*',
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+        });
+
+        $('.portfolioFilter a').click(function(){
+            console.log ("Entered the Isotope Filter click event handler.")
+            $('.portfolioFilter .current').removeClass('current');
+            $(this).addClass('current');
+
+            var selector = $(this).attr('data-filter');
             $container.isotope({
-                filter: '*',
+                filter: selector,
                 animationOptions: {
                     duration: 750,
                     easing: 'linear',
                     queue: false
                 }
             });
+            return false;
+        });
+    }//closes function Start_isotope
 
-            $('.portfolioFilter a').click(function(){
-                console.log ("Entered the Isotope Filter click event handler.")
-                $('.portfolioFilter .current').removeClass('current');
-                $(this).addClass('current');
+    function reLayout_isotope() {
+        var $container = $('#contentDivContainer');
+        $container.isotope( 'reLayout');
+    }
 
-                var selector = $(this).attr('data-filter');
-                $container.isotope({
-                    filter: selector,
-                    animationOptions: {
-                        duration: 750,
-                        easing: 'linear',
-                        queue: false
-                    }
-                });
-                return false;
-            });
-        }//closes function Start_isotope
+    function viewContent(editEvent) {
+        console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
+        editEvent.preventDefault();
+        var currentId=editEvent.target.id;
+        var currentId2 = $('#'+currentId).parents(".content-card").attr('id');
+        //var clickedEditID= editEvent.target.id.replace("contentCardDataId-", '');
+        var clickedEditID= currentId2.replace("contentCardDataId-", '');
+        //alert (currentId2);
+        $.getJSON('livedata/TextContentCollection/MasterCollection.json', function(contentData) {
+            var queryValue="";
+            for (var i in contentData.CollectionContent) {
+                if (contentData.CollectionContent[i].ID === clickedEditID)
+                {
+                    queryValue=contentData.CollectionContent[i].Title;
+                    $("#viewContentModal-title").empty();
+                    $('#viewContentModal-title').append(queryValue);
 
-        function reLayout_isotope() {
-            var $container = $('#contentDivContainer');
-            $container.isotope( 'reLayout');
-        }
+                    queryValue="<p>"+contentData.CollectionContent[i].Excerpt+"</p>";
+                    $("#viewContentModal-excerpt").empty();
+                    $('#viewContentModal-excerpt').append(queryValue);
 
-        function viewContentOLDNOTUSED(editEvent) {
-            console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
-            editEvent.preventDefault();
-            var currentId=editEvent.target.id;
-            var currentId2 = $('#'+currentId).parents(".content-card").attr('id');
-            //var clickedEditID= editEvent.target.id.replace("contentCardDataId-", '');
-            var clickedEditID= currentId2.replace("contentCardDataId-", '');
-            //alert (currentId2);
-            $.getJSON('../assets/json/site_settings.json', function(contentData) {
-                var queryValue="";
-                for (var i in contentData.content) {
-                    if (contentData.content[i].id === clickedEditID)
+                    //var currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+                    var currentMainCategory="News"
+
+                    //queryValue=contentData.CollectionContent[i].content_type;
+                    $("#viewContentModal-categories").empty();
+                    $('#viewContentModal-categories').append(currentMainCategory);
+
+                    var rawbody=contentData.CollectionContent[i].Body;
+                    //$.htmlClean.defaults.allowedTags = ["p", "em"];
+                    //$.htmlClean.defaults.replace = [["div","br"], "p"];
+                    /*queryValue=clean(rawbody,
+                     {
+                     replace:[["div", "br"], "p"],
+                     allowedTags:["p","em","strong","a","img","ol","ul","li"]
+                     });*/
+                    /*queryValue = clean(rawbody);*/
+                    rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
+                    rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
+                    rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
+                    /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
+                     rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
+                     rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
+
+                    queryValue=$.htmlClean(rawbody, {format:true});
+
+
+                    //queryValue=$.htmlClean(rawbody, {format:false});
+
+                    //queryValue=contentData.CollectionContent[i].Body;
+                    $("#viewContentModal-content").empty();
+                    $('#viewContentModal-content').append(queryValue);
+
+                    if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
+                        var currentAuthor="Aalto Global Impact";
+                    else
+                        var currentAuthor=contentData.CollectionContent[i].Author;
+                    queryValue=contentData.CollectionContent[i].Author;
+                    $("#viewContentModal-Author").empty();
+                    $('#viewContentModal-Author').append(currentAuthor);
+
+                    var recordedJsonDate = contentData.CollectionContent[i].Published;
+                    var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                    recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                    var extractedDate= new Date(1000*recordedJsonDate);
+                    //extractedDate = extractedDate.toLocaleString();
+                    var cardDate = extractedDate.getDate()+".";
+                    cardDate+= extractedDate.getMonth()+".";
+                    cardDate+= extractedDate.getFullYear();
+
+                    $("#viewContentModal-Date").empty();
+                    $('#viewContentModal-Date').append(cardDate );
+
+                    //send the correspondent image to the placeholder, but clean its containing div first
+                    if (contentData.CollectionContent[i].ImageData===null)
                     {
-                        queryValue=contentData.content[i].title;
-                        $("#viewContentModal-title").empty();
-                        $('#viewContentModal-title').append(queryValue);
+                        var currentImage= "images/preview.jpg";
+                    }
 
-                        queryValue="<p>"+contentData.content[i].excerpt+"</p>";
-                        $("#viewContentModal-excerpt").empty();
-                        $('#viewContentModal-excerpt').append(queryValue);
-
-                        queryValue=contentData.content[i].content_type;
-                        $("#viewContentModal-categories").empty();
-                        $('#viewContentModal-categories').append(queryValue);
-
-                        queryValue=contentData.content[i].article_text;
-                        $("#viewContentModal-content").empty();
-                        $('#viewContentModal-content').append(queryValue);
-
-
-                        queryValue=contentData.content[i].author;
-                        $("#viewContentModal-Author").empty();
-                        $('#viewContentModal-Author').append(queryValue);
-
-                        queryValue=contentData.content[i].Published;
-                        $("#viewContentModal-Date").empty();
-                        $('#viewContentModal-Date').append(queryValue);
-
-                        //send the correspondent image to the placeholder, but clean its containing div first
-                        $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
-                        queryValue = "<img src='../assets/"+contentData.content[i].image+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
-                        $("#viewContentModal-image").append(queryValue);
-                    } //ends If
-                }//ends for loop
-            }) //ends getJson
-            $('#viewContentModal').foundation('reveal', 'open');
-        }//Ends Function ViewContent
+                    else
+                    {
+                        var imgID = contentData.CollectionContent[i].ImageData.ID;
+                        var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
+                        var currentImage= "livedata/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
+                    }
+                    $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+                    queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+                    $("#viewContentModal-image").append(queryValue);
+                } //ends If
+            }//ends for loop
+        }) //ends getJson
+        $('#viewContentModal').foundation('reveal', 'open');
+    }//Ends Function ViewContent
 
 
 
 
-    });
+});
 </script>
 </body>
 </html>
