@@ -24,6 +24,7 @@
 {?IsActiveParty}
                     <li>
                         {>"executeoperation_button_begin.dust" form_name="PublishToConnection" /}
+                            data-connectionid="{ID}"
                         {>"executeoperation_button_end.dust" button_label="Publish To: {Description}" icon_class_name="icon-cloud-upload" /}
                     </li>
                     <li class="divider"></li>
@@ -83,3 +84,9 @@ header_title="Publish Group to {WwwSiteToPublishTo}"
 operation_name="PublishGroupToWww" /}
 {>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Publish!" /}
 {/GroupContainerSource.GroupContainer.GroupProfile}
+
+{>"modal_executeoperation_begin.dust" form_name="PublishToConnection"
+header_title="Publish Connection"
+operation_name="PublishToConnection" map_data_values="ConnectionID" /}
+{>"hiddeninput.dust" field_name="ConnectionID" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Publish!" /}

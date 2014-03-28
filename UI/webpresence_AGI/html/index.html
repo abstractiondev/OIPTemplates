@@ -277,26 +277,30 @@ $(document).ready(function(){
                     $("#viewContentModal-categories").empty();
                     $('#viewContentModal-categories').append(currentMainCategory);
 
-                    var rawbody=contentData.CollectionContent[i].Body;
-                    //$.htmlClean.defaults.allowedTags = ["p", "em"];
-                    //$.htmlClean.defaults.replace = [["div","br"], "p"];
-                    /*queryValue=clean(rawbody,
-                     {
-                     replace:[["div", "br"], "p"],
-                     allowedTags:["p","em","strong","a","img","ol","ul","li"]
-                     });*/
-                    /*queryValue = clean(rawbody);*/
-                    rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
-                    rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
-                    rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
-                    /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
-                     rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
-                     rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
+                    var rawbody;
+                    rawbody = contentData.CollectionContent[i].RawHtmlContent;
+                    if(rawbody) {
+                        //$.htmlClean.defaults.allowedTags = ["p", "em"];
+                        //$.htmlClean.defaults.replace = [["div","br"], "p"];
+                        /*queryValue=clean(rawbody,
+                         {
+                         replace:[["div", "br"], "p"],
+                         allowedTags:["p","em","strong","a","img","ol","ul","li"]
+                         });*/
+                        /*queryValue = clean(rawbody);*/
+                        rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
+                        rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
+                        rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
+                        /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
+                         rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
+                         rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
 
-                    //var bodyRendered = markdown.Transform(rawbody.replaceAll("javascript:", ""));
-                    //rawbody = bodyRendered;
-
-                    queryValue=$.htmlClean(rawbody, {format:true});
+                        queryValue=$.htmlClean(rawbody, {format:true});
+                    } else {
+                        var bodyRendered = markdown.Transform(contentData.CollectionContent[i].Body.replaceAll("javascript:", ""));
+                        rawbody = bodyRendered;
+                        queryValue = rawbody;
+                    }
 
 
                     //queryValue=$.htmlClean(rawbody, {format:false});
