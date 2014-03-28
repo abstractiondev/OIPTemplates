@@ -104,6 +104,82 @@
     );
 </script>
 <script>
+    var getCategoriesOrderedAndFiltered = function(categoryCollection)
+    {
+        var categories = categoryCollection.CollectionContent;
+        var orderFilterIDList = categoryCollection.OrderFilterIDList;
+        var orderedCategories = [];
+        for(i = 0; i < orderFilterIDList.length; i++)
+        {
+            var currID = orderFilterIDList[i];
+            var result = $.grep(categories, function(candidate) { return candidate.ID == currID });
+            if(result.length == 0)
+                continue;
+            var cat = result[0];
+            orderedCategories.push(cat);
+        }
+        return orderedCategories;
+    };
+
+    var getRootCategories = function(categoryCollection)
+    {
+        var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
+        var rootCategories = $.grep(orderedCategories, function(candidate) { return !candidate.ParentCategoryID; });
+        return rootCategories;
+    };
+
+    var getCategoriesBasedByNamesOrIDs = function(categoryCollection, nameShortTextCollection, categoryIDList)
+    {
+        var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
+        var filteredCategories;
+        if(categoryIDList)
+        {
+            var categoryIDArray = categoryIDList.split(",");
+            filteredCategories = $.grep(orderedCategories,
+                    function(candidate) {
+                        var foundList = $.grep(categoryIDArray, function(idCandidate) {
+                            return idCandidate === candidate.ID;
+                        });
+                        return foundList.length > 0;
+                    });
+        } else {
+            filteredCategories = $.grep(orderedCategories,
+                    function(candidate) {
+                        var foundList = $.grep(nameShortTextCollection.CollectionContent, function(nameCandidate) {
+                            return nameCandidate.Content == candidate.CategoryName;
+                        });
+                        return foundList.length > 0;
+                    });
+        }
+        return filteredCategories;
+    };
+
+
+    var getCardContentFromNode = function (item, imageSizeString) {
+        var authors = item.Authors;
+        var authorText = "";
+        if(authors) {
+            var authorNames = $.map(authors.CollectionContent, function(authorContent) {
+                return authorContent.Content;
+            });
+            authorText = authorNames.join(", ");
+        }
+        var categories = item.Categories;
+        var mainCategory = item.Categories[0].Title;
+        var imageUrl = item.ImageBaseUrl
+                ? item.ImageBaseUrl + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageExt
+                : null;
+        return { "id": item.ID, "title": item.Title, "excerpt": item.Excerpt,
+            "article_text": item.BodyRendered,
+            "image": imageUrl,
+            "itemUrl": "../" + item.ActualContentUrl + ".json",
+            "author": authorText,
+            "categories": categories,
+            "mainCategory": mainCategory,
+            "published": item.TimestampText
+        };
+    };
+
 $(document).ready(function(){
     $.ajaxSetup({cache: true});
 
@@ -116,7 +192,7 @@ $(document).ready(function(){
 
     function getAndPopulate_Isotope_Filter_Categories ()
     {
-        var categories="<a href='#' data-filter='*' class='current'>All</a>";
+        var categories="<a href='#' data-filter=':not(.About)' class='current'>All</a>";
         categories+="<a href='#' data-filter='.News'>News</a>";
         categories+="<a href='#' data-filter='.Projects'>Projects</a>";
         categories+="<a href='#' data-filter='.Events'>Events</a>";
@@ -136,7 +212,26 @@ $(document).ready(function(){
 
     function get_content(){
         $("#contentDivContainer").empty();
-        return $.getJSON('../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json', function(contentData) {
+        return $.getJSON('../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json', function(nodeSummaryContainer) {
+            nodeSummaryContainer.RootCategories = getRootCategories(nodeSummaryContainer.NodeSourceCategories);
+            for(var nodeIX = 0; nodeIX < nodeSummaryContainer.Nodes.CollectionContent.length; nodeIX++)
+            {
+                var nodeObj = nodeSummaryContainer.Nodes.CollectionContent[nodeIX];
+                nodeObj.Categories = getCategoriesBasedByNamesOrIDs(nodeSummaryContainer.NodeSourceCategories, nodeObj.CategoryNames, nodeObj.CategoryIDList);
+            }
+
+
+            var content = nodeSummaryContainer;
+            var contentData =
+            {
+                "CollectionContent": $.map(content.Nodes.CollectionContent, function (item) {
+                    /*var rendered = markdown.Transform(item.Excerpt.replaceAll("javascript:", ""));
+                     item.ExcerptRendered = rendered;*/
+                    return getCardContentFromNode(item, "256");
+                })
+            };
+
+
             var user_content="";
 
             for (var i in contentData.CollectionContent) {
@@ -144,62 +239,56 @@ $(document).ready(function(){
                 //Check if title is empty... if it is then it is just a category definition so it must be ignored.
                 var currItem = contentData.CollectionContent[i];
 
-                if ((contentData.CollectionContent[i].Title===null)||(!contentData.CollectionContent[i].Title)||(currItem.Categories===null))
-                {}
+
+                var currentMainCategory = currItem.mainCategory;
+
+                /*
+                if(currItem.Categories == false || currItem.Categories.CollectionContent == false)
+                    currentMainCategory="NEWS";
+                else
+                    currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+                 */
+                user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+currItem.id+"' data-itemurl='" + currItem.itemUrl + "'>";
+
+                if (!currItem.image)
+                {
+                    var currentImage= "images/preview.jpg";
+                }
+
                 else
                 {
+                    /*var imgID = contentData.CollectionContent[i].ImageData.ID;
+                    var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
+                    var currentImage= "../../AaltoGlobalImpact.OIP/MediaContent/"+imgID+"_320x240_crop"+imgExtension;*/
+                    currentImage = currItem.image;
+                }
 
-                    var currentMainCategory;
-                    /*currentMainCategory="NEWS";*/
-                    /*if ((contentData.CollectionContent[i].Categories.CollectionContent[0].Title===null)||(!contentData.CollectionContent[i].Categories.CollectionContent[0].Title))
-                     currentMainCategory="NEWS";
-                     else*/
+                user_content+="<a href='#' class='cardClickableWrapper'><img src='"+currentImage+"' alt='image' id='contentCardImage-dataID-"+currItem.id+"'/></a>";
+                user_content+="<div class='content-card-fancyTag'><div class='fancyTagDiv'>"+currentMainCategory+"</div></div>";
+                user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+currItem.id+"'>"+currItem.title+"</div></a>";
+                user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-excerpt content-card-spanExcerpt' id='contentCardExcerpt-dataID-"+currItem.id+"'>"+currItem.excerpt+"</div></a>";
+                user_content+="<div class='content-card-line'><hr></div>";
+                if (!currItem.author)
+                    var currentAuthor="Aalto Global Impact";
+                else
+                    var currentAuthor=currItem.author;
+                user_content+="<div class='content-card-author' id='contentCardAuthor-dataID-"+currItem.id+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+currentAuthor+"</span></div>";
+                /*
+                var recordedJsonDate = contentData.CollectionContent[i].Published;
+                var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                var extractedDate= new Date(1000*recordedJsonDate);
+                //extractedDate = extractedDate.toLocaleString();
+                var cardDate = extractedDate.getDate()+".";
+                cardDate+= extractedDate.getMonth()+".";
+                cardDate+= extractedDate.getFullYear();
+                  */
+                cardDate = currItem.published;
+                user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+currItem.id+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
 
-                    if(currItem.Categories == false || currItem.Categories.CollectionContent == false)
-                        currentMainCategory="NEWS";
-                    else
-                        currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+                /*user_content+="</a>";*/
 
-                    user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+contentData.CollectionContent[i].ID+"'>";
-
-                    if (contentData.CollectionContent[i].ImageData===null)
-                    {
-                        var currentImage= "images/preview.jpg";
-                    }
-
-                    else
-                    {
-                        var imgID = contentData.CollectionContent[i].ImageData.ID;
-                        var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
-                        var currentImage= "../../AaltoGlobalImpact.OIP/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
-                    }
-
-                    user_content+="<a href='#' class='cardClickableWrapper'><img src='"+currentImage+"' alt='image' id='contentCardImage-dataID-"+contentData.CollectionContent[i].ID+"'/></a>";
-                    user_content+="<div class='content-card-fancyTag'><div class='fancyTagDiv'>"+currentMainCategory+"</div></div>";
-                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.CollectionContent[i].ID+"'>"+contentData.CollectionContent[i].Title+"</div></a>";
-                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-excerpt content-card-spanExcerpt' id='contentCardExcerpt-dataID-"+contentData.CollectionContent[i].ID+"'>"+contentData.CollectionContent[i].Excerpt+"</div></a>";
-                    user_content+="<div class='content-card-line'><hr></div>";
-                    if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
-                        var currentAuthor="Aalto Global Impact";
-                    else
-                        var currentAuthor=contentData.CollectionContent[i].Author;
-                    user_content+="<div class='content-card-author' id='contentCardAuthor-dataID-"+contentData.CollectionContent[i].ID+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+currentAuthor+"</span></div>";
-                    var recordedJsonDate = contentData.CollectionContent[i].Published;
-                    var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
-                    recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
-                    var extractedDate= new Date(1000*recordedJsonDate);
-                    /*extractedDate = extractedDate.toLocaleString();*/
-                    var cardDate = extractedDate.getDate()+".";
-                    cardDate+= extractedDate.getMonth()+".";
-                    cardDate+= extractedDate.getFullYear();
-
-                    user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+contentData.CollectionContent[i].ID+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
-
-                    /*user_content+="</a>";*/
-
-                    user_content+="</div>";
-
-                }//closes ELSE (if title is not NULL
+                user_content+="</div>";
 
             }//ends for loop
             $("#contentDivContainer").append(user_content);
@@ -210,7 +299,7 @@ $(document).ready(function(){
         //var $container = $('.portfolioContainer');
         var $container = $("#contentDivContainer");
         $container.isotope({
-            filter: '*',
+            filter: ':not(.About)',
             animationOptions: {
                 duration: 750,
                 easing: 'linear',
@@ -250,102 +339,99 @@ $(document).ready(function(){
         console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
         editEvent.preventDefault();
         var currentId=editEvent.target.id;
-        var currentId2 = $('#'+currentId).parents(".content-card").attr('id');
-        //var clickedEditID= editEvent.target.id.replace("contentCardDataId-", '');
-        var clickedEditID= currentId2.replace("contentCardDataId-", '');
+        var articleUrl = $('#'+currentId).parents(".content-card").data('itemurl');
+        //alert(articleUrl);
+        //var articleUrl = $(this).data('articleurl');
         //alert (currentId2);
-        $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/' + clickedEditID + '.json', function(textContent) {
+        $.getJSON(articleUrl, function(textContent) {
             var contentData = { "CollectionContent": [ textContent ] };
             var queryValue="";
             markdown = new MarkdownDeep.Markdown();
             markdown.SafeMode = true;
-            for (var i in contentData.CollectionContent) {
-                if (contentData.CollectionContent[i].ID === clickedEditID)
-                {
-                    queryValue=contentData.CollectionContent[i].Title;
-                    $("#viewContentModal-title").empty();
-                    $('#viewContentModal-title').append(queryValue);
+            var i = 0;
 
-                    queryValue="<p>"+contentData.CollectionContent[i].Excerpt+"</p>";
-                    $("#viewContentModal-excerpt").empty();
-                    $('#viewContentModal-excerpt').append(queryValue);
+            queryValue=contentData.CollectionContent[i].Title;
+            $("#viewContentModal-title").empty();
+            $('#viewContentModal-title').append(queryValue);
 
-                    //var currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
-                    var currentMainCategory="News"
+            queryValue="<p>"+contentData.CollectionContent[i].Excerpt+"</p>";
+            $("#viewContentModal-excerpt").empty();
+            $('#viewContentModal-excerpt').append(queryValue);
 
-                    //queryValue=contentData.CollectionContent[i].content_type;
-                    $("#viewContentModal-categories").empty();
-                    $('#viewContentModal-categories').append(currentMainCategory);
+            //var currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+            var currentMainCategory="News"
 
-                    var rawbody;
-                    rawbody = contentData.CollectionContent[i].RawHtmlContent;
-                    if(rawbody) {
-                        //$.htmlClean.defaults.allowedTags = ["p", "em"];
-                        //$.htmlClean.defaults.replace = [["div","br"], "p"];
-                        /*queryValue=clean(rawbody,
-                         {
-                         replace:[["div", "br"], "p"],
-                         allowedTags:["p","em","strong","a","img","ol","ul","li"]
-                         });*/
-                        /*queryValue = clean(rawbody);*/
-                        rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
-                        rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
-                        rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
-                        /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
-                         rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
-                         rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
+            //queryValue=contentData.CollectionContent[i].content_type;
+            $("#viewContentModal-categories").empty();
+            $('#viewContentModal-categories').append(currentMainCategory);
 
-                        queryValue=$.htmlClean(rawbody, {format:true});
-                    } else {
-                        var bodyRendered = markdown.Transform(contentData.CollectionContent[i].Body.replaceAll("javascript:", ""));
-                        rawbody = bodyRendered;
-                        queryValue = rawbody;
-                    }
+            var rawbody;
+            rawbody = contentData.CollectionContent[i].RawHtmlContent;
+            if(rawbody) {
+                //$.htmlClean.defaults.allowedTags = ["p", "em"];
+                //$.htmlClean.defaults.replace = [["div","br"], "p"];
+                /*queryValue=clean(rawbody,
+                 {
+                 replace:[["div", "br"], "p"],
+                 allowedTags:["p","em","strong","a","img","ol","ul","li"]
+                 });*/
+                /*queryValue = clean(rawbody);*/
+                rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
+                rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
+                rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
+                /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
+                 rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
+                 rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
+
+                queryValue=$.htmlClean(rawbody, {format:true});
+            } else {
+                var bodyRendered = markdown.Transform(contentData.CollectionContent[i].Body.replaceAll("javascript:", ""));
+                rawbody = bodyRendered;
+                queryValue = rawbody;
+            }
 
 
-                    //queryValue=$.htmlClean(rawbody, {format:false});
+            //queryValue=$.htmlClean(rawbody, {format:false});
 
-                    //queryValue=contentData.CollectionContent[i].Body;
-                    $("#viewContentModal-content").empty();
-                    $('#viewContentModal-content').append(queryValue);
+            //queryValue=contentData.CollectionContent[i].Body;
+            $("#viewContentModal-content").empty();
+            $('#viewContentModal-content').append(queryValue);
 
-                    if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
-                        var currentAuthor="Aalto Global Impact";
-                    else
-                        var currentAuthor=contentData.CollectionContent[i].Author;
-                    queryValue=contentData.CollectionContent[i].Author;
-                    $("#viewContentModal-Author").empty();
-                    $('#viewContentModal-Author').append(currentAuthor);
+            if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
+                var currentAuthor="Aalto Global Impact";
+            else
+                var currentAuthor=contentData.CollectionContent[i].Author;
+            queryValue=contentData.CollectionContent[i].Author;
+            $("#viewContentModal-Author").empty();
+            $('#viewContentModal-Author').append(currentAuthor);
 
-                    var recordedJsonDate = contentData.CollectionContent[i].Published;
-                    var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
-                    recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
-                    var extractedDate= new Date(1000*recordedJsonDate);
-                    //extractedDate = extractedDate.toLocaleString();
-                    var cardDate = extractedDate.getDate()+".";
-                    cardDate+= extractedDate.getMonth()+".";
-                    cardDate+= extractedDate.getFullYear();
+            var recordedJsonDate = contentData.CollectionContent[i].Published;
+            var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+            recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+            var extractedDate= new Date(1000*recordedJsonDate);
+            //extractedDate = extractedDate.toLocaleString();
+            var cardDate = extractedDate.getDate()+".";
+            cardDate+= extractedDate.getMonth()+".";
+            cardDate+= extractedDate.getFullYear();
 
-                    $("#viewContentModal-Date").empty();
-                    $('#viewContentModal-Date').append(cardDate );
+            $("#viewContentModal-Date").empty();
+            $('#viewContentModal-Date').append(cardDate );
 
-                    //send the correspondent image to the placeholder, but clean its containing div first
-                    if (contentData.CollectionContent[i].ImageData===null)
-                    {
-                        var currentImage= "images/preview.jpg";
-                    }
+            //send the correspondent image to the placeholder, but clean its containing div first
+            if (contentData.CollectionContent[i].ImageData===null)
+            {
+                var currentImage= "images/preview.jpg";
+            }
 
-                    else
-                    {
-                        var imgID = contentData.CollectionContent[i].ImageData.ID;
-                        var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
-                        var currentImage= "../../AaltoGlobalImpact.OIP/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
-                    }
-                    $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
-                    queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
-                    $("#viewContentModal-image").append(queryValue);
-                } //ends If
-            }//ends for loop
+            else
+            {
+                var imgID = contentData.CollectionContent[i].ImageData.ID;
+                var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
+                var currentImage= "../../AaltoGlobalImpact.OIP/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
+            }
+            $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+            queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+            $("#viewContentModal-image").append(queryValue);
         }) //ends getJson
         $('#viewContentModal').foundation('reveal', 'open');
     }//Ends Function ViewContent
