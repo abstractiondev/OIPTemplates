@@ -11,8 +11,6 @@
 </head>
 <body>
 
-
-
 <div class="aaltoStickyBar contain-to-grid sticky topbar">
     <div class="row vAlignMiddle topbar">
         <div class="small-12 medium-3 large-3 columns vAlignMiddle topbar" id="logoMainDivHolder"><a href="#" id="stickyBarLogo"><div id="logo"><img src="../assets/images/logo.png"></div></a></div>
@@ -51,13 +49,13 @@
                   next_on_click: true;
                   slide_number: false;">
             <li>
-                <img src="images/banner02.png" alt="Bringing people together." />
+                <img src="../assets/images/banner02.png" alt="Bringing people together." />
                 <!--<div class="orbit-caption">
                     Caption One.
                 </div>-->
             </li>
-            <li><img src="images/banner03.png" alt="What we do." /></li>
-            <li><img src="images/banner01.png" alt="Aalto.Towards a better world." /></li>
+            <li><img src="../assets/images/banner03.png" alt="What we do." /></li>
+            <li><img src="../assets/images/banner01.png" alt="Aalto.Towards a better world." /></li>
         </ul>
     </div>
 </div>
@@ -115,6 +113,7 @@
 <script src="../assets/js/jquery.form.min.js"></script>
 <script src="../assets/js/jquery.htmlClean.min.js "></script>
 <script src="../assets/lib/markdowndeep/MarkdownDeepLib.min.js"></script>
+<script src="../assets/js/purl.js"></script>
 <script>
     $(document).foundation(
             {
@@ -359,14 +358,14 @@ $(document).ready(function(){
         return this.replace(reg, strWith);
     };
 
-    function viewContent(editEvent) {
-        console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
-        editEvent.preventDefault();
-        var currentId=editEvent.target.id;
-        var articleUrl = $('#'+currentId).parents(".content-card").data('itemurl');
-        //alert(articleUrl);
-        //var articleUrl = $(this).data('articleurl');
-        //alert (currentId2);
+    function openArticle(articleType, articleID) {
+        var articleUrl;
+        if(articleType == "text")
+            articleUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + articleID + ".json";
+        openArticleUrl(articleUrl);
+    }
+
+    function openArticleUrl(articleUrl) {
         $.getJSON(articleUrl, function(textContent) {
             var contentData = { "CollectionContent": [ textContent ] };
             var queryValue="";
@@ -456,10 +455,29 @@ $(document).ready(function(){
             $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
             queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
             $("#viewContentModal-image").append(queryValue);
+            $('#viewContentModal').foundation('reveal', 'open');
         }) //ends getJson
-        $('#viewContentModal').foundation('reveal', 'open');
+    }
+
+    function viewContent(editEvent) {
+        console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
+        editEvent.preventDefault();
+        var currentId=editEvent.target.id;
+        var articleUrl = $('#'+currentId).parents(".content-card").data('itemurl');
+        //alert(articleUrl);
+        //var articleUrl = $(this).data('articleurl');
+        //alert (currentId2);
+        openArticleUrl(articleUrl);
     }//Ends Function ViewContent
 
+    $(function () {
+        var openArticleType = $.url().param("type");
+        var openArticleID = $.url().param("id");
+        if(openArticleType && openArticleID) {
+            window.history.pushState("string", "Aalto Global Impact", "index.html");
+            openArticle(openArticleType, openArticleID);
+        }
+    });
 
 
 
