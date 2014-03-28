@@ -83,6 +83,9 @@
                 <div class="large-12 columns articleText" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
             </div>
             <div class="row">
+                <div id="viewContentModal-iframes"></div>
+            </div>
+            <div class="row">
                 <div class="large-12">
                     <br>
                     <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
@@ -367,6 +370,15 @@ $(document).ready(function(){
 
     function openArticleUrl(articleUrl) {
         $.getJSON(articleUrl, function(textContent) {
+
+            var iFrameList = [];
+            if(textContent.IFrameSources) {
+                var nonTaggedList = textContent.IFrameSources.split('\n');
+                $.each(nonTaggedList, function(index, value) {
+                   var taggedVersion = "<iframe " + value + "></iframe>";
+                    iFrameList.push(taggedVersion);
+                });
+            }
             var contentData = { "CollectionContent": [ textContent ] };
             var queryValue="";
             markdown = new MarkdownDeep.Markdown();
@@ -455,6 +467,14 @@ $(document).ready(function(){
             $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
             queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
             $("#viewContentModal-image").append(queryValue);
+
+
+            $("#viewContentModal-iframes").empty();
+            $.each(iFrameList, function(index, value) {
+                $("#viewContentModal-iframes").append(value);
+            });
+
+
             $('#viewContentModal').foundation('reveal', 'open');
         }) //ends getJson
     }
