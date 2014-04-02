@@ -80,8 +80,21 @@ var SaveCategoryHierarchy = function () {
 var bindEdit = function () {
     $("[id*='editContentButton-dataID']").click(function (editEvent) {
         var clickedEditID = editEvent.target.id.replace("editContentButton-dataID-", '');
-        $.getJSON('site_settings.json', function (contentData) {
+        var textContentUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
+        $.ajax({ url: textContentUrl, cache: true,
+            success: function (textContentData) {
+            markdown = new MarkdownDeep.Markdown();
+            markdown.SafeMode = true;
+            //var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
+            //textContentData.ExcerptRendered = excerptRendered;
+            //var excerptRendered = markdown.Transform(textContentData.Excerpt.replaceAll("javascript:", ""));
+            textContentData.ExcerptRendered = textContentData.Excerpt;
+            //var bodyRendered = markdown.Transform(textContentData.Body.replaceAll("javascript:", ""));
+            //textContentData.BodyRendered = bodyRendered;
+            textContentData.BodyRendered = textContentData.Body;
             var queryValue = "";
+            var contentItem = getCardContentFromTextContent(textContentData, 256);
+            var contentData = { "content": [ contentItem ]};
             for (var i in contentData.content) {
                 if (contentData.content[i].id === clickedEditID) {
                     queryValue = clickedEditID;
@@ -112,7 +125,7 @@ var bindEdit = function () {
                     $("#editContentModal-image").append(queryValue);
                 } //ends If
             }//ends for loop
-        }) //ends getJson
+        }}); //ends getJson
         $('#editContentModal').foundation('reveal', 'open');
     });//----------ends: triggers the event if the "EDIT" button in the content card is presed... on ANY of them
 }
@@ -174,7 +187,7 @@ var bindView = function () {
     $("[id*='viewContentButton-dataID']").click(function (editEvent) {
         var clickedEditID = editEvent.target.id.replace("viewContentButton-dataID-", '');
         var textContentUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
-        $.ajax({ url: textContentUrl, cache: false,
+        $.ajax({ url: textContentUrl, cache: true,
             success: function (textContentData) {
                 markdown = new MarkdownDeep.Markdown();
                 markdown.SafeMode = true;
