@@ -10,6 +10,7 @@
             <li class="isotope-sort-item"><a href="#"  class="filter badge catMaps" data-filter-value=".Maps">Maps</a></li>
             <li class="isotope-sort-item"><a href="#"  class="filter badge catAbout" data-filter-value=".catAbout">About</a></li>
             !}
+            <li class="isotope-sort-item"><a href="#" class="filter badge active " style="color: black" data-filter-value=".nodetile"><i class="icon-home"></i></a></li>
             {#RootCategories}
                 <li class="isotope-sort-item"><a href="#"  class="filter badge" style="background-color: {#catTagColor}{/catTagColor}; color:{#catTagTextColor}{/catTagTextColor}"
                                                  data-filter-value=".{CategoryName}">{Title}</a></li>
