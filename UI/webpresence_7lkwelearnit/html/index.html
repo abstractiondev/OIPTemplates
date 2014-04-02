@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Päivä tiedetoimittajana - we.learn.it</title>
+	<title>7. luokan sanomat - we.learn.it</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Caloom for Schools">
 	<meta name="author" content="Caloom">
@@ -65,7 +65,12 @@
 <div class="navbar navbar-static-top">
     <div>
         <div class="subnavbar-inner" style="background-color: white">
+            <!--
             <div id="logocontainer" class="container logo-only">
+            </div>
+                        -->
+            <div id="logotemplatefixed" class="container logo-only">
+                <img width="50%" src="../assets/img/7lk-welearnit-logo-half1.png"><span class="pull-right"><img style="align-content: right" width="50%" src="../assets/img/7lk-welearnit-logo-half2.png"></span>
             </div>
         </div>
         <div class="container powered-by">
@@ -378,6 +383,7 @@
     {
         var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
         var filteredCategories;
+        var alreadyInList = {};
         if(categoryIDList)
         {
             var categoryIDArray = categoryIDList.split(",");
@@ -386,7 +392,11 @@
                         var foundList = $.grep(categoryIDArray, function(idCandidate) {
                             return idCandidate === candidate.ID;
                         });
-                        return foundList.length > 0;
+                        if(foundList.length > 0 && !alreadyInList[candidate.ID]) {
+                            alreadyInList[candidate.ID] = true;
+                            return true;
+                        }
+                        return false;
                     });
         } else {
             filteredCategories = $.grep(orderedCategories,
@@ -394,9 +404,16 @@
                         var foundList = $.grep(nameShortTextCollection.CollectionContent, function(nameCandidate) {
                             return nameCandidate.Content == candidate.CategoryName;
                         });
-                        return foundList.length > 0;
+                        if(foundList.length > 0 && !alreadyInList[candidate.CategoryName]) {
+                            alreadyInList[candidate.CategoryName] = true;
+                            return true;
+                        }
+                        return false;
                     });
         }
+        filteredCategories = filteredCategories.sort(function(a,b) {
+            return a.CategoryName.localeCompare(b.CategoryName);
+        });
         return filteredCategories;
     }
 
