@@ -477,7 +477,13 @@
 
         function editContent_PopulateModal(editEvent) {
             var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
-            $.getJSON('../assets/controlpanel/json/site_settings.json', function(contentData) {
+            var itemUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
+            $.getJSON(itemUrl, function(textContent) {
+                var contentData = {};
+                if(textContent.RawHtmlContent) {
+                    textContent.BodyRendered = textContent.RawHtmlContent;
+                }
+                contentData.content = [ getCardContentFromTextContent(textContent, 256) ];
                 var queryValue="";
                 for (var i in contentData.content) {
                     if (contentData.content[i].id === clickedEditID)
