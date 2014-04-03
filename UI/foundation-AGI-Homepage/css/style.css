@@ -126,7 +126,9 @@ body {
     line-height: 45px !important;
     color: #777777;
 }
-
+.itemWrapper-fixedWidth{
+    display:inline-block;
+}
 .vAlignMiddle{
 vertical-align: middle !important;
 }
@@ -203,6 +205,9 @@ vertical-align: middle !important;
     height: auto;
 }
 
+.font80{
+    font-size: 80%;
+}
 .content-card-options
 {
     width: 100%;
@@ -225,12 +230,20 @@ vertical-align: middle !important;
     margin: 0px;
     padding-top:0px;padding-bottom:5px;
 }
+
+.content-card-author
+{
+    width: 100%;
+    float: left;
+    margin: 0px;
+    padding-top:0px;padding-bottom:0px;
+}
 .content-card-fancyTag
 {
     width: 100%;
     float: left;
     margin: 0px;
-    padding-top:10px;padding-bottom:5px;
+    padding-top:10px;padding-bottom:2px;
 
 }
 
@@ -263,10 +276,14 @@ vertical-align: middle !important;
 .fancyTextColor{
     color: #c01ea1;
 }
-.content-card-spanExcerpt{
+.content-card-spanExcerpt, .content-card-spanExcerpt p {
      color: #585757;
      font-size: 80%;
+     line-height: 130%;
+     padding-top:2px;
+    overflow: hidden;
  }
+
 .content-card-spanAuthor {
     color: #4a4949;
     font-size: 70%;
@@ -279,6 +296,14 @@ vertical-align: middle !important;
     text-transform: uppercase;
 }
 
+.fancyTagDiv{
+    font-size: 60%;
+    padding:5px;
+    background-color: #c01ea1;
+    color: #ffffff;
+    text-transform: uppercase;
+    display: inline-block;
+}
 
 .boldieText{
     font-weight:bold;
@@ -286,6 +311,7 @@ vertical-align: middle !important;
 .fancyTagBig{
     font-size: 80%;
     font-weight: bold;
+    line-height: 200%;
     padding:5px;
     background-color: #c01ea1;
     color: #ffffff;

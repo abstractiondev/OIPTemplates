@@ -11,41 +11,7 @@
 </head>
 <body>
 
-<!-- FIRST ATTEMPT TO THE TOP BAR
-<div class="contain-to-grid sticky">
-    <nav class="top-bar" data-topbar>
-    <div class="row">
-        <div class="large-4 columns">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="#">Logo Goes Here</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
-            </ul>
-        </div>
-        <div class="large-4 columns"></div>
-        <div class="large-4 columns">
-            <section class="top-bar-section">
-            &lt;!&ndash; Right Nav Section &ndash;&gt;
-            <ul class="right">
-                <li><a href="http://www.aalto.fi" target="_blank">Aalto.fi</a></li>
-                <li class="has-dropdown">
-                    <a href="#">Schools</a>
-                    <ul class="dropdown">
-                        <li><a href="#">School of arts, design and architecture</a></li>
-                    </ul>
-                </li>
-            </ul>
-                &lt;!&ndash; Left Nav Section &ndash;&gt;
-                <ul class="left">
-                    &lt;!&ndash;<li><a href="#">Something</a></li>&ndash;&gt;
-                </ul>
-            </section>
-        </div>
-    </div>
-    </nav>
-</div>
--->
+
 
 <div class="aaltoStickyBar contain-to-grid sticky">
         <div class="row vAlignMiddle">
@@ -54,7 +20,7 @@
                 <div class="portfolioFilter" id="portfolioFilterDivContainer">
                 </div>
             </div>
-            <div class="large-3 columns">
+            <div class="large-3 columns show-for-large-up">
                 <ul class="inline-list right" style="line-height: 45px;padding:0;margin:0;">
                     <li><a href="http://www.aalto.fi" target="_blank" class="small"><span class="discreetLinks">Aalto.fi</span></a></li>
                     <li><a href="#" class="small"><span class="discreetLinks">Schools</span></a></li>
@@ -69,22 +35,15 @@
         <div id="viewContentModal" class="reveal-modal medium" data-reveal>
             <!--Begins contents of  div for the viewContentModal-->
             <div class="row">
-                <div class="large-3 columns" id="viewContentModal-image"></div>
-                <div class="large-7 columns" style="padding-left: 0px !important;">
-                    <ul class="small-block-grid-4">
-                        <li class="fancyViewModalInline"><span id="viewContentModal-categories" class="fancyTagBig"></span></li>
-                        <li class="fancyViewModalInline"><i class='icon-pencil fancyTextColor'></i>&nbsp;<span id="viewContentModal-Author" class="discreetLinks"></span></li>
-                        <li class="fancyViewModalInline"><i class='icon-calendaralt-cronjobs fancyTextColor'></i>&nbsp;<span id="viewContentModal-Date" class="discreetLinks"></span></li>
-                        <li class="fancyViewModalInline"></li>
-                    </ul>
-                   <!-- <div class="spaceFiller"></div>
-                    <div class="spaceFiller"></div>
-                    <div class="spaceFiller"></div>-->
-                </div><div class="large-2 columns"></div>
-                <div class="large-9 columns" style="padding:0;"><div class="content-card-line"><hr></div>
+                <div class="large-4 columns" id="viewContentModal-image"></div>
+                <div class="large-8 columns">
+                        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><span id="viewContentModal-categories" class="fancyTagBig"></span></div>
+                        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-pencil fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Author" class="discreetLinks"></span></div>
+                        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-calendaralt-cronjobs fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Date" class="discreetLinks"></span></div>
                 </div>
-                <div class="large-9 columns" style="padding-left: 0px !important;padding-bottom: 15px;padding-right:10px;padding-top:10px;"><strong><span id="viewContentModal-title" class="hugeTitleText"></span></strong><br></div>
-                <div class="large-9 columns" style="padding-left: 0px !important;padding-right:15px;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt bigTitleText discreetTextColor"></span></div>
+                <div class="large-8 columns" style="padding-right:0;padding-top: 0;padding-bottom:0;"><div class="content-card-line"><hr></div></div>
+                <div class="large-8 columns" style="padding-bottom: 12px;padding-right:10px;padding-top:10px;"><strong><span id="viewContentModal-title" class="hugeTitleText"></span></strong><br></div>
+                <div class="large-8 columns" style="padding-right:15px;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt bigTitleText discreetTextColor"></span></div>
             </div>
             <div class="row">
                 <div class="large-12 columns" style="height:20px;"></div>
@@ -183,15 +142,15 @@
 
                     user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"'>";
 
-                    user_content+="<a href='#' class='cardClickableWrapper'>";
+                    /*user_content+="<a href='#' class='cardClickableWrapper'>";*/
 
 
-                    user_content+="<img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
-                    user_content+="<div class='content-card-fancyTag'><span class='fancyTag'>"+contentData.content[i].content_type+"</span></div>";
-                    user_content+="<div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.content[i].id+"'>"+contentData.content[i].title+"</div>";
-                    user_content+="<div class='content-card-excerpt' id='contentCardExcerpt-dataID-"+contentData.content[i].id+"'><span class='content-card-spanExcerpt'>"+contentData.content[i].excerpt+"</span></div>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><img src='"+contentData.content[i].image+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/></a>";
+                    user_content+="<div class='content-card-fancyTag'><div class='fancyTagDiv'>"+contentData.content[i].content_type+"</div></div>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.content[i].id+"'>"+contentData.content[i].title+"</div></a>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-excerpt content-card-spanExcerpt' id='contentCardExcerpt-dataID-"+contentData.content[i].id+"'>"+contentData.content[i].excerpt+"</div></a>";
                     user_content+="<div class='content-card-line'><hr></div>";
-                    user_content+="<div class='content-card-excerpt' id='contentCardAuthor-dataID-"+contentData.content[i].id+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+contentData.content[i].author+"</span></div>";
+                    user_content+="<div class='content-card-author' id='contentCardAuthor-dataID-"+contentData.content[i].id+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+contentData.content[i].author+"</span></div>";
                         var regExp = /\(([^)]+)\)/;
                         var recordedJsonDate = contentData.content[i].Published;
                         var extractedDate = regExp.exec(recordedJsonDate);
@@ -204,7 +163,7 @@
 
                     user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+contentData.content[i].id+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
 
-                    user_content+="</a>";
+                    /*user_content+="</a>";*/
 
                     user_content+="</div>";
 
