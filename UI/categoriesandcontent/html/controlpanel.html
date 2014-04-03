@@ -38,51 +38,22 @@
 
                 <!-- Right Nav Section -->
                 <ul class="right">
-
                     <li><a href="#" style="color:gray;">Mode:</a></li>
-
                     <li class="has-dropdown"><a href="#">Tiles</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Timeline</a></li>
-                            <li><a href="#">Map</a></li>
-                        </ul> </li>
-                    <!--<li class="active"><a href="#">Right Button Active</a></li>-->
-                    <!--<li class="has-dropdown"><a href="#">Right Button with Dropdown</a>
-                      <ul class="dropdown">
-                        <li><a href="#">First link in dropdown</a></li>
-                      </ul> </li>   -->
+                        <ul class="dropdown"><li><a href="#">Timeline</a></li><li><a href="#">Map</a></li></ul></li>
                 </ul><!-- Ends the list of elements of the Right Top Navigation Bar-->
 
                 <!-- Left Nav Section -->
                 <ul class="left">
-                    <!--BEGINS All elements of the Top Navigation, Left, go here.... they use a "li" element -->
                     <li class="has-dropdown"><a href="#" style="font-weight:bold;font-size:120%">New Global</a>
                         <ul class="dropdown" id="site-dropdown-list">
                         </ul><!-- Closes the dropdown elements in the Ul-->
                     </li><!-- Closes the dropdown elements section New Global -->
 
-                    <li><a href="#" style="color:gray;">Showing:</a></li>
-
+                <li><a href="#" style="color:gray;">Showing:</a></li>
                     <li class="has-dropdown"><a href="#">All</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Workspace</a></li>
-                            <li><a href="#">Pictures</a></li>
-                            <li><a href="#">Links</a></li>
-                            <li><a href="#">Documents</a></li>
+                        <ul class="dropdown"><li><a href="#">Workspace</a></li><li><a href="#">Pictures</a></li><li><a href="#">Links</a></li><li><a href="#">Documents</a></li>
                         </ul> </li>
-                    <!--Hugo Filter list...<li>
-                      <dl class="sub-nav">
-                      <dt>Filter:</dt>
-                      <dd class="active"><a href="#">All</a></dd>
-                      <dd><a href="#">Workspace</a></dd>
-                      <dd><a href="#">Text</a></dd>
-                      <dd><a href="#">Pictures</a></dd>
-                      </dl>
-                    </li> ... Hugo Filter List ends-->
-
-
-                    <!-- Regular ORIGINAL element in the left navigation... <li><a href="#">Left Nav Button</a></li>...a button-->
-
                     <!--ENDS All elements of the Top Navigation, Left, go here.... they use a "li" element -->
                 </ul><!-- Closes the Ul class "left" section -->
             </section>
@@ -97,7 +68,6 @@
         <hr>
     </div>
 
-
     <!-- Side Bar -->
     <div class="large-12 small-12 columns">
         <dl class="tabs vertical" data-tab>
@@ -111,11 +81,9 @@
             <!-- Starts content for contentPanel-->
             <div class="content active" id="contentPanel" style="min-height:500px;">
                 <div class="row" id="isotope_content_row">
-
                     <div id="ModalsHolderDiv-Content">
                         <div id="addNewContentModal" class="reveal-modal" data-reveal>
                             <h2>Adding a new update</h2>
-
                             <div class="row">
                                 <div class="large-6 columns">
                                     <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
@@ -167,21 +135,35 @@
                         </div>
                         <div id="editContentModal" class="reveal-modal medium" data-reveal>
                             <h2>Editing content</h2>
-                            <form id="form-editContentModal">
-                                <div class="row">
-                                    <div class="large-6 columns left" id="editContentModal-image"></div>
-                                    <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-id"/></div>
-                                    <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-imagePath"/></div>
-                                    <div class="large-6 columns right"><label>Title</label> <input type="text" id="editContentModal-title"/></div>
-                                    <div class="large-6 columns right"><label>Excerpt</label> <input type="text" id="editContentModal-excerpt"/></div>
-                                    <div class="large-6 columns right"><label>Categories</label> <input type="text" id="editContentModal-categories"/></div>
-                                    <div class="large-6 columns right"><label>Content</label> <textarea id="editContentModal-content"></textarea></div>
-                                    <div class="large-6 columns right">
-                                        <a class="button" id="editContentModal-submit">Submit Changes</a>
-                                        <a class="button" id="cancelEditContentModal">Cancel</a>
+                            <div class="row">
+                                <div class="large-6 columns"><div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
+                                    <form id="form-editContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
+                                        <div id="editContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
+                                        <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere2"><input type ='file' name='myfile' id="addNewContent-fileInput2"></span><p></div>
+                                        <span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto2" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit2" >Upload Photo</a></span>
+                                    </form></div>
+                                </div>
+                                <div class="large-6 columns">
+                                    <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
+                                        <form id="form-editContentModal" method='POST' enctype='multipart/form-data' data-abide="ajax">
+                                            <div class="title-field"><label>Title<input type="text" id="editContentModal-title" required/></label><small class="error">A title to this update is required.</small></div>
+                                            <div class="excerpt-field"><label>Excerpt<input type="text" id="editContentModal-excerpt" required/></label><small class="error">An excerpt to this update is required.</small></div>
+                                            <div class="author-field"><label>Author<input type="text" id="editContentModal-author"></label></div>
+                                            <div class="categories-field"><label>Category <select id="editContentModal-categories"></select></label></div>
+                                            <div class="hide"><label>ID</label><input type="text" class="hide" id="editContentModal-id"/></div>
+                                            <div class="hide"><label>Image Path</label><input type="text" class="hide" id="editContentModal-imagePath"/></div>
+                                        </form>
+
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+
+                            <div class="row"><div class="large-12 columns right textAreaEditorDiv"><label>Content</label><div id="editTextareaDivHolder"></div></div></div>
+
+                            <div class="row" style="margin-top: 20px;"><div class="large-12 columns">
+                                <a class="button" id="cancelEditContentModal" style="float: right;">Cancel</a><div style="width: 10px;float: right;">&nbsp;</div>
+                                <a class="button" id="editContentModal-submit" style="float: right;">Submit</a></div>
+                            </div>
                             <a class="close-reveal-modal">&#215;</a>
                         </div>
                         <div id="viewContentModal" class="reveal-modal medium" data-reveal>
@@ -278,13 +260,7 @@
 
             <!-- Starts content for file Manager Panel -->
             <div class="content" id="filePanel" style="min-height:500px;">
-                <!--<h2>Test Results:</h2>
-                <div class="panel">
-                <div id="testPanelGo"></div>
-                </div>
-                <p><a href="" class="button" id="executeTestButton">GO!</a></p>-->
                 <h3>Uploading images or files</h3>
-
                 <div class="row">
                     <div class="large-6 columns">
                         <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
@@ -418,6 +394,7 @@
         $("#cancelAddNewContentModal").on('click', close_NewContent_Modal_Form);
         $("#create-group-submit").on('click', submit_New_Group);
         $("#addNewContentModal-imageUpload-submit").on('click', upload_addNewContentModalForm_picture);
+        $("#addNewContentModal-imageUpload-submit2").on('click', upload_editedContentModalForm_picture);
         $("#preview-addNewFileForm").on('click', upload_newFile);
         $("#submitform-addNewFileForm").on('click',upload_newFile);
         /*$("#submitform-addNewFileForm").on('click', upload_newFile);*/
@@ -427,10 +404,6 @@
         $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
         $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
         $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
-
-        function test(){
-            alert ("triggered!");
-        }
 
         function populateWebsitesMenu_and_groupsTabTable (){
             // This was previously called "populate_groups_table"...first we initialize (clear) the table:
@@ -456,7 +429,9 @@
             var edited_content_title = $("#editContentModal-title").val();
             var edited_content_image = $("#editContentModal-imagePath").val();
             var edited_content_excerpt = $("#editContentModal-excerpt").val();
-            var edited_content_categories = $("#editContentModal-categories").val();
+            var edited_content_author = $("#editContentModal-author").val();
+            /*var edited_content_categories = $("#editContentModal-categories").val();*/
+            var edited_content_categories = $("#editContentModal-categories option:selected").text();
             var edited_content_content = $("#editContentModal-content").val();
 
             $.ajax({
@@ -470,7 +445,8 @@
                     excerpt: edited_content_excerpt,
                     image: edited_content_image,
                     content: edited_content_content,
-                    categories: edited_content_categories
+                    categories: edited_content_categories,
+                    author: edited_content_author
                 }),
                 url: 'update_content.php'
             });
@@ -484,16 +460,19 @@
             new_EditedContent+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+edited_content_id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+edited_content_id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+edited_content_id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+edited_content_id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
             new_EditedContent+="<div class='content-card-line'><hr></div>";
             new_EditedContent+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+edited_content_id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+edited_content_id+"'><i class='icon-commentround'></i></a></div>";
-            //*new_EditedContent+="</div>";
             $('#'+replace_id).append(new_EditedContent);
-            //get_content();
             $('#alert-contentUpdate-successful-variables').empty();
             $('#alert-contentUpdate-successful-variables').append("Record ID: "+edited_content_id+"<br>"+
                     "Title: "+edited_content_title+"<br>"+
                     "Excerpt: "+edited_content_excerpt+"<br>"+
                     "Image Path: "+edited_content_image+"<br>"+
                     "Categories: "+edited_content_categories);
-            $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+            $('#editContentModal-content').redactor('destroy');
+            $('#editContentModal').foundation('reveal', 'close');
+            setTimeout(function() {
+                $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+                return false;
+            }, 1500);
         }
 
         function editContent_PopulateModal(editEvent) {
@@ -503,6 +482,8 @@
                 for (var i in contentData.content) {
                     if (contentData.content[i].id === clickedEditID)
                     {
+                        var currItem = contentData.content[i];
+
                         queryValue=clickedEditID;
                         $('#editContentModal-id').val(queryValue);
                         queryValue=$("#editContentModal-id").val();
@@ -513,25 +494,37 @@
                         queryValue=contentData.content[i].excerpt;
                         $('#editContentModal-excerpt').val(queryValue);
 
-                        queryValue=contentData.content[i].content_type;
-                        $('#editContentModal-categories').val(queryValue);
+                        getAndPopulate_Isotope_Filter_Categories ();
+
+                        //check if the "field" Author exists in the JSON file
+                        /*queryValue=contentData.content[i].Author;*/
+                        if(currItem.Author == false || currItem.Author ===null || currItem.Author ==="undefined" || currItem.Author ===undefined)
+                            queryValue="Empty";
+                        else
+                            queryValue=contentData.content[i].Author;
+
+                        $('#editContentModal-author').val(queryValue);
 
                         queryValue=contentData.content[i].article_text;
+                        $('#editTextareaDivHolder').empty();
+                        var textarea = $("<textarea id='editContentModal-content' style='min-height: 300px;'>");
+                        $('#editTextareaDivHolder').append(textarea);
                         $('#editContentModal-content').val(queryValue);
-
+                        $('#editContentModal-content').redactor(
+                                {   minHeight: 300,
+                                    buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
+                                });
                         queryValue=contentData.content[i].image;
-                        var currentImage="../assets/controlpanel/"+contentData.content[i].image;
-                        $('#editContentModal-imagePath').val(currentImage);
-                        queryValue=$("#editContentModal-imagePath").val();
-                        //$("#placeholder-panel4a").text(queryValue);
+                        $('#editContentModal-imagePath').val(queryValue);
 
                         //send the correspondent image to the placeholder, but clean its containing div first
                         $("#editContentModal-image").empty(); //clean the image Placeholder in the form
-                        queryValue = "<img src='"+currentImage+"' style='width:320px;height:auto;max-height:350px;margin-left:auto;margin-right:auto;'>";
+                        queryValue = "<img src='"+contentData.content[i].image+"' style='height:100%;width:auto;margin-left:auto;margin-right:auto;'>";
                         $("#editContentModal-image").append(queryValue);
                     } //ends If
                 }//ends for loop
             }) //ends getJson
+            $('#form-editContentModal-imageUpload').ajaxForm(); //initializes the Form to Upload a new Photo, should the user choose to change it
             $('#editContentModal').foundation('reveal', 'open');
         }//ends function editContent
 
@@ -571,8 +564,8 @@
                         $("#viewContentModal-image").append(queryValue);
                     } //ends If
                 }//ends for loop
+                $('#viewContentModal').foundation('reveal', 'open');
             }) //ends getJson
-            $('#viewContentModal').foundation('reveal', 'open');
         }//Ends Function ViewContent
 
         function reLayout_isotope() {
@@ -710,31 +703,15 @@
 
         function submit_New_Content_Form(){
 
-            /*nicEditors.findEditor('addNewContentModal-content').saveContent();*/
-            /*var new_content_content = $("#addNewContentModal-content").val();*/
-
-            /*var new_content_content = $("#addNewContentModal-content").val();*/
-            var new_content_content = $('#addNewContentModal-content').redactor('get');
+            var new_content_content = $('#addNewContentModal-content').val();
             var new_content_id;
             var new_content_title = $("#addNewContentModal-title").val();
             var new_content_image = $("#addNewContentModal-imagePath").val();
             var new_content_excerpt = $("#addNewContentModal-excerpt").val();
-            var new_content_categories = $("#addNewContentModal-categories").val();
-
-
-            var actualValue = $('#addNewContentModal-content').val();
+            var new_content_categories = $("#addNewContentCategorySelect option:selected").text();
+            var new_content_author = $("#addNewContentModal-author").val();
             new_content_id = $.now();
-            //var htmlStr = $('#textareaInput').val();
-            var encodedValue = $('<div/>').text(actualValue).html();
 
-            //var decodedValue = $('<div/>').html(encodedValue).text();
-            tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
-                    {
-                        "Title": new_content_title,
-                        "Excerpt": new_content_excerpt,
-                        "ENC.RawHtmlContent": encodedValue
-                    });
-/*
             $.ajax({
                 global: false,
                 type: "POST",
@@ -746,11 +723,11 @@
                     excerpt: new_content_excerpt,
                     image_path: new_content_image,
                     article_text: new_content_content,
-                    categories: new_content_categories
+                    categories: new_content_categories,
+                    author: new_content_author
                 }),
-                url: "testi.html"
+                url: 'new_content.php'
             });
-*/
             //more stuff to do after the ajax call
             var new_Content="";
             new_Content+="<div class='content-card "+new_content_categories+"' id='contentCardDataId-"+new_content_id+"'>";
@@ -760,15 +737,14 @@
             new_Content+="<div class='content-card-line'><hr></div>";
             new_Content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+new_content_id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+new_content_id+"'><i class='icon-commentround'></i></a></div>";
             new_Content+="</div>";
-            //$("#contentDivContainer").append(new_Content);
-            //$('#addNewContentModal').foundation('reveal', 'close');
-            //$.when(close_addNewContentModal()).then(function(){ $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');console.log( "New Content submitted and appended. Triggered the closure of the New Content Modal and opening of the addNewContent-successful modal. " ); }).fail(function(){ console.log( "Something went wrong with closing the New Content Modal." );});
-            $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
-            //var previousContent = $("#contentDivContainer").html();
-            //new_Content=previousContent+new_Content;
             var $container = $('#contentDivContainer');
             var $newItems = $(new_Content);
             $container.isotope( 'insert', $newItems );
+            $('#addNewContentModal').foundation('reveal', 'close');
+            setTimeout(function() {
+                $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+                return false;
+            }, 2000);
         }
 
         function reveal_addNewContentModal () {
@@ -785,8 +761,7 @@
             $('#addNewContentModal').foundation('reveal', 'close');
         }
 
-        function upload_addNewContentModalForm_picture()
-        {
+        function upload_addNewContentModalForm_picture() {
             var options = {
                 type: "POST",
                 url:'uploadphoto.php',
@@ -869,8 +844,7 @@
                 }
         }
 
-        function getAndPopulate_Isotope_Filter_Categories ()
-        {
+        function getAndPopulate_Isotope_Filter_Categories () {
             //var goMessage="One headlight";
             //$("#testPanelGo").append(goMessage);
             console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
@@ -881,9 +855,9 @@
                 async: false
             }).responseText;
             /*$("#portfolioFilterDivContainer").empty();
-            $("#portfolioFilterDivContainer").append(multihandlerResponse);
-            $("#testPanelGo").empty();
-            $("#testPanelGo").text("Done!."+multihandlerResponse);*/
+             $("#portfolioFilterDivContainer").append(multihandlerResponse);
+             $("#testPanelGo").empty();
+             $("#testPanelGo").text("Done!."+multihandlerResponse);*/
             $("#addNewContentCategorySelect").empty();
             $("#addNewContentCategorySelect").append(multihandlerResponse);
             return false;
