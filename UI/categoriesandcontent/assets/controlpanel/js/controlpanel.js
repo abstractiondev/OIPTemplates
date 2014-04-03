@@ -265,7 +265,6 @@ var activateIsotope = function () {
 
 };
 
-/*
 var tUI = TheBall.Interface.UI;
 var tMgr = new tUI.TemplateModuleManager();
 var renderCount = 0;
@@ -395,6 +394,7 @@ tMgr.RegisterTemplate("connections.dust", ".categoryConnections",
 );
 
 $(function () {
+    /*
     tMgr.ActivateAllTemplates();
 
     // Data update polling
@@ -411,5 +411,5 @@ $(function () {
             poll();
         }, 500);
     })();
+    */
 });
-   */

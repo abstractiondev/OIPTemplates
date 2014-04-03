@@ -369,8 +369,14 @@
 <script src="../assets/controlpanel/js/jquery.isotope.js" type="text/javascript"></script>
 <script src="../assets/controlpanel/js/jquery.form.min.js"></script>
 <script src="../assets/controlpanel/js/redactor.min.js"></script>
-<script src="../assets/controlpanel/js/controlpanel.js"></script>
 <link rel="stylesheet" href="../assets/controlpanel/css/redactor.css" />
+
+<!-- OIP Data & template management libraries -->
+<script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
+<script src="../assets/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
+<script src="../assets/oiplib1.0/TheBall.Interface.UI/OperationManager.js"></script>
+
+<script src="../assets/controlpanel/js/controlpanel.js"></script>
 
 
 <!--<script src="js/nicEdit.js"></script>-->
@@ -705,8 +711,7 @@
             /*var new_content_content = $("#addNewContentModal-content").val();*/
 
             /*var new_content_content = $("#addNewContentModal-content").val();*/
-            var new_content_content = ('#addNewContentModal-content').redactor('get');
-
+            var new_content_content = $('#addNewContentModal-content').redactor('get');
             var new_content_id;
             var new_content_title = $("#addNewContentModal-title").val();
             var new_content_image = $("#addNewContentModal-imagePath").val();
@@ -714,7 +719,12 @@
             var new_content_categories = $("#addNewContentModal-categories").val();
 
             new_content_id = $.now();
-
+            tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
+                    {
+                        "Title": new_content_title,
+                        "Excerpt": new_content_excerpt
+                    });
+/*
             $.ajax({
                 global: false,
                 type: "POST",
@@ -728,8 +738,9 @@
                     article_text: new_content_content,
                     categories: new_content_categories
                 }),
-                url: 'new_content.php'
+                url: "testi.html"
             });
+*/
             //more stuff to do after the ajax call
             var new_Content="";
             new_Content+="<div class='content-card "+new_content_categories+"' id='contentCardDataId-"+new_content_id+"'>";
@@ -893,7 +904,10 @@
 
 
     });
-</script>
 
+</script>
+<script type="text/javascript">
+    var tOP = new tUI.OperationManager();
+</script>
 </body>
 </html>
