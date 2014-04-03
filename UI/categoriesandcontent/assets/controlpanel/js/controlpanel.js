@@ -135,8 +135,10 @@ var getCardContentFromTextContent = function (item, imageSizeString) {
     var imageUrl = item.ImageData
         ? "../../AaltoGlobalImpact.OIP/MediaContent/" + item.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageData.AdditionalFormatFileExt
         : null;
-    return { "id": item.ID, "title": item.Title, "excerpt": item.ExcerptRendered,
-        "article_text": item.BodyRendered,
+    var currExcerpt = item.ExcerptRendered ? item.ExcerptRendered : item.Excerpt;
+    var currArticleText = item.BodyRendered ? item.BodyRendered : item.Body;
+    return { "id": item.ID, "title": item.Title, "excerpt": currExcerpt,
+        "article_text": currArticleText,
         "image": imageUrl,
         "itemUrl": "../../AaltoGlobalImpact.OIP/TextContent/" + item.ID + ".json"
     };
@@ -263,6 +265,7 @@ var activateIsotope = function () {
 
 };
 
+/*
 var tUI = TheBall.Interface.UI;
 var tMgr = new tUI.TemplateModuleManager();
 var renderCount = 0;
@@ -409,3 +412,4 @@ $(function () {
         }, 500);
     })();
 });
+   */

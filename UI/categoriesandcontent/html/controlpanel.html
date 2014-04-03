@@ -369,6 +369,7 @@
 <script src="../assets/controlpanel/js/jquery.isotope.js" type="text/javascript"></script>
 <script src="../assets/controlpanel/js/jquery.form.min.js"></script>
 <script src="../assets/controlpanel/js/redactor.min.js"></script>
+<script src="../assets/controlpanel/js/controlpanel.js"></script>
 <link rel="stylesheet" href="../assets/controlpanel/css/redactor.css" />
 
 
@@ -390,7 +391,7 @@
 
 <script>
     $(document).ready(function(){
-        $.ajaxSetup({cache: false});
+        $.ajaxSetup({cache: true});
 
             $('#addNewContentModal-content').redactor(
                     {   minHeight: 300,
@@ -530,7 +531,10 @@
 
         function viewContent(editEvent) {
             var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
-            $.getJSON('../assets/controlpanel/json/site_settings.json', function(contentData) {
+            var itemUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
+            $.getJSON(itemUrl, function(textContent) {
+                var contentData = {};
+                contentData.content = [ getCardContentFromTextContent(textContent, 256) ];
                 var queryValue="";
                 for (var i in contentData.content) {
                     if (contentData.content[i].id === clickedEditID)
@@ -553,7 +557,7 @@
 
                         //send the correspondent image to the placeholder, but clean its containing div first
                         $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
-                        var currentImage="../assets/controlpanel/"+contentData.content[i].image;
+                        var currentImage=contentData.content[i].image;
                         queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
                         $("#viewContentModal-image").append(queryValue);
                     } //ends If
@@ -570,7 +574,12 @@
         function get_content()
         {
             $("#contentDivContainer").empty();
-            return $.getJSON('../assets/controlpanel/json/site_settings.json', function(contentData) {
+            //return $.getJSON('../assets/controlpanel/json/site_settings.json', function(contentData) {
+            return $.getJSON('../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json', function(textContentCollection) {
+                var contentData = {};
+                contentData.content = $.map(textContentCollection.CollectionContent, function(item, index) {
+                    return getCardContentFromTextContent(item, 256);
+                });
                 var user_content="";
                 user_content+="<div class='addNewContent' id='addNewContentDiv'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
                 user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
@@ -597,7 +606,7 @@
                     if(! aproxCardSize || aproxCardSize==0 || aproxCardSize<210 ){
                     aproxCardSize=210;
                     };
-                    var currentImage="../assets/controlpanel/"+contentData.content[i].image;
+                    var currentImage=contentData.content[i].image;
                     user_content+="<div class='content-card "+contentData.content[i].content_type+"' id='contentCardDataId-"+contentData.content[i].id+"' style='min-height:"+aproxCardSize+"px'>";
                     user_content+="<img src='"+currentImage+"' alt='image' id='contentCardImage-dataID-"+contentData.content[i].id+"'/>";
                     user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+contentData.content[i].id+"'><span style='font-size: 120%;'><strong>"+contentData.content[i].title+"</strong></span></div>";
