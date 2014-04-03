@@ -9,6 +9,7 @@ $excerpt =  $_POST["excerpt"];
 //$image = $_POST["image"];
 $content= $_POST["content"];
 $categories = $_POST["categories"];
+$author = $_POST["author"];
 
 $file = "json/site_settings.json";
 $data = json_decode(file_get_contents($file), true);
@@ -32,6 +33,7 @@ $data["content"][$index_matched]["title"]= $title;
 $data["content"][$index_matched]["excerpt"]= $excerpt;
 $data["content"][$index_matched]["article_text"]= stripslashes ($content);
 $data["content"][$index_matched]["content_type"]= $categories;
+$data["content"][$index_matched]["Author"]= $author;
 
 
 $newJsonString = json_encode($data);

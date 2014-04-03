@@ -14,6 +14,26 @@
         <h1>Welcome to Foundation</h1>
       </div>
     </div>
+
+    <div id="editContentModal" class="reveal-modal medium" data-reveal>
+        <h2>Editing content</h2>
+        <form id="form-editContentModal">
+            <div class="row">
+                <div class="large-6 columns left" id="editContentModal-image"></div>
+                <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-id"/></div>
+                <div class="large-6 columns right hide"><input type="text" class="hidden-field" id="editContentModal-imagePath"/></div>
+                <div class="large-6 columns right"><label>Title</label> <input type="text" id="editContentModal-title"/></div>
+                <div class="large-6 columns right"><label>Excerpt</label> <input type="text" id="editContentModal-excerpt"/></div>
+                <div class="large-6 columns right"><label>Categories</label> <input type="text" id="editContentModal-categories"/></div>
+                <div class="large-6 columns right"><label>Content</label><div id="editTextareaDivHolder"></div></div>
+                <div class="large-6 columns right">
+                    <a class="button" id="editContentModal-submit">Submit Changes</a>
+                    <a class="button" id="cancelEditContentModal">Cancel</a>
+                </div>
+            </div>
+        </form>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
     
     <div class="row">
       <div class="large-12 columns">

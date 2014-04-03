@@ -9,6 +9,7 @@ $excerpt =  $_POST["excerpt"];
 $image_path = $_POST["image_path"];
 $article_text= $_POST["article_text"];
 $categories = $_POST["categories"];
+$author = $_POST["author"];
 
 $file = "json/site_settings.json";
 $json = json_decode(file_get_contents($file), true);
@@ -29,7 +30,7 @@ $calculatedPhotoHeight=210;
 
 $calculatedCardHeight=$calculatedPhotoHeight+94;
 
-$new_item= array("id"=> $id, "title"=>$title, "excerpt"=>$excerpt, "image"=>$image_path,"calculatedPhotoHeight"=>$calculatedPhotoHeight,"calculatedCardHeight"=>$calculatedCardHeight,"article_text"=>stripslashes($article_text),"content_type"=>$categories);
+$new_item= array("id"=> $id, "title"=>$title, "excerpt"=>$excerpt, "image"=>$image_path,"calculatedPhotoHeight"=>$calculatedPhotoHeight,"calculatedCardHeight"=>$calculatedCardHeight,"article_text"=>stripslashes($article_text),"content_type"=>$categories, "Author"=>$author);
 
 array_push($json["content"], $new_item);
 file_put_contents($file, json_encode($json));
