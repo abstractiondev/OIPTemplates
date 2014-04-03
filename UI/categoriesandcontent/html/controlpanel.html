@@ -540,6 +540,9 @@
             var itemUrl = "../../AaltoGlobalImpact.OIP/TextContent/" + clickedEditID + ".json";
             $.getJSON(itemUrl, function(textContent) {
                 var contentData = {};
+                if(textContent.RawHtmlContent) {
+                    textContent.BodyRendered = textContent.RawHtmlContent;
+                }
                 contentData.content = [ getCardContentFromTextContent(textContent, 256) ];
                 var queryValue="";
                 for (var i in contentData.content) {
@@ -718,11 +721,18 @@
             var new_content_excerpt = $("#addNewContentModal-excerpt").val();
             var new_content_categories = $("#addNewContentModal-categories").val();
 
+
+            var actualValue = $('#addNewContentModal-content').val();
             new_content_id = $.now();
+            //var htmlStr = $('#textareaInput').val();
+            var encodedValue = $('<div/>').text(actualValue).html();
+
+            //var decodedValue = $('<div/>').html(encodedValue).text();
             tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
                     {
                         "Title": new_content_title,
-                        "Excerpt": new_content_excerpt
+                        "Excerpt": new_content_excerpt,
+                        "ENC.RawHtmlContent": encodedValue
                     });
 /*
             $.ajax({
