@@ -481,7 +481,9 @@ select {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
-    float: left; }
+    float: left;
+    overflow: hidden;/*Hugo was here*/
+  }
 
   .medium-1 {
     width: 8.33333%; }
@@ -2906,7 +2908,8 @@ dialog[open] {
       width: 40%; }
     dialog.medium, .reveal-modal.medium {
       margin-left: -30%;
-      width: 60%; }
+      width: 60%;
+      max-width: 780px;/*Hugo was here*/}
     dialog.large, .reveal-modal.large {
       margin-left: -35%;
       width: 70%; }

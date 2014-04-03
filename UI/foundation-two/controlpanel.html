@@ -486,6 +486,7 @@
                     "Excerpt: "+edited_content_excerpt+"<br>"+
                     "Image Path: "+edited_content_image+"<br>"+
                     "Categories: "+edited_content_categories);
+            $('#editContentModal-content').redactor('destroy');
             $('#alert-contentUpdate-successful').foundation('reveal', 'open');
         }
 
@@ -510,7 +511,15 @@
                         $('#editContentModal-categories').val(queryValue);
 
                         queryValue=contentData.content[i].article_text;
+                        /*$('#editContentModal-content').redactor('set',queryValue, false);*/
                         $('#editContentModal-content').val(queryValue);
+                        /*$('#editContentModal-content').redactor('insertText',queryValue);*/
+                        $('#editContentModal-content').redactor(
+                                {   minHeight: 300,
+                                    buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
+                                });
+
+                        console.log ("Edit-conent-modal. Current content: "+queryValue);
 
                         queryValue=contentData.content[i].image;
                         $('#editContentModal-imagePath').val(queryValue);
@@ -689,18 +698,13 @@
 
         function submit_New_Content_Form(){
 
-            /*nicEditors.findEditor('addNewContentModal-content').saveContent();*/
-            /*var new_content_content = $("#addNewContentModal-content").val();*/
-
-            /*var new_content_content = $("#addNewContentModal-content").val();*/
-            var new_content_content = ('#addNewContentModal-content').redactor('get');
-
+            /*var new_content_content = $('#addNewContentModal-content').redactor('get');*/
+            var new_content_content = $('#addNewContentModal-content').val();
             var new_content_id;
             var new_content_title = $("#addNewContentModal-title").val();
             var new_content_image = $("#addNewContentModal-imagePath").val();
             var new_content_excerpt = $("#addNewContentModal-excerpt").val();
-            var new_content_categories = $("#addNewContentModal-categories").val();
-
+            var new_content_categories = $("#addNewContentCategorySelect option:selected").text();
             new_content_id = $.now();
 
             $.ajax({
