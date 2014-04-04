@@ -8,16 +8,103 @@
                     <div class="controls">
                         {#ProfileImage}
                         {?ImageData.ID}
-{!
-                            {>"fileupload.dust" initial_class_mode="fileupload-exists" container_id="{ID}" field_name="ImageData" content_id="{ImageData.ID}"
-                                imagesuffix="256x256_crop{ImageData.FileExt}" /}
-!}
+<script>
+    var currentImageID = "{ImageData.ID}";
+    var imageDataFileExt = "{ImageData.FileExt}";
+</script>
                         {:else}
-{!
-                            {>"fileupload.dust" initial_class_mode="fileupload-new" container_id="{ID}" field_name="ImageData" /}
-!}
+<script>
+    var currentImageID = null;
+</script>
                         {/ImageData.ID}
                         {/ProfileImage}
+<script>
+    var noImageUrl = "../assets/img/no_image.gif";
+    var currentImageUrl = currentImageID ?
+            "../../AaltoGlobalImpact.OIP/MediaContent/" + currentImageID + "_256x256_crop" + imageDataFileExt :
+            noImageUrl;
+    var profileImageID = "{ProfileImage.ID}";
+</script>
+                        <div id="ProfileImage_{ID}">
+                            <div class="thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;">
+                                <img src="../assets/img/no_image.gif" />
+                            </div>
+                            <div>
+                                <input type="file">
+                                <input type="hidden">
+                                <a href="#" class="button">Action</a>
+                            </div>
+                        </div>
+<script>
+
+    var setButtonMode = function($button, mode) {
+        var buttonText = mode == "add" ? "Add Image" : "Remove Image";
+        $button.attr('data-mode', mode);
+        $button.html(buttonText);
+    };
+
+    var reset_field = function(e) {
+        e.wrap('<form>').parent('form').trigger('reset');
+        e.unwrap();
+    };
+
+    var setImageValues = function($file, $hidden, fileFieldName) {
+        $hidden.attr('name', '');
+        $file.attr('name', fileFieldName);
+    };
+
+    var clearImageValue = function($file, $hidden, fileFieldName) {
+        $hidden.attr('name', fileFieldName);
+        $file.attr('name', '');
+    };
+
+    var activateFileUpload = function() {
+        var fileFieldName = "File_" + profileImageID + "_ImageData";
+        var currMode = currentImageID ? "remove" : "add";
+        var rootSelector = "#ProfileImage_{ID}";
+        var buttonSelector = rootSelector + " .button";
+        var imageSelector = rootSelector + " img";
+        var hiddenSelector = rootSelector + " input[type=hidden]";
+        var fileSelector = rootSelector + " input[type=file]";
+        var $image = $(imageSelector);
+        var $button = $(buttonSelector);
+        var $file = $(fileSelector);
+        var $hidden = $(hiddenSelector);
+
+        $image.attr("src", currentImageUrl);
+        setButtonMode($button, currMode);
+
+
+        $button.on("click", function() {
+            var currMode = $(this).attr('data-mode');
+            if(currMode == "remove") {
+                reset_field($file);
+                $image.attr('src', noImageUrl);
+                setButtonMode($button, "add");
+                clearImageValue($file, $hidden, fileFieldName);
+            }
+        });
+
+        $file.change(function() {
+            var input = this;
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $(imageSelector).attr('src', e.target.result);
+                    setButtonMode($button, "remove");
+                    setImageValues($file, $hidden, fileFieldName);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+    };
+    activateFileUpload();
+    $(function() {
+
+    });
+</script>
+
                     </div>
                 </div>
                 <div>
@@ -25,14 +112,7 @@
                     <div>
                         {#IconImage}
                             {?ImageData.ID}
-{!
-                                {>"fileupload.dust" initial_class_mode="fileupload-exists" container_id="{ID}" field_name="ImageData" content_id="{ImageData.ID}"
-                                imagesuffix="64x64_crop{ImageData.FileExt}" /}
-!}
                             {:else}
-{!
-                                {>"fileupload.dust" initial_class_mode="fileupload-new" container_id="{ID}" field_name="ImageData" /}
-!}
                             {/ImageData.ID}
                         {/IconImage}
                     </div>
