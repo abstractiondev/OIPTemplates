@@ -42,34 +42,34 @@ module TheBall.Interface.UI {
             $form.submit();
             $form.empty();
         }
+
+        SaveIndependentObject(objectID:string, objectRelativeLocation:string, objectETag:string, objectData:any)
+        {
+            var $form = this.$submitForm;
+            $form.empty();
+            var id = objectID;
+            var contentSourceInfo = objectRelativeLocation + ":" + objectETag;
+            $form.append(this.getHiddenInput("ContentSourceInfo", contentSourceInfo));
+            for(var key in objectData) {
+                var $hiddenInput = this.getHiddenInput(id + "_" + key, objectData[key]);
+                $form.append($hiddenInput);
+            }
+            $form.submit();
+            $form.empty();
+        }
         SaveObject(objectID:string, objectETag:string, dataContents:any) {
             var obj = this.DCM.TrackedObjectStorage[objectID];
             if(!obj)
                 throw "Object not found with ID: " + objectID;
             if(obj.MasterETag != objectETag)
                 throw "Object ETag mismatch on save: " + objectID;
-            var $form = this.$submitForm;
-            $form.empty();
-            var id = obj.ID;
-            var contentSourceInfo = obj.RelativeLocation + ":" + obj.MasterETag;
-            $form.append(this.getHiddenInput("ContentSourceInfo", contentSourceInfo));
-            for(var key in dataContents) {
-                var $hiddenInput = this.getHiddenInput(id + "_" + key, dataContents[key]);
-                $form.append($hiddenInput);
-            }
-            $form.submit();
-            $form.empty();
+            this.SaveIndependentObject(obj.ID, obj.RelativeLocation, obj.MasterETag, dataContents);
         }
-        DeleteObject(objectID:string) {
-            var obj = this.DCM.TrackedObjectStorage[objectID];
-            if(!obj)
-                throw "Object not found with ID: " + objectID;
+
+        DeleteIndependentOject(domainName:string, objectName:string, objectID:string)
+        {
             var $form = this.$submitForm;
             $form.empty();
-            var contentSourceInfo = obj.RelativeLocation + ":" + obj.MasterETag;
-            var objectID = obj.ID;
-            var domainName = obj.SemanticDomainName;
-            var objectName = obj.Name;
             $form.append(this.getHiddenInput("ObjectDomainName", domainName));
             $form.append(this.getHiddenInput("ObjectName", objectName));
             $form.append(this.getHiddenInput("ObjectID", objectID));
@@ -77,6 +77,18 @@ module TheBall.Interface.UI {
             $form.submit();
             $form.empty();
         }
+
+        DeleteObject(objectID:string) {
+            var obj = this.DCM.TrackedObjectStorage[objectID];
+            if(!obj)
+                throw "Object not found with ID: " + objectID;
+            var contentSourceInfo = obj.RelativeLocation + ":" + obj.MasterETag;
+            var objectID = obj.ID;
+            var domainName = obj.SemanticDomainName;
+            var objectName = obj.Name;
+            this.DeleteIndependentOject(domainName, objectName, objectID);
+        }
+
         ExecuteOperationWithForm(operationName:string, operationParameters:any) {
             var $form = this.$submitForm;
             $form.empty();
