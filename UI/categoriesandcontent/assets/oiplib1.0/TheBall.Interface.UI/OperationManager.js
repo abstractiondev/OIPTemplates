@@ -60,7 +60,7 @@ var TheBall;
                     this.SaveIndependentObject(obj.ID, obj.RelativeLocation, obj.MasterETag, dataContents);
                 };
 
-                OperationManager.prototype.DeleteIndependentOject = function (domainName, objectName, objectID) {
+                OperationManager.prototype.DeleteIndependentObject = function (domainName, objectName, objectID) {
                     var $form = this.$submitForm;
                     $form.empty();
                     $form.append(this.getHiddenInput("ObjectDomainName", domainName));
@@ -79,7 +79,7 @@ var TheBall;
                     var objectID = obj.ID;
                     var domainName = obj.SemanticDomainName;
                     var objectName = obj.Name;
-                    this.DeleteIndependentOject(domainName, objectName, objectID);
+                    this.DeleteIndependentObject(domainName, objectName, objectID);
                 };
 
                 OperationManager.prototype.ExecuteOperationWithForm = function (operationName, operationParameters) {

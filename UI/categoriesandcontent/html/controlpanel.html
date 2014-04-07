@@ -771,11 +771,12 @@
             /*new_content_id = $.now();*/
             var new_content_categories="News";
 
+            new_content_content = $('<div/>').text(new_content_content).html();
             tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
                     {
                         Title: new_content_title,
                         Excerpt: new_content_excerpt,
-                        RawHtmlContent: new_content_content,
+                        "ENC.RawHtmlContent": new_content_content,
                         Author: new_content_author
                     }
             );

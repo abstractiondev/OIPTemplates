@@ -66,7 +66,7 @@ module TheBall.Interface.UI {
             this.SaveIndependentObject(obj.ID, obj.RelativeLocation, obj.MasterETag, dataContents);
         }
 
-        DeleteIndependentOject(domainName:string, objectName:string, objectID:string)
+        DeleteIndependentObject(domainName:string, objectName:string, objectID:string)
         {
             var $form = this.$submitForm;
             $form.empty();
@@ -86,7 +86,7 @@ module TheBall.Interface.UI {
             var objectID = obj.ID;
             var domainName = obj.SemanticDomainName;
             var objectName = obj.Name;
-            this.DeleteIndependentOject(domainName, objectName, objectID);
+            this.DeleteIndependentObject(domainName, objectName, objectID);
         }
 
         ExecuteOperationWithForm(operationName:string, operationParameters:any) {
