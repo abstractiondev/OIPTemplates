@@ -37,34 +37,32 @@ var TheBall;
                     $form.submit();
                     $form.empty();
                 };
+
+                OperationManager.prototype.SaveIndependentObject = function (objectID, objectRelativeLocation, objectETag, objectData) {
+                    var $form = this.$submitForm;
+                    $form.empty();
+                    var id = objectID;
+                    var contentSourceInfo = objectRelativeLocation + ":" + objectETag;
+                    $form.append(this.getHiddenInput("ContentSourceInfo", contentSourceInfo));
+                    for (var key in objectData) {
+                        var $hiddenInput = this.getHiddenInput(id + "_" + key, objectData[key]);
+                        $form.append($hiddenInput);
+                    }
+                    $form.submit();
+                    $form.empty();
+                };
                 OperationManager.prototype.SaveObject = function (objectID, objectETag, dataContents) {
                     var obj = this.DCM.TrackedObjectStorage[objectID];
                     if (!obj)
                         throw "Object not found with ID: " + objectID;
                     if (obj.MasterETag != objectETag)
                         throw "Object ETag mismatch on save: " + objectID;
-                    var $form = this.$submitForm;
-                    $form.empty();
-                    var id = obj.ID;
-                    var contentSourceInfo = obj.RelativeLocation + ":" + obj.MasterETag;
-                    $form.append(this.getHiddenInput("ContentSourceInfo", contentSourceInfo));
-                    for (var key in dataContents) {
-                        var $hiddenInput = this.getHiddenInput(id + "_" + key, dataContents[key]);
-                        $form.append($hiddenInput);
-                    }
-                    $form.submit();
-                    $form.empty();
+                    this.SaveIndependentObject(obj.ID, obj.RelativeLocation, obj.MasterETag, dataContents);
                 };
-                OperationManager.prototype.DeleteObject = function (objectID) {
-                    var obj = this.DCM.TrackedObjectStorage[objectID];
-                    if (!obj)
-                        throw "Object not found with ID: " + objectID;
+
+                OperationManager.prototype.DeleteIndependentOject = function (domainName, objectName, objectID) {
                     var $form = this.$submitForm;
                     $form.empty();
-                    var contentSourceInfo = obj.RelativeLocation + ":" + obj.MasterETag;
-                    var objectID = obj.ID;
-                    var domainName = obj.SemanticDomainName;
-                    var objectName = obj.Name;
                     $form.append(this.getHiddenInput("ObjectDomainName", domainName));
                     $form.append(this.getHiddenInput("ObjectName", objectName));
                     $form.append(this.getHiddenInput("ObjectID", objectID));
@@ -72,6 +70,18 @@ var TheBall;
                     $form.submit();
                     $form.empty();
                 };
+
+                OperationManager.prototype.DeleteObject = function (objectID) {
+                    var obj = this.DCM.TrackedObjectStorage[objectID];
+                    if (!obj)
+                        throw "Object not found with ID: " + objectID;
+                    var contentSourceInfo = obj.RelativeLocation + ":" + obj.MasterETag;
+                    var objectID = obj.ID;
+                    var domainName = obj.SemanticDomainName;
+                    var objectName = obj.Name;
+                    this.DeleteIndependentOject(domainName, objectName, objectID);
+                };
+
                 OperationManager.prototype.ExecuteOperationWithForm = function (operationName, operationParameters) {
                     var $form = this.$submitForm;
                     $form.empty();
