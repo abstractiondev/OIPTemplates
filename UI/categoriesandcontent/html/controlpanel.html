@@ -381,6 +381,9 @@
 <script src="../assets/controlpanel/js/jquery.form.min.js"></script>
 <script src="../assets/controlpanel/js/redactor.min.js"></script>
 <script src="../assets/controlpanel/js/markdowndeep/MarkdownDeepLib.min.js"></script>
+<script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
+<script src="../assets/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
+<script src="../assets/oiplib1.0/TheBall.Interface.UI/OperationManager.js"></script>
 <link rel="stylesheet" href="../assets/controlpanel/css/redactor.css" />
 
 
@@ -433,6 +436,9 @@
         $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
         $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
         $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
+
+        var tUI = TheBall.Interface.UI;
+        var tOP = new tUI.OperationManager();
 
         function test(){
             alert ("triggered!");
@@ -508,7 +514,7 @@
             }, 1500);
         }
 
-        function editContent_PopulateModal(editEvent) {
+        function editContent_PopulateModal(editEvent)   {
             var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
             $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
                 var queryValue="";
@@ -756,30 +762,37 @@
         function submit_New_Content_Form(){
 
             var new_content_content = $('#addNewContentModal-content').val();
-            var new_content_id;
+            /*var new_content_id;*/
             var new_content_title = $("#addNewContentModal-title").val();
-            var new_content_image = $("#addNewContentModal-imagePath").val();
+            /*var new_content_image = $("#addNewContentModal-imagePath").val();*/
             var new_content_excerpt = $("#addNewContentModal-excerpt").val();
-            var new_content_categories = $("#addNewContentCategorySelect option:selected").text();
+            /*var new_content_categories = $("#addNewContentCategorySelect option:selected").text();*/
             var new_content_author = $("#addNewContentModal-author").val();
-            new_content_id = $.now();
+            /*new_content_id = $.now();*/
+            var new_content_categories="News";
 
-            $.ajax({
+            tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
+                    {
+                        Title: new_content_title,
+                        Excerpt: new_content_excerpt,
+                        RawHtmlContent: new_content_content,
+                        Author: new_content_author
+                    }
+            );
+
+            /*$.ajax({
                 global: false,
                 type: "POST",
                 //async: false,
                 dataType: "json",
                 data: ({
-                    id: new_content_id,
-                    title: new_content_title,
-                    excerpt: new_content_excerpt,
-                    image_path: new_content_image,
-                    article_text: new_content_content,
-                    categories: new_content_categories,
-                    author: new_content_author
+                    Title: new_content_title,
+                    Excerpt: new_content_excerpt,
+                    RawHtmlContent: new_content_content,
+                    Author: new_content_author
                 }),
                 url: 'new_content.php'
-            });
+            });*/
             //more stuff to do after the ajax call
             var new_Content="";
             new_Content+="<div class='content-card "+new_content_categories+"' id='contentCardDataId-"+new_content_id+"'>";
