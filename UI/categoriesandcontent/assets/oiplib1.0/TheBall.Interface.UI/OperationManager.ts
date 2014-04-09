@@ -10,10 +10,14 @@ module TheBall.Interface.UI {
     export class OperationManager {
         private $submitForm;
         private DCM:DataConnectionManager;
-        constructor(dcm:DataConnectionManager) {
+        private BinaryFileSelectorBase:string;
+        constructor(dcm:DataConnectionManager, binaryFileSelectorBase:string) {
             if(!dcm)
                 dcm = new TheBall.Interface.UI.DataConnectionManager();
+            if(!binaryFileSelectorBase)
+                binaryFileSelectorBase = ".oipfile";
             this.DCM = dcm;
+            this.BinaryFileSelectorBase = binaryFileSelectorBase;
             var $body = $("body");
             var formHtml = "<form style='margin:0px;width:0px;height:0px;background-color: transparent;border: 0px none transparent;padding: 0px;overflow: hidden;visibility:hidden'  enctype='multipart/form-data' id='OperationManager_DynamicIFrameForm' " +
                 "method='post' target='OperationManager_IFrame'></form> ";
@@ -114,6 +118,121 @@ module TheBall.Interface.UI {
                     }
                 }
             );
+        }
+
+        setButtonMode($button, mode) {
+            var buttonText = mode == "add" ? "Add Image" : "Remove Image";
+            $button.attr('data-mode', mode);
+            $button.html(buttonText);
+        }
+
+        reset_field(e) {
+            e.wrap('<form>').parent('form').trigger('reset');
+            e.unwrap();
+        }
+
+        setImageValues($file, $hidden, fileFieldName) {
+            $hidden.attr('name', '');
+            $file.attr('name', fileFieldName);
+        }
+
+        clearImageValue($file, $hidden, fileFieldName) {
+            $hidden.attr('name', fileFieldName);
+            $file.attr('name', '');
+        }
+
+
+        private hookEvents(buttonSelector:string) {
+            var noImageUrl:string = "";
+            $(document).on("click", buttonSelector, function() {
+                var currMode = $(this).attr('data-mode');
+                if(currMode == "remove") {
+                    var $file = $("");
+                    var $image = $("");
+                    var $hidden = $("");
+                    var fileFieldName = "";
+                    var $button = null;
+                    this.reset_field($file);
+                    $image.attr('src', noImageUrl);
+                    this.setButtonMode($button, "add");
+                    this.clearImageValue($file, $hidden, fileFieldName);
+                }
+            });
+
+            /*
+            $file.change(function() {
+                var input = this;
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $(imageSelector).attr('src', e.target.result);
+                        alert(e.target.result);
+                        setButtonMode($button, "remove");
+                        setImageValues($file, $hidden, fileFieldName);
+                    };
+                    alert(input.files[0]);
+                    reader.readAsDataURL(input.files[0]);
+                }
+            });
+             */
+
+        }
+
+        InitiateBinaryFileElements() {
+            var jQueryClassSelector:string = this.BinaryFileSelectorBase;
+            var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
+            var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
+            var previewImgSelector = "img" + jQueryClassSelector;
+            var inputFileWithNameSelector = inputFileSelector + "[name]";
+            var hiddenInputWithNameSelector = hiddenInputSelector + "[name]";
+            var objectIDDataName = "oipfile-objectid";
+            var propertyName = "oipfile-propertyname";
+
+        }
+
+        readFileFromInputAsync(fileInput:HTMLInputElement) : JQueryPromise<any> {
+            if (fileInput.files && fileInput.files[0]) {
+                var file = fileInput.files[0];
+                return this.readFileAsync(fileInput, file);
+            }
+            var emptyDeferred = $.Deferred();
+            emptyDeferred.resolve({ "fileInput": fileInput});
+            return emptyDeferred.promise();
+        }
+
+        readFileAsync(fileInput:HTMLInputElement, file) {
+            var reader = new FileReader();
+            var deferred = $.Deferred();
+
+            reader.onload = function(event) {
+                deferred.resolve({
+                    "fileInput": fileInput,
+                    "file": file,
+                    "content": event.target.result});
+            };
+
+            reader.onerror = function() {
+                deferred.reject(this);
+            };
+            reader.readAsDataURL(file);
+            return deferred.promise();
+        }
+
+        PrepareBinaryFileContents(callBack:Function) {
+            var me = this;
+            var jQueryClassSelector:string = this.BinaryFileSelectorBase;
+            var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
+            var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
+            var previewImgSelector = "img" + jQueryClassSelector;
+            var inputFileWithNameSelector = inputFileSelector + "[name]";
+            var hiddenInputWithNameSelector = hiddenInputSelector + "[name]";
+
+            var $filesToAdd = $(inputFileWithNameSelector);
+            var $fileReadingPromises = $filesToAdd.map(function(index, element) {
+                var inputElement:HTMLInputElement = <HTMLInputElement> element;
+                return me.readFileFromInputAsync(inputElement);
+            });
+            $.when.apply($, $fileReadingPromises).then(callBack);
         }
         /*
          <input id="ObjectDelete_ExecuteOperation" name="ExecuteOperation"
