@@ -196,7 +196,7 @@ module TheBall.Interface.UI {
                 return this.readFileAsync(fileInput, file);
             }
             var emptyDeferred = $.Deferred();
-            emptyDeferred.resolve({ "fileInput": fileInput});
+            emptyDeferred.resolve({ "inputElement": fileInput});
             return emptyDeferred.promise();
         }
 
@@ -206,7 +206,7 @@ module TheBall.Interface.UI {
 
             reader.onload = function(event) {
                 deferred.resolve({
-                    "fileInput": fileInput,
+                    "inputElement": fileInput,
                     "file": file,
                     "content": event.target.result});
             };
@@ -232,7 +232,16 @@ module TheBall.Interface.UI {
                 var inputElement:HTMLInputElement = <HTMLInputElement> element;
                 return me.readFileFromInputAsync(inputElement);
             });
-            $.when.apply($, $fileReadingPromises).then(callBack);
+            var $filesToRemove = $(hiddenInputWithNameSelector);
+            var $fileRemoveData = $filesToRemove.map(function(index, element) {
+                var inputElement:HTMLInputElement = <HTMLInputElement> element;
+                return { "inputElement": inputElement, "file": null, "content": null};
+            });
+            var concatCallbackArray = $fileReadingPromises.add($fileRemoveData);
+            $.when.apply($, concatCallbackArray).then(function() {
+                var args=arguments;
+                callBack(args);
+            });
         }
         /*
          <input id="ObjectDelete_ExecuteOperation" name="ExecuteOperation"
