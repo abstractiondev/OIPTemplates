@@ -7,6 +7,20 @@ var TheBall;
         /// <reference path="jquery.d.ts" />
         /// <reference path="DataConnectionManager.ts" />
         (function (UI) {
+            var BinaryFileItem = (function () {
+                function BinaryFileItem(inputElement, file, content) {
+                    this.inputElement = inputElement;
+                    this.file = file;
+                    this.content = content;
+                }
+                BinaryFileItem.prototype.GetEmbeddedPropertyContent = function () {
+                    if (!this.file || !this.file.name || !this.content)
+                        return null;
+                    return this.file.name + ":" + this.content;
+                };
+                return BinaryFileItem;
+            })();
+            UI.BinaryFileItem = BinaryFileItem;
             var OperationManager = (function () {
                 function OperationManager(dcm, binaryFileSelectorBase) {
                     this.getHiddenInput = function (key, dataContent) {
@@ -183,7 +197,7 @@ var TheBall;
                         return this.readFileAsync(fileInput, file);
                     }
                     var emptyDeferred = $.Deferred();
-                    emptyDeferred.resolve({ "inputElement": fileInput });
+                    emptyDeferred.resolve(new BinaryFileItem(fileInput, null, null));
                     return emptyDeferred.promise();
                 };
 
@@ -192,10 +206,7 @@ var TheBall;
                     var deferred = $.Deferred();
 
                     reader.onload = function (event) {
-                        deferred.resolve({
-                            "inputElement": fileInput,
-                            "file": file,
-                            "content": event.target.result });
+                        deferred.resolve(new BinaryFileItem(fileInput, file, event.target.result));
                     };
 
                     reader.onerror = function () {
@@ -222,7 +233,7 @@ var TheBall;
                     var $filesToRemove = $(hiddenInputWithNameSelector);
                     var $fileRemoveData = $filesToRemove.map(function (index, element) {
                         var inputElement = element;
-                        return { "inputElement": inputElement, "file": null, "content": null };
+                        return new BinaryFileItem(inputElement, null, null);
                     });
                     var concatCallbackArray = $fileReadingPromises.add($fileRemoveData);
                     $.when.apply($, concatCallbackArray).then(function () {

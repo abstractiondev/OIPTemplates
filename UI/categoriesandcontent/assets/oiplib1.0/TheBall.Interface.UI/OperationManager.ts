@@ -7,6 +7,16 @@
 
 
 module TheBall.Interface.UI {
+    export class BinaryFileItem {
+        constructor(public inputElement:HTMLInputElement, public file:any, public content:string) {
+
+        }
+        GetEmbeddedPropertyContent() : string {
+            if(!this.file || !this.file.name || !this.content)
+                return null;
+            return this.file.name + ":" + this.content;
+        }
+    }
     export class OperationManager {
         private $submitForm;
         private DCM:DataConnectionManager;
@@ -196,7 +206,7 @@ module TheBall.Interface.UI {
                 return this.readFileAsync(fileInput, file);
             }
             var emptyDeferred = $.Deferred();
-            emptyDeferred.resolve({ "inputElement": fileInput});
+            emptyDeferred.resolve(new BinaryFileItem(fileInput, null, null));
             return emptyDeferred.promise();
         }
 
@@ -205,10 +215,7 @@ module TheBall.Interface.UI {
             var deferred = $.Deferred();
 
             reader.onload = function(event) {
-                deferred.resolve({
-                    "inputElement": fileInput,
-                    "file": file,
-                    "content": event.target.result});
+                deferred.resolve(new BinaryFileItem(fileInput, file, event.target.result));
             };
 
             reader.onerror = function() {
@@ -218,7 +225,7 @@ module TheBall.Interface.UI {
             return deferred.promise();
         }
 
-        PrepareBinaryFileContents(callBack:Function) {
+        PrepareBinaryFileContents(callBack: (fileItems:BinaryFileItem[]) => void) {
             var me = this;
             var jQueryClassSelector:string = this.BinaryFileSelectorBase;
             var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
@@ -235,11 +242,11 @@ module TheBall.Interface.UI {
             var $filesToRemove = $(hiddenInputWithNameSelector);
             var $fileRemoveData = $filesToRemove.map(function(index, element) {
                 var inputElement:HTMLInputElement = <HTMLInputElement> element;
-                return { "inputElement": inputElement, "file": null, "content": null};
+                return new BinaryFileItem(inputElement, null, null);
             });
             var concatCallbackArray = $fileReadingPromises.add($fileRemoveData);
             $.when.apply($, concatCallbackArray).then(function() {
-                var args=arguments;
+                var args:BinaryFileItem[]=<BinaryFileItem[]><any>arguments;
                 callBack(args);
             });
         }
