@@ -40,6 +40,13 @@ var TheBall;
                     $body.append(formHtml);
                     $body.append(iFrameHtml);
                     this.$submitForm = $("#OperationManager_DynamicIFrameForm");
+
+                    if (typeof String.prototype.startsWith != 'function') {
+                        // see below for better implementation!
+                        String.prototype.startsWith = function (str) {
+                            return this.lastIndexOf(str, 0) === 0;
+                        };
+                    }
                 }
                 OperationManager.prototype.CreateObject = function (domainName, objectName, dataContents) {
                     var $form = this.$submitForm;
@@ -61,8 +68,17 @@ var TheBall;
                     var id = objectID;
                     var contentSourceInfo = objectRelativeLocation + ":" + objectETag;
                     $form.append(this.getHiddenInput("ContentSourceInfo", contentSourceInfo));
+                    var realKey;
                     for (var key in objectData) {
-                        var $hiddenInput = this.getHiddenInput(id + "_" + key, objectData[key]);
+                        if (key.startsWith("File_"))
+                            realKey = key.replace("File_", "File_" + id + "_");
+                        else if (key.startsWith("Object_"))
+                            realKey = key.replace("Object_", "Object_" + id + "_");
+                        else if (key.startsWith("FileEmbedded_"))
+                            realKey = key.replace("FileEmbedded_", "FileEmbedded_" + id + "_");
+                        else
+                            realKey = id + "_" + key;
+                        var $hiddenInput = this.getHiddenInput(realKey, objectData[key]);
                         $form.append($hiddenInput);
                     }
                     $form.submit();
