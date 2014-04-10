@@ -47,7 +47,7 @@
 
             <div class="row" id="postAndimportantWrapperRow">
                 <div class="medium-3 large-3 columns noPaddingRight" style="height: 37px;">
-                    <div id="postUpdateButton" class="orangeButton">Post an update</div></div>
+                    <a><div id="postUpdateButton" class="orangeButton">Post an update</div></a></div>
                 <div class="medium-9 large-9 columns" style="height: 37px;">
                     <div id="importantLinksDiv">
                         <div id="importantLinksTitle" style="font-size: 13px;font-weight:bold;">Important links</div>
@@ -101,7 +101,7 @@
                                     <form id="form-addNewContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
                                         <div id="addNewContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
                                         <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere"><input type ='file' name='myfile' id="addNewContent-fileInput"></span><p></div>
-                                        <span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit" >Upload Photo</a></span>
+                                        <!--<span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit" >Upload Photo</a></span>-->
                                     </form>
                                 </div>
                             </div>
@@ -291,7 +291,7 @@ $(document).ready(function(){
             });
 
     $.when(get_content()).then(function(){populateWebsitesMenu_and_groupsTabTable ();start_isotope();setInterval(reLayout_isotope, 2000); console.log( "Isotope fired after getting content, succeed" );}).fail(function(){console.log( "something went wrong with getting the content" );});
-    $("#contentDivContainer").delegate("#addNewContentDiv",{ click: reveal_addNewContentModal } );
+    $("#postAndimportantWrapperRow").delegate("#postUpdateButton",{ click: reveal_addNewContentModal } );
     $("#contentDivContainer").delegate(".editContentButton",{ click: editContent_PopulateModal} );
     $("#contentDivContainer").delegate(".viewContentButton",{ click: viewContent } );
     $("#portfolioFilterDivContainer").delegate("a",{ click: filter_isotope_items } );
@@ -569,6 +569,8 @@ $(document).ready(function(){
             /*user_content+="<div class='addNewContent' id='addNewContentDiv'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
              user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
              user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div>";*/
+            var newscounter=1;
+
 
             for (var i in contentData.CollectionContent) {
                 //noinspection JSUnfilteredForInLoop
@@ -588,6 +590,19 @@ $(document).ready(function(){
                     var currentExcerpt=currentObject.Excerpt;
                     var currentAuthor=currentObject.Author;
                     var currentPublishedDate=currentObject.Published;
+                    var recordedJsonDate;
+                    var pattern;
+                    var extractedDate;
+
+                    //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
+                    recordedJsonDate = currentPublishedDate;
+                    pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                    recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                    extractedDate= new Date(1000*recordedJsonDate);
+                    currentPublishedDate = extractedDate.getDate()+".";
+                    currentPublishedDate+= extractedDate.getMonth()+".";
+                    currentPublishedDate+= extractedDate.getFullYear();
+                    //ends processing the "PublishedDate" field on JSON, to the format: DD.MM.YY
 
                     var imageSizeString="256";
                     var currentImagePath=currentObject.ImageData
@@ -608,6 +623,16 @@ $(document).ready(function(){
                     user_content+="<div class='content-card-line'><hr></div>";
                     user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+currentID+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+currentID+"'><i class='icon-commentround'></i></a></div>";
                     user_content+="</div>";
+
+                    if (newscounter<4){
+                        $("#news"+newscounter+"date").empty();
+                        $("#news"+newscounter+"date").append(currentPublishedDate);
+                        var currentnewstext="<a>"+currentTitle+". "+currentExcerpt+"</a>";
+                        $("#news"+newscounter+"text").empty();
+                        $("#news"+newscounter+"text").append(currentnewstext);
+                        /*news1date  news1text*/
+                        newscounter++;
+                    }
                 }//closes ELSE if Title is not null, and categories not null, etc
             }//ends for loop
             $("#contentDivContainer").append(user_content).isotope('reLayout');
@@ -705,14 +730,17 @@ $(document).ready(function(){
         /*new_content_id = $.now();*/
         var new_content_categories="News";
 
+        new_content_content = $('<div/>').text(new_content_content).html();
+
         tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
                 {
                     Title: new_content_title,
                     Excerpt: new_content_excerpt,
-                    RawHtmlContent: new_content_content,
+                    "ENC.RawHtmlContent": new_content_content,
                     Author: new_content_author
                 }
         );
+
 
         /*$.ajax({
          global: false,
@@ -757,6 +785,17 @@ $(document).ready(function(){
     function close_NewContent_Modal_Form(){
         $("#tooltip-uploadphoto").trigger("mouseout");
         $("#tooltip-choosePhotoHere").trigger("mouseout");
+        //clearing the fields of the New Content Modal Form
+        $('#addNewContentModal-content').val("");
+        $("#addNewContentModal-title").val("");
+        $("#addNewContentModal-excerpt").val("");
+        $("#addNewContentModal-author").val("");
+        $("#addNewContentModal-imagePath").val("");
+        $("#addNewContentModal-id").val("");
+        //clearing the fileInput
+        var newupdatefileinputID = $("#addNewContent-fileInput");
+        newupdatefileinputID.replaceWith( newupdatefileinputID = newupdatefileinputID.clone( true ) );
+
         $('#addNewContentModal').foundation('reveal', 'close');
     }
 
