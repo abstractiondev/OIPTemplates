@@ -571,7 +571,6 @@ $(document).ready(function(){
              user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div>";*/
             var newscounter=1;
 
-
             for (var i in contentData.CollectionContent) {
                 //noinspection JSUnfilteredForInLoop
                 /*var aproxCardSize=contentData.content[i].calculatedCardHeight;
@@ -580,60 +579,55 @@ $(document).ready(function(){
                  };*/
                 var currentObject=contentData.CollectionContent[i];
 
-                if ((currentObject.Title===null)||(!currentObject.Title)||(currentObject.Categories===null))
-                {}
+                var aproxCardSize=210;
+                var currentID=currentObject.ID;
+                var currentTitle=currentObject.Title ? currentObject.Title : "";
+                var currentExcerpt=currentObject.Excerpt;
+                var currentAuthor=currentObject.Author;
+                var currentPublishedDate=currentObject.Published;
+                var recordedJsonDate;
+                var pattern;
+                var extractedDate;
+
+                //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
+                recordedJsonDate = currentPublishedDate;
+                pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                extractedDate= new Date(1000*recordedJsonDate);
+                currentPublishedDate = extractedDate.getDate()+".";
+                currentPublishedDate+= extractedDate.getMonth()+".";
+                currentPublishedDate+= extractedDate.getFullYear();
+                //ends processing the "PublishedDate" field on JSON, to the format: DD.MM.YY
+
+                var imageSizeString="256";
+                var currentImagePath=currentObject.ImageData
+                        ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
+                        : null;
+
+                var currentMainCategory;
+
+                if(!currentObject.Categories|| !currentObject.Categories.CollectionContent ||
+                        !currentObject.Categories.CollectionContent.length)
+                    currentMainCategory="NEWS";
                 else
-                {
-                    var aproxCardSize=210;
-                    var currentID=currentObject.ID;
-                    var currentTitle=currentObject.Title;
-                    var currentExcerpt=currentObject.Excerpt;
-                    var currentAuthor=currentObject.Author;
-                    var currentPublishedDate=currentObject.Published;
-                    var recordedJsonDate;
-                    var pattern;
-                    var extractedDate;
+                    currentMainCategory=currentObject.Categories.CollectionContent[0].Title;
+                user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+currentID+"' style='min-height:"+aproxCardSize+"px'>";
+                user_content+="<img src='"+currentImagePath+"' alt='image' id='contentCardImage-dataID-"+currentID+"'/>";
+                user_content+="<div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+currentID+"'>"+currentTitle+"</div>";
+                user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+currentID+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+currentID+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+currentID+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+currentID+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
+                user_content+="<div class='content-card-line'><hr></div>";
+                user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+currentID+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+currentID+"'><i class='icon-commentround'></i></a></div>";
+                user_content+="</div>";
 
-                    //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
-                    recordedJsonDate = currentPublishedDate;
-                    pattern = /[0-9]+/; //to find the number within the string, first occurrence.
-                    recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
-                    extractedDate= new Date(1000*recordedJsonDate);
-                    currentPublishedDate = extractedDate.getDate()+".";
-                    currentPublishedDate+= extractedDate.getMonth()+".";
-                    currentPublishedDate+= extractedDate.getFullYear();
-                    //ends processing the "PublishedDate" field on JSON, to the format: DD.MM.YY
-
-                    var imageSizeString="256";
-                    var currentImagePath=currentObject.ImageData
-                            ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
-                            : null;
-
-                    var currentMainCategory;
-
-                    if(currentObject.Categories == false || currentObject.Categories.CollectionContent == false)
-                        currentMainCategory="NEWS";
-                    else
-                        currentMainCategory=currentObject.Categories.CollectionContent[0].Title;
-
-                    user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+currentID+"' style='min-height:"+aproxCardSize+"px'>";
-                    user_content+="<img src='"+currentImagePath+"' alt='image' id='contentCardImage-dataID-"+currentID+"'/>";
-                    user_content+="<div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+currentID+"'>"+currentTitle+"</div>";
-                    user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+currentID+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+currentID+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+currentID+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+currentID+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
-                    user_content+="<div class='content-card-line'><hr></div>";
-                    user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+currentID+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+currentID+"'><i class='icon-commentround'></i></a></div>";
-                    user_content+="</div>";
-
-                    if (newscounter<4){
-                        $("#news"+newscounter+"date").empty();
-                        $("#news"+newscounter+"date").append(currentPublishedDate);
-                        var currentnewstext="<a>"+currentTitle+". "+currentExcerpt+"</a>";
-                        $("#news"+newscounter+"text").empty();
-                        $("#news"+newscounter+"text").append(currentnewstext);
-                        /*news1date  news1text*/
-                        newscounter++;
-                    }
-                }//closes ELSE if Title is not null, and categories not null, etc
+                if (newscounter<4){
+                    $("#news"+newscounter+"date").empty();
+                    $("#news"+newscounter+"date").append(currentPublishedDate);
+                    var currentnewstext="<a>"+currentTitle+". "+currentExcerpt+"</a>";
+                    $("#news"+newscounter+"text").empty();
+                    $("#news"+newscounter+"text").append(currentnewstext);
+                    /*news1date  news1text*/
+                    newscounter++;
+                }
             }//ends for loop
             $("#contentDivContainer").append(user_content).isotope('reLayout');
         })//closes getJSON
@@ -756,6 +750,7 @@ $(document).ready(function(){
          url: 'new_content.php'
          });*/
         //more stuff to do after the ajax call
+        var new_content_id = "123";
         var new_Content="";
         new_Content+="<div class='content-card "+new_content_categories+"' id='contentCardDataId-"+new_content_id+"'>";
         new_Content+="<img src='"+new_content_image+"' alt='image' id='contentCardImage-dataID-"+new_content_id+"'/>";
