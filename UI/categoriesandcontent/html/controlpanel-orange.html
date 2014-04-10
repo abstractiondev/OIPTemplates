@@ -131,7 +131,7 @@
                                                                     <textarea id="addNewContentModal-content" cols="50"style="height: 300px;"></textarea>
                                                                    <textarea cols="50" id="area4">HTML <b>content</b> <i>default</i> in textarea</textarea>
                                 -->
-                                <textarea id="addNewContentModal-content" style="height: 600px;" name="content"></textarea>
+                                <div id="addNewTextareaDivHolder"><textarea id="addNewContentModal-content" style="height: 600px;" name="content"></textarea></div>
                             </div>
                         </div>
 
@@ -713,7 +713,6 @@ $(document).ready(function(){
     }
 
     function submit_New_Content_Form(){
-
         var new_content_content = $('#addNewContentModal-content').val();
         /*var new_content_id;*/
         var new_content_title = $("#addNewContentModal-title").val();
@@ -725,7 +724,6 @@ $(document).ready(function(){
         var new_content_categories="News";
 
         new_content_content = $('<div/>').text(new_content_content).html();
-
         tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
                 {
                     Title: new_content_title,
@@ -734,8 +732,6 @@ $(document).ready(function(){
                     Author: new_content_author
                 }
         );
-
-
         /*$.ajax({
          global: false,
          type: "POST",
@@ -762,6 +758,27 @@ $(document).ready(function(){
         var $container = $('#contentDivContainer');
         var $newItems = $(new_Content);
         $container.isotope( 'insert', $newItems );
+
+        //clearing the fields of the New Content Modal Form
+        $('#addNewContentModal-content').val("");
+        $("#addNewContentModal-title").val("");
+        $("#addNewContentModal-excerpt").val("");
+        $("#addNewContentModal-author").val("");
+        $("#addNewContentModal-imagePath").val("");
+        $("#addNewContentModal-id").val("");
+        $('#addNewTextareaDivHolder').empty();
+        var textarea = $("<textarea id='addNewContentModal-content' style='height: 300px;'>");
+        $('#addNewTextareaDivHolder').append(textarea);
+        $('#addNewContentModal-content').val("");
+        $('#addNewContentModal-content').redactor(
+                {   minHeight: 300,
+                    buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
+                });
+        //clearing the fileInput
+        var newupdatefileinputID = $("#addNewContent-fileInput");
+        newupdatefileinputID.replaceWith( newupdatefileinputID = newupdatefileinputID.clone( true ) );
+        //here the "cleaning" or resetting of the input fields ends.
+
         $('#addNewContentModal').foundation('reveal', 'close');
         setTimeout(function() {
             $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
@@ -787,9 +804,18 @@ $(document).ready(function(){
         $("#addNewContentModal-author").val("");
         $("#addNewContentModal-imagePath").val("");
         $("#addNewContentModal-id").val("");
+        $('#addNewTextareaDivHolder').empty();
+        var textarea = $("<textarea id='addNewContentModal-content' style='height: 300px;'>");
+        $('#addNewTextareaDivHolder').append(textarea);
+        $('#addNewContentModal-content').val("");
+        $('#addNewContentModal-content').redactor(
+                {   minHeight: 300,
+                    buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
+                });
         //clearing the fileInput
         var newupdatefileinputID = $("#addNewContent-fileInput");
         newupdatefileinputID.replaceWith( newupdatefileinputID = newupdatefileinputID.clone( true ) );
+        //here the "cleaning" or reseting of the input fields ends.
 
         $('#addNewContentModal').foundation('reveal', 'close');
     }
