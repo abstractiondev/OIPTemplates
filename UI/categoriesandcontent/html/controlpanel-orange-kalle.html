@@ -150,7 +150,7 @@
                             <div class="large-6 columns"><div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                 <form id="form-editContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
                                     <div id="editContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
-                                    <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere2"><input type ='file' name='ImageData' class="oipcontent" id="addNewContent-fileInput2"></span><p></div>
+                                    <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere2"><input type ='file' name='ImageData' class="oipfile" id="editContent-fileInput"></span><p></div>
                                     <span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto2" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit2" >Upload Photo</a></span>
                                 </form></div>
                             </div>
@@ -377,13 +377,30 @@ $(document).ready(function(){
         var edited_content_content = $("#editContentModal-content").val();
 
         edited_content_content = $('<div/>').text(edited_content_content).html();
-        tOP.SaveObject(edited_content_id, edited_content_etag,
-                {
-                    "Title": edited_content_title,
-                    "Excerpt": edited_content_excerpt,
-                    "ENC.RawHtmlContent": edited_content_content,
-                    Author: edited_content_author
-                });
+        tOP.PrepareBinaryFileContents(function(binaryFileItems) {
+            var imageFieldName;
+            var editedModalImage;
+            for(var i = 0; i < binaryFileItems.length; i++) {
+                var item = binaryFileItems[i];
+                if(item.inputElement.id == "editContent-fileInput") {
+                    editedModalImage = item.GetEmbeddedPropertyContent();
+                    if(editedModalImage)
+                        imageFieldName = "FileEmbedded_ImageData";
+                    break;
+                }
+            }
+            var saveData = {
+                "Title": edited_content_title,
+                "Excerpt": edited_content_excerpt,
+                "ENC.RawHtmlContent": edited_content_content,
+                //"FileEmbedded_ImageData": editedModalImage,
+                Author: edited_content_author
+            };
+            // TODO: Proper check if we want to modify the image
+            if(imageFieldName)
+                saveData[imageFieldName] = editedModalImage;
+            tOP.SaveObject(edited_content_id, edited_content_etag, saveData);
+        });
 
         $('#editContentModal').foundation('reveal', 'close');
         setTimeout(function() {
