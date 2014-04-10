@@ -199,13 +199,22 @@
                         </div>
                         <div id="viewContentModal" class="reveal-modal medium" data-reveal>
                             <!--Begins contents of  div for the viewContentModal-->
-
                             <div class="row">
-                                <div class="large-6 columns left" id="viewContentModal-image"></div>
-                                <div class="large-6 columns right" style="padding-left: 0px !important;"><strong><span id="viewContentModal-title" style="font-size: 150%;"></span></strong><br></div>
-                                <div class="large-6 columns right" style="padding-left: 0px !important;"><h3 class="subheader" id="viewContentModal-excerpt" style="font-style:italic !important; "></h3></div>
-                                <div id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
-                                <div class="subheader" id="viewContentModal-categories" style="font-style:italic;font-size: 85%; padding-left: 0px !important;"></div>
+                                <div class="large-4 columns" id="viewContentModal-image"></div>
+                                <div class="large-8 columns">
+                                    <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><span id="viewContentModal-categories" class="fancyTagBig"></span></div>
+                                    <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-pencil fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Author" class="discreetLinks"></span></div>
+                                    <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-calendaralt-cronjobs fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Date" class="discreetLinks"></span></div>
+                                </div>
+                                <div class="large-8 columns" style="padding-right:0;padding-top: 0;padding-bottom:0;"><div class="content-card-line"><hr></div></div>
+                                <div class="large-8 columns" style="padding-bottom: 12px;padding-right:10px;padding-top:10px;"><strong><span id="viewContentModal-title" class="hugeTitleText"></span></strong><br></div>
+                                <div class="large-8 columns" style="padding-right:15px;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt bigTitleText discreetTextColor"></span></div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns" style="height:20px;"></div>
+                            </div>
+                            <div class="row">
+                                <div class="large-12 columns articleText" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
                             </div>
                             <div class="row">
                                 <div class="large-12">
@@ -380,6 +389,7 @@
 <script src="../assets/controlpanel/js/jquery.isotope.js" type="text/javascript"></script>
 <script src="../assets/controlpanel/js/jquery.form.min.js"></script>
 <script src="../assets/controlpanel/js/redactor.min.js"></script>
+<script src="../assets/controlpanel/js/jquery.htmlClean.min.js "></script>
 <script src="../assets/controlpanel/js/markdowndeep/MarkdownDeepLib.min.js"></script>
 <script src="../assets/oiplib1.0/TheBall.Interface.UI/TemplateModuleManager.js"></script>
 <script src="../assets/oiplib1.0/TheBall.Interface.UI/DataConnectionManager.js"></script>
@@ -583,52 +593,77 @@
             var clickedEditID= editEvent.target.id.replace("viewContentButton-dataID-", '');
             $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
                 var queryValue="";
-
                 var currentObject=contentData;
                 var currentID=currentObject.ID;
                 var currentTitle=currentObject.Title;
                 var currentExcerpt=currentObject.Excerpt;
                 var currentAuthor=currentObject.Author;
-                var currentPublishedDate=currentObject.Published;
-
-                if(currentObject.RawHtmlContent) {
-                    currentObject.BodyRendered = currentObject.RawHtmlContent;
-                } else {
-                    markdown = new MarkdownDeep.Markdown();
-                    markdown.SafeMode = true;
-                    currentObject.BodyRendered = markdown.Transform(currentObject.Body);
-                }
-
-                var currentArticleBody=currentObject.BodyRendered;
-
                 var imageSizeString="256";
+                var currentMainCategory;
+                var currentPublishedDate=currentObject.Published;
+                var recordedJsonDate;
+                var pattern;
+                var extractedDate;
+                var rawbody=currentObject.Body;
                 var currentImagePath=currentObject.ImageData
                         ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
                         : null;
-                var currentMainCategory="News";
+
+                if ((currentObject.Author===null)||(!currentObject.Author)){currentAuthor="Aalto Global Impact";}
+                else {currentAuthor=currentObject.Author;}
+
+                if(currentObject.RawHtmlContent) { currentObject.BodyRendered = currentObject.RawHtmlContent;}
+                else { markdown = new MarkdownDeep.Markdown();markdown.SafeMode = true; currentObject.BodyRendered = markdown.Transform(currentObject.Body);}
+                var currentArticleBody=currentObject.BodyRendered;
+
+                //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
+                recordedJsonDate = currentPublishedDate;
+                pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                extractedDate= new Date(1000*recordedJsonDate);
+                currentPublishedDate = extractedDate.getDate()+".";
+                currentPublishedDate+= extractedDate.getMonth()+".";
+                currentPublishedDate+= extractedDate.getFullYear();
+                //ends processing the "PublishedDate" field on JSON, to the format: DD.MM.YY
+
+                //cleaning the "old" articles with markdown and extra styling
+                rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
+                rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
+                rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
+                var currentArticleBodyVHugo =$.htmlClean(rawbody, {format:true});
+                //ends cleaning the "old" articles with markdown and extra styling
+
 
                         $("#viewContentModal-title").empty();
                         $('#viewContentModal-title').append(currentTitle);
+
+                        $("#viewContentModal-Author").empty();
+                        $('#viewContentModal-Author').append(currentAuthor);
+
+                        $("#viewContentModal-Date").empty();
+                        $('#viewContentModal-Date').append(currentPublishedDate);
 
                         queryValue="<p>"+currentExcerpt+"</p>";
                         $("#viewContentModal-excerpt").empty();
                         $('#viewContentModal-excerpt').append(queryValue);
 
-                        queryValue="<p style='font-size: 85%;float:right !important;'>Categorized as: "+currentMainCategory+"</p>";
+                        if(currentObject.Categories == false || currentObject.Categories.CollectionContent == false)
+                            currentMainCategory="NEWS";
+                        else
+                            currentMainCategory=currentObject.Categories.CollectionContent[0].Title;
                         $("#viewContentModal-categories").empty();
-                        $('#viewContentModal-categories').append(queryValue);
+                        $('#viewContentModal-categories').append(currentMainCategory);
 
                         $("#viewContentModal-content").empty();
-                        $('#viewContentModal-content').append(currentArticleBody);
+                        $('#viewContentModal-content').append(currentArticleBodyVHugo);
 
                         //send the correspondent image to the placeholder, but clean its containing div first
                         $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
                         queryValue = "<img src='"+currentImagePath+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
                         $("#viewContentModal-image").append(queryValue);
 
+                $('#viewContentModal').foundation('reveal', 'open');
             })//ends getJson
-            $('#viewContentModal').foundation('reveal', 'open');
-
         }//Ends Function ViewContent
 
         function reLayout_isotope() {
@@ -636,15 +671,14 @@
             $container.isotope( 'reLayout');
         }
 
-
         //--begins: Function get_content
         function get_content(){
             $("#contentDivContainer").empty();
             return $.getJSON('../../AaltoGlobalImpact.OIP/TextContentCollection/MasterCollection.json', function(contentData) {
                 var user_content="";
-                user_content+="<div class='addNewContent' id='addNewContentDiv'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
+                user_content+="<a><div class='addNewContent' id='addNewContentDiv'><div class='content-card-options'><span style='font-size:1100%;color:#ffffff;font-weight:900; line-height:100px;'>+</span></div>";
                 user_content+="<div class='content-card-options'><span class='addNewContentTitle'>Add update</span></div>";
-                user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div>";
+                user_content+="<div class='content-card-options'><span class='addNewContentSubtitle'>(Text, picture or embedded media)</span></div></div></a>";
 
                 for (var i in contentData.CollectionContent) {
                     //noinspection JSUnfilteredForInLoop
@@ -652,9 +686,13 @@
                     if(! aproxCardSize || aproxCardSize==0 || aproxCardSize<210 ){
                     aproxCardSize=210;
                     };*/
-                    var aproxCardSize=210;
-
                     var currentObject=contentData.CollectionContent[i];
+
+                    if ((currentObject.Title===null)||(!currentObject.Title)||(currentObject.Categories===null))
+                    {}
+                    else
+                    {
+                    var aproxCardSize=210;
                     var currentID=currentObject.ID;
                     var currentTitle=currentObject.Title;
                     var currentExcerpt=currentObject.Excerpt;
@@ -665,19 +703,25 @@
                     var currentImagePath=currentObject.ImageData
                             ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
                             : null;
-                    var currentMainCategory="News";
+
+                    var currentMainCategory;
+
+                        if(currentObject.Categories == false || currentObject.Categories.CollectionContent == false)
+                            currentMainCategory="NEWS";
+                        else
+                            currentMainCategory=currentObject.Categories.CollectionContent[0].Title;
 
                     user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+currentID+"' style='min-height:"+aproxCardSize+"px'>";
                     user_content+="<img src='"+currentImagePath+"' alt='image' id='contentCardImage-dataID-"+currentID+"'/>";
-                    user_content+="<div class='content-card-title' id='contentCardTitle-dataID-"+currentID+"'><span style='font-size: 120%;'><strong>"+currentTitle+"</strong></span></div>";
+                    user_content+="<div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+currentID+"'>"+currentTitle+"</div>";
                     user_content+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+currentID+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+currentID+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+currentID+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+currentID+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
                     user_content+="<div class='content-card-line'><hr></div>";
                     user_content+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+currentID+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+currentID+"'><i class='icon-commentround'></i></a></div>";
                     user_content+="</div>";
-                    //user_content+="</div>";
+                    }//closes ELSE if Title is not null, and categories not null, etc
                 }//ends for loop
                 $("#contentDivContainer").append(user_content).isotope('reLayout');
-            })
+            })//closes getJSON
         }
         //--ends function get_content();
         function get_files(){
