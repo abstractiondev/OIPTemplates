@@ -100,7 +100,7 @@
                                 <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                     <form id="form-addNewContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
                                         <div id="addNewContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
-                                        <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere"><input type ='file' class="oipfile" name='ImageData' id="addNewContent-fileInput"></span><p></div>
+                                        <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere"><input type ='file' class="oipfile" data-oipobjectid="" data-oippropertyname="" name='ImageData' id="addNewContent-fileInput"></span><p></div>
                                         <!--<span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit" >Upload Photo</a></span>-->
                                     </form>
                                 </div>
@@ -147,16 +147,12 @@
                     <div id="editContentModal" class="reveal-modal medium" data-reveal>
                         <h2>Editing content</h2>
                         <div class="row">
-                            <div class="large-6 columns"><div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
-                                <form id="form-editContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
-                                    <div id="editContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
-                                    <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere2"><input type ='file' name='ImageData' class="oipfile" id="editContent-fileInput"></span><p></div>
-                                    <span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto2" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit2" >Upload Photo</a></span>
-                                </form></div>
-                            </div>
                             <div class="large-6 columns">
                                 <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                     <form id="form-editContentModal" method='POST' enctype='multipart/form-data' data-abide="ajax">
+                                        <div class="content">
+                                            <input type="file" id="editContentModal-ImageData">
+                                        </div>
                                         <div class="title-field"><label>Title<input type="text" id="editContentModal-title" required/></label><small class="error">A title to this update is required.</small></div>
                                         <div class="excerpt-field"><label>Excerpt<input type="text" id="editContentModal-excerpt" required/></label><small class="error">An excerpt to this update is required.</small></div>
                                         <div class="author-field"><label>Author<input type="text" id="editContentModal-author"></label></div>
@@ -413,6 +409,9 @@ $(document).ready(function(){
         var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
         $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
             tDCM.SetObjectInStorage(contentData);
+            $("#editContentModal-ImageData").data("oipfile-filegroupid", "edit" + contentData.ID);
+            tOP.InitiateBinaryFileElements("editContentModal-ImageData");
+            tOP.InitiateBinaryFileElements("editContentModal-ImageData");
             var queryValue="";
             var currentObject=contentData;
             var currentID=currentObject.ID;

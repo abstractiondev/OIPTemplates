@@ -204,16 +204,64 @@ module TheBall.Interface.UI {
 
         }
 
-        InitiateBinaryFileElements() {
+        InitiateBinaryFileElements(fileInputID:string) {
             var jQueryClassSelector:string = this.BinaryFileSelectorBase;
             var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
-            var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
-            var previewImgSelector = "img" + jQueryClassSelector;
+            //var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
+            //var previewImgSelector = "img" + jQueryClassSelector;
             var inputFileWithNameSelector = inputFileSelector + "[name]";
-            var hiddenInputWithNameSelector = hiddenInputSelector + "[name]";
+            //var hiddenInputWithNameSelector = hiddenInputSelector + "[name]";
+            var fileGroupIDDataName = "oipfile-filegroupid";
             var objectIDDataName = "oipfile-objectid";
-            var propertyName = "oipfile-propertyname";
+            var propertyDataName = "oipfile-propertyname";
+            var buttonTypeDataName = "oipfile-buttontype";
+            var buttonTypeSelect = "select";
+            var buttonTypeRemove = "remove";
 
+            var $fileInput = $("#" + fileInputID);
+            $fileInput.addClass("oipfile");
+            var currentGroupID = $fileInput.data(fileGroupIDDataName);
+            var currentGroupDataSelectorString =
+                "[data-" + fileGroupIDDataName + "='" + currentGroupID + "']";
+
+
+            var previewImgSelector = "img.oipfile" + currentGroupDataSelectorString;
+            var $previevImg = $(previewImgSelector);
+            if($previevImg.length === 0) {
+                $previevImg = $("<img class='oipfile' />")
+                $previevImg.data(fileGroupIDDataName, currentGroupID);
+                $previevImg.insertBefore($fileInput);
+
+            }
+            var hiddenInputSelector = "input.oipfile[type='hidden']" + currentGroupDataSelectorString;
+            var $hiddenInput = $(hiddenInputSelector);
+            if($hiddenInput.length === 0) {
+                $hiddenInput = $("<input class='oipfile' type='hidden'>");
+                $hiddenInput.data(fileGroupIDDataName, currentGroupID);
+                $hiddenInput.insertBefore($fileInput);
+            }
+            var selectButtonSelector = ".oipfile"
+                + currentGroupDataSelectorString
+                + "[data-" + buttonTypeDataName + "='" + buttonTypeSelect + "']";
+            var $selectButton = $(selectButtonSelector);
+            if($selectButton.length === 0) {
+                // Create select button
+                $selectButton = $("<a href='#' class='button oipfile'>Select</a>");
+                $selectButton.data(fileGroupIDDataName, currentGroupID);
+                $selectButton.data(buttonTypeDataName, buttonTypeSelect);
+                $selectButton.insertAfter($fileInput);
+            }
+            var removeButtonSelector = ".oipfile"
+                + currentGroupDataSelectorString
+                + "[data-" + buttonTypeDataName + "='" + buttonTypeRemove + "']";
+            var $removeButton = $(removeButtonSelector);
+            if($removeButton.length === 0) {
+                // Create remove button
+                $removeButton = $("<a href='#' class='button oipfile'>Remove</a>");
+                $removeButton.data(fileGroupIDDataName, currentGroupID);
+                $removeButton.data(buttonTypeDataName, buttonTypeRemove);
+                $removeButton.insertAfter($selectButton);
+            }
         }
 
         readFileFromInputAsync(fileInput:HTMLInputElement) : JQueryPromise<any> {
@@ -241,7 +289,7 @@ module TheBall.Interface.UI {
             return deferred.promise();
         }
 
-        PrepareBinaryFileContents(callBack: (fileItems:BinaryFileItem[]) => void) {
+        PrepareBinaryFileContents(objectID:string, callBack: (fileItems:BinaryFileItem[]) => void) {
             var me = this;
             var jQueryClassSelector:string = this.BinaryFileSelectorBase;
             var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
