@@ -411,8 +411,6 @@ $(document).ready(function(){
             tDCM.SetObjectInStorage(contentData);
             //$("#editContentModal-ImageData").data("oipfile-filegroupid", "edit" + contentData.ID);
             // NOTE!: Do not use object id for filegroupid - that's the control group
-            $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "editModal");
-            tOP.InitiateBinaryFileElements("editContentModal-ImageData", "ImageData");
             var queryValue="";
             var currentObject=contentData;
             var currentID=currentObject.ID;
@@ -421,6 +419,13 @@ $(document).ready(function(){
             var currentExcerpt=currentObject.Excerpt;
             var currentAuthor=currentObject.Author;
             var currentPublishedDate=currentObject.Published;
+            var imageSizeString="256";
+            var currentImagePath=currentObject.ImageData
+                    ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
+                    : null;
+            // Initiate binary file elements for image
+            $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "editModal");
+            tOP.InitiateBinaryFileElements("editContentModal-ImageData", "ImageData", currentImagePath);
 
             if(currentObject.RawHtmlContent) {
                 currentObject.BodyRendered = currentObject.RawHtmlContent;
@@ -433,10 +438,6 @@ $(document).ready(function(){
 
             var currentArticleBody=currentObject.BodyRendered;
 
-            var imageSizeString="256";
-            var currentImagePath=currentObject.ImageData
-                    ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
-                    : null;
             var currentMainCategory="News";
 
             queryValue=clickedEditID;

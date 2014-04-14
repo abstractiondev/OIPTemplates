@@ -174,14 +174,27 @@ module TheBall.Interface.UI {
             });
         }
 
-        setRemoveFileButtonEvents($removeButton, $fileInput, $hiddenInput, $imagePreview, noImageUrl:string) {
+        setRemoveFileButtonEvents($removeButton, $fileInput, $hiddenInput, $imagePreview) {
             var me = this;
             $removeButton.off("click.oip").on("click.oip", function() {
                 var fileFieldName:string = $fileInput.attr("data-oipfile-propertyname");
                 me.reset_field($fileInput);
-                $imagePreview.attr('src', noImageUrl);
+                me.setPreviewImageSrc($imagePreview, null);
                 me.clearImageValue($fileInput, $hiddenInput, fileFieldName);
             });
+        }
+
+        setPreviewImageSrc($imagePreview, srcContent:string) {
+            if(!srcContent) {
+                var noImageUrl = $imagePreview.attr("data-oipfile-noimageurl");
+                if(!noImageUrl) {
+                    $imagePreview.hide();
+                }
+                $imagePreview.attr('src', noImageUrl);
+            } else {
+                $imagePreview.attr('src', srcContent);
+                $imagePreview.show();
+            }
         }
 
         setFileInputEvents($fileInput, $hiddenInput, $imagePreview) {
@@ -193,7 +206,7 @@ module TheBall.Interface.UI {
                 if (input.files && input.files[0]) {
                     var reader = new FileReader();
                     reader.onload = function (e) {
-                        $imagePreview.attr('src', e.target.result);
+                        me.setPreviewImageSrc($imagePreview, e.target.result);
                         me.setImageValues($fileInput, $hiddenInput, fileFieldName);
                     };
                     reader.readAsDataURL(input.files[0]);
@@ -201,25 +214,7 @@ module TheBall.Interface.UI {
             });
         }
 
-        private hookEvents(buttonSelector:string) {
-            var noImageUrl:string = "";
-            $(document).on("click", buttonSelector, function() {
-                var currMode = $(this).attr('data-mode');
-                if(currMode == "remove") {
-                    var $file = $("");
-                    var $image = $("");
-                    var $hidden = $("");
-                    var fileFieldName = "";
-                    var $button = null;
-                    this.reset_field($file);
-                    $image.attr('src', noImageUrl);
-                    this.setButtonMode($button, "add");
-                    this.clearImageValue($file, $hidden, fileFieldName);
-                }
-            });
-        }
-
-        InitiateBinaryFileElements(fileInputID:string, propertyName:string) {
+        InitiateBinaryFileElements(fileInputID:string, propertyName:string, initialPreviewUrl:string, noImageUrl:string) {
             var jQueryClassSelector:string = this.BinaryFileSelectorBase;
             var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
             //var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
@@ -233,6 +228,7 @@ module TheBall.Interface.UI {
             var buttonTypeSelect = "select";
             var buttonTypeRemove = "remove";
             var dataAttrPrefix = "data-";
+            var imgPreviewNoImageUrlDataName = "oipfile-noimageurl";
 
             var $fileInput = $("#" + fileInputID);
             $fileInput.addClass("oipfile");
@@ -249,8 +245,12 @@ module TheBall.Interface.UI {
             if($previevImg.length === 0) {
                 $previevImg = $("<img class='oipfile' />")
                 $previevImg.attr(dataAttrPrefix + fileGroupIDDataName, currentGroupID);
+                if(!noImageUrl)
+                    noImageUrl = "";
+                $previevImg.attr(dataAttrPrefix + imgPreviewNoImageUrlDataName, noImageUrl);
                 $previevImg.insertBefore($fileInput);
             }
+            this.setPreviewImageSrc($previevImg, initialPreviewUrl);
             var hiddenInputSelector = "input.oipfile[type='hidden']" + currentGroupDataSelectorString;
             var $hiddenInput = $(hiddenInputSelector);
             if($hiddenInput.length === 0) {
@@ -283,7 +283,7 @@ module TheBall.Interface.UI {
                 $removeButton.attr(dataAttrPrefix + fileGroupIDDataName, currentGroupID);
                 $removeButton.attr(dataAttrPrefix + buttonTypeDataName, buttonTypeRemove);
                 $removeButton.insertAfter($selectButton);
-                this.setRemoveFileButtonEvents($removeButton, $fileInput, $hiddenInput, $previevImg, "../assets/noimage.jpg");
+                this.setRemoveFileButtonEvents($removeButton, $fileInput, $hiddenInput, $previevImg);
             }
         }
 
