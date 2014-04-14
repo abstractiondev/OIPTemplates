@@ -11,6 +11,20 @@ module TheBall.Interface.UI {
         constructor(public inputElement:HTMLInputElement, public file:any, public content:string) {
 
         }
+
+        IsSet() : boolean {
+            if(this.inputElement.name)
+                return true;
+            return false;
+        }
+
+        GetPropertyName() : string {
+            //var $inputElement = $(this.inputElement);
+            //var propName = $inputElement.attr("data-oipfile-propertyname");
+            var propName = this.inputElement.name;
+            return propName;
+        }
+
         GetEmbeddedPropertyContent() : string {
             if(!this.file || !this.file.name || !this.content)
                 return null;
@@ -158,13 +172,15 @@ module TheBall.Interface.UI {
         }
 
         setImageValues($file, $hidden, fileFieldName) {
-            $hidden.attr('name', '');
+            //$hidden.attr('name', '');
+            $hidden.removeAttr('name');
             $file.attr('name', fileFieldName);
         }
 
         clearImageValue($file, $hidden, fileFieldName) {
             $hidden.attr('name', fileFieldName);
-            $file.attr('name', '');
+            //$file.attr('name', '');
+            $file.removeAttr('name');
         }
 
         setSelectFileButtonEvents($selectButton, $fileInput) {
@@ -199,7 +215,7 @@ module TheBall.Interface.UI {
 
         setFileInputEvents($fileInput, $hiddenInput, $imagePreview) {
             var me = this;
-            var fileFieldName:string = $fileInput.data("oipfile-propertyname");
+            var fileFieldName:string = $fileInput.attr("data-oipfile-propertyname");
             var changeEventName = "change.oip";
             $fileInput.off(changeEventName).on(changeEventName, function() {
                 var input:HTMLInputElement = <HTMLInputElement>this;
@@ -214,7 +230,7 @@ module TheBall.Interface.UI {
             });
         }
 
-        InitiateBinaryFileElements(fileInputID:string, propertyName:string, initialPreviewUrl:string, noImageUrl:string) {
+        InitiateBinaryFileElements(fileInputID:string, objectID:string, propertyName:string, initialPreviewUrl:string, noImageUrl:string) {
             var jQueryClassSelector:string = this.BinaryFileSelectorBase;
             var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
             //var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
@@ -236,6 +252,7 @@ module TheBall.Interface.UI {
             $fileInput.width(0);
             $fileInput.height(0);
             $fileInput.attr(dataAttrPrefix + propertyDataName, propertyName);
+            $fileInput.attr(dataAttrPrefix + objectIDDataName, objectID);
             var currentGroupID = $fileInput.attr(dataAttrPrefix + fileGroupIDDataName);
             var currentGroupDataSelectorString =
                 "[data-" + fileGroupIDDataName + "='" + currentGroupID + "']";
@@ -315,18 +332,31 @@ module TheBall.Interface.UI {
         PrepareBinaryFileContents(objectID:string, callBack: (fileItems:BinaryFileItem[]) => void) {
             var me = this;
             var jQueryClassSelector:string = this.BinaryFileSelectorBase;
-            var inputFileSelector = "input" + jQueryClassSelector + "[type='file']";
-            var hiddenInputSelector = "input" + jQueryClassSelector + "[type='hidden']";
-            var previewImgSelector = "img" + jQueryClassSelector;
+            var inputFileSelector = "input.oipfile"
+                + "[type='file'][data-oipfile-objectid='" + objectID + "' ]";
+
             var inputFileWithNameSelector = inputFileSelector + "[name]";
+            var inputFileWithoutNameSelector = inputFileSelector + ":not([name])";
+            var hiddenInputSelector = "input.oipfile[type='hidden']";
             var hiddenInputWithNameSelector = hiddenInputSelector + "[name]";
+
+            var $hiddenInputsWithName = $();
+            var $inputFilesWithoutName = $(inputFileWithoutNameSelector);
+            $inputFilesWithoutName.each(function(index, element) {
+                var currentGroupID = $(this).attr("data-oipfile-filegroupid");
+                var relativeHiddenWithNameSelector = hiddenInputWithNameSelector
+                    + "[data-oipfile-filegroupid='" + currentGroupID + "']";
+                var $relativeHiddenWithName = $(relativeHiddenWithNameSelector);
+                $hiddenInputsWithName = $hiddenInputsWithName.add($relativeHiddenWithName);
+            });
+
 
             var $filesToAdd = $(inputFileWithNameSelector);
             var $fileReadingPromises = $filesToAdd.map(function(index, element) {
                 var inputElement:HTMLInputElement = <HTMLInputElement> element;
                 return me.readFileFromInputAsync(inputElement);
             });
-            var $filesToRemove = $(hiddenInputWithNameSelector);
+            var $filesToRemove = $hiddenInputsWithName;
             var $fileRemoveData = $filesToRemove.map(function(index, element) {
                 var inputElement:HTMLInputElement = <HTMLInputElement> element;
                 return new BinaryFileItem(inputElement, null, null);
