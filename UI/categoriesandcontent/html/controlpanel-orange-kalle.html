@@ -409,9 +409,9 @@ $(document).ready(function(){
         var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
         $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
             tDCM.SetObjectInStorage(contentData);
-            $("#editContentModal-ImageData").data("oipfile-filegroupid", "edit" + contentData.ID);
-            tOP.InitiateBinaryFileElements("editContentModal-ImageData");
-            tOP.InitiateBinaryFileElements("editContentModal-ImageData");
+            //$("#editContentModal-ImageData").data("oipfile-filegroupid", "edit" + contentData.ID);
+            $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "edit" + contentData.ID);
+            tOP.InitiateBinaryFileElements("editContentModal-ImageData", "ImageData");
             var queryValue="";
             var currentObject=contentData;
             var currentID=currentObject.ID;
