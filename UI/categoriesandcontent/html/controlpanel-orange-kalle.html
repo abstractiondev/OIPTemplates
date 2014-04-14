@@ -165,8 +165,8 @@
                                         <div class="excerpt-field"><label>Excerpt<input type="text" id="editContentModal-excerpt" required/></label><small class="error">An excerpt to this update is required.</small></div>
                                         <div class="author-field"><label>Author<input type="text" id="editContentModal-author"></label></div>
                                         <div class="categories-field"><label>Category <select id="editContentModal-categories"></select></label></div>
-                                        <div class="hide"><label>ID</label><input type="text" class="hide" id="editContentModal-id"/></div>
-                                        <div class="hide"><label>Image Path</label><input type="text" class="hide" id="editContentModal-imagePath"/></div>
+                                        <input type="hidden" id="editContentModal-id"/>
+                                        <input type="hidden" id="editContentModal-etag"/>
                                     </form>
 
                                 </div>
@@ -324,7 +324,8 @@ $(document).ready(function(){
     $("#create-group-button").click(function () {$('#create-group-modal').foundation('reveal', 'open');});
 
     var tUI = TheBall.Interface.UI;
-    var tOP = new tUI.OperationManager();
+    var tDCM = new tUI.DataConnectionManager();
+    var tOP = new tUI.OperationManager(tDCM);
 
     function test(){
         alert ("triggered!");
@@ -370,61 +371,50 @@ $(document).ready(function(){
 
     function submit_EditedContent_to_Server() {
         var edited_content_id = $("#editContentModal-id").val();
+        var edited_content_etag = $("#editContentModal-etag").val();
         var edited_content_title = $("#editContentModal-title").val();
-        var edited_content_image = $("#editContentModal-imagePath").val();
         var edited_content_excerpt = $("#editContentModal-excerpt").val();
         var edited_content_author = $("#editContentModal-author").val();
-        /*var edited_content_categories = $("#editContentModal-categories").val();*/
         var edited_content_categories = $("#editContentModal-categories option:selected").text();
         var edited_content_content = $("#editContentModal-content").val();
 
-        $.ajax({
-            global: false,
-            type: "POST",
-            //async: false,
-            dataType: "json",
-            data: ({
-                id: edited_content_id,
-                title: edited_content_title,
-                excerpt: edited_content_excerpt,
-                image: edited_content_image,
-                content: edited_content_content,
-                categories: edited_content_categories,
-                author: edited_content_author
-            }),
-            url: 'update_content.php'
+        edited_content_content = $('<div/>').text(edited_content_content).html();
+        tOP.PrepareBinaryFileContents(edited_content_id, function(binaryFileItems) {
+            var imageFieldName;
+            var editedModalImage;
+            for(var i = 0; i < binaryFileItems.length; i++) {
+                var item = binaryFileItems[i];
+                if(item.IsSet() && item.GetPropertyName() == "ImageData") {
+                    editedModalImage = item.GetEmbeddedPropertyContent();
+                    imageFieldName = "FileEmbedded_ImageData";
+                }
+            }
+            var saveData = {
+                "Title": edited_content_title,
+                "Excerpt": edited_content_excerpt,
+                "ENC.RawHtmlContent": edited_content_content,
+                Author: edited_content_author
+            };
+            // TODO: Proper check if we want to modify the image
+            if(imageFieldName)
+                saveData[imageFieldName] = editedModalImage;
+            tOP.SaveObject(edited_content_id, edited_content_etag, saveData);
+            $('#editContentModal').foundation('reveal', 'close');
+            setTimeout(function() {
+                $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+                return false;
+            }, 1500);
         });
-        var replace_id="contentCardDataId-";
-        replace_id+=edited_content_id;
-        var new_EditedContent="";
-        $('#'+replace_id).empty();
-        //new_EditedContent+="<div class='content-card "+edited_content_categories+"' id='contentCardDataId-"+edited_content_id+"'>";
-        new_EditedContent+="<img src='"+edited_content_image+"' alt='image' id='contentCardImage-dataID-"+edited_content_id+"'/>";
-        new_EditedContent+="<div class='content-card-title' id='contentCardTitle-dataID-"+edited_content_id+"'><span style='font-size: 120%;'><strong>"+edited_content_title+"</strong></span></div>";
-        new_EditedContent+="<div class='content-card-options'><a class='editContentButton' id='editContentButton-dataID-"+edited_content_id+"'>Edit&nbsp;</a><a class='viewContentButton' id='viewContentButton-dataID-"+edited_content_id+"'>&nbsp;View&nbsp;</a><a id='trashContentButton-dataID-"+edited_content_id+"'>&nbsp;Trash&nbsp;</a><a class='content-card-options-right' id='toggleVisibilityContentButton-dataID-"+edited_content_id+"'><i class='icon-eye-open' style='font-size:110%;'></i></a></div>";
-        new_EditedContent+="<div class='content-card-line'><hr></div>";
-        new_EditedContent+="<div class='content-card-options'><a><i class='icon-pencil'></i>&nbsp;</a><a id='contentAddCommentButton-dataID-"+edited_content_id+"'>&nbsp;Comment&nbsp;</a><a class='content-card-options-right' id='contentNumberOfComments-dataID-"+edited_content_id+"'><i class='icon-commentround'></i></a></div>";
-        $('#'+replace_id).append(new_EditedContent);
-        $('#alert-contentUpdate-successful-variables').empty();
-        $('#alert-contentUpdate-successful-variables').append("Record ID: "+edited_content_id+"<br>"+
-                "Title: "+edited_content_title+"<br>"+
-                "Excerpt: "+edited_content_excerpt+"<br>"+
-                "Image Path: "+edited_content_image+"<br>"+
-                "Categories: "+edited_content_categories);
-        $('#editContentModal-content').redactor('destroy');
-        $('#editContentModal').foundation('reveal', 'close');
-        setTimeout(function() {
-            $('#alert-contentUpdate-successful').foundation('reveal', 'open');
-            return false;
-        }, 1500);
     }
 
     function editContent_PopulateModal(editEvent)   {
         var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
         $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
+            tDCM.SetObjectInStorage(contentData);
             var queryValue="";
             var currentObject=contentData;
             var currentID=currentObject.ID;
+            var currentETag=currentObject.MasterETag;
             var currentTitle=currentObject.Title;
             var currentExcerpt=currentObject.Excerpt;
             var currentAuthor=currentObject.Author;
@@ -437,7 +427,7 @@ $(document).ready(function(){
                     : null;
             // Initiate binary file elements for image
             $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "editModal");
-            tOP.InitiateBinaryFileElements("editContentModal-ImageData", "ImageData", currentImagePath);
+            tOP.InitiateBinaryFileElements("editContentModal-ImageData", currentID ,"ImageData", currentImagePath);
 
 
             if(currentObject.RawHtmlContent) {
@@ -458,8 +448,10 @@ $(document).ready(function(){
             var currentMainCategory="News";
 
 
-            queryValue=clickedEditID;
+            queryValue=currentID;
             $('#editContentModal-id').val(queryValue);
+            queryValue=currentETag;
+            $('#editContentModal-etag').val(queryValue);
             $('#editContentModal-title').val(currentTitle);
             $('#editContentModal-excerpt').val(currentExcerpt);
 
@@ -527,10 +519,19 @@ $(document).ready(function(){
             if ((currentObject.Author===null)||(!currentObject.Author)){currentAuthor="Aalto Global Impact";}
             else {currentAuthor=currentObject.Author;}
 
-            if(currentObject.RawHtmlContent) { currentObject.BodyRendered = currentObject.RawHtmlContent;}
-            else { markdown = new MarkdownDeep.Markdown();markdown.SafeMode = true; currentObject.BodyRendered = markdown.Transform(currentObject.Body);}
+            if(currentObject.RawHtmlContent)
+            {
+                currentObject.BodyRendered = currentObject.RawHtmlContent;
+            }
+            else if(currentObject.Body)
+            {
+                markdown = new MarkdownDeep.Markdown();
+                markdown.SafeMode = true;
+                currentObject.BodyRendered = markdown.Transform(currentObject.Body);
+            } else
+                currentObject.BodyRendered = "";
             var currentArticleBody=currentObject.BodyRendered;
-
+            rawbody = currentArticleBody;
             //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
             recordedJsonDate = currentPublishedDate;
             pattern = /[0-9]+/; //to find the number within the string, first occurrence.
@@ -562,7 +563,7 @@ $(document).ready(function(){
             $("#viewContentModal-excerpt").empty();
             $('#viewContentModal-excerpt').append(queryValue);
 
-            if(currentObject.Categories == false || currentObject.Categories.CollectionContent == false)
+            if(!currentObject.Categories || !currentObject.Categories.CollectionContent)
                 currentMainCategory="NEWS";
             else
                 currentMainCategory=currentObject.Categories.CollectionContent[0].Title;
