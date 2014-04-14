@@ -167,8 +167,11 @@ module TheBall.Interface.UI {
             $file.attr('name', '');
         }
 
-        setSelectFileButtonEvents() {
-
+        setSelectFileButtonEvents($selectButton, $fileInput) {
+            $selectButton.off("click.oip").on("click.oip", function()
+            {
+                $fileInput.click();
+            });
         }
 
         setRemoveFileButtonEvents($removeButton, $fileInput, $hiddenInput, $imagePreview, noImageUrl:string) {
@@ -233,6 +236,9 @@ module TheBall.Interface.UI {
 
             var $fileInput = $("#" + fileInputID);
             $fileInput.addClass("oipfile");
+            $fileInput.hide();
+            $fileInput.width(0);
+            $fileInput.height(0);
             $fileInput.attr(dataAttrPrefix + propertyDataName, propertyName);
             var currentGroupID = $fileInput.attr(dataAttrPrefix + fileGroupIDDataName);
             var currentGroupDataSelectorString =
@@ -264,6 +270,7 @@ module TheBall.Interface.UI {
                 $selectButton = $("<a class='button oipfile'>Select</a>");
                 $selectButton.attr(dataAttrPrefix + fileGroupIDDataName, currentGroupID);
                 $selectButton.attr(dataAttrPrefix + buttonTypeDataName, buttonTypeSelect);
+                this.setSelectFileButtonEvents($selectButton, $fileInput);
                 $selectButton.insertAfter($fileInput);
             }
             var removeButtonSelector = ".oipfile"

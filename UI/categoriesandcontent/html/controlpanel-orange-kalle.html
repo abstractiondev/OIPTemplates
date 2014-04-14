@@ -280,7 +280,7 @@
 
 <script>
 $(document).ready(function(){
-    $.ajaxSetup({cache: false});
+    $.ajaxSetup({cache: true});
 
     $('#addNewContentModal-content').redactor(
             {   minHeight: 300,
@@ -410,7 +410,8 @@ $(document).ready(function(){
         $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
             tDCM.SetObjectInStorage(contentData);
             //$("#editContentModal-ImageData").data("oipfile-filegroupid", "edit" + contentData.ID);
-            $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "edit" + contentData.ID);
+            // NOTE!: Do not use object id for filegroupid - that's the control group
+            $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "editModal");
             tOP.InitiateBinaryFileElements("editContentModal-ImageData", "ImageData");
             var queryValue="";
             var currentObject=contentData;
@@ -423,11 +424,12 @@ $(document).ready(function(){
 
             if(currentObject.RawHtmlContent) {
                 currentObject.BodyRendered = currentObject.RawHtmlContent;
-            } else {
+            } else if(currentObject.Body) {
                 markdown = new MarkdownDeep.Markdown();
                 markdown.SafeMode = true;
                 currentObject.BodyRendered = markdown.Transform(currentObject.Body);
-            }
+            } else
+                currentObject.BodyRendered = "";
 
             var currentArticleBody=currentObject.BodyRendered;
 
@@ -471,9 +473,9 @@ $(document).ready(function(){
             $("#editContentModal-image").empty(); //clean the image Placeholder in the form
             queryValue = "<img src='"+currentImagePath+"' style='height:100%;width:auto;margin-left:auto;margin-right:auto;'>";
             $("#editContentModal-image").append(queryValue);
-        }) //ends getJson
-        $('#form-editContentModal-imageUpload').ajaxForm(); //initializes the Form to Upload a new Photo, should the user choose to change it
-        $('#editContentModal').foundation('reveal', 'open');
+            // Open ready made edit window
+            $('#editContentModal').foundation('reveal', 'open');
+        }); //ends getJson
     }//ends function editContent
 
     function viewContent(editEvent) {
@@ -491,7 +493,6 @@ $(document).ready(function(){
             var recordedJsonDate;
             var pattern;
             var extractedDate;
-            var rawbody=currentObject.Body;
             var currentImagePath=currentObject.ImageData
                     ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
                     : null;
@@ -499,9 +500,21 @@ $(document).ready(function(){
             if ((currentObject.Author===null)||(!currentObject.Author)){currentAuthor="Aalto Global Impact";}
             else {currentAuthor=currentObject.Author;}
 
-            if(currentObject.RawHtmlContent) { currentObject.BodyRendered = currentObject.RawHtmlContent;}
-            else { markdown = new MarkdownDeep.Markdown();markdown.SafeMode = true; currentObject.BodyRendered = markdown.Transform(currentObject.Body);}
+            if(currentObject.RawHtmlContent) {
+                currentObject.BodyRendered = currentObject.RawHtmlContent;
+            }
+            else if(currentObject.Body)
+            {
+                markdown = new MarkdownDeep.Markdown();
+                markdown.SafeMode = true;
+                currentObject.BodyRendered = markdown.Transform(currentObject.Body);
+            } else
+                currentObject.BodyRendered = "";
             var currentArticleBody=currentObject.BodyRendered;
+
+            var rawbody=currentObject.BodyRendered;
+            if(!rawbody)
+                rawbody = "";
 
             //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
             recordedJsonDate = currentPublishedDate;

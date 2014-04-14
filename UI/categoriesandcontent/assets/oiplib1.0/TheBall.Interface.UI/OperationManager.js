@@ -162,7 +162,10 @@ var TheBall;
                     $file.attr('name', '');
                 };
 
-                OperationManager.prototype.setSelectFileButtonEvents = function () {
+                OperationManager.prototype.setSelectFileButtonEvents = function ($selectButton, $fileInput) {
+                    $selectButton.off("click.oip").on("click.oip", function () {
+                        $fileInput.click();
+                    });
                 };
 
                 OperationManager.prototype.setRemoveFileButtonEvents = function ($removeButton, $fileInput, $hiddenInput, $imagePreview, noImageUrl) {
@@ -229,6 +232,9 @@ var TheBall;
 
                     var $fileInput = $("#" + fileInputID);
                     $fileInput.addClass("oipfile");
+                    $fileInput.hide();
+                    $fileInput.width(0);
+                    $fileInput.height(0);
                     $fileInput.attr(dataAttrPrefix + propertyDataName, propertyName);
                     var currentGroupID = $fileInput.attr(dataAttrPrefix + fileGroupIDDataName);
                     var currentGroupDataSelectorString = "[data-" + fileGroupIDDataName + "='" + currentGroupID + "']";
@@ -257,6 +263,7 @@ var TheBall;
                         $selectButton = $("<a class='button oipfile'>Select</a>");
                         $selectButton.attr(dataAttrPrefix + fileGroupIDDataName, currentGroupID);
                         $selectButton.attr(dataAttrPrefix + buttonTypeDataName, buttonTypeSelect);
+                        this.setSelectFileButtonEvents($selectButton, $fileInput);
                         $selectButton.insertAfter($fileInput);
                     }
                     var removeButtonSelector = ".oipfile" + currentGroupDataSelectorString + "[data-" + buttonTypeDataName + "='" + buttonTypeRemove + "']";
