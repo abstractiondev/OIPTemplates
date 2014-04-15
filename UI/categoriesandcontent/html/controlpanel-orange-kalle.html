@@ -10,7 +10,6 @@
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
     <meta http-equiv="pragma" content="no-cache" />
 
-
     <title>Control Panel | Welcome</title>
     <link rel="stylesheet" href="../assets/controlpanel/css/foundation.orange.css" />
     <link rel="stylesheet" href="../assets/controlpanel/css/style.orange.css">
@@ -44,12 +43,11 @@
     <div class="row" id="canvasMainSectionRow">
         <div class="large-12 columns contentSwitchableSection activeSection" id="addEditContentSection">
             <div class="row" id="cpOrangeTopRowSeparator"></div>
-
             <div class="row" id="postAndimportantWrapperRow">
                 <div class="medium-3 large-3 columns noPaddingRight" style="height: 37px;">
                     <a><div id="postUpdateButton" class="orangeButton">Post an update</div></a></div>
                 <div class="medium-9 large-9 columns" style="height: 37px;">
-                    <div id="importantLinksDiv">
+                    <div id="importantLinksDiv" style="overflow:visible !important;">
                         <div id="importantLinksTitle" style="font-size: 13px;font-weight:bold;">Important links</div>
                         <div id="importantLinksDiv1"><a href="http://www.google.com/calendar/render?mode=day&date=20140218T071429" target="_blank" id="importantLinks1">Google Calendar</a></div>
                         <div id="importantLinksDiv2"><a href="http://asana.com/" target="_blank" id="importantLinks2">Asana</a></div>
@@ -104,7 +102,7 @@
                         <div class="row">
                             <div class="large-6 columns">
                                 <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
-                                    <div style="width: 100%;margin: 0px;padding: 0px;text-align: center;">
+                                    <div style="width: 100%;margin: 0px;padding: 0px;height:300px; background-color:#ccc;text-align: center;">
                                         <input type="file" id="addNewContentModal-ImageData">
                                     </div>
                                 </div>
@@ -124,7 +122,6 @@
                                         <div class="hide"><label>ID</label><input type="text" class="hide" id="addNewContentModal-id"/></div>
                                         <div class="hide"><label>Image Path</label>   <input type="text" class="hide" id="addNewContentModal-imagePath"/></div>
                                     </form>
-
                                 </div>
                             </div>
                         </div>
