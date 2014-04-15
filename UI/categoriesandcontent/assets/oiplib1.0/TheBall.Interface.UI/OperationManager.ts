@@ -253,6 +253,8 @@ module TheBall.Interface.UI {
             $fileInput.height(0);
             $fileInput.attr(dataAttrPrefix + propertyDataName, propertyName);
             $fileInput.attr(dataAttrPrefix + objectIDDataName, objectID);
+            $fileInput.removeAttr("name");
+            this.reset_field($fileInput);
             var currentGroupID = $fileInput.attr(dataAttrPrefix + fileGroupIDDataName);
             var currentGroupDataSelectorString =
                 "[data-" + fileGroupIDDataName + "='" + currentGroupID + "']";
@@ -275,6 +277,7 @@ module TheBall.Interface.UI {
                 $hiddenInput.attr(dataAttrPrefix + fileGroupIDDataName, currentGroupID);
                 $hiddenInput.insertBefore($fileInput);
             }
+            $hiddenInput.removeAttr("name");
 
             this.setFileInputEvents($fileInput, $hiddenInput, $previevImg);
 
@@ -328,6 +331,24 @@ module TheBall.Interface.UI {
             reader.readAsDataURL(file);
             return deferred.promise();
         }
+
+        AppendBinaryFileValuesToData(objectID:string, data:any, callBack: () => void)      {
+            this.PrepareBinaryFileContents(objectID, function(binaryFileItems) {
+                var imageFieldName;
+                var editedModalImage;
+                for(var i = 0; i < binaryFileItems.length; i++) {
+                    var item = binaryFileItems[i];
+                    var propertyName = item.GetPropertyName();
+                    if(item.IsSet() && propertyName) {
+                        editedModalImage = item.GetEmbeddedPropertyContent();
+                        imageFieldName = "FileEmbedded_" + propertyName;
+                        data[imageFieldName] = editedModalImage;
+                    }
+                }
+                callBack();
+            });
+        }
+
 
         PrepareBinaryFileContents(objectID:string, callBack: (fileItems:BinaryFileItem[]) => void) {
             var me = this;

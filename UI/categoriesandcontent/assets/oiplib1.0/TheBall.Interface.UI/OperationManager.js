@@ -249,6 +249,8 @@ var TheBall;
                     $fileInput.height(0);
                     $fileInput.attr(dataAttrPrefix + propertyDataName, propertyName);
                     $fileInput.attr(dataAttrPrefix + objectIDDataName, objectID);
+                    $fileInput.removeAttr("name");
+                    this.reset_field($fileInput);
                     var currentGroupID = $fileInput.attr(dataAttrPrefix + fileGroupIDDataName);
                     var currentGroupDataSelectorString = "[data-" + fileGroupIDDataName + "='" + currentGroupID + "']";
 
@@ -270,6 +272,7 @@ var TheBall;
                         $hiddenInput.attr(dataAttrPrefix + fileGroupIDDataName, currentGroupID);
                         $hiddenInput.insertBefore($fileInput);
                     }
+                    $hiddenInput.removeAttr("name");
 
                     this.setFileInputEvents($fileInput, $hiddenInput, $previevImg);
 
@@ -318,6 +321,23 @@ var TheBall;
                     };
                     reader.readAsDataURL(file);
                     return deferred.promise();
+                };
+
+                OperationManager.prototype.AppendBinaryFileValuesToData = function (objectID, data, callBack) {
+                    this.PrepareBinaryFileContents(objectID, function (binaryFileItems) {
+                        var imageFieldName;
+                        var editedModalImage;
+                        for (var i = 0; i < binaryFileItems.length; i++) {
+                            var item = binaryFileItems[i];
+                            var propertyName = item.GetPropertyName();
+                            if (item.IsSet() && propertyName) {
+                                editedModalImage = item.GetEmbeddedPropertyContent();
+                                imageFieldName = "FileEmbedded_" + propertyName;
+                                data[imageFieldName] = editedModalImage;
+                            }
+                        }
+                        callBack();
+                    });
                 };
 
                 OperationManager.prototype.PrepareBinaryFileContents = function (objectID, callBack) {

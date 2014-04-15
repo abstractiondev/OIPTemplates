@@ -379,25 +379,13 @@ $(document).ready(function(){
         var edited_content_content = $("#editContentModal-content").val();
 
         edited_content_content = $('<div/>').text(edited_content_content).html();
-        tOP.PrepareBinaryFileContents(edited_content_id, function(binaryFileItems) {
-            var imageFieldName;
-            var editedModalImage;
-            for(var i = 0; i < binaryFileItems.length; i++) {
-                var item = binaryFileItems[i];
-                if(item.IsSet() && item.GetPropertyName() == "ImageData") {
-                    editedModalImage = item.GetEmbeddedPropertyContent();
-                    imageFieldName = "FileEmbedded_ImageData";
-                }
-            }
-            var saveData = {
-                "Title": edited_content_title,
-                "Excerpt": edited_content_excerpt,
-                "ENC.RawHtmlContent": edited_content_content,
-                Author: edited_content_author
-            };
-            // TODO: Proper check if we want to modify the image
-            if(imageFieldName)
-                saveData[imageFieldName] = editedModalImage;
+        var saveData = {
+            "Title": edited_content_title,
+            "Excerpt": edited_content_excerpt,
+            "ENC.RawHtmlContent": edited_content_content,
+            Author: edited_content_author
+        };
+        tOP.AppendBinaryFileValuesToData(edited_content_id, saveData, function() {
             tOP.SaveObject(edited_content_id, edited_content_etag, saveData);
             $('#editContentModal').foundation('reveal', 'close');
             setTimeout(function() {
