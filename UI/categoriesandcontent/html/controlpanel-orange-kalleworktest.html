@@ -59,9 +59,9 @@
                 </div>
             </div>
 
-            <div class="row" id="newsAndImportantRow" style="margin-top:10px;margin-bottom: 10px;">
-                <div class="medium-6 large-6 columns noPaddingRight">
-                    <div id="newsPanelDiv">
+            <div class="row" id="newsAndImportantRow" style="margin-top:10px;margin-bottom: 10px;" data-equalizer>
+                <div class="medium-6 large-6 columns noPaddingRight" style="overflow: hidden;">
+                    <div id="newsPanelDiv" data-equalizer-watch>
                         <div id="newsPanelTitle">News</div>
                         <div id="news1" class="newsDiv">
                             <div id="news1date" class="newsDate">21.05.2013</div>
@@ -72,20 +72,26 @@
                         <div id="news3" class="newsDiv">
                             <div id="news3date" class="newsDate">21.05.2013</div>
                             <div id="news3text" class="newsText"><a>1154 AD: Brother Leo beams at the monks. "It took me years to cross-breed this corn," he says. "Genetically modified!" they shout in horror.</a></div></div>
+                            <!--<div style="width:100%;text-align:center;">
+                                <hr style="background-color:#FFF;color:#FFF;width:90%;border-color:#FFF;height:30px;display: inline-block;margin:0;padding:0;">
+                            </div>-->
                     </div>
                 </div>
-                <div class="medium-6 large-6 columns">
-                    <div id="importantPanelDiv">
+                <div class="medium-6 large-6 columns" style="overflow: hidden;">
+                    <div id="importantPanelDiv" data-equalizer-watch>
                         <div id="importantPanelTitle">Important</div>
                         <div id="important1" class="newsDiv">
                             <div id="important1date" class="newsDate">21.05.2013</div>
-                            <div id="important1text" class="newsText"><a>1154 AD: Brother Leo beams at the monks. "It took me years to cross-breed this corn," he says. "Genetically modified!" they shout in horror.</a></div></div>
+                            <div id="important1text" class="newsText"><a>1154 AD: Brother Leo beams at the monks. "It took me years to cross-breed this corn"</a></div></div>
                         <div id="important2" class="newsDiv">
                             <div id="important2date" class="newsDate">21.05.2013</div>
-                            <div id="important2text" class="newsText"><a>1154 AD: Brother Leo beams at the monks. "It took me years to cross-breed this corn," he says. "Genetically modified!" they shout in horror.</a></div></div>
+                            <div id="important2text" class="newsText"><a>They shout in horror.</a></div></div>
                         <div id="important3" class="newsDiv">
                             <div id="important3date" class="newsDate">21.05.2013</div>
-                            <div id="important3text" class="newsText"><a>1154 AD: Brother Leo beams at the monks. "It took me years to cross-breed this corn," he says. "Genetically modified!" they shout in horror.</a></div></div>
+                            <div id="important3text" class="newsText"><a>Make it happen</a></div></div>
+                        <!--<div style="width:100%;text-align:center;">
+                            <hr style="background-color:#FFF;color:#FFF;width:90%;border-color:#FFF;height:30px;display: inline-block;margin:0;padding:0;">
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -100,7 +106,7 @@
                                 <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                     <form id="form-addNewContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
                                         <div id="addNewContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
-                                        <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere"><input type ='file' class="oipfile" data-oipobjectid="" data-oippropertyname="" name='ImageData' id="addNewContent-fileInput"></span><p></div>
+                                        <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere"><input type ='file' name='myfile' id="addNewContent-fileInput"></span><p></div>
                                         <!--<span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit" >Upload Photo</a></span>-->
                                     </form>
                                 </div>
@@ -131,7 +137,7 @@
                                                                     <textarea id="addNewContentModal-content" cols="50"style="height: 300px;"></textarea>
                                                                    <textarea cols="50" id="area4">HTML <b>content</b> <i>default</i> in textarea</textarea>
                                 -->
-                                <div id="addNewTextareaDivHolder"><textarea id="addNewContentModal-content" style="height: 600px;" name="content"></textarea></div>
+                                <div id="addNewTextareaDivHolder"><textarea id="addNewContentModal-content" style="height: 300px;" name="content"></textarea></div>
                             </div>
                         </div>
 
@@ -147,19 +153,20 @@
                     <div id="editContentModal" class="reveal-modal medium" data-reveal>
                         <h2>Editing content</h2>
                         <div class="row">
+                            <div class="large-6 columns" style="padding-right: 0;">
+                                <div style="width: 100%;margin: 0px;padding: 0px;text-align: center;">
+                                    <input type="file" id="editContentModal-ImageData">
+                                </div>
+                            </div>
                             <div class="large-6 columns">
                                 <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                     <form id="form-editContentModal" method='POST' enctype='multipart/form-data' data-abide="ajax">
-                                        <div class="content">
-                                            <input type="file" id="editContentModal-ImageData">
-                                        </div>
                                         <div class="title-field"><label>Title<input type="text" id="editContentModal-title" required/></label><small class="error">A title to this update is required.</small></div>
                                         <div class="excerpt-field"><label>Excerpt<input type="text" id="editContentModal-excerpt" required/></label><small class="error">An excerpt to this update is required.</small></div>
                                         <div class="author-field"><label>Author<input type="text" id="editContentModal-author"></label></div>
                                         <div class="categories-field"><label>Category <select id="editContentModal-categories"></select></label></div>
-                                        <div class="hide"><input type="hidden" id="editContentModal-id"/></div>
-                                        <div class="hide"><input type="hidden" id="editContentModal-etag"/></div>
-                                        <div class="hide"><label>Image Path</label><input type="text" class="hide" id="editContentModal-imagePath"/></div>
+                                        <input type="hidden" id="editContentModal-id"/>
+                                        <input type="hidden" id="editContentModal-etag"/>
                                     </form>
 
                                 </div>
@@ -280,10 +287,12 @@
 
 <script>
 $(document).ready(function(){
-    $.ajaxSetup({cache: true});
+    $.ajaxSetup({cache: false});
 
     $('#addNewContentModal-content').redactor(
             {   minHeight: 300,
+                maxHeight: 350,
+                autoresize: false,
                 buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
             });
 
@@ -309,7 +318,6 @@ $(document).ready(function(){
     $("#submitform-addNewFileForm").on('click',upload_newFile);
     /*$("#submitform-addNewFileForm").on('click', upload_newFile);*/
     $("#contentDivContainer").on('mouseover',reLayout_isotope);
-    $("#executeTestButton").on('click', getAndPopulate_Isotope_Filter_Categories);
     $("#editContentModal-submit").on('click', submit_EditedContent_to_Server);
     $("#cancelEditContentModal").click(function () {$('#editContentModal').foundation('reveal', 'close');});
     $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
@@ -365,52 +373,44 @@ $(document).ready(function(){
         var edited_content_id = $("#editContentModal-id").val();
         var edited_content_etag = $("#editContentModal-etag").val();
         var edited_content_title = $("#editContentModal-title").val();
-        var edited_content_image = $("#editContentModal-imagePath").val();
         var edited_content_excerpt = $("#editContentModal-excerpt").val();
         var edited_content_author = $("#editContentModal-author").val();
-        /*var edited_content_categories = $("#editContentModal-categories").val();*/
-        var edited_content_categories = $("#editContentModal-categories option:selected").text();
+        var edited_content_categories = $("#editContentModal-categories option:selected").val();
         var edited_content_content = $("#editContentModal-content").val();
 
         edited_content_content = $('<div/>').text(edited_content_content).html();
-        tOP.PrepareBinaryFileContents(function(binaryFileItems) {
+        tOP.PrepareBinaryFileContents(edited_content_id, function(binaryFileItems) {
             var imageFieldName;
             var editedModalImage;
             for(var i = 0; i < binaryFileItems.length; i++) {
                 var item = binaryFileItems[i];
-                if(item.inputElement.id == "editContent-fileInput") {
+                if(item.IsSet() && item.GetPropertyName() == "ImageData") {
                     editedModalImage = item.GetEmbeddedPropertyContent();
-                    if(editedModalImage)
-                        imageFieldName = "FileEmbedded_ImageData";
-                    break;
+                    imageFieldName = "FileEmbedded_ImageData";
                 }
             }
             var saveData = {
                 "Title": edited_content_title,
                 "Excerpt": edited_content_excerpt,
                 "ENC.RawHtmlContent": edited_content_content,
-                //"FileEmbedded_ImageData": editedModalImage,
                 Author: edited_content_author
             };
             // TODO: Proper check if we want to modify the image
             if(imageFieldName)
                 saveData[imageFieldName] = editedModalImage;
             tOP.SaveObject(edited_content_id, edited_content_etag, saveData);
+            $('#editContentModal').foundation('reveal', 'close');
+            setTimeout(function() {
+                $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+                return false;
+            }, 1500);
         });
-
-        $('#editContentModal').foundation('reveal', 'close');
-        setTimeout(function() {
-            $('#alert-contentUpdate-successful').foundation('reveal', 'open');
-            return false;
-        }, 1500);
     }
 
     function editContent_PopulateModal(editEvent)   {
         var clickedEditID= editEvent.target.id.replace("editContentButton-dataID-", '');
         $.getJSON('../../AaltoGlobalImpact.OIP/TextContent/'+clickedEditID+".json", function(contentData) {
             tDCM.SetObjectInStorage(contentData);
-            //$("#editContentModal-ImageData").data("oipfile-filegroupid", "edit" + contentData.ID);
-            // NOTE!: Do not use object id for filegroupid - that's the control group
             var queryValue="";
             var currentObject=contentData;
             var currentID=currentObject.ID;
@@ -419,17 +419,20 @@ $(document).ready(function(){
             var currentExcerpt=currentObject.Excerpt;
             var currentAuthor=currentObject.Author;
             var currentPublishedDate=currentObject.Published;
+
+            // Image support content initiation
             var imageSizeString="256";
             var currentImagePath=currentObject.ImageData
                     ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
                     : null;
             // Initiate binary file elements for image
             $("#editContentModal-ImageData").attr("data-oipfile-filegroupid", "editModal");
-            tOP.InitiateBinaryFileElements("editContentModal-ImageData", "ImageData", currentImagePath);
+            tOP.InitiateBinaryFileElements("editContentModal-ImageData", currentID ,"ImageData", currentImagePath);
+
 
             if(currentObject.RawHtmlContent) {
                 currentObject.BodyRendered = currentObject.RawHtmlContent;
-            } else if(currentObject.Body) {
+            } else if(currentObject.Body){
                 markdown = new MarkdownDeep.Markdown();
                 markdown.SafeMode = true;
                 currentObject.BodyRendered = markdown.Transform(currentObject.Body);
@@ -437,16 +440,23 @@ $(document).ready(function(){
                 currentObject.BodyRendered = "";
 
             var currentArticleBody=currentObject.BodyRendered;
+            // Kalle's contemplate fix to Hugo's raw management =>
+            // the raw html is at BodyRendered as is, the current markdown rendering is as well now
+            // previous problem: if there was markdown-entered data in the article it wasn't working in rawhtml
+            var rawbody=currentArticleBody;
 
             var currentMainCategory="News";
 
-            queryValue=clickedEditID;
+
+            queryValue=currentID;
             $('#editContentModal-id').val(queryValue);
-            $('#editContentModal-etag').val(currentETag);
+            queryValue=currentETag;
+            $('#editContentModal-etag').val(queryValue);
             $('#editContentModal-title').val(currentTitle);
             $('#editContentModal-excerpt').val(currentExcerpt);
 
-            getAndPopulate_Isotope_Filter_Categories ();
+            /*getAndPopulate_Isotope_Filter_Categories ();*/
+            getAndPopulateCategoryOptions();
 
             //check if the "field" Author exists in the JSON file
             /*queryValue=contentData.content[i].Author;*/
@@ -457,13 +467,21 @@ $(document).ready(function(){
 
             $('#editContentModal-author').val(queryValue);
 
-            queryValue=currentArticleBody;
+            //suggested Content rendering by Kalle:  queryValue=currentArticleBody;
+            //My suggestion: cleaning the "old" articles with markdown and extra styling
+            rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
+            rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
+            rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
+            var currentArticleBodyVHugo =$.htmlClean(rawbody, {format:true});
+            //ends cleaning the "old" articles with markdown and extra styling
             $('#editTextareaDivHolder').empty();
             var textarea = $("<textarea id='editContentModal-content' style='min-height: 300px;'>");
             $('#editTextareaDivHolder').append(textarea);
-            $('#editContentModal-content').val(queryValue);
+            $('#editContentModal-content').val(currentArticleBodyVHugo);
             $('#editContentModal-content').redactor(
                     {   minHeight: 300,
+                        maxHeight: 350,
+                        autoresize: false,
                         buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
                     });
 
@@ -472,9 +490,8 @@ $(document).ready(function(){
 
             //send the correspondent image to the placeholder, but clean its containing div first
             $("#editContentModal-image").empty(); //clean the image Placeholder in the form
-            queryValue = "<img src='"+currentImagePath+"' style='height:100%;width:auto;margin-left:auto;margin-right:auto;'>";
+            queryValue = "<img src='"+currentImagePath+"' style='width:auto;height:auto;max-height:300px;margin-left:auto;margin-right:auto;'>";
             $("#editContentModal-image").append(queryValue);
-            // Open ready made edit window
             $('#editContentModal').foundation('reveal', 'open');
         }); //ends getJson
     }//ends function editContent
@@ -494,6 +511,7 @@ $(document).ready(function(){
             var recordedJsonDate;
             var pattern;
             var extractedDate;
+            var rawbody=currentObject.Body;
             var currentImagePath=currentObject.ImageData
                     ? "../../AaltoGlobalImpact.OIP/MediaContent/" + currentObject.ImageData.ID + "_" + imageSizeString + "x" + imageSizeString + "_crop" + currentObject.ImageData.AdditionalFormatFileExt
                     : null;
@@ -501,7 +519,8 @@ $(document).ready(function(){
             if ((currentObject.Author===null)||(!currentObject.Author)){currentAuthor="Aalto Global Impact";}
             else {currentAuthor=currentObject.Author;}
 
-            if(currentObject.RawHtmlContent) {
+            if(currentObject.RawHtmlContent)
+            {
                 currentObject.BodyRendered = currentObject.RawHtmlContent;
             }
             else if(currentObject.Body)
@@ -512,11 +531,7 @@ $(document).ready(function(){
             } else
                 currentObject.BodyRendered = "";
             var currentArticleBody=currentObject.BodyRendered;
-
-            var rawbody=currentObject.BodyRendered;
-            if(!rawbody)
-                rawbody = "";
-
+            rawbody = currentArticleBody;
             //This section processes the "PublishedDate" field on JSON, to the format: DD.MM.YY
             recordedJsonDate = currentPublishedDate;
             pattern = /[0-9]+/; //to find the number within the string, first occurrence.
@@ -548,7 +563,7 @@ $(document).ready(function(){
             $("#viewContentModal-excerpt").empty();
             $('#viewContentModal-excerpt').append(queryValue);
 
-            if(currentObject.Categories == false || currentObject.Categories.CollectionContent == false)
+            if(!currentObject.Categories || !currentObject.Categories.CollectionContent)
                 currentMainCategory="NEWS";
             else
                 currentMainCategory=currentObject.Categories.CollectionContent[0].Title;
@@ -636,11 +651,19 @@ $(document).ready(function(){
                     var currentnewstext="<a>"+currentTitle+". "+currentExcerpt+"</a>";
                     $("#news"+newscounter+"text").empty();
                     $("#news"+newscounter+"text").append(currentnewstext);
-                    /*news1date  news1text*/
+
+                    if (newscounter==3){
+                        /*$("#newsPanelDiv").removeAttr( "data-equalizer-watch" );
+                        /*$("#newsAndImportantRow").attr("data-equalizer","");*/
+                        /*$("#newsPanelDiv").attr("data-equalizer-watch","");
+                        /*$document.foundation('equalizer', 'reflow');*/
+                        Foundation.libs.equalizer.reflow();
+                    }
                     newscounter++;
                 }
             }//ends for loop
             $("#contentDivContainer").append(user_content).isotope('reLayout');
+            /*getAndPopulateCategoryOptions();*/
         })//closes getJSON
     }
     //--ends function get_content();
@@ -735,25 +758,14 @@ $(document).ready(function(){
         var new_content_categories="News";
 
         new_content_content = $('<div/>').text(new_content_content).html();
-        tOP.PrepareBinaryFileContents(function(binaryFileItems) {
-            var createModalImage;
-            for(var i = 0; i < binaryFileItems.length; i++) {
-                var item = binaryFileItems[i];
-                if(item.inputElement.id == "addNewContent-fileInput") {
-                    createModalImage = item.GetEmbeddedPropertyContent();
-                    break;
+        tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
+                {
+                    Title: new_content_title,
+                    Excerpt: new_content_excerpt,
+                    "ENC.RawHtmlContent": new_content_content,
+                    Author: new_content_author
                 }
-            }
-            tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
-                    {
-                        Title: new_content_title,
-                        Excerpt: new_content_excerpt,
-                        "ENC.RawHtmlContent": new_content_content,
-                        "FileEmbedded_ImageData": createModalImage,
-                        Author: new_content_author
-                    }
-            );
-        });
+        );
         /*$.ajax({
          global: false,
          type: "POST",
@@ -795,6 +807,8 @@ $(document).ready(function(){
         $('#addNewContentModal-content').val("");
         $('#addNewContentModal-content').redactor(
                 {   minHeight: 300,
+                    maxHeight: 350,
+                    autoresize: false,
                     buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
                 });
         //clearing the fileInput
@@ -833,6 +847,8 @@ $(document).ready(function(){
         $('#addNewContentModal-content').val("");
         $('#addNewContentModal-content').redactor(
                 {   minHeight: 300,
+                    maxHeight: 350,
+                    autoresize: false,
                     buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
                 });
         //clearing the fileInput
@@ -944,25 +960,21 @@ $(document).ready(function(){
         }
     }
 
-    function getAndPopulate_Isotope_Filter_Categories () {
-        //var goMessage="One headlight";
-        //$("#testPanelGo").append(goMessage);
-        console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
-        var multihandlerResponse = $.ajax({
-            url: "multihandler.php",
-            type: "POST",
-            data: ({action: 'getMainCategories'}),
-            async: false
-        }).responseText;
-        /*$("#portfolioFilterDivContainer").empty();
-         $("#portfolioFilterDivContainer").append(multihandlerResponse);
-         $("#testPanelGo").empty();
-         $("#testPanelGo").text("Done!."+multihandlerResponse);*/
-        $("#addNewContentCategorySelect").empty();
-        $("#addNewContentCategorySelect").append(multihandlerResponse);
-        $("#editContentModal-categories").empty();
-        $("#editContentModal-categories").append(multihandlerResponse);
-        return false;
+    function getAndPopulateCategoryOptions() {
+        $.getJSON('../../AaltoGlobalImpact.OIP/CategoryCollection/MasterCollection.json', function(contentData) {
+            var categoryoptions="";
+            for (var i in contentData.CollectionContent) {
+                var currentObject=contentData.CollectionContent[i];
+                var currentID=currentObject.ID;
+                var currentTitle=currentObject.Title ? currentObject.Title : "";
+                categoryoptions+="<option value='"+currentID+"'>"+currentTitle+"</option>";
+            }//ends FOR loop
+            $("#addNewContentCategorySelect").empty();
+            $("#addNewContentCategorySelect").append(categoryoptions);
+            $("#editContentModal-categories").empty();
+            $("#editContentModal-categories").append(categoryoptions);
+            return false;
+        })//ends getJson
     }
 
     function submit_New_Group () {
