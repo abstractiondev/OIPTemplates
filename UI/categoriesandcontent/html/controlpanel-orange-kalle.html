@@ -104,11 +104,9 @@
                         <div class="row">
                             <div class="large-6 columns">
                                 <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
-                                    <form id="form-addNewContentModal-imageUpload" action='new_content.php' method='POST' enctype='multipart/form-data'>
-                                        <div id="addNewContentModal-image" style="width: 100%; height: 300px; background-color:#d4d4d4; text-align: center;"></div>
-                                        <div class="large-6 columns"><span data-tooltip class="has-tip" title="Here you can choose the Cover Photo for your Update" id="tooltip-choosePhotoHere"><input type ='file' name='myfile' id="addNewContent-fileInput"></span><p></div>
-                                        <!--<span data-tooltip class="has-tip" title="Click here to upload and preview your photo" id="tooltip-uploadphoto" style="float: right; height:56px;"><a class="button" id="addNewContentModal-imageUpload-submit" >Upload Photo</a></span>-->
-                                    </form>
+                                    <div style="width: 100%;margin: 0px;padding: 0px;text-align: center;">
+                                        <input type="file" id="addNewContentModal-ImageData">
+                                    </div>
                                 </div>
                             </div>
                             <div class="large-6 columns">
@@ -301,7 +299,7 @@ $(document).ready(function(){
     $("#contentDivContainer").delegate(".editContentButton",{ click: editContent_PopulateModal} );
     $("#contentDivContainer").delegate(".viewContentButton",{ click: viewContent } );
     $("#portfolioFilterDivContainer").delegate("a",{ click: filter_isotope_items } );
-    $("#addNewContent-fileInput ").change(function (){ triggerToolTipUploadPhoto(); });
+    //$("#addNewContent-fileInput ").change(function (){ triggerToolTipUploadPhoto(); });
     /*$("input:file").change(function (){ triggerToolTipUploadPhoto(); });*/
     $(document).on('close','[data-reveal]', reLayout_isotope);
     $("#contentPanelTab").on('click mouseover',setTimeout('reLayout_isotope', 2000));
@@ -379,25 +377,14 @@ $(document).ready(function(){
         var edited_content_content = $("#editContentModal-content").val();
 
         edited_content_content = $('<div/>').text(edited_content_content).html();
-        tOP.PrepareBinaryFileContents(edited_content_id, function(binaryFileItems) {
-            var imageFieldName;
-            var editedModalImage;
-            for(var i = 0; i < binaryFileItems.length; i++) {
-                var item = binaryFileItems[i];
-                if(item.IsSet() && item.GetPropertyName() == "ImageData") {
-                    editedModalImage = item.GetEmbeddedPropertyContent();
-                    imageFieldName = "FileEmbedded_ImageData";
-                }
-            }
-            var saveData = {
-                "Title": edited_content_title,
-                "Excerpt": edited_content_excerpt,
-                "ENC.RawHtmlContent": edited_content_content,
-                Author: edited_content_author
-            };
-            // TODO: Proper check if we want to modify the image
-            if(imageFieldName)
-                saveData[imageFieldName] = editedModalImage;
+        var saveData = {
+            "Title": edited_content_title,
+            "Excerpt": edited_content_excerpt,
+            "ENC.RawHtmlContent": edited_content_content,
+            "Object_Categories": edited_content_categories,
+            Author: edited_content_author
+        };
+        tOP.AppendBinaryFileValuesToData(edited_content_id, saveData, function() {
             tOP.SaveObject(edited_content_id, edited_content_etag, saveData);
             $('#editContentModal').foundation('reveal', 'close');
             setTimeout(function() {
@@ -748,37 +735,51 @@ $(document).ready(function(){
 
     function submit_New_Content_Form(){
         var new_content_content = $('#addNewContentModal-content').val();
-        /*var new_content_id;*/
         var new_content_title = $("#addNewContentModal-title").val();
-        /*var new_content_image = $("#addNewContentModal-imagePath").val();*/
         var new_content_excerpt = $("#addNewContentModal-excerpt").val();
-        /*var new_content_categories = $("#addNewContentCategorySelect option:selected").text();*/
+        var new_content_categories = $("#addNewContentCategorySelect option:selected").val();
         var new_content_author = $("#addNewContentModal-author").val();
-        /*new_content_id = $.now();*/
-        var new_content_categories="News";
 
         new_content_content = $('<div/>').text(new_content_content).html();
-        tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent",
-                {
-                    Title: new_content_title,
-                    Excerpt: new_content_excerpt,
-                    "ENC.RawHtmlContent": new_content_content,
-                    Author: new_content_author
-                }
-        );
-        /*$.ajax({
-         global: false,
-         type: "POST",
-         //async: false,
-         dataType: "json",
-         data: ({
-         Title: new_content_title,
-         Excerpt: new_content_excerpt,
-         RawHtmlContent: new_content_content,
-         Author: new_content_author
-         }),
-         url: 'new_content.php'
-         });*/
+        var saveData =
+        {
+            Title: new_content_title,
+            Excerpt: new_content_excerpt,
+            "ENC.RawHtmlContent": new_content_content,
+            Object_Categories: new_content_categories,
+            Author: new_content_author
+        };
+
+        tOP.AppendBinaryFileValuesToData("000", saveData, function() {
+            tOP.CreateObject("AaltoGlobalImpact.OIP", "TextContent", saveData);
+            $('#addNewContentModal').foundation('reveal', 'close');
+            setTimeout(function() {
+                $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+                return false;
+            }, 2000);
+        });
+
+        $('#addNewContentModal-content').val("");
+        $("#addNewContentModal-title").val("");
+        $("#addNewContentModal-excerpt").val("");
+        $("#addNewContentModal-author").val("");
+        $('#addNewTextareaDivHolder').empty();
+        var textarea = $("<textarea id='addNewContentModal-content' style='height: 300px;'>");
+        $('#addNewTextareaDivHolder').append(textarea);
+        $('#addNewContentModal-content').val("");
+        $('#addNewContentModal-content').redactor(
+                {   minHeight: 300,
+                    maxHeight: 350,
+                    autoresize: false,
+                    buttons: ['bold', 'italic','alignment','unorderedlist', 'orderedlist','image', 'video', "link"]
+                });
+        //clearing the fileInput
+        var newupdatefileinputID = $("#addNewContentModal-ImageData");
+        newupdatefileinputID.replaceWith( newupdatefileinputID = newupdatefileinputID.clone( true ) );
+        //here the "cleaning" or resetting of the input fields ends.
+
+
+        return;
         //more stuff to do after the ajax call
         var new_content_id = "123";
         var new_Content="";
@@ -816,16 +817,15 @@ $(document).ready(function(){
         newupdatefileinputID.replaceWith( newupdatefileinputID = newupdatefileinputID.clone( true ) );
         //here the "cleaning" or resetting of the input fields ends.
 
-        $('#addNewContentModal').foundation('reveal', 'close');
-        setTimeout(function() {
-            $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
-            return false;
-        }, 2000);
     }
 
     function reveal_addNewContentModal () {
-        $('#form-addNewContentModal-imageUpload').ajaxForm();//initializes the Image Upload Form
+        //$('#form-addNewContentModal-imageUpload').ajaxForm();//initializes the Image Upload Form
         //$("#tooltip-choosePhotoHere").trigger("mouseover");
+
+
+        $("#addNewContentModal-ImageData").attr("data-oipfile-filegroupid", "addModal");
+        tOP.InitiateBinaryFileElements("addNewContentModal-ImageData", "000" ,"ImageData", null);
         $('#addNewContentModal').foundation('reveal', 'open');
         getAndPopulate_Isotope_Filter_Categories ();
         //$.when($('#addNewContentModal').foundation('reveal', 'open')).then(function(){$("#tooltip-choosePhotoHere").trigger("mouseover");}).fail(function(){console.log( "Couldn't reveal the addNewContentModal." );});
