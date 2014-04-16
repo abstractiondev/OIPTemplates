@@ -826,6 +826,7 @@ $(document).ready(function(){
 
         $("#addNewContentModal-ImageData").attr("data-oipfile-filegroupid", "addModal");
         tOP.InitiateBinaryFileElements("addNewContentModal-ImageData", "000" ,"ImageData", null);
+        getAndPopulateCategoryOptions();
         $('#addNewContentModal').foundation('reveal', 'open');
         getAndPopulate_Isotope_Filter_Categories ();
         //$.when($('#addNewContentModal').foundation('reveal', 'open')).then(function(){$("#tooltip-choosePhotoHere").trigger("mouseover");}).fail(function(){console.log( "Couldn't reveal the addNewContentModal." );});
