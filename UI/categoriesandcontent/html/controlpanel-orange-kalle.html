@@ -319,6 +319,7 @@ $(document).ready(function(){
     $("#fileTab").on('click', get_files);
     $("#cancelAddNewContentModal").on('click', close_NewContent_Modal_Form);
     $("#cancel-deleteContentModal").on('click', close_contentDelete_confirm);
+    $("#confirm-deleteModal-submit").on('click', submit_contentDelete_confirm);
     $("#create-group-submit").on('click', submit_New_Group);
     $("#addNewContentModal-imageUpload-submit").on('click', upload_addNewContentModalForm_picture);
     $("#addNewContentModal-imageUpload-submit2").on('click', upload_editedContentModalForm_picture);
@@ -377,6 +378,7 @@ $(document).ready(function(){
         })
     }//--ends: Populating the list of websites TopLeft Navbar and Populates the GroupTables on the Groups TAB
 
+
     function submit_EditedContent_to_Server() {
         var edited_content_id = $("#editContentModal-id").val();
         var edited_content_etag = $("#editContentModal-etag").val();
@@ -399,6 +401,7 @@ $(document).ready(function(){
             $('#editContentModal').foundation('reveal', 'close');
             setTimeout(function() {
                 $('#alert-contentUpdate-successful').foundation('reveal', 'open');
+                location.reload();
                 return false;
             }, 1500);
         });
@@ -497,6 +500,7 @@ $(document).ready(function(){
         var clickedEditID= editEvent.target.id.replace("trashContentButton-dataID-", '');
         $("#alert-contentDelete-confirm-ID").empty();
         $("#alert-contentDelete-confirm-ID").append("<p>"+clickedEditID+"</p>");
+        $("#alert-contentDelete-confirm-ID").data("DeleteID", clickedEditID);
 
         $('#alert-contentDelete-confirm').foundation('reveal', 'open');
     }
@@ -773,6 +777,10 @@ $(document).ready(function(){
             $('#addNewContentModal').foundation('reveal', 'close');
             setTimeout(function() {
                 $('#alert-addNewContent-successful-modal').foundation('reveal', 'open');
+                setTimeout(function() {
+                    location.reload();
+                    return false;
+                }, 2000);
                 return false;
             }, 2000);
         });
@@ -841,11 +849,11 @@ $(document).ready(function(){
         //$('#form-addNewContentModal-imageUpload').ajaxForm();//initializes the Image Upload Form
         //$("#tooltip-choosePhotoHere").trigger("mouseover");
 
-
+        getAndPopulateCategoryOptions();
         $("#addNewContentModal-ImageData").attr("data-oipfile-filegroupid", "addModal");
         tOP.InitiateBinaryFileElements("addNewContentModal-ImageData", "000" ,"ImageData", null);
         $('#addNewContentModal').foundation('reveal', 'open');
-        getAndPopulate_Isotope_Filter_Categories ();
+        //getAndPopulate_Isotope_Filter_Categories ();
         //$.when($('#addNewContentModal').foundation('reveal', 'open')).then(function(){$("#tooltip-choosePhotoHere").trigger("mouseover");}).fail(function(){console.log( "Couldn't reveal the addNewContentModal." );});
     }
 
@@ -876,6 +884,17 @@ $(document).ready(function(){
 
         $('#addNewContentModal').foundation('reveal', 'close');
     }
+
+    function submit_contentDelete_confirm() {
+        var objectID = $("#alert-contentDelete-confirm-ID").data("DeleteID");
+        tOP.DeleteIndependentObject("AaltoGlobalImpact.OIP", "TextContent", objectID);
+        setTimeout(function() {
+            $('#alert-contentDelete-confirm').foundation('reveal', 'close');
+            location.reload();
+            return false;
+        }, 2000);
+    }
+
 
     function close_contentDelete_confirm() {
         $('#alert-contentDelete-confirm').foundation('reveal', 'close');
