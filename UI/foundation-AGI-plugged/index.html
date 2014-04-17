@@ -1,0 +1,409 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGI | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/whhg.css" />
+    <script src="js/modernizr.js"></script>
+</head>
+<body>
+
+
+
+<div class="aaltoStickyBar contain-to-grid sticky topbar">
+        <div class="row vAlignMiddle topbar">
+            <div class="small-12 medium-3 large-3 columns vAlignMiddle topbar" id="logoMainDivHolder"><a href="#" id="stickyBarLogo"><div id="logo"><img src="images/logo.png"></div></a></div>
+            <div class="small-12 medium-6 large-6 columns topbar">
+                <div class="portfolioFilter" id="portfolioFilterDivContainer">
+                </div>
+            </div>
+            <div class="small-3 medium-3 large-3 columns show-for-medium-up topbar">
+                <ul class="inline-list right topbar" style="line-height: 45px;padding:0;margin:0;">
+                    <li><a href="http://www.aalto.fi" target="_blank" class="small"><span class="discreetLinks">Aalto.fi</span></a></li>
+                    <li><a href="#" data-dropdown="drop1" id="schoolsLink" class="topbar small"><span class="topbar discreetLinks">Schools</span></a>
+                        <ul id="drop1" class="f-dropdown" data-dropdown-content style="overflow:visible !important;">
+                            <li><a class="discreetLinks" target="_blank" href="http://arts.aalto.fi/en/">School of Arts, Design and Architecture</a></li>
+                            <li><a class="discreetLinks" target="_blank" href="http://business.aalto.fi/en/">School of Business</a></li>
+                            <li><a class="discreetLinks" target="_blank" href="http://chem.aalto.fi/en/">School of Chemical Technology </a></li>
+                            <li><a class="discreetLinks" target="_blank" href="http://elec.aalto.fi/en/">School of Electrical Engineering</a></li>
+                            <li><a class="discreetLinks" target="_blank" href="http://eng.aalto.fi/en/">School of Engineering</a></li>
+                            <li><a class="discreetLinks" target="_blank" style="border: none;" href="http://sci.aalto.fi/en/">School of Science</a></li>
+                        </ul>
+                        <!--<a href="#" class="small" id="schoolsButton"><span class="discreetLinks">Schools</span></a></li>-->
+                </ul>
+            </div>
+        </div>
+</div>
+
+<div class="row" id="topbarDivSeparator"></div>
+
+<!--
+<div class="row show-for-small-only photoBannerContainerRow">
+    <div class="small-12 medium-12 large-12 columns photoBannerContainerDiv" id="textOrbitBannerDiv">
+        <ul class="example-orbit-content OrbitTextBanner" data-orbit data-options="animation:fade;
+                  pause_on_hover:true;timer_speed:4000;
+                  animation_speed:500;
+                  navigation_arrows:false;
+                  bullets:false;
+                  timer:true; pause_on_hover: true; resume_on_mouseout:true;
+                  next_on_click: true;
+                  slide_number: false;">
+            <li data-orbit-slide="headline-1" class="OrbitTextBannerli">
+            <div style="padding-top: 40px;">
+                <h2>Bringing people together</h2>
+                <p>Aalto Global Impact promotes and facilitates Aalto University’s research and educational
+                    programmes for societal impact globally. We are actively orienting innovation towards long-term societal needs.</p>
+            </div>
+            </li>
+            <li data-orbit-slide="headline-2" class="OrbitTextBannerli">
+                <div>
+                    <h2>What we do</h2>
+                    <ul>
+                        <li>Support multidisciplinary action research in emerging markets</li>
+                        <li>Build students’ capabilities through interactive real-life learning environments</li>
+                        <li>Promote social entrepreneurship and responsible global leadership</li>
+                        <li>Create new global alliances for societal impact</li>
+                    </ul>
+                </div>
+            </li>
+            <li data-orbit-slide="headline-3" class="OrbitTextBannerli">
+                <div>
+                    <h2>Towards a better world for all</h2>
+                    <p>Aalto University works towards a better world through top-quality research, interdisciplinary collaboration, and pioneering education surpassing traditional boundaries. Aalto is where top experts of different scientific disciplines can meet and succeed. Bringing together artistic expression and competence in the fields of technology, design and business provides new opportunities for sustainable development.</p>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</div>
+-->
+
+<div class="row show-for-medium-up photoBannerContainerRow">
+    <div class="small-12 medium-12 large-12 columns photoBannerContainerDiv">
+        <ul class="example-orbit" data-orbit data-options="animation:fade;
+                  pause_on_hover:true;timer_speed:4000;
+                  animation_speed:500;
+                  navigation_arrows:false;
+                  bullets:false;
+                  timer:true; pause_on_hover: true; resume_on_mouseout:true;
+                  next_on_click: true;
+                  slide_number: false;">
+            <li>
+                <img src="images/banner02.png" alt="Bringing people together." />
+                <!--<div class="orbit-caption">
+                    Caption One.
+                </div>-->
+            </li>
+            <li><img src="images/banner03.png" alt="What we do." /></li>
+            <li><img src="images/banner01.png" alt="Aalto.Towards a better world." /></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row" id="isotope_content_row">
+
+    <div id="ModalsHolderDiv-Content">
+        <div id="viewContentModal" class="reveal-modal medium" data-reveal>
+            <!--Begins contents of  div for the viewContentModal-->
+            <div class="row">
+                <div class="large-4 columns" id="viewContentModal-image"></div>
+                <div class="large-8 columns">
+                        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><span id="viewContentModal-categories" class="fancyTagBig"></span></div>
+                        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-pencil fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Author" class="discreetLinks"></span></div>
+                        <div class="itemWrapper-fixedWidth" style="padding-right: 10px;padding-bottom: 5px;"><i class='icon-calendaralt-cronjobs fancyTextColor font80'></i>&nbsp;<span id="viewContentModal-Date" class="discreetLinks"></span></div>
+                </div>
+                <div class="large-8 columns" style="padding-right:0;padding-top: 0;padding-bottom:0;"><div class="content-card-line"><hr></div></div>
+                <div class="large-8 columns" style="padding-bottom: 12px;padding-right:10px;padding-top:10px;"><strong><span id="viewContentModal-title" class="hugeTitleText"></span></strong><br></div>
+                <div class="large-8 columns" style="padding-right:15px;"><span  id="viewContentModal-excerpt" class="contentCardExcerpt bigTitleText discreetTextColor"></span></div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns" style="height:20px;"></div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns articleText" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <br>
+                    <label class="discreetTextColor">Share:</label>
+                    <input type="text" placeholder="" id="articleShareURLinput"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12">
+                    <br>
+                    <a class="button" id="closeViewContentModal" style="float:right !important;">Close</a>
+                </div>
+            </div>
+            <a class="close-reveal-modal">&#215;</a>
+        </div> <!--closes div for the viewContentModal-->
+    </div>
+    <!-- +++Isotope content starts +++++++++++++++++++++++++++++++++++++++++++++ -->
+    <div class="large-12 columns issuuContentContainer">
+        <div id="contentDivContainer" class="contentDivContainerIsotope"></div>
+    </div>
+    <!-- +++Isotope content ends +++++++++++++++++++++++++++++++++++++++++++++ -->
+</div>
+
+<ol class="joyride-list" data-joyride>
+    <li data-id="schoolsButton" data-class="custom so-awesome" data-text="Next">
+        <h4>Schools</h4>
+        <p>Here's a list of schools.</p>
+    </li>
+</ol>
+
+<script src="js/jquery.js"></script>
+<script src="js/foundation.min.js"></script>
+<!--<script src="js/foundation/foundation.js"></script>-->
+<script src="js/foundation/foundation.topbar.js"></script>
+<script src="js/jquery.isotope.js" type="text/javascript"></script>
+<script src="js/jquery.form.min.js"></script>
+<script src="js/jquery.htmlClean.min.js "></script>
+<script>
+    $(document).foundation(
+            {
+                reveal : {
+                    animation: 'fadeAndPop',
+                    animation_speed: 250,
+                    close_on_background_click: false
+                }
+
+            }
+    );
+</script>
+<script>
+    $(document).ready(function(){
+        $.ajaxSetup({cache: false});
+
+        getAndPopulate_Isotope_Filter_Categories();
+        $.when(get_content()).then(function(){start_isotope();setInterval(reLayout_isotope, 1500);console.log( "Isotope fired after getting content, succeed" );}).fail(function(){console.log( "something went wrong with getting the content" );});
+        $("#contentDivContainer").on('mouseover',reLayout_isotope);
+        $("#contentDivContainer").delegate(".cardClickableWrapper",{ click: viewContent } );
+        $("#closeViewContentModal").click(function () { $('#viewContentModal').foundation('reveal', 'close');});
+        $("#schoolsButton").click(function () { $(document).foundation('joyride', 'start');});
+
+        function getAndPopulate_Isotope_Filter_Categories (){
+        var categories="<a href='#' data-filter='*' class='current'>All</a>";
+            categories+="<a href='#' data-filter='.News'>News</a>";
+            categories+="<a href='#' data-filter='.Projects'>Projects</a>";
+            categories+="<a href='#' data-filter='.Events'>Events</a>";
+            categories+="<a href='#' data-filter='.Stories'>Stories</a>";
+            categories+="<a href='#' data-filter='.About'>About</a>";
+            /*console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
+            var multihandlerResponse = $.ajax({
+                url: "multihandler.php",
+                type: "POST",
+                data: ({action: 'getMainCategories'}),
+                async: false
+            }).responseText;*/
+
+            $("#portfolioFilterDivContainer").empty();
+            $("#portfolioFilterDivContainer").append(categories);
+        }
+
+        function get_content(){
+            $("#contentDivContainer").empty();
+            return $.getJSON('livedata/TextContentCollection/MasterCollection.json', function(contentData) {
+                var user_content="";
+
+                for (var i in contentData.CollectionContent) {
+                    //noinspection JSUnfilteredForInLoop
+                    //Check if title is empty... if it is then it is just a category definition so it must be ignored.
+                    var currItem = contentData.CollectionContent[i];
+
+                    if ((contentData.CollectionContent[i].Title===null)||(!contentData.CollectionContent[i].Title)||(currItem.Categories===null))
+                    {}
+                    else
+                    {
+
+                    var currentMainCategory;
+                        /*currentMainCategory="NEWS";*/
+                        /*if ((contentData.CollectionContent[i].Categories.CollectionContent[0].Title===null)||(!contentData.CollectionContent[i].Categories.CollectionContent[0].Title))
+                        currentMainCategory="NEWS";
+                        else*/
+
+                        if(currItem.Categories == false || currItem.Categories.CollectionContent == false)
+                            currentMainCategory="NEWS";
+                        else
+                            currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+
+                    user_content+="<div class='content-card "+currentMainCategory+"' id='contentCardDataId-"+contentData.CollectionContent[i].ID+"'>";
+
+                    if (contentData.CollectionContent[i].ImageData===null)
+                    {
+                        var currentImage= "images/preview.jpg";
+                    }
+
+                    else
+                    {
+                    var imgID = contentData.CollectionContent[i].ImageData.ID;
+                    var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
+                    var currentImage= "livedata/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
+                    }
+
+                    user_content+="<a href='#' class='cardClickableWrapper'><img src='"+currentImage+"' alt='image' id='contentCardImage-dataID-"+contentData.CollectionContent[i].ID+"'/></a>";
+                    user_content+="<div class='content-card-fancyTag'><div class='fancyTagDiv'>"+currentMainCategory+"</div></div>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-title' style='font-size:95%; font-weight:bold; color:#000000;' id='contentCardTitle-dataID-"+contentData.CollectionContent[i].ID+"'>"+contentData.CollectionContent[i].Title+"</div></a>";
+                    user_content+="<a href='#' class='cardClickableWrapper'><div class='content-card-excerpt content-card-spanExcerpt' id='contentCardExcerpt-dataID-"+contentData.CollectionContent[i].ID+"'>"+contentData.CollectionContent[i].Excerpt+"</div></a>";
+                    user_content+="<div class='content-card-line'><hr></div>";
+                    if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
+                    var currentAuthor="Aalto Global Impact";
+                    else
+                    var currentAuthor=contentData.CollectionContent[i].Author;
+                    user_content+="<div class='content-card-author' id='contentCardAuthor-dataID-"+contentData.CollectionContent[i].ID+"'><i class='icon-pencil content-card-spanAuthor'></i>&nbsp;<span class='content-card-spanAuthor'>"+currentAuthor+"</span></div>";
+                        var recordedJsonDate = contentData.CollectionContent[i].Published;
+                        var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                        recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                        var extractedDate= new Date(1000*recordedJsonDate);
+                        /*extractedDate = extractedDate.toLocaleString();*/
+                        var cardDate = extractedDate.getDate()+".";
+                        cardDate+= extractedDate.getMonth()+".";
+                        cardDate+= extractedDate.getFullYear();
+
+                    user_content+="<div class='content-card-excerpt' id='contentCardDate-dataID-"+contentData.CollectionContent[i].ID+"'><i class='icon-calendaralt-cronjobs content-card-spanAuthor'></i></i>&nbsp;<span class='content-card-spanAuthor'>"+cardDate+"</span></div>";
+
+                    /*user_content+="</a>";*/
+
+                    user_content+="</div>";
+
+                    }//closes ELSE (if title is not NULL
+
+                }//ends for loop
+                $("#contentDivContainer").append(user_content);
+            })
+        }
+
+        function start_isotope(){
+            //var $container = $('.portfolioContainer');
+            var $container = $("#contentDivContainer");
+            $container.isotope({
+                filter: '*',
+                animationOptions: {
+                    duration: 750,
+                    easing: 'linear',
+                    queue: false
+                }
+            });
+
+            $('.portfolioFilter a').click(function(){
+                console.log ("Entered the Isotope Filter click event handler.")
+                $('.portfolioFilter .current').removeClass('current');
+                $(this).addClass('current');
+
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+                return false;
+            });
+        }//closes function Start_isotope
+
+        function reLayout_isotope() {
+            var $container = $('#contentDivContainer');
+            $container.isotope( 'reLayout');
+        }
+
+        function viewContent(editEvent) {
+            console.log ("Entered 'viewContent' function. Triggered ID: "+editEvent.target.id);
+            editEvent.preventDefault();
+            var currentId=editEvent.target.id;
+            var currentId2 = $('#'+currentId).parents(".content-card").attr('id');
+            //var clickedEditID= editEvent.target.id.replace("contentCardDataId-", '');
+            var clickedEditID= currentId2.replace("contentCardDataId-", '');
+            //alert (currentId2);
+            $.getJSON('livedata/TextContentCollection/MasterCollection.json', function(contentData) {
+                var queryValue="";
+                for (var i in contentData.CollectionContent) {
+                    if (contentData.CollectionContent[i].ID === clickedEditID)
+                    {
+                        queryValue=contentData.CollectionContent[i].Title;
+                        var currentTitle=contentData.CollectionContent[i].Excerpt;
+
+                        $("#viewContentModal-title").empty();
+                        $('#viewContentModal-title').append(queryValue);
+
+                        queryValue="<p>"+contentData.CollectionContent[i].Excerpt+"</p>";
+                        $("#viewContentModal-excerpt").empty();
+                        $('#viewContentModal-excerpt').append(queryValue);
+
+                        //var currentMainCategory=contentData.CollectionContent[i].Categories.CollectionContent[0].Title;
+                        var currentMainCategory="News";
+
+                        //queryValue=contentData.CollectionContent[i].content_type;
+                        $("#viewContentModal-categories").empty();
+                        $('#viewContentModal-categories').append(currentMainCategory);
+
+                        var rawbody=contentData.CollectionContent[i].Body;
+                        rawbody=rawbody.replace(new RegExp("div", "g"), 'p');
+                        rawbody=rawbody.replace(new RegExp("<span>", "g"), '');
+                        rawbody=rawbody.replace(new RegExp("</span>", "g"), '');
+                        /*rawbody=rawbody.replace(new RegExp("<br/>", "g"), '<p></p>');
+                        rawbody=rawbody.replace(new RegExp("<br>", "g"), '<p></p>');
+                        rawbody=rawbody.replace(new RegExp("</br>", "g"), '<p></p>');*/
+
+                        queryValue=$.htmlClean(rawbody, {format:true});
+
+                        $("#viewContentModal-content").empty();
+                        $('#viewContentModal-content').append(queryValue);
+
+                        if ((contentData.CollectionContent[i].Author===null)||(!contentData.CollectionContent[i].Author) )
+                            var currentAuthor="Aalto Global Impact";
+                        else
+                            var currentAuthor=contentData.CollectionContent[i].Author;
+                        queryValue=contentData.CollectionContent[i].Author;
+                        $("#viewContentModal-Author").empty();
+                        $('#viewContentModal-Author').append(currentAuthor);
+
+                        var recordedJsonDate = contentData.CollectionContent[i].Published;
+                        var pattern = /[0-9]+/; //to find the number within the string, first occurrence.
+                        recordedJsonDate = (recordedJsonDate.match(pattern))/1000;
+                        var extractedDate= new Date(1000*recordedJsonDate);
+                        //extractedDate = extractedDate.toLocaleString();
+                        var cardDate = extractedDate.getDate()+".";
+                        cardDate+= extractedDate.getMonth()+".";
+                        cardDate+= extractedDate.getFullYear();
+
+                        $("#viewContentModal-Date").empty();
+                        $('#viewContentModal-Date').append(cardDate );
+
+                        //send the correspondent image to the placeholder, but clean its containing div first
+                        if (contentData.CollectionContent[i].ImageData===null)
+                        {
+                            var currentImage= "images/preview.jpg";
+                        }
+
+                        else
+                        {
+                            var imgID = contentData.CollectionContent[i].ImageData.ID;
+                            var imgExtension = contentData.CollectionContent[i].ImageData.AdditionalFormatFileExt;
+                            var currentImage= "livedata/MediaContent/"+imgID+"_320x240_crop"+imgExtension;
+                        }
+                        $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
+                        queryValue = "<img src='"+currentImage+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
+                        $("#viewContentModal-image").append(queryValue);
+
+                        //here we populate the share URL for this article:
+                        /*$("#articleShareURLinput").attr("placeholder",currentTitle);*/
+                        $("#articleShareURLinput").val(currentTitle);
+                        //
+                    } //ends If
+                }//ends for loop
+                $('#viewContentModal').foundation('reveal', 'open');
+            }) //ends getJson
+        }//Ends Function ViewContent
+
+
+
+
+    });
+</script>
+</body>
+</html>
