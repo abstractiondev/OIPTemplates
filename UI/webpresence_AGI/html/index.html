@@ -439,7 +439,10 @@ $(document).ready(function(){
             $("#viewContentModal-content").empty();
             $('#viewContentModal-content').append(queryValue);
 
-            var currentURL =" http://www.aaltoglobalimpact.org/html/index.html?type=text&id="+ $("#articleShareURLinput").val();
+            var lastSlashIndex = articleUrl.lastIndexOf("/");
+            var lastExtIndex = articleUrl.lastIndexOf(".json");
+            var articleIDFromArticleUrl = articleUrl.substring(lastSlashIndex + 1, lastExtIndex);
+            var currentURL = "http://www.aaltoglobalimpact.org/html/index.html?type=text&id="+ articleIDFromArticleUrl;
             $("#articleShareURLinput").attr("placeholder",currentURL);
             $("#articleShareURLinput").val(currentURL);
             /*$("#articleShareURLinput").attr("disabled", true);*/
@@ -497,11 +500,7 @@ $(document).ready(function(){
         var currentId=editEvent.target.id;
         var currentId2 = $('#'+currentId).parents(".content-card").attr('id');
         var clickedEditID= currentId2.replace("contentCardDataId-", '');
-        $("#articleShareURLinput").val(clickedEditID);
         var articleUrl = $('#'+currentId).parents(".content-card").data('itemurl');
-        //alert(articleUrl);
-        //var articleUrl = $(this).data('articleurl');
-        //alert (currentId2);
         openArticleUrl(articleUrl);
     }//Ends Function ViewContent
 
