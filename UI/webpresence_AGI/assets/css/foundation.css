@@ -89,7 +89,7 @@ img {
     clear: both; }
 
 .hide {
-  display: none; }
+  display: none !important; }
 
 .antialiased {
   -webkit-font-smoothing: antialiased;

@@ -38,10 +38,10 @@
 
 <div class="row" id="topbarDivSeparator"></div>
 
-<div class="row show-for-medium-up photoBannerContainerRow">
+<div class="row show-for-medium-up photoBannerContainerRow" id="photoBannerContainerRow">
     <div class="small-12 medium-12 large-12 columns photoBannerContainerDiv">
         <ul class="example-orbit" data-orbit data-options="animation:fade;
-                  pause_on_hover:true;timer_speed:4000;
+                  pause_on_hover:true;timer_speed:7000;
                   animation_speed:500;
                   navigation_arrows:false;
                   bullets:false;
@@ -107,6 +107,8 @@
     </div>
     <!-- +++Isotope content ends +++++++++++++++++++++++++++++++++++++++++++++ -->
 </div>
+
+<div id="aboutPage"></div>
 
 <ol class="joyride-list" data-joyride>
     <li data-id="schoolsButton" data-class="custom so-awesome" data-text="Next">
@@ -230,7 +232,7 @@ $(document).ready(function(){
         categories+="<a href='#' data-filter='.Projects'>Projects</a>";
         categories+="<a href='#' data-filter='.Events'>Events</a>";
         categories+="<a href='#' data-filter='.Stories'>Stories</a>";
-        categories+="<a href='#' data-filter='.About'>About</a>";
+        categories+="<a href='about.html' data-filter='.About'>About</a>";
         /*console.log("Entered 'getAndPopulate_Isotope_Filter_Categories' Function.");
          var multihandlerResponse = $.ajax({
          url: "multihandler.php",
@@ -341,19 +343,39 @@ $(document).ready(function(){
         });
 
         $('.portfolioFilter a').click(function(){
+
             console.log ("Entered the Isotope Filter click event handler.")
             $('.portfolioFilter .current').removeClass('current');
             $(this).addClass('current');
 
             var selector = $(this).attr('data-filter');
+
+            if (selector==".About") {
+            /*$("#photoBannerContainerRow").removeClass("show-for-medium-up");
+            $("#photoBannerContainerRow").removeClass("photoBannerContainerRow");
+            $("#photoBannerContainerRow").addClass("hide");
+            $("#isotope_content_row").addClass("hide");
+            $("#aboutPage").removeClass("hide");
+            $("body").css("background-color", "#f0f0f2");
+            $("#aboutPage").load("about.html");
+            $(document).foundation('orbit');*/
+            window.location.href = "about.html";
+            }
+            else
+            {
+            /*$("#photoBannerContainerRow").addClass("show-for-medium-up");
+            $("#photoBannerContainerRow").addClass("photoBannerContainerRow");
+            $("#aboutPage").addClass("hide");
+            $("body").css("background-color", "");
+            $("#photoBannerContainerRow").removeClass("hide");
+            $("#isotope_content_row").removeClass("hide");*/
             $container.isotope({
                 filter: selector,
                 animationOptions: {
                     duration: 750,
                     easing: 'linear',
-                    queue: false
-                }
-            });
+                    queue: false }  });
+            } //closes else
             return false;
         });
     }//closes function Start_isotope
@@ -377,7 +399,6 @@ $(document).ready(function(){
 
     function openArticleUrl(articleUrl) {
         $.getJSON(articleUrl, function(textContent) {
-
             var iFrameList = [];
             if(textContent.IFrameSources) {
                 var nonTaggedList = textContent.IFrameSources.split('\n');
