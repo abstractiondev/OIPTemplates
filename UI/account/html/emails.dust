@@ -6,6 +6,7 @@
     <li>{EmailAddress} {>"executeoperation_button_begin.dust" form_name="unregisteremail"/} data-EmailAddress="{EmailAddress}" {>"executeoperation_button_end.dust" icon_class_name="icon-remove-sign" button_label="Unregister" /} </li>
 {/AccountContainerSource.AccountContainer.AccountModule.Security.EmailCollection.CollectionContent}
 {?AccountContainerSource.AccountContainer.AccountModule.Security.EmailCollection.CollectionContent}
+    {>"executeoperation_button.dust" form_name="accountmergefromemail" button_label="Merge Accounts By Email" icon_class_name="icon-plus-sign" /}
 </ul>
 {:else}
     <h1 style="color:green">Please register at least one email :-)!</h1>
@@ -21,6 +22,7 @@
         </ul>
         <h3>Note! System needs to be sure that its YOUR email.</h3>
     </p>
+    {>"executeoperation_button.dust" form_name="accountmergefromemail" button_label="Merge Accounts By Email" icon_class_name="icon-plus-sign" /}
 {/AccountContainerSource.AccountContainer.AccountModule.Security.EmailCollection.CollectionContent}
 
 {>"executeoperation_button.dust" form_name="registeremail" button_label="Register New Email Address" icon_class_name="icon-plus-sign" /}
@@ -30,6 +32,14 @@
 field_name="EmailAddress" field_label="Email Address" /}
 {>"hiddeninput_namevalue.dust" input_name="RedirectUrlAfterValidation" input_value="/auth/account/webui/html/account.html" /}
 {>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Send Validation Email" /}
+
+{>"modal_executeoperation_begin.dust" form_name="accountmergefromemail" header_title="Merge Accounts By Email Address" operation_name="InitiateAccountMergeFromEmail" /}
+{>"textinput_singleline.dust" field_id="MergeByEmail_EmailAddress"
+field_name="EmailAddress" field_label="Email Address of Existing Account" /}
+{>"hiddeninput_namevalue.dust" input_name="RedirectUrlAfterValidation" input_value="/auth/account/webui/html/account.html" /}
+{>"modal_executeoperation_end.dust" cancel_button_label="Cancel" accept_button_label="Send Merge Confirmation Email" /}
+
+
 
 {>"modal_executeoperation_begin.dust" form_name="unregisteremail" header_title="Unregister Email Address" operation_name="UnregisterEmailAddress"
     map_data_values="EmailAddress" /}
