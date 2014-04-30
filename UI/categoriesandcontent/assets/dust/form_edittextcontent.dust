@@ -1,43 +1,75 @@
 <script>
     $(function() {
         $(".open-textcontenteditor").on("click",function () {
-            var me = $(this);
-            ConnectInputField(me, "contentinfo", "TextContentEditor", "ContentSourceInfo", "", true);
-            ConnectInputField(me, "title", "TextContentEditor", "Title", "");
-            ConnectInputField(me, "subtitle", "TextContentEditor", "SubTitle", "");
-            ConnectInputField(me, "author", "TextContentEditor", "Author", "");
-            ConnectInputField(me, "published", "TextContentEditor", "Published", "");
-            ConnectInputField(me, "excerpt", "TextContentEditor", "Excerpt", "");
-            ConnectInputField(me, "iframesources", "TextContentEditor", "IFrameSources", "");
-            ConnectInputField(me, "body", "TextContentEditor", "Body", "");
-            ConnectInputField(me, "categories", "TextContentEditor", "Categories", "", false, "Object_", true);
-            ConnectInputField(me, "locations", "TextContentEditor", "Locations", "", false, "Object_", true);
+            var currID = $(this).data("id");
+            $.getJSON("../../AaltoGlobalImpact.OIP/TextContent/" + currID + ".json", function(me) {
+                me.ContentSourceInfo = me.RelativeLocation + ":" + me.MasterETag;
+                ConnectInputField(me, "ContentSourceInfo", "TextContentEditor", "ContentSourceInfo", "", true, null, null, true);
+                ConnectInputField(me, "Title", "TextContentEditor", "Title", "", null, null, null, true);
+                ConnectInputField(me, "Subtitle", "TextContentEditor", "SubTitle", "", null, null, null, true);
+                ConnectInputField(me, "Author", "TextContentEditor", "Author", "", null, null, null, true);
+                me.PublishedParsed = ParseRawTimestamp(me.Published);
+                ConnectInputField(me, "PublishedParsed", "TextContentEditor", "Published", "", null, null, null, true);
+                ConnectInputField(me, "Excerpt", "TextContentEditor", "Excerpt", "", null, null, null, true);
+                ConnectInputField(me, "IFrameSources", "TextContentEditor", "IFrameSources", "", null, null, null, true);
+                ConnectInputField(me, "Body", "TextContentEditor", "Body", "", null, null, null, true);
+                me.CategoriesListed = "";
+                me.LocationsListed = "";
+                if(me.Categories && me.Categories.CollectionContent) {
+                    for(var i = 0; i < me.Categories.CollectionContent.length; i++) {
+                        var item = me.Categories.CollectionContent[i];
+                        me.CategoriesListed += item.ID + ",";
+                    }
+                }
+                if(me.Locations && me.Locations.CollectionContent) {
+                    for(var i = 0; i < me.Locations.CollectionContent.length; i++) {
+                        var item = me.Locations.CollectionContent[i];
+                        me.LocationsListed += item.ID + ",";
+                    }
+                }
+                ConnectInputField(me, "CategoriesListed", "TextContentEditor", "Categories", "", false, "Object_", true, true);
+                ConnectInputField(me, "LocationsListed", "TextContentEditor", "Locations", "", false, "Object_", true, true);
 
-            /*
-            ConnectInputField(me, "parentcategory", "TextContentEditor", "ParentCategory", "", false, "Object_");
-            */
 
-            var id = me.data("id");
-            var imageid = me.data("imageid");
-            var imageext = me.data("imageext");
+                /*
 
-            var fileuploadClass;
-            if(imageid != null)
-            {
-                fileuploadClass = "fileupload-exists";
-                $("#TextContentEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop" + imageext);
-            } else {
-                fileuploadClass = "fileupload-new";
-            }
+                        <a data-toggle="modal" role="button" class="open-textcontenteditor" href="#" data-contentinfo="{RelativeLocation}:{MasterETag}"
 
-            var fileUploadCtrl = $("#TextContentEdit_FileUpload");
-            fileUploadCtrl.removeClass('fileupload-exists');
-            fileUploadCtrl.removeClass('fileupload-new');
-            fileUploadCtrl.addClass(fileuploadClass);
-            fileUploadCtrl.attr("data-name", "File_" + id + "_ImageData");
+                            data-categories="{?Categories}{#Categories}{#CollectionContent}{ID},{/CollectionContent}{/Categories}{/Categories}"
+                            data-locations="{?Locations}{#Locations}{#CollectionContent}{ID},{/CollectionContent}{/Locations}{/Locations}"
 
-            InitializeModalClasses();
-            $('#edit-textcontent').modal('show');
+
+                */
+                /*
+                ConnectInputField(me, "parentcategory", "TextContentEditor", "ParentCategory", "", false, "Object_");
+                */
+
+                var id = me.ID;
+                var imageid; /* = me.data("imageid");*/
+                var imageext;
+                if(me.ImageData) {
+                    imageid = me.ImageData.ID;
+                    imageext = me.ImageData.AdditionalFormatFileExt;
+                }
+
+                var fileuploadClass;
+                if(imageid != null)
+                {
+                    fileuploadClass = "fileupload-exists";
+                    $("#TextContentEdit_ExistingImage").attr("src", "../../AaltoGlobalImpact.OIP/MediaContent/" + imageid + "_256x256_crop" + imageext);
+                } else {
+                    fileuploadClass = "fileupload-new";
+                }
+
+                var fileUploadCtrl = $("#TextContentEdit_FileUpload");
+                fileUploadCtrl.removeClass('fileupload-exists');
+                fileUploadCtrl.removeClass('fileupload-new');
+                fileUploadCtrl.addClass(fileuploadClass);
+                fileUploadCtrl.attr("data-name", "File_" + id + "_ImageData");
+
+                InitializeModalClasses();
+                $('#edit-textcontent').modal('show');
+            });
         });
     });
 </script>

@@ -278,6 +278,16 @@
         var jsonResult = jQuery.parseJSON(json);
         return jsonResult;
     };
+
+    var ParseRawTimestamp = function(value) {
+        if(!value)
+            return new Date().toISOString();
+        timestamp = new Date(value);
+        if(isNaN(timestamp))
+            timestamp = new Date(parseInt(value.substr(6)));
+        return timestamp.toISOString();
+    };
+
     dust.helpers.formatDate = function (chunk, context, bodies, params) {
         var value = dust.helpers.tap(params.value, chunk, context),
                 timestamp,

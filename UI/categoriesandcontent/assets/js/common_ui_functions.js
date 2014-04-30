@@ -1,8 +1,16 @@
-var ConnectInputField = function(me, dataName, fieldIDPrefix, fieldName, defaultValue, suppressNameChange, fieldTypePrefix, isArray)
+var ConnectInputField = function(me, dataName, fieldIDPrefix, fieldName, defaultValue, suppressNameChange, fieldTypePrefix, isArray, isSourceJSON)
 {
     var fieldID = fieldIDPrefix + "_" + fieldName;
-    var content = me.data(dataName);
-    var id = me.data("id");
+    var content;
+    if(!isSourceJSON)
+        content = me.data(dataName);
+    else
+        content = me[dataName];
+    var id;
+    if(!isSourceJSON)
+        id = me.data("id");
+    else
+        id = me["ID"];
     var inputField = $("#" + fieldID);
 
     if(!fieldTypePrefix)
