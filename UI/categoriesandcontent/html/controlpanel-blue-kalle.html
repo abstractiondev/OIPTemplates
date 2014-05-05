@@ -120,6 +120,7 @@
                             <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                 <form id="form-addNewContentModal" method='POST' enctype='multipart/form-data' data-abide="ajax">
                                     <div class="title-field"><label>Title<input type="text" id="addNewContentModal-title" required/></label><small class="error">A title to this update is required.</small></div>
+                                    <div class="published-field"><label>Published<input type="text" id="addNewContentModal-published" required/></label><small class="error">Published date this update is required.</small></div>
                                     <div class="excerpt-field"><label>Excerpt<input type="text" id="addNewContentModal-excerpt" required/></label><small class="error">An excerpt to this update is required.</small></div>
                                     <div class="author-field"><label>Author<input type="text" id="addNewContentModal-author" required/></label><small class="error">Please type the author of this update.</small></div>
                                     <div class="categories-field"><label>Category
@@ -166,6 +167,7 @@
                             <div style="width: 100%; height: auto;margin: 0px;padding: 0px;">
                                 <form id="form-editContentModal" method='POST' enctype='multipart/form-data' data-abide="ajax">
                                     <div class="title-field"><label>Title<input type="text" id="editContentModal-title" required/></label><small class="error">A title to this update is required.</small></div>
+                                    <div class="published-field"><label>Published<input type="text" id="editContentModal-published" required/></label><small class="error">A published date is required.</small></div>
                                     <div class="excerpt-field"><label>Excerpt<input type="text" id="editContentModal-excerpt" required/></label><small class="error">An excerpt to this update is required.</small></div>
                                     <div class="author-field"><label>Author<input type="text" id="editContentModal-author"></label></div>
                                     <div class="categories-field"><label>Category <select id="editContentModal-categories"></select></label></div>
@@ -204,6 +206,7 @@
                     <div class="row">
                         <div class="large-12 columns articleText" id="viewContentModal-content" style="padding-left: 15px !important; padding-right: 15px !important;"></div>
                     </div>
+                    <div id="viewmodalcommentareaph"></div>
                     <div class="row">
                         <div class="large-12">
                             <br>
@@ -290,7 +293,17 @@
 <!--<script src="js/jquery-te-1.4.0.min.js"></script>-->
 
 <script>
-    var ParseRawTimestamp = function(value) {
+
+    var ReConnectComments = function(parentItemID) {
+        return;
+        var $commentPh = $("#viewmodalcommentareaph");
+        $commentPh.empty();
+        $.getJSON("../../AaltoGlobalImpact.OIP/CommentCollection/MasterCollection.json", function(allComments) {
+            $commentPh.html("<h2>Comments:</h2><br>for: " + parentItemID);
+        });
+    };
+
+    var parseRawTimestampToDate = function(value) {
         var timestamp;
         if(!value)
             timestamp = new Date();
@@ -299,9 +312,19 @@
             if(isNaN(timestamp))
                 timestamp = new Date(parseInt(value.substr(6)));
         }
-        //return timestamp.toISOString();
-        return timestamp.getDate() + "." + timestamp.getMonth() + "." + timestamp.getFullYear();
+        return timestamp;
     };
+
+    var ParseRawTimestamp = function(value) {
+        //return timestamp.toISOString();
+        var timestamp = parseRawTimestampToDate(value);
+        return timestamp.getDate() + "." + (timestamp.getMonth() + 1) + "." + timestamp.getFullYear();
+    };
+
+    var ParseRawTimestampToISO = function(value) {
+        var timestamp = parseRawTimestampToDate(value);
+        return timestamp.toISOString();
+    }
 
 
     $(document).foundation(
@@ -406,6 +429,7 @@ $(document).ready(function(){
         var edited_content_id = $("#editContentModal-id").val();
         var edited_content_etag = $("#editContentModal-etag").val();
         var edited_content_title = $("#editContentModal-title").val();
+        var edited_content_published = $("#editContentModal-published").val();
         var edited_content_excerpt = $("#editContentModal-excerpt").val();
         var edited_content_author = $("#editContentModal-author").val();
         var edited_content_categories = $("#editContentModal-categories option:selected").val();
@@ -414,6 +438,7 @@ $(document).ready(function(){
         edited_content_content = $('<div/>').text(edited_content_content).html();
         var saveData = {
             "Title": edited_content_title,
+            "Published": edited_content_published,
             "Excerpt": edited_content_excerpt,
             "ENC.RawHtmlContent": edited_content_content,
             "Object_Categories": edited_content_categories,
@@ -441,7 +466,7 @@ $(document).ready(function(){
             var currentTitle=currentObject.Title;
             var currentExcerpt=currentObject.Excerpt;
             var currentAuthor=currentObject.Author;
-            var currentPublishedDate=currentObject.Published;
+            var currentPublishedDate=ParseRawTimestampToISO(currentObject.Published);
 
             // Image support content initiation
             var imageSizeString="256";
@@ -476,6 +501,7 @@ $(document).ready(function(){
             queryValue=currentETag;
             $('#editContentModal-etag').val(queryValue);
             $('#editContentModal-title').val(currentTitle);
+            $('#editContentModal-published').val(currentPublishedDate);
             $('#editContentModal-excerpt').val(currentExcerpt);
 
             /*getAndPopulate_Isotope_Filter_Categories ();*/
@@ -612,7 +638,7 @@ $(document).ready(function(){
             $("#viewContentModal-image").empty(); //clean the image Placeholder in the form
             queryValue = "<img src='"+currentImagePath+"' style='width:auto;height:auto;max-width:350;max-height:450px;margin-left:auto;margin-right:auto;'>";
             $("#viewContentModal-image").append(queryValue);
-
+            ReConnectComments(currentID);
             $('#viewContentModal').foundation('reveal', 'open');
         })//ends getJson
     }//Ends Function ViewContent
@@ -792,6 +818,7 @@ $(document).ready(function(){
     function submit_New_Content_Form(){
         var new_content_content = $('#addNewContentModal-content').val();
         var new_content_title = $("#addNewContentModal-title").val();
+        var new_content_published = $("#addNewContentModal-published").val();
         var new_content_excerpt = $("#addNewContentModal-excerpt").val();
         var new_content_categories = $("#addNewContentCategorySelect option:selected").val();
         var new_content_author = $("#addNewContentModal-author").val();
@@ -800,6 +827,7 @@ $(document).ready(function(){
         var saveData =
         {
             Title: new_content_title,
+            Published: new_content_published,
             Excerpt: new_content_excerpt,
             "ENC.RawHtmlContent": new_content_content,
             Object_Categories: new_content_categories,
@@ -885,6 +913,8 @@ $(document).ready(function(){
 
         getAndPopulateCategoryOptions();
         $("#addNewContentModal-ImageData").attr("data-oipfile-filegroupid", "addModal");
+        var currentPublished = ParseRawTimestampToISO(null);
+        $("#addNewContentModal-published").val(currentPublished);
         tOP.InitiateBinaryFileElements("addNewContentModal-ImageData", "000" ,"ImageData", null);
         $('#addNewContentModal').foundation('reveal', 'open');
         //getAndPopulate_Isotope_Filter_Categories ();
