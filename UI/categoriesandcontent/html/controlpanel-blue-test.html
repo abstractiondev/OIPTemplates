@@ -307,13 +307,25 @@
         return timestamp;
     };
 
-    var ParseRawTimestamp = function(value) {
+    var ParseRawTimestampToDateString = function(value) {
         //return timestamp.toISOString();
         var timestamp = parseRawTimestampToDate(value);
         return timestamp.getDate() + "." + (timestamp.getMonth() + 1) + "." + timestamp.getFullYear();
     };
 
-    var ParseRawTimestampToISO = function(value) {
+    var ParseRawTimestampToDateTimeString = function(value) {
+        var timestamp = parseRawTimestampToDate(value);
+        var day = timestamp.getDate();
+        var month = timestamp.getMonth() + 1;
+        var year = timestamp.getFullYear();
+        var hours = timestamp.getHours();
+        var minutes = timestamp.getMinutes();
+        var seconds = timestamp.getSeconds();
+        return day + "." + month + "." + year
+            + " " + hours + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+    };
+
+    var ParseRawTimestampToISOString = function(value) {
         var timestamp = parseRawTimestampToDate(value);
         return timestamp.toISOString();
     }
@@ -333,7 +345,7 @@
 
 <script>
 $(document).ready(function(){
-    $.ajaxSetup({cache: false});
+    $.ajaxSetup({cache: true});
 
     $('#addNewContentModal-content').redactor(
             {   minHeight: 300,
@@ -388,9 +400,9 @@ $(document).ready(function(){
         };
         tOP.CreateObject("AaltoGlobalImpact.OIP", "Comment", saveData);
         setTimeout(function() {
-            location.reload();
+            ReConnectComments(parentTextContentID);
             return false;
-        }, 3000);
+        }, 4000);
     };
 
     var runKeyPress = function(e) {
@@ -406,15 +418,16 @@ $(document).ready(function(){
 
     var deleteComment = function() {
         var commentID = $(this).data("CommentID");
+        var parentObjectID = $(this).data("ParentObjectID");
         tOP.DeleteIndependentObject("AaltoGlobalImpact.OIP", "Comment", commentID);
         setTimeout(function() {
-            location.reload();
+            ReConnectComments(parentObjectID);
             return false;
-        }, 3000);
+        }, 4000);
+        return false;
     };
 
     var ReConnectComments = function(parentItemID) {
-        return;
         var $commentPh = $("#viewmodalcommentareaph");
         $commentPh.empty();
         $.getJSON("../../AaltoGlobalImpact.OIP/CommentCollection/MasterCollection.json", function(allComments) {
@@ -423,7 +436,9 @@ $(document).ready(function(){
                 return item.TargetObjectID === parentItemID;
             });
             if(myComments.length > 0) {
-                myComments.sort(function(c1, c2) {
+                myComments.sort(function(comment1, comment2) {
+                    var c1 = comment1.Created;
+                    var c2 = comment2.Created;
                     if(c1 < c2)
                         return -1;
                     if(c1 > c2)
@@ -435,16 +450,16 @@ $(document).ready(function(){
                     var currComment = myComments[i];
                     var commentText = currComment.CommentText;
                     var lastAuthorName = currComment.LastAuthorName;
-                    var created = ParseRawTimestamp(currComment.Created);
-                    //var lastModified = ParseRawTimestampToISO(currComment.LastModified);
-                    var $commentLine = $("<span><div>" + lastAuthorName + "</div>"
-                        + "<div>" + created + "</div><br>"
-                        + "<div>" + commentText + "</div><div>"
-                        + "</span>");
-                    var $deleteComment = $('<a href="#">Delete</a>');
+                    var created = ParseRawTimestampToDateTimeString(currComment.Created);
+                    //var lastModified = ParseRawTimestampToISOString(currComment.LastModified);
+                    var $commentLine = $("<div><span>" + lastAuthorName + "</span>"
+                        + "<span>" + created + "</span><a href='#'>Delete</a><br>"
+                        + "<div>" + commentText + "</div>"
+                        + "</div>");
+                    var $deleteComment = $commentLine.find("a");
                     $deleteComment.data("CommentID", currComment.ID);
+                    $deleteComment.data("ParentObjectID", parentItemID);
                     $deleteComment.on("click", deleteComment);
-                    $commentLine.append($deleteComment);
                     $commentPh.append($commentLine);
                 }
             }
@@ -537,7 +552,7 @@ $(document).ready(function(){
             var currentTitle=currentObject.Title;
             var currentExcerpt=currentObject.Excerpt;
             var currentAuthor=currentObject.Author;
-            var currentPublishedDate=ParseRawTimestampToISO(currentObject.Published);
+            var currentPublishedDate=ParseRawTimestampToISOString(currentObject.Published);
 
             // Image support content initiation
             var imageSizeString="256";
@@ -636,7 +651,7 @@ $(document).ready(function(){
             var currentAuthor=currentObject.Author;
             var imageSizeString="256";
             var currentMainCategory;
-            var currentPublishedDate=ParseRawTimestamp(currentObject.Published);
+            var currentPublishedDate=ParseRawTimestampToDateString(currentObject.Published);
             var recordedJsonDate;
             var pattern;
             var extractedDate;
@@ -743,7 +758,7 @@ $(document).ready(function(){
                 var currentTitle=currentObject.Title ? currentObject.Title : "";
                 var currentExcerpt=currentObject.Excerpt;
                 var currentAuthor=currentObject.Author;
-                var currentPublishedDate=ParseRawTimestamp(currentObject.Published);
+                var currentPublishedDate=ParseRawTimestampToDateString(currentObject.Published);
                 var recordedJsonDate;
                 var pattern;
                 var extractedDate;
@@ -984,7 +999,7 @@ $(document).ready(function(){
 
         getAndPopulateCategoryOptions();
         $("#addNewContentModal-ImageData").attr("data-oipfile-filegroupid", "addModal");
-        var currentPublished = ParseRawTimestampToISO(null);
+        var currentPublished = ParseRawTimestampToISOString(null);
         $("#addNewContentModal-published").val(currentPublished);
         tOP.InitiateBinaryFileElements("addNewContentModal-ImageData", "000" ,"ImageData", null);
         $('#addNewContentModal').foundation('reveal', 'open');
