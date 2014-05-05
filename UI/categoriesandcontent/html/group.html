@@ -363,6 +363,21 @@
                     {
                         jsonObj = { };
                         var markdown;
+                        if(response.Name == "CategoryCollection") {
+                            response.CollectionContent.sort(function(a, b) {
+                                if(!a.Title)
+                                    a.Title = "";
+                                if(!b.Title)
+                                    b.Title = "";
+                                var nameA=a.Title.toLowerCase();
+                                var nameB=b.Title.toLowerCase();
+                                if (nameA < nameB) //sort string ascending
+                                    return -1
+                                if (nameA > nameB)
+                                    return 1
+                                return 0 //default return value (no sorting)
+                            });
+                        }
                         if(response.Name == "CategoryCollection" || response.Name == "TextContentCollection")
                         {
                             markdown = new MarkdownDeep.Markdown();
