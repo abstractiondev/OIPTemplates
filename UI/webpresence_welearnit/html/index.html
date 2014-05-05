@@ -445,7 +445,7 @@
             var imageData = CurrGroupContainer.GroupProfile.ProfileImage.ImageData;
             if(imageData != null)
             {
-                $("#logocontainer").html("<img src='../../AaltoGlobalImpact.OIP/MediaContent/" + imageData.ID + imageData.FileExt + "' />");
+                $("#logocontainer").html("<img width='100%' src='../../AaltoGlobalImpact.OIP/MediaContent/" + imageData.ID + imageData.FileExt + "' />");
             }
 
             var myObj = nodeSummary;
@@ -456,6 +456,28 @@
                 nodeObj.Categories = getCategoriesBasedByNamesOrIDs(nodeSummary.NodeSourceCategories, nodeObj.CategoryNames, nodeObj.CategoryIDList);
                 ReplaceWithMarkdownRender(nodeObj, "Excerpt", "ExcerptRendered");
             }
+
+            // For now all Julkaisut groups will prefix all the others, and those Julkaisut contents will be alphabetically sorted
+            if(window.location.hostname == "ptt.welearnit.org" || true) {
+                myObj.Nodes.CollectionContent.sort(function(node1, node2) {
+                    var isNode1Julkaisu = $.grep(node1.Categories, function(elem, ix) {
+                        return elem.Title === "Julkaisut";
+                    }).length > 0;
+                    var isNode2Julkaisu = $.grep(node2.Categories, function(elem, ix) {
+                        return elem.Title === "Julkaisut";
+                    }).length > 0;
+                    if(isNode1Julkaisu && !isNode2Julkaisu)
+                        return -1;
+                    if(isNode2Julkaisu && !isNode1Julkaisu)
+                        return 1;
+                    if(isNode1Julkaisu && isNode2Julkaisu) {
+                        return node1.Title.localeCompare(node2.Title);
+                    } else {
+                        return 0;
+                    }
+                });
+            }
+
             var base = dust.makeBase(
                     {
                         catTagColor: function(chunk, context) { return chunk.write(stringToColour(context.get("CategoryName")));},
