@@ -54,9 +54,9 @@ var TheBall;
                     $body.append(iFrameHtml);
                     this.$submitForm = $("#OperationManager_DynamicIFrameForm");
 
-                    if (typeof String.prototype.startsWith != 'function') {
+                    if (typeof String.prototype["startsWith"] != 'function') {
                         // see below for better implementation!
-                        String.prototype.startsWith = function (str) {
+                        String.prototype["startsWith"] = function (str) {
                             return this.lastIndexOf(str, 0) === 0;
                         };
                     }
