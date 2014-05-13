@@ -32,20 +32,61 @@ var TheBall;
                     var _this = this;
                     sourceUrls.forEach(function (sourceUrl) {
                         if (!_this.TrackedURLDictionary[sourceUrl]) {
-                            var sourceIsJson = sourceUrl.indexOf("/") != -1;
+                            var sourceIsJson = _this.isJSONUrl(sourceUrl);
                             if (!sourceIsJson)
                                 throw "Local source URL needs to be defined before using as source";
                             var source = new ResourceLocatedObject(sourceIsJson, sourceUrl);
+                            _this.TrackedURLDictionary[sourceUrl] = source;
                         }
                     });
                 };
 
-                UpdatingDataGetter.prototype.RegisterDataToElements = function (boundToElements, sourceUrls, onUpdate) {
-                    this.registerSourceUrls(sourceUrls);
+                UpdatingDataGetter.prototype.isJSONUrl = function (url) {
+                    return url.indexOf("/") != -1;
                 };
 
-                UpdatingDataGetter.prototype.RegisterDataURL = function (url, sourceUrls, onUpdate) {
-                    this.registerSourceUrls(sourceUrls);
+                UpdatingDataGetter.prototype.getOrRegisterUrl = function (url) {
+                    var rlObj = this.TrackedURLDictionary[url];
+                    if (!rlObj) {
+                        var sourceIsJson = this.isJSONUrl(url);
+                        rlObj = new ResourceLocatedObject(sourceIsJson, url);
+                        this.TrackedURLDictionary[url] = rlObj;
+                    }
+                    return rlObj;
+                };
+
+                UpdatingDataGetter.prototype.RegisterAndBindDataToElements = function (boundToElements, url, onUpdate, sourceUrls) {
+                    var _this = this;
+                    if (sourceUrls)
+                        this.registerSourceUrls(sourceUrls);
+                    var rlObj = this.getOrRegisterUrl(url);
+                    if (sourceUrls) {
+                        rlObj.dataSourceObjects = sourceUrls.map(function (sourceUrl) {
+                            return _this.TrackedURLDictionary[sourceUrl];
+                        });
+                    }
+                };
+
+                UpdatingDataGetter.prototype.RegisterDataURL = function (url, onUpdate, sourceUrls) {
+                    if (sourceUrls)
+                        this.registerSourceUrls(sourceUrls);
+                    var rlObj = this.getOrRegisterUrl(url);
+                };
+
+                UpdatingDataGetter.prototype.UnregisterDataUrl = function (url) {
+                    if (this.TrackedURLDictionary[url])
+                        delete this.TrackedURLDictionary[url];
+                };
+
+                UpdatingDataGetter.prototype.GetData = function (url, callback) {
+                    var rlObj = this.TrackedURLDictionary[url];
+                    if (!rlObj)
+                        throw "Data URL needs to be registered before GetData: " + url;
+                    if (rlObj.isJSONUrl) {
+                        $.getJSON(url, function (content) {
+                            callback(content);
+                        });
+                    }
                 };
                 return UpdatingDataGetter;
             })();
