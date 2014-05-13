@@ -191,6 +191,16 @@
             $container.isotope({ filter: selector });
             return false;
         });
+
+        if(navigator.appName != 'Microsoft Internet Explorer')
+        {
+            $container.imagesLoaded( function() {
+                $container.isotope({
+                    filter : '.nodetile'
+                });
+            });
+        }
+
     });
 
     $(function() {
