@@ -42,7 +42,6 @@
 <!-- other javascript -->
     <!--<link href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" rel="stylesheet"> -->
     <script src="../assets/js/jquery-1.9.1.min.js"></script>
-    <!-- or get a fresh copy at <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>-->
 	<script src="../assets/js/jquery.form.js"></script>
 	<!-- get a fresh live version from <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>-->
 	<script src="../assets/js/leaflet.js"></script>
@@ -54,7 +53,10 @@
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
 <script src="../assets/js/dust-full-1.1.1.js"></script>
-<script src="../assets/js/xml2json.js"></script>
+
+<script src="nodetiles_dust.js"></script>
+<script src="textcontent_detailpane_dust.js"></script>
+
 <div class="subnavbar">
     <div class="subnavbar-inner">
         <div class="container logo-only">
@@ -130,351 +132,6 @@
             var BlogsLayer = L.layerGroup();
             BlogsLayer.addTo(map);
 
-<!-- THEBALL-CONTEXT-ROOT-BEGIN:AaltoGlobalImpact.OIP.MapContainer -->
-
-            
-<!-- THEBALL-CONTEXT-COLLECTION-BEGIN:MapMarkers -->
-
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([60.171985,24.923592], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_045e9d00-74b7-4ccb-b503-936362862cc5_DefaultView.phtml\');" >Aalto - World Bank partnership: Training Program on Innovation Policy for ICT</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_33b68341-3c2b-44ee-9bd6-6c433580d089_DefaultView.phtml\');" >LEARN/SHARE: Commercialization and Scaling up Inclusive Businesses in Emerging Markets</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_566a6297-594d-4c9d-9fae-f730423fe986_DefaultView.phtml\');" >Aalto student talk</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([-13.998729,-75.76891], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_187ff763-f5d6-4a45-928f-3fb1ced37639_DefaultView.phtml\');" >Peru: Innovation and Design for Furniture SMEs</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([60.170837,24.923665], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_48df3178-928b-4ad4-938a-c9567d99b7b7_DefaultView.phtml\');" >Aalto Global Impact newsletter December 2012</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_7cc8d059-5698-45de-bf2e-461680b7d388_DefaultView.phtml\');" >India and Sri Lanka: Rapid Development for Inclusive Innovation</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_9ec49203-fd65-4fed-92c0-416a3f9b794e_DefaultView.phtml\');" >Social Impact through Creative Design - seminar</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([23.022571,72.577599], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_5b69e13b-110f-426b-8b20-1cdc068f546f_DefaultView.phtml\');" >GLOCAL: mNutrition for Infant Health – Global Mobile Platform Tested Locally in Rural India</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([0.219726,32.563477], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_5e425198-40f9-42e5-b643-08d98ef28a39_DefaultView.phtml\');" >Aalto Global Impact - UNICEF project newsletter</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([60.180869,24.832127], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_6eb6fdd7-c191-4102-af37-88666c2aaa33_DefaultView.phtml\');" >Aalto Global Impact Open Doors @ Design Factory on March 20</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_87493283-5cba-4715-bf2d-d5a2eb3f8753_DefaultView.phtml\');" >ACCESS: Matchmaking and Co-creation for New Collaborative Projects</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_9a739f07-2d32-451e-9143-387b5f36a37c_DefaultView.phtml\');" >Invitation to event: Companies and NGOs - from Greenwashing to Innovations?</a><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_de514c87-4aad-424c-a1f5-4a01ae4c2f8c_DefaultView.phtml\');" >Safe and Sustainable Sanitation Workshop</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([62.244747,25.747218], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_7d17fee0-482b-4e8e-8f8c-595ff9e1736c_DefaultView.phtml\');" >Weconomy launched on 21.9 at Nordic Business Forum in Jyväskylä</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([19.445874,-99.173584], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_906187a2-0957-49d3-ba68-6613363c0578_DefaultView.phtml\');" >Aalto LAB Mexico, design for sustainability in the Maya community</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([ -23.022193,32.718137], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_90ca34e7-f4ca-48db-a720-7ef5e4fc4255_DefaultView.phtml\');" >Mozambique: Business Models for Local Producers</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([-33.943965,18.40813], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_a4789894-c044-4c0b-bda1-2f3d46c7641e_DefaultView.phtml\');" >South Africa: World Design Capital 2012-2014</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-news.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([-6.510079,32.587819], {icon: myIcon })
-			.bindPopup('<h2>News</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Blog_dcdd09da-b4c1-4b76-aebc-ff943a4d0c22_DefaultView.phtml\');" >Tanzania: Community and market improvement projects</a><br>');
-		NewsMarkers.push(myMarker);
-		NewsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-news.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-projects.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([-6.814977,39.288945], {icon: myIcon })
-			.bindPopup('<h2>Projects</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Activity_409bf342-57d8-4e8e-9094-ffd5b30e3e67_DefaultView.phtml\');" >Tanzania: Community and market improvement projects</a><br>');
-		ProjectsMarkers.push(myMarker);
-		ProjectsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-projects.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-start.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([19.445874,-99.173584], {icon: myIcon })
-			.bindPopup('<h2>Blogs</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Activity_51c0a82a-5dc9-4e8e-9012-7f2631f73708_DefaultView.phtml\');" >Aalto LAB Mexico, Design for sustainability in the Maya community</a><br>');
-		BlogsMarkers.push(myMarker);
-		BlogsMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-start.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-hub.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([0.219726,32.563477], {icon: myIcon })
-			.bindPopup('<h2>Activities</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Activity_693ee0b1-278c-4de1-9dbb-7e9befb1f13f_DefaultView.phtml\');" >Uganda: Water, Sanitation and Hygiene</a><br>');
-		ActivitiesMarkers.push(myMarker);
-		ActivitiesMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-hub.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-hub.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([23.022571,72.577599], {icon: myIcon })
-			.bindPopup('<h2>Activities</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Activity_dba2da4d-6e31-4ecc-b5c4-0b8491d6b28c_DefaultView.phtml\');" >GLOCAL: m-Nutrition for Infant Health – Global Mobile Platform Tested Locally in Rural India</a><br>');
-		ActivitiesMarkers.push(myMarker);
-		ActivitiesMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-hub.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-	{
-		var myIcon = L.icon({
-			iconUrl: '../assets/img/oip-markers/map-marker-weconomy-hub.png',
-			//iconRetinaUrl: 'my-icon@2x.png',
-			iconSize: [25, 41],
-			iconAnchor: [12, 40],
-			popupAnchor: [-3, -76],
-			shadowUrl: '../assets/img/oip-markers/marker-shadow.png',
-			// shadowRetinaUrl: 'my-icon-shadow@2x.png',
-			shadowSize: [41, 41],
-			shadowAnchor: [12, 40]
-		});
-
-		var myMarker = L.marker([ -23.022193,32.718137], {icon: myIcon })
-			.bindPopup('<h2>Activities</h2><br><a class="oipmapmarkerlink" href="javascript:void(0)" onclick="OipOpenArticle(\'AaltoGlobalImpact.OIP.Activity_e9ead5e9-9e6e-48cf-9ffb-34f65d16ca9d_DefaultView.phtml\');" >Mozambique: Business Models for Local Producers</a><br>');
-		ActivitiesMarkers.push(myMarker);
-		ActivitiesMarkerIcon = "../assets/img/oip-markers/map-marker-weconomy-hub.png";
-	}
-
-<!-- THEBALL-CONTEXT-END:MapMarkers -->
-
-
-
-<!-- THEBALL-CONTEXT-END:* -->
             var activitiesText = GetLayerLabelText("Activities", ActivitiesMarkerIcon);
             var newsText = GetLayerLabelText("News", NewsMarkerIcon);
             var projectsText = GetLayerLabelText("Projects", ProjectsMarkerIcon);
@@ -570,29 +227,12 @@
 	});
 
     $(function () {
-        $.get("../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default", function (responseXml) {
-            var dom;
-            if (window.DOMParser) {
-                parser = new DOMParser();
-                dom = parser.parseFromString(responseXml, "text/xml");
-            }
-            else // Internet Explorer
-            {
-                dom = new ActiveXObject("Microsoft.XMLDOM");
-                dom.async = false;
-                dom.loadXML(responseXml);
-            }
-            var json = xml2json(dom, "  ");
-            //alert(json);
-            var myObj = jQuery.parseJSON(json);
+        $.get("../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", function (myObj) {
             $.ajax({
                 url: "oip-layout-landing.itemtmpl.html",
-                //data: 'foo',
-                cache: false,
+                cache: true,
                 success: function (responseTemplate) {
-                    var dynCompiled = dust.compile(responseTemplate, "nodeTmpl");
-                    dust.loadSource(dynCompiled);
-                    dust.render("nodeTmpl", myObj, function (err, out) {
+                    dust.render("nodetiles.dust", myObj, function (err, out) {
                         $("#TileSection").html(out);
                     });
                 }
@@ -600,6 +240,56 @@
                     
         });
     });
+
+    OipShowHtmlInDetailPaneWithClose = function(htmlContent) {
+        $("#SelectedContentContainer").html('<button id="paneclosebutton" type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>' +
+                htmlContent + '</div>' + '</div>' );
+        $("#paneclosebutton").off("click");
+        $("#paneclosebutton").click(OipCloseDetailPane);
+    };
+    OipShowTextContentInDetailPaneWithClose = function(textContentObject) {
+        dust.render("textcontent_detailpane.dust", textContentObject, function (err, out) {
+            $("#SelectedContentContainer").html('<button id="paneclosebutton" type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>' +
+                    out + '</div>' + '</div>' );
+            $("#paneclosebutton").off("click");
+            $("#paneclosebutton").click(OipCloseDetailPane);
+        });
+    };
+
+
+    OipOpenArticle = function(urlarg, addRelativePath) {
+        var targeturl = $(this).data('contenturl');
+        if (targeturl == null) {
+            targeturl = urlarg;
+            if(addRelativePath)
+                targeturl = "../" + targeturl;
+        }
+        else
+            targeturl = "../" + targeturl;
+        if (targeturl == null) {
+            return;
+        }
+        $.ajax({
+            url: targeturl,
+            cache: true,
+            success: function (jsonContent) {
+                /*
+                 var markdown = new MarkdownDeep.Markdown();
+                 markdown.SafeMode = true;
+                 if(jsonContent.Body == undefined)
+                 jsonContent.Body = "";
+                 var rendered = markdown.Transform(jsonContent.Body.replaceAll("javascript:", ""));
+                 jsonContent.BodyRendered = rendered;
+                 */
+                /*ReplaceWithMarkdownRender(jsonContent, "Body", "BodyRendered");*/
+                jsonContent.BodyRendered = jsonContent.RawHtmlContent;
+                OipShowTextContentInDetailPaneWithClose(jsonContent);
+                $(document).scrollTop(0);
+            }
+        });
+        return;
+    };
+
 </script>
 
 <footer class="footer">

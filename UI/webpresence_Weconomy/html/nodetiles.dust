@@ -1,5 +1,4 @@
 <div class="row-fluid">
-    {#NodeSummaryContainer}
     <div class="filter-box">
         <button type="button" class="btn btn-filter" data-toggle="collapse" data-target=".isotope-sort">Filter</button>
         <ul class="isotope-sort categories">
@@ -12,32 +11,32 @@
             <li class="isotope-sort-item"><a href="#"  class="label category-about" data-filter=".About">About</a></li>
         </ul>
     </div>
-    {#Nodes}{#CollectionContent}
+    {#Nodes}
     <ul class="gallery four_col"><!-- three_col four_col two_col -->
-        {#RenderedNode}
-        <li class="{#Categories}{#CollectionContent}{#ShortTextObject}{Content} {/ShortTextObject}{/CollectionContent}{/Categories}">
-            <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}">
-                <img src="{ImageBaseUrl}_320x240_crop.jpg" alt="" /><span class="plus"></span></a>
+        {#CollectionContent}
+        <li class="{#Categories}{#CollectionContent}{Content} {/CollectionContent}{/Categories}">
+            <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
+                <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span></a>
             <div class="entry-summary">
-                <h4><a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}">{Title}</a></h4>
+                <h4><a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">{Title}</a></h4>
                 <p>{Excerpt}</p>
                 {#Categories}
-                <!--<div>{#CollectionContent}{#ShortTextObject}<a href="#{Content}" class="label {Content}">{Content}</a> {/ShortTextObject}{/CollectionContent}</div>-->
+                <!--<div>{#CollectionContent}<a href="#{Content}" class="label {Content}">{Content}</a> {/CollectionContent}</div>-->
                 {/Categories}
                 <!--horizontal description -->
                 <p class="w5">
-                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{#ShortTextObject}{Content} {/ShortTextObject}{/CollectionContent}{/Authors}</a>
+                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{Content} {/CollectionContent}{/Authors}</a>
                     <br><i class="icon-calendar"></i> {TimestampText}
                     <br><i class="icon-tags"></i>
                     {#Categories}
-                    {#CollectionContent}{#ShortTextObject}
+                    {#CollectionContent}
                     <a href="#"><span class="label category-{Content}">{Content} </span></a>
-                    {/ShortTextObject}{/CollectionContent}
+                    {/CollectionContent}
                     {/Categories}
                 </p>
             </div><!--close entry-summary-->
         </li>
-        {/RenderedNode}
+        {/CollectionContent}
         <li class="Maps">
             <a class="hover mapclicktoview" href="#">
                 <div style="height:220px;width:220px;" id="smalldefaultmap"></div><span class="plus"></span>
@@ -48,45 +47,26 @@
                 <!-- TODO: move this static tag to below and turn it dynamic <div><a href="#Maps" class="label maps">Maps</a></div>      -->
                 <!--horizontal description -->
                 <p class="w5">
-                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{#ShortTextObject}{Content} {/ShortTextObject}{/CollectionContent}{/Authors}</a>
+                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{Content} {/CollectionContent}{/Authors}</a>
                     <br><i class="icon-calendar"></i> {TimestampText}
                     <br><i class="icon-tags"></i>
                     {#Categories}
-                    {#CollectionContent}{#ShortTextObject}
+                    {#CollectionContent}
                     <a href="#"><span class="label category-{Content}">{Content} </span></a>
-                    {/ShortTextObject}{/CollectionContent}
+                    {/CollectionContent}
                     {/Categories}
                 </p>
             </div><!--close entry-summary-->
         </li>
     </ul>
-    {/CollectionContent}{/Nodes}
-    {/NodeSummaryContainer}
+    {/Nodes}
 </div>
+
 <script src='../assets/js/jquery.isotope.min.js'></script><!--filter and masonry script-->
 <script src='../assets/js/jquery.isotope.init.js'></script><!--custom settings-->
+
 <script>
     $(function() {
-        OipOpenArticle = function(urlarg) {
-            var targeturl = $(this).data('contenturl');
-            if (targeturl == null)
-                targeturl = urlarg;
-            if (targeturl == null) {
-                return;
-            }
-            $.ajax({
-                url: targeturl,
-                cache: false,
-                success: function (htmlContent) {
-                    OipShowInDetailPaneWithClose(htmlContent);
-                    /*
-                     $(document).scrollTop($("#SelectedContentContainer").offset().top);
-                     */
-                    $(document).scrollTop(0);
-                }
-            });
-            return true;
-        };
         OipOpenMap = function () {
             var htmlContent = '</div><div id="map" style="height:522px;"></div>';
             /*
