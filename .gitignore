@@ -10,3 +10,4 @@ UI/templates/assets/less/codekit-config.json
 /UI/groupmanagement/assets/less/codekit-config.json
 UI/AaltoGlobalImpact.*
 UI/TheBall.*
+.idea/deployment.xml

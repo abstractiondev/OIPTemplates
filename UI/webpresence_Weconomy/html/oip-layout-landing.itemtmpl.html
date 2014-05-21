@@ -1,0 +1,132 @@
+<div class="row-fluid">
+    {#NodeSummaryContainer}
+    <div class="filter-box">
+        <button type="button" class="btn btn-filter" data-toggle="collapse" data-target=".isotope-sort">Filter</button>
+        <ul class="isotope-sort categories">
+            <li class="isotope-sort-item"><a href="#" id="TileDefaultFilter" class=" label category-all active " data-filter=":not(.About)">All</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-news" data-filter=".News">News</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-projects" data-filter=".Projects">Projects</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-hub" data-filter=".HUB">HUB</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-start" data-filter=".START">START</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-maps" data-filter=".Maps">Maps</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-about" data-filter=".About">About</a></li>
+        </ul>
+    </div>
+    {#Nodes}{#CollectionContent}
+    <ul class="gallery four_col"><!-- three_col four_col two_col -->
+        {#RenderedNode}
+        <li class="{#Categories}{#CollectionContent}{#ShortTextObject}{Content} {/ShortTextObject}{/CollectionContent}{/Categories}">
+            <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}">
+                <img src="{ImageBaseUrl}_320x240_crop.jpg" alt="" /><span class="plus"></span></a>
+            <div class="entry-summary">
+                <h4><a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}">{Title}</a></h4>
+                <p>{Excerpt}</p>
+                {#Categories}
+                <!--<div>{#CollectionContent}{#ShortTextObject}<a href="#{Content}" class="label {Content}">{Content}</a> {/ShortTextObject}{/CollectionContent}</div>-->
+                {/Categories}
+                <!--horizontal description -->
+                <p class="w5">
+                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{#ShortTextObject}{Content} {/ShortTextObject}{/CollectionContent}{/Authors}</a>
+                    <br><i class="icon-calendar"></i> {TimestampText}
+                    <br><i class="icon-tags"></i>
+                    {#Categories}
+                    {#CollectionContent}{#ShortTextObject}
+                    <a href="#"><span class="label category-{Content}">{Content} </span></a>
+                    {/ShortTextObject}{/CollectionContent}
+                    {/Categories}
+                </p>
+            </div><!--close entry-summary-->
+        </li>
+        {/RenderedNode}
+        <li class="Maps">
+            <a class="hover mapclicktoview" href="#">
+                <div style="height:220px;width:220px;" id="smalldefaultmap"></div><span class="plus"></span>
+            </a>
+            <div class="entry-summary">
+                <h4><a class="mapclicktoview" href="#">Overview Map of Aalto Global Impact Activities</a></h4>
+                <div>Recent Aalto Global Impact activities presented on a map.</div>
+                <!-- TODO: move this static tag to below and turn it dynamic <div><a href="#Maps" class="label maps">Maps</a></div>      -->
+                <!--horizontal description -->
+                <p class="w5">
+                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{#ShortTextObject}{Content} {/ShortTextObject}{/CollectionContent}{/Authors}</a>
+                    <br><i class="icon-calendar"></i> {TimestampText}
+                    <br><i class="icon-tags"></i>
+                    {#Categories}
+                    {#CollectionContent}{#ShortTextObject}
+                    <a href="#"><span class="label category-{Content}">{Content} </span></a>
+                    {/ShortTextObject}{/CollectionContent}
+                    {/Categories}
+                </p>
+            </div><!--close entry-summary-->
+        </li>
+    </ul>
+    {/CollectionContent}{/Nodes}
+    {/NodeSummaryContainer}
+</div>
+<script src='../assets/js/jquery.isotope.min.js'></script><!--filter and masonry script-->
+<script src='../assets/js/jquery.isotope.init.js'></script><!--custom settings-->
+<script>
+    $(function() {
+        OipOpenArticle = function(urlarg) {
+            var targeturl = $(this).data('contenturl');
+            if (targeturl == null)
+                targeturl = urlarg;
+            if (targeturl == null) {
+                return;
+            }
+            $.ajax({
+                url: targeturl,
+                cache: false,
+                success: function (htmlContent) {
+                    OipShowInDetailPaneWithClose(htmlContent);
+                    /*
+                     $(document).scrollTop($("#SelectedContentContainer").offset().top);
+                     */
+                    $(document).scrollTop(0);
+                }
+            });
+            return true;
+        };
+        OipOpenMap = function () {
+            var htmlContent = '</div><div id="map" style="height:522px;"></div>';
+            /*
+             $("#SelectedContentContainer").html(htmlContent);
+             */
+            OipShowInDetailPaneWithClose(htmlContent);
+            OipSetupDefaultMap('map', false);
+            $(document).scrollTop(0);
+            return true;
+        };
+        $(".oipclicktoview").on('click', OipOpenArticle);
+        $(".mapclicktoview").on('click', OipOpenMap);
+        $("#TileDefaultFilter").trigger('click');
+        OipSetupDefaultMap('smalldefaultmap');
+
+        var getOIPArticleUrl = function (type, id) {
+            var prefix;
+            var suffix = "_DefaultView.phtml";
+            switch (type) {
+                case "news":
+                    prefix = "AaltoGlobalImpact.OIP.Blog_";
+                    break;
+                case "activity":
+                    prefix = "AaltoGlobalImpact.OIP.Activity_";
+                    break;
+            }
+            return prefix + id + suffix;
+        };
+
+        var getURLParameter = function (name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+        };
+        var typePar = getURLParameter("type");
+        var idPar = getURLParameter("id");
+        if (typePar != null && idPar != null) {
+            var oipArticleUrl = getOIPArticleUrl(typePar, idPar);
+            OipOpenArticle(oipArticleUrl);
+            window.history.pushState("string", "Aalto Global Impact", "oip-layout-landing.phtml");
+        }
+    });
+
+</script>
+
