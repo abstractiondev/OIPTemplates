@@ -49,6 +49,11 @@
     <!--[if lt IE 9]>
     <script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
     <![endif]-->
+
+    <!-- Markdown on browser -->
+    <link rel="stylesheet" href="../assets/lib/markdowndeep/mdd_styles.css">
+    <script type="text/javascript" src="../assets/lib/markdowndeep/MarkdownDeepLib.min.js"></script>
+
 </head>
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
@@ -256,6 +261,25 @@
         });
     };
 
+    String.prototype.replaceAll = function(strReplace, strWith) {
+        var reg = new RegExp(strReplace, 'ig');
+        return this.replace(reg, strWith);
+    };
+
+    var ReplaceWithMarkdownRender = function(containingObj, sourceField, targetField)
+    {
+        var markdown = new MarkdownDeep.Markdown();
+        markdown.SafeMode = true;
+        if(containingObj == false)
+            return;
+        var sourceData = containingObj[sourceField];
+        var renderedData;
+        if(sourceData)
+            renderedData = markdown.Transform(sourceData.replaceAll("javascript:", ""));
+        else
+            renderedData = "";
+        containingObj[targetField] = renderedData;
+    };
 
     OipOpenArticle = function(urlarg, addRelativePath) {
         var targeturl = $(this).data('contenturl');
@@ -282,7 +306,11 @@
                  jsonContent.BodyRendered = rendered;
                  */
                 /*ReplaceWithMarkdownRender(jsonContent, "Body", "BodyRendered");*/
-                jsonContent.BodyRendered = jsonContent.RawHtmlContent;
+                if(jsonContent.RawHtmlContent) {
+                    jsonContent.BodyRendered = jsonContent.RawHtmlContent;
+                } else {
+                    ReplaceWithMarkdownRender(jsonContent, "Body", "BodyRendered");
+                }
                 OipShowTextContentInDetailPaneWithClose(jsonContent);
                 $(document).scrollTop(0);
             }
