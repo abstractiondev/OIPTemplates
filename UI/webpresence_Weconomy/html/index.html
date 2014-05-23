@@ -6,7 +6,7 @@
 <!-- THEBALL-CONTEXT-END:* -->
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Weconomy.fi</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Weconomy">
 	<meta name="author" content="Weconomy">
@@ -233,16 +233,9 @@
 
     $(function () {
         $.get("../../AaltoGlobalImpact.OIP/NodeSummaryContainer/default.json", function (myObj) {
-            $.ajax({
-                url: "oip-layout-landing.itemtmpl.html",
-                cache: true,
-                success: function (responseTemplate) {
-                    dust.render("nodetiles.dust", myObj, function (err, out) {
-                        $("#TileSection").html(out);
-                    });
-                }
+            dust.render("nodetiles.dust", myObj, function (err, out) {
+                $("#TileSection").html(out);
             });
-                    
         });
     });
 
@@ -324,31 +317,25 @@
     <div class="container"><div class="span12">
         <p class="pull-right"><a href="#">Back to top</a></p>
     </div>
-        <div class="span3 links">
-            <ul class="aalto-footer">
-                <li >
-                    <a href="http://www.aalto.fi/en">Aalto.fi</a>
-                    <ul>
-                        <li class="taik"><a href="http://arts.aalto.fi/en/">School of Arts, Design and Architecture</a></li>
-                        <li class="hse"><a href="http://business.aalto.fi/en/">School of Business</a></li>
-                        <li class="chem"><a href="http://chem.aalto.fi/en/">School of Chemical Technology</a></li>
-                        <li class="elec"><a href="http://elec.aalto.fi/en/">School of Electrical Engineering</a></li>
-                        <li class="eng"><a href="http://eng.aalto.fi/en/">School of Engineering</a></li>
-                        <li class="sci"><a href="http://sci.aalto.fi/en/" style="border: none;">School of Science</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <div class="span2"></div>
+        <div class="span8">
+            <p style="text-align: center;font-style: italic;font-weight: 200;margin-bottom: 20px">
+                Weconomy means sustainable business in BOP markets for a better world. We help companies to build and grow sustainable business in co-creation with poor communities so that they solve economical, ecological and/or social challenge’s.
+                Weconomy – from me business into we business.
+            </p>
+            <p style="text-align: center;font-style: italic;font-weight: 200;margin-bottom: 20px">
+                Powered by <a href="http://demooip.aaltoglobalimpact.org/">Open Innovation Platform</a><br>
+                Aalto Global Impact, Aalto University
+            </p>
+            <p style="text-align: center;font-style: italic;font-weight: 200">
+                All content licensed under the Apache License v2.0. Documentation licensed under CC BY 3.0.
+                Icons from Font Awesome, licensed under CC BY 3.0.
+            </p>
         </div>
-        <div class="span4">
-            <p>Aalto Global Impact has been formed to bring together these existing parties working in societal issues and to help them develop their activities further</p>
-        </div>
-        <div class="span4 colofon">
-            <p>The Open Innovation Platform is offered to you by Aalto Global Impact, and Aalto University organisation</p>
-            <p>All content licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-            <p>Icons from <a href="http://fortawesome.github.com/Font-Awesome/">Font Awesome</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        </div>
+        <div class="span2"></div>
     </div>
 </footer>
+
 <!-- end oip-modal-collection.txt -->
 <!-- ========== End: www-public\..\oip-containers\../oip-modals/oip-modal-collection.txt ========== -->
 

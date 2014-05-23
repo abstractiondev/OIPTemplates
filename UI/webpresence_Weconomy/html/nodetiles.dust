@@ -84,16 +84,14 @@
 
         var getOIPArticleUrl = function (type, id) {
             var prefix;
-            var suffix = "_DefaultView.phtml";
+            var suffix = ".json";
             switch (type) {
-                case "news":
-                    prefix = "AaltoGlobalImpact.OIP.Blog_";
-                    break;
-                case "activity":
-                    prefix = "AaltoGlobalImpact.OIP.Activity_";
+                case "textcontent":
+                    prefix = "../../AaltoGlobalImpact.OIP/TextContent/";
                     break;
             }
-            return prefix + id + suffix;
+            var url = prefix + id + suffix;
+            return url;
         };
 
         var getURLParameter = function (name) {
@@ -104,7 +102,7 @@
         if (typePar != null && idPar != null) {
             var oipArticleUrl = getOIPArticleUrl(typePar, idPar);
             OipOpenArticle(oipArticleUrl);
-            window.history.pushState("string", "Aalto Global Impact", "oip-layout-landing.phtml");
+            window.history.pushState("string", "Weconomy", "index.html");
         }
     });
 

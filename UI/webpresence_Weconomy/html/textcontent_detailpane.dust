@@ -1,20 +1,23 @@
 <div class="header clearfix">
     <h2 class="clearfix">
-        {Title}
+        <a class="noteditable open-IncontextEditDialog_Text_Short in-context-edit">{Title}</a>
+        <!-- end oip-atom-title.txt -->
         <br>
-        {?ImageData}
-            <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_320x240_crop{ImageData.AdditionalFormatFileExt}" />
-        {/ImageData}
-        {?SubTitle}
-            <small>
-                {SubTitle}
-            </small>
-        {/SubTitle}
+{?ImageData}
+        <p>
+            <img src="../../AaltoGlobalImpact.OIP/MediaContent/{ImageData.ID}_320x240_crop{ImageData.AdditionalFormatFileExt}" style="margin-right: 10px" />
+        </p>
+{/ImageData}
+{?SubTitle}
+        <small>
+            <a class="noteditable open-IncontextEditDialog_Text_Short in-context-edit">{SubTitle}</a>
+        </small>
+{/SubTitle}
     </h2>
 
-    <div class="border border-news clearfix">
+    <div class="border category-news clearfix">
         {?Categories}
-        <span class="label label-news">{#Categories.CollectionContent}{Title}{/Categories.CollectionContent}</span>
+        <span class="label category-news">{#Categories.CollectionContent}{Title}  {/Categories.CollectionContent}</span>
         {/Categories}
     </div>
 </div>
