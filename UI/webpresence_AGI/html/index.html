@@ -546,7 +546,7 @@ $(document).ready(function(){
                 var extractedDate= new Date(1000*recordedJsonDate);
                 //extractedDate = extractedDate.toLocaleString();
                 var cardDate = extractedDate.getDate()+".";
-                cardDate+= extractedDate.getMonth()+".";
+                cardDate+= (extractedDate.getMonth() + 1) +".";
                 cardDate+= extractedDate.getFullYear();
 
                 $("#viewContentModal-Date").empty();
