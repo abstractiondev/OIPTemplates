@@ -164,6 +164,11 @@ var getCategoriesOrderedAndFiltered = function(categoryCollection)
         if(result.length == 0)
             continue;
         var cat = result[0];
+        /*
+        if(cat.CategoryName == "INTERNAL" || cat.Title == "INTERNAL")
+        {
+            continue;
+        }*/
         orderedCategories.push(cat);
     }
     return orderedCategories;
@@ -172,7 +177,11 @@ var getCategoriesOrderedAndFiltered = function(categoryCollection)
 var getRootCategories = function(categoryCollection)
 {
     var orderedCategories = getCategoriesOrderedAndFiltered(categoryCollection);
-    var rootCategories = $.grep(orderedCategories, function(candidate) { return !candidate.ParentCategoryID; });
+    var rootCategories = $.grep(orderedCategories,
+            function(candidate) {
+                return !candidate.ParentCategoryID && !(candidate.CategoryName == "catINTERNAL");
+            });
+    //alert(JSON.stringify(rootCategories.length));
     return rootCategories;
 };
 
@@ -213,7 +222,16 @@ var getCardContentFromNode = function (item, imageSizeString) {
         authorText = authorNames.join(", ");
     }
     var categories = item.Categories;
+    if(!item.Categories || item.Categories.length === 0)
+        return null;
+    var internalArray = $.grep(item.Categories, function(internalCandidate) {
+            return internalCandidate.Title == "INTERNAL";
+        });
+    var isInternal = internalArray.length > 0;
     var mainCategory = item.Categories[0].Title;
+    if(isInternal) {
+        mainCategory = "INTERNALONLY";
+    }
     var imageUrl = item.ImageBaseUrl
             ? item.ImageBaseUrl + "_" + imageSizeString + "x" + imageSizeString + "_crop" + item.ImageExt
             : null;
@@ -224,7 +242,8 @@ var getCardContentFromNode = function (item, imageSizeString) {
         "author": authorText,
         "categories": categories,
         "mainCategory": mainCategory,
-        "published": item.TimestampText
+        "published": item.TimestampText,
+        "isInternal": isInternal
     };
 };
 
@@ -289,6 +308,10 @@ $(document).ready(function(){
                 //noinspection JSUnfilteredForInLoop
                 //Check if title is empty... if it is then it is just a category definition so it must be ignored.
                 var currItem = contentData.CollectionContent[i];
+                if(currItem.isInternal) {
+                    //alert("Skipping: " + currItem.title);
+                    continue;
+                }
 
 
                 var currentMainCategory = currItem.mainCategory;
