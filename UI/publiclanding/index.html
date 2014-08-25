@@ -88,7 +88,7 @@
         var currReturnUrl = $.url().param("ReturnUrl");
 
         if(!currReturnUrl)
-            currReturnUrl = "/auth/account/webui/html/account.html";
+            currReturnUrl = "/auth/account/";
         currReturnUrl = "&ReturnUrl=" + encodeURIComponent(currReturnUrl);
         $(".authbtn").each(function() {
             $(this).attr("href", $(this).attr("href") + currReturnUrl );
