@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="Workspace test/development">
+  <component name="PublishConfigData">
     <serverData>
-      <paths name="Workspace test/development">
+      <paths name="wecwww">
         <serverdata>
           <mappings>
-            <mapping deploy="DEV_catcon" local="$PROJECT_DIR$/UI/categoriesandcontent" web="STAGE/wstest/DEV_catcon" />
-            <mapping deploy="LIVE_wwwsite" local="$PROJECT_DIR$/UI/webpresence" web="STAGE/wstest/LIVE_wwwsite" />
+            <mapping deploy="LIVE_wwwsite" local="$PROJECT_DIR$/UI/webpresence_Weconomy" web="/" />
           </mappings>
         </serverdata>
       </paths>

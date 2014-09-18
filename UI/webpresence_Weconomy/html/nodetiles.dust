@@ -2,13 +2,12 @@
     <div class="filter-box">
         <button type="button" class="btn btn-filter" data-toggle="collapse" data-target=".isotope-sort">Filter</button>
         <ul class="isotope-sort categories">
-            <li class="isotope-sort-item"><a href="#" id="TileDefaultFilter" class=" label category-all active " data-filter=":not(.About)">All</a></li>
+            <li class="isotope-sort-item"><a href="#" id="TileDefaultFilter" class=" label category-all active " data-filter=":not(.About,.Contact)">All</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-news" data-filter=".News">News</a></li>
-            <li class="isotope-sort-item"><a href="#"  class="label category-projects" data-filter=".Projects">Projects</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-hub" data-filter=".HUB">HUB</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-start" data-filter=".START">START</a></li>
-            <li class="isotope-sort-item"><a href="#"  class="label category-maps" data-filter=".Maps">Maps</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-about" data-filter=".About">About</a></li>
+            <li class="isotope-sort-item"><a href="#"  class="label category-contact" data-filter=".Contact">Contact</a></li>
         </ul>
     </div>
     {#Nodes}
@@ -16,7 +15,9 @@
         {#CollectionContent}
         <li class="{#Categories}{#CollectionContent}{Content} {/CollectionContent}{/Categories}">
             <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
+            {?ImageBaseUrl}
                 <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span></a>
+            {/ImageBaseUrl}
             <div class="entry-summary">
                 <h4><a class="oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">{Title}</a></h4>
                 <p>{Excerpt}</p>
@@ -37,27 +38,6 @@
             </div><!--close entry-summary-->
         </li>
         {/CollectionContent}
-        <li class="Maps">
-            <a class="hover mapclicktoview" href="#">
-                <div style="height:220px;width:220px;" id="smalldefaultmap"></div><span class="plus"></span>
-            </a>
-            <div class="entry-summary">
-                <h4><a class="mapclicktoview" href="#">Overview Map of Aalto Global Impact Activities</a></h4>
-                <div>Recent Aalto Global Impact activities presented on a map.</div>
-                <!-- TODO: move this static tag to below and turn it dynamic <div><a href="#Maps" class="label maps">Maps</a></div>      -->
-                <!--horizontal description -->
-                <p class="w5">
-                    <i class="icon-user"></i> <a href="#"> {#Authors}{#CollectionContent}{Content} {/CollectionContent}{/Authors}</a>
-                    <br><i class="icon-calendar"></i> {TimestampText}
-                    <br><i class="icon-tags"></i>
-                    {#Categories}
-                    {#CollectionContent}
-                    <a href="#"><span class="label category-{Content}">{Content} </span></a>
-                    {/CollectionContent}
-                    {/Categories}
-                </p>
-            </div><!--close entry-summary-->
-        </li>
     </ul>
     {/Nodes}
 </div>

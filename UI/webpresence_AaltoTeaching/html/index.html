@@ -537,7 +537,11 @@
                 var rendered = markdown.Transform(jsonContent.Body.replaceAll("javascript:", ""));
                 jsonContent.BodyRendered = rendered;
                 */
-                ReplaceWithMarkdownRender(jsonContent, "Body", "BodyRendered");
+                if(jsonContent.RawHtmlContent) {
+                    jsonContent.BodyRendered = jsonContent.RawHtmlContent;
+                } else {
+                    ReplaceWithMarkdownRender(jsonContent, "Body", "BodyRendered");
+                }
                 OipShowTextContentInDetailPaneWithClose(jsonContent);
                 $(document).scrollTop(0);
             }
