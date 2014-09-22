@@ -2,6 +2,13 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
+      <paths name="agiwww">
+        <serverdata>
+          <mappings>
+            <mapping deploy="LIVE_wwwsite" local="$PROJECT_DIR$/UI/webpresence_AGI" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="wecwww">
         <serverdata>
           <mappings>
