@@ -24,16 +24,16 @@
             {?ImageBaseUrl}
                 {?IsCategoryFilteringNode}
                     <a class="hover filter" href="#" data-filter-value="{#CategoryFilters.CollectionContent}.{Content}{/CategoryFilters.CollectionContent}">
-                        <img src="{ImageBaseUrl}_320x240_crop{ImageExt}" alt="" /><span class="plus"></span>
+                        <img src="{ImageBaseUrl}_320x240_crop{?AdditionalFormatFileExt}{AdditionalFormatFileExt}{:else}.jpg{/AdditionalFormatFileExt}" alt="" /><span class="plus"></span>
                     </a>
                 {:else}
                     {@eq key=TechnicalSource value="LINKTOCONTENT"}
                         <a class="hover" href="{ActualContentUrl}" target="_blank">
-                            <img class="tileimage" src="{ImageBaseUrl}_320x240_crop{AdditionalFormatFileExt}" alt="" /><span class="plus"></span>
+                            <img class="tileimage" src="{ImageBaseUrl}_320x240_crop{?AdditionalFormatFileExt}{AdditionalFormatFileExt}{:else}.jpg{/AdditionalFormatFileExt}" alt="" /><span class="plus"></span>
                         </a>
                     {:else}
                         <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
-                            <img class="tileimage" src="{ImageBaseUrl}_320x240_crop{AdditionalFormatFileExt}" alt="" /><span class="plus"></span>
+                            <img class="tileimage" src="{ImageBaseUrl}_320x240_crop{?AdditionalFormatFileExt}{AdditionalFormatFileExt}{:else}.jpg{/AdditionalFormatFileExt}" alt="" /><span class="plus"></span>
                         </a>
                     {/eq}
                 {/IsCategoryFilteringNode}
