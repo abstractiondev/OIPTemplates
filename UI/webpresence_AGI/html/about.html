@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" type="text/css" media="all" href="../assets/css/whhg.css" />
     <script src="../assets/js/modernizr.js"></script>
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/oipdynamicreplacer.js"></script>
 </head>
 
 <body style="background-color:#f0f0f2;">
@@ -55,24 +57,24 @@
                   next_on_click: true;
                   slide_number: false;">
             <li class="active"><!--<a href="#" id="goal1">-->
-                <img src="../assets/images/about-1-1280.png" alt="Bringing people together." />
+                <img id="bannerImage1" src="../assets/images/about-1-1280.png" alt="Bringing people together." />
                 <!--<div class="orbit-caption">
                     Caption One.
                 </div>-->
                 <!--</a>-->
             </li>
             <li><!--<a href="#" id="goal2">-->
-                <img src="../assets/images/about-2-1280.png" alt="Aalto.Towards a better world." />
+                <img id="bannerImage2" src="../assets/images/about-2-1280.png" alt="Aalto.Towards a better world." />
                 <!--</a>-->
             </li>
             <li>
                 <!--<a href="#" id="goal3">-->
-                <img src="../assets/images/about-3-1280.png" alt="Aalto.Towards a better world." />
+                <img id="bannerImage3" src="../assets/images/about-3-1280.png" alt="Aalto.Towards a better world." />
                 <!--</a>-->
             </li>
             <li>
                 <!--<a href="#" id="goal4">-->
-                <img src="../assets/images/about-4-1280.png" alt="Aalto.Towards a better world." />
+                <img id="bannerImage4" src="../assets/images/about-4-1280.png" alt="Aalto.Towards a better world." />
                 <!--</a>-->
             </li>
         </ul>
@@ -91,7 +93,7 @@
     </div>
     <div class="show-for-medium-up small-5 medium-5 large-5 columns" id="illustrations4columnsDiv">
         <div id="gImageHolder" style="padding:100px 25px 25px 25px;">
-            <img src="../assets/images/GStairs.jpg">
+            <img id="aboutImage" src="../assets/images/GStairs.jpg">
         </div>
     </div>
 </div>
@@ -105,14 +107,14 @@
     <div class="row">
         <div class="small-12 medium-6 large-6 columns articleTextAbout" style="margin-top:20px;z-index: 1;overflow:visible;">
             <div class="photoAndDataWrapper whitePanel" style="vertical-align:middle;padding:0;z-index:100;">
-                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img src="../assets/images/Teija.png" ></div>
+                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img id="person1Image" src="../assets/images/Teija.png" ></div>
                 <div style="width: 64%; display:inline-block;padding-top:6%;">
-                    <div style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Teija Lehtonen</div>
-                    <div style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Aalto Global Impact's Director</div>
-                    <div style="width: 100%; font-weight: 200;display: inline-block;"><a>teija.lehtonen@aalto.fi</a></div>
+                    <div id="person1Name" style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Teija Lehtonen</div>
+                    <div id="person1Title" style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Aalto Global Impact's Director</div>
+                    <div id="person1Email" style="width: 100%; font-weight: 200;display: inline-block;"><a>teija.lehtonen@aalto.fi</a></div>
                 </div>
 
-                <div style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
+                <div id="person1Description" style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
                     <p>
                         Teija Lehtonen is a director at Aalto Global Impact. She is passionate about co-creation and building inclusive innovation ecosystems together with people in low-income communities. She graduated from the Helsinki School of Economics and has worked since then in Denmark, Ivory Coast, Sierra Leone, Abkhazia, India, Sri Lanka, Afghanistan, Nepal, Bangladesh and Pakistan in addition to her home country Finland. Her vision for Aalto Global Impact is to find new sustainable ways to create wealth and reduce poverty. 
                     </p>
@@ -122,14 +124,14 @@
 
         <div class="small-12 medium-6 large-6 columns articleTextAbout" style="margin-top:20px;z-index: 1;overflow:visible;">
             <div class="photoAndDataWrapper whitePanel" style="vertical-align:middle;padding:0;z-index:100;">
-                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img src="../assets/images/Riina.png"></div>
+                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img id="person2Image" src="../assets/images/Riina.png"></div>
                 <div style="width: 64%; display:inline-block;padding-top:6%;">
-                    <div style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Riina Subra</div>
-                    <div style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Foresight & Advocacy Manager</div>
-                    <div style="width: 100%; font-weight: 200;display: inline-block;"><a>riina.subra@aalto.fi</a></div>
+                    <div id="person2Name" style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Riina Subra</div>
+                    <div id="person2Title" style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Foresight & Advocacy Manager</div>
+                    <div id="person2Email" style="width: 100%; font-weight: 200;display: inline-block;"><a>riina.subra@aalto.fi</a></div>
                 </div>
 
-                <div style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
+                <div id="person2Description" style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
                     <p>
                         Riina Subra is the Foresight & Advocacy Manager. She has specialized in management work with international organisations, designing projects, strategies and partnerships for UNESCO and the United Nations Development Programme both in the field and in headquarters. Riina studied political science and philosophy at the University of Helsinki. At Aalto Global Impact, she develops multi-disciplinary research and education partnerships and approaches to promote the longer-term societal impact of university collaborations.
                     </p>
@@ -140,14 +142,14 @@
     <div class="row">
         <div class="small-12 medium-6 large-6 columns articleTextAbout" style="margin-top:20px;z-index: 1;overflow:visible;">
             <div class="photoAndDataWrapper whitePanel" style="vertical-align:middle;padding:0;z-index:100;">
-                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img src="../assets/images/Petri.png" ></div>
+                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img id="person3Image" src="../assets/images/Petri.png" ></div>
                 <div style="width: 64%; display:inline-block;padding-top:6%;">
-                    <div style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Petri Allekotte</div>
-                    <div style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Business Engagement Manager</div>
-                    <div style="width: 100%; font-weight: 200;display: inline-block;"><a>petri.allekotte@aalto.fi</a></div>
+                    <div id="person3Name" style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Petri Allekotte</div>
+                    <div id="person3Title" style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Business Engagement Manager</div>
+                    <div id="person3Email" style="width: 100%; font-weight: 200;display: inline-block;"><a>petri.allekotte@aalto.fi</a></div>
                 </div>
 
-                <div style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
+                <div id="person3Description" style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
                     <p>
                         Petri Allekotte is responsible of corporate engagement into Aalto’s business development innovation projects in developing high potential countries. Petri is also responsible of developing Aalto’s coordination of its strategic corporate partnership program and fostering international social entrepreneurship through Aalto Global Impact’s projects. He has extensive career in senior strategic business development leadership positions in globally operating technology, wellbeing and service sectors corporates.
                     </p>
@@ -156,14 +158,14 @@
         </div>
         <div class="small-12 medium-6 large-6 columns articleTextAbout" style="margin-top:20px;z-index: 1;overflow:visible;">
             <div class="photoAndDataWrapper whitePanel" style="vertical-align:middle;padding:0;z-index:100;">
-                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img src="../assets/images/Emilia.png" ></div>
+                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img id="person4Image" src="../assets/images/Emilia.png" ></div>
                 <div style="width: 64%; display:inline-block;padding-top:6%;">
-                    <div style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Emilia Saarelainen</div>
-                    <div style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Project Specialist</div>
-                    <div style="width: 100%; font-weight: 200;display: inline-block;"><a>emilia.saarelainen@aalto.fi</a></div>
+                    <div id="person4Name" style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Emilia Saarelainen</div>
+                    <div id="person4Title" style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Project Specialist</div>
+                    <div id="person4Email" style="width: 100%; font-weight: 200;display: inline-block;"><a>emilia.saarelainen@aalto.fi</a></div>
                 </div>
 
-                <div style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
+                <div id="person4Description" style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
                     <p>
                         Emilia Saarelainen is a Project Specialist at Aalto Global Impact. She believes innovation is a powerful force for a positive change in the world, and she is interested in finding ways to foster innovation for the benefit of society. She holds a Master’s degree in Management and Economics of Innovation from Chalmers University of Technology in Gothenburg, Sweden.  
                     </p>
@@ -175,14 +177,14 @@
     <div class="row">
         <div class="small-12 medium-6 large-6 columns articleTextAbout" style="margin-top:20px;z-index: 1;overflow:visible;">
             <div class="photoAndDataWrapper whitePanel" style="vertical-align:middle;padding:0;z-index:100;">
-                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img src="../assets/images/Roope.png" ></div>
+                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img id="person5Image" src="../assets/images/Roope.png" ></div>
                 <div style="width: 64%; display:inline-block;padding-top:6%;">
-                    <div style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Roope Kiviranta</div>
-                    <div style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Designer</div>
-                    <div style="width: 100%; font-weight: 200;display: inline-block;"><a>roope.kiviranta@aalto.fi</a></div>
+                    <div id="person5Name" style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Roope Kiviranta</div>
+                    <div id="person5Title" style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Designer</div>
+                    <div id="person5Email" style="width: 100%; font-weight: 200;display: inline-block;"><a>roope.kiviranta@aalto.fi</a></div>
                 </div>
 
-                <div style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
+                <div id="person5Description" style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
                     <p>
                         Roope Kiviranta is a designer at Aalto Global Impact. He has several years of experience working with design related projects. His passion is to create classy, inspirational and effective designs without ever forgetting the end user. He is also interested in social innovations and contemporary culture. Roope is a Bachelor of Culture and Arts. He is also finishing his Master studies in Aalto University.
                     </p>
@@ -192,14 +194,14 @@
 
         <div class="small-12 medium-6 large-6 columns articleTextAbout" style="margin-top:20px;z-index: 1;overflow:visible;">
             <div class="photoAndDataWrapper whitePanel" style="vertical-align:middle;padding:0;z-index:100;">
-                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img src="../assets/images/Emma.png" ></div>
+                <div style="width: 33%;display: inline-block;vertical-align:top;padding:0 4% 0 0"><img id="person6Image" src="../assets/images/Emma.png" ></div>
                 <div style="width: 64%; display:inline-block;padding-top:6%;">
-                    <div style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Emma Simon Palonen</div>
-                    <div style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Project Specialist</div>
-                    <div style="width: 100%; font-weight: 200;display: inline-block;"><a>emma.palonen@aalto.fi</a></div>
+                    <div id="person6Name" style="width: 100%; font-weight: bold;display: inline-block; font-size:18px;">Emma Simon Palonen</div>
+                    <div id="person6Title" style="width: 100%; font-weight: 200; font-style: italic;display: inline-block;">Project Specialist</div>
+                    <div id="person6Email" style="width: 100%; font-weight: 200;display: inline-block;"><a>emma.palonen@aalto.fi</a></div>
                 </div>
 
-                <div style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
+                <div id="person6Description" style="width: 100%; display: inline-block;margin-top:10px;" class="articleTextBio">
                     <p>
                         Emma Palonen is a Project Specialist at Aalto Global Impact. She is interested in planning and managing development projects. She has a lot of experience in doing development cooperation projects between Finland and Tanzania.  Her passion is in using her background, knowledge and experience to contribute to the development of underdeveloped nations. She holds a Master of Science in Economics and Business Administration degree from the University of Vaasa in Finland.
                     </p>
@@ -242,7 +244,6 @@
 </div>
 
 
-<script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/foundation.min.js"></script>
 <!--<script src="js/foundation/foundation.js"></script>-->
 <script src="../assets/js/foundation/foundation.topbar.js"></script>
