@@ -16,6 +16,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="pttaal2015">
+        <serverdata>
+          <mappings>
+            <mapping deploy="LIVE_wwwsite" local="$PROJECT_DIR$/UI/webpresence_pttaaltoilu2015" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="wecwww">
         <serverdata>
           <mappings>
