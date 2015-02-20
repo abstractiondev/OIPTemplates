@@ -17,7 +17,9 @@
                                                  data-filter-value=".{CategoryName}">{Title}</a></li>
             {/RootCategories}
             </ul>
+    {!
             <a class="badge" style="color: black" href="http://ptt.welearnit.org"><i class="icon-signin"></i> Päivä tiedetoimittajana</a>
+    !}
     </div>
 <style type="text/css">
     html {
@@ -25,9 +27,19 @@
         overflow-x: hidden;
     }
     .nodetile {
-        width: 200px;
+        width: 220px;
         margin: 9px;
+        border: solid;
+        padding: 5px;
+        border: 1px solid #fcc20a;
+        border-radius: 7px;
+        background-color: #f8fff8;
+        /*background-color: blue;*/
+        -moz-box-shadow: 1px 1px 10px #b3b3b3;
+        -webkit-box-shadow: 1px 1px 10px #b3b3b3;
+        box-shadow: 1px 1px 10px #b3b3b3;
     }
+
     div.excerpt {
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         font-size: 14px;
