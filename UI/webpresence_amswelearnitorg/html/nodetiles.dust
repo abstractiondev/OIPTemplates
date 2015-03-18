@@ -17,9 +17,7 @@
                                                  data-filter-value=".{CategoryName}">{Title}</a></li>
             {/RootCategories}
             </ul>
-    {!
-            <a class="badge" style="color: black" href="http://ptt.welearnit.org"><i class="icon-signin"></i> Päivä tiedetoimittajana</a>
-    !}
+            <a class="badge" style="color: black" href="http://aws.welearnit.org"><i class="icon-signin"></i> Ammattilaissanomat</a>
     </div>
 <style type="text/css">
     html {
@@ -31,7 +29,7 @@
         margin: 9px;
         border: solid;
         padding: 5px;
-        border: 1px solid #fcc20a;
+        border: 1px solid #d3d3d3;
         /*border-radius: 7px;*/
         background-color: #f8fff8;
         /*background-color: blue;*/
