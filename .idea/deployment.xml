@@ -16,6 +16,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="ams2015">
+        <serverdata>
+          <mappings>
+            <mapping deploy="LIVE_wwwsite" local="$PROJECT_DIR$/UI/webpresence_amswelearnitorg" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="pttaal2015">
         <serverdata>
           <mappings>
@@ -33,4 +40,3 @@
     </serverData>
   </component>
 </project>
-
