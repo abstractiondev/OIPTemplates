@@ -17,7 +17,7 @@
                                                  data-filter-value=".{CategoryName}">{Title}</a></li>
             {/RootCategories}
             </ul>
-            <a class="badge" style="color: black" href="http://aws.welearnit.org"><i class="icon-signin"></i> Ammattilaissanomat</a>
+            <a class="badge" style="color: black" href="http://ams.welearnit.org"><i class="icon-signin"></i> Ammattilaissanomat</a>
     </div>
 <style type="text/css">
     html {
