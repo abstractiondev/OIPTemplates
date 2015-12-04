@@ -4,7 +4,6 @@
         <ul class="isotope-sort categories">
             <li class="isotope-sort-item"><a href="#" id="TileDefaultFilter" class=" label category-all active " data-filter=":not(.About,.Contact)">All</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-news" data-filter=".News">News</a></li>
-            <li class="isotope-sort-item"><a href="#"  class="label category-hub" data-filter=".HUB">HUB</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-start" data-filter=".START">START</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-about" data-filter=".About">About</a></li>
             <li class="isotope-sort-item"><a href="#"  class="label category-contact" data-filter=".Contact">Contact</a></li>
