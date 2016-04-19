@@ -11,6 +11,9 @@
     </div>
     {#Nodes}
     <ul class="gallery four_col"><!-- three_col four_col two_col -->
+        <li class="stamp" style="width: 250px; height: 500px">
+            <div class="fb-page" data-href="https://www.facebook.com/WeconomyHub" data-tabs="timeline" data-height="500" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/WeconomyHub"><a href="https://www.facebook.com/WeconomyHub">Weconomy</a></blockquote></div></div>
+        </li>
         {#CollectionContent}
         <li class="{#Categories}{#CollectionContent}{Content} {/CollectionContent}{/Categories}">
             <a class="hover oipclicktoview" href="#" data-contenturl="{ActualContentUrl}.json">
@@ -46,6 +49,15 @@
 
 <script>
     $(function() {
+        var fbParse = function() {
+            if(FB) {
+                FB.XFBML.parse();
+            }
+            else {
+                setTimeout(fbParse, 1000);
+            }
+        };
+        setTimeout(fbParse, 1000);
         OipOpenMap = function () {
             var htmlContent = '</div><div id="map" style="height:522px;"></div>';
             /*

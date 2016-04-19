@@ -66,6 +66,14 @@
 </head>
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/fi_FI/sdk.js#xfbml=1&version=v2.6&appId=878463035585535";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <script src="../assets/js/dust-full-1.1.1.js"></script>
 
 <script src="nodetiles_dust.js"></script>
